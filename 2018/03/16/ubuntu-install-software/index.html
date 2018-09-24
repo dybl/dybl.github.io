@@ -150,13 +150,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C/C++笔记
+                        ubuntu_install_software
                     </div>
                 </div>
             </div>
@@ -173,30 +173,73 @@
                 
                 <div class="article-tag">
                     
-                    <a href="/tags/#cpp" target="_blank">
-                        <span class="chip bg-color">cpp</span>
+                    <a href="/tags/#ubuntu" target="_blank">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/#linux" target="_blank">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
                 
                 <div class="author-info">
                     <span>
-                        <i class="fa fa-calendar fa-fw"></i>2016-01-03
+                        <i class="fa fa-calendar fa-fw"></i>2018-03-16
                     </span>
                 </div>
             </div>
             <hr>
             <div class="card-content article-card-content">
                 <div id="articleContent">
-                    <p>菜鸟笔记，私房菜。<br><a id="more"></a></p>
-<h3 id="外部变量"><a href="#外部变量" class="headerlink" title="外部变量"></a>外部变量</h3><p>原帖：<a href="http://blog.csdn.net/traceorigin/article/details/8870576" target="_blank" rel="noopener">外部变量</a></p>
-<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">实现从test2访问test1的变量</span><br><span class="line"></span><br><span class="line">    <span class="comment">//test1.c</span></span><br><span class="line">    <span class="keyword">int</span> COMMON_VALUE = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//test2.c</span></span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">int</span> COMMON_VALUE;</span><br><span class="line"></span><br><span class="line">如果test1.c中定义为静态变量，则在test2.c是无法访问</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//test1.c</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> COMMON_VALUE = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>假设有这样几个文件commonDef.h, test1.c, test2.c<br>其中test1.c和test2.c包含公用的头文件commonDef.h</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//commonDef.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __COMMON_DEF_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __COMMON_DEF_H</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> COMMON_VALUE = <span class="number">100</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<p>static关键字保证了包含该头文件的编译单元分别拥有该变量的独立实体，如同在每一个源文件分别定义一次；若不加static，则会造成“redifinition”。<br>这时候在test1.c和test2.c直接#include”commonDef.h”即可。</p>
-<h4 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//commonDef.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __COMMON_DEF_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __COMMON_DEF_H</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> COMMON_VALUE;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//test1.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"commonDef.h"</span></span></span><br><span class="line"><span class="keyword">int</span> COMMON_VALUE = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//test2.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"commonDef.h"</span></span></span><br></pre></td></tr></table></figure>
-<p>也即在公用头文件中，使用extern关键字。然后再某一个源文件中定义一次，再在每一个使用它的编译单元中包含该头文件即可。</p>
+                    <p><img src="http://blog-1253739411.file.myqcloud.com/acg/dd1d1bbf-ab88-4d1c-b0bd-e4daaf435eaa.jpg" alt=""></p>
+<p><strong>ubuntu软件安装</strong> <excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
+<a id="more"></a>
+<the rest="" of="" contents="" |="" 余下全文="">
 
+
+<h2 id="首先说明一下-ubuntu-的软件安装大概有几种方式"><a href="#首先说明一下-ubuntu-的软件安装大概有几种方式" class="headerlink" title="首先说明一下 ubuntu 的软件安装大概有几种方式:"></a>首先说明一下 ubuntu 的软件安装大概有几种方式:</h2><h3 id="deb-包的安装方式"><a href="#deb-包的安装方式" class="headerlink" title="deb 包的安装方式"></a>deb 包的安装方式</h3><p>deb 是 debian 系 Linux 的包管理方式, ubuntu 是属于 debian 系的 Linux 发行版,所<br>以默认支持这种软件安装方式,当下载到一个 deb 格式的软件后,在终端输入这<br>个命令就能安装:</p>
+<pre><code>sudo dpkg -i *.deb
+</code></pre><h3 id="编译安装方式"><a href="#编译安装方式" class="headerlink" title="编译安装方式"></a>编译安装方式</h3><p>(小贴士:使用编译安装前,需要先建立编译环境,使用以下命令建立基本的编译环境:</p>
+<pre><code>sudo apt-get install build-essential)
+</code></pre><p>在 linux 的世界,有很多软件只提供了源代码给你,需要你自己进行编译安装,一般开源<br>的软件都会使用 tar.gz 压缩档来进行发布,当然也有其他的形式。拿到源代码的压缩文档<br>把它解压到/tmp 目录下,进入/tmp/软件目录,然后执行以下三个命令:</p>
+<pre><code>1 ./configure
+2 make
+3 sudo make install
+</code></pre><p>在第一步 ./configure 时可能会提示说有某某软件找不到,例如提示“ libgnome”这个开<br>发包找不到,那就把 libgnome 这个关键词 copy,然后打开新立得软件管理器,在里面<br>搜索 libgnome 这个关键词,就会找到 libgnome 相关的项目,把前面有个 ubuntu 符号<br>的 libgnome 包(注意:同样需要安装 dev 包,但可以不装 doc 包)全部安装,通过这个方<br>法把./configure 过程中缺失的开发包都全部装上就 OK 了,第一步能顺利通过,第二 ,三<br>步基本问题不大。<br>以上就是一般初学 ubuntu 的朋友必须掌握的编译安装的基本方法!</p>
+<h3 id="apt-get-安装方法"><a href="#apt-get-安装方法" class="headerlink" title="apt-get 安装方法"></a>apt-get 安装方法</h3><p>ubuntu 世界有许多软件源,在系统安装篇已经介绍过如何添加源, apt-get 的基本软件<br>安装命令是:</p>
+<pre><code>sudo apt-get install 软件名
+</code></pre><h3 id="新立得软件包管理"><a href="#新立得软件包管理" class="headerlink" title="新立得软件包管理"></a>新立得软件包管理</h3><p>打开:系统–系统管理–新立得软件包管理,这个工具其实跟 apt 一样,可以搜索,下<br>载,安装 ubuntu 源里的软件,具体安装方式很简单,看着界面应该会懂,就不详细介绍<br>了</p>
+<h3 id="二进制包的安装方式"><a href="#二进制包的安装方式" class="headerlink" title="二进制包的安装方式"></a>二进制包的安装方式</h3><p>有不少不开源的商业软件都会采用这种方式发布 Linux 软件,例如 google earth,拿到二<br>进制软件后,把它放到/tmp 目录,在终端下进入安装目录,在安装目录下<br>执行: ./软件名 然后按照一步步提示,就能安装该软件</p>
+<h3 id="rpm-包的安装方式"><a href="#rpm-包的安装方式" class="headerlink" title="rpm 包的安装方式"></a>rpm 包的安装方式</h3><p>rpm 包是 deb 包外最常见的一种包管理方式,但 ubuntu 同样可以使用 rpm的软件资源,首先我们需要安装一个 rpm 转 deb 的软件</p>
+<pre><code>sudo apt-get install alien
+</code></pre><p>然后就可以对 rpm 格式的软件转换成 deb 格式了:</p>
+<pre><code>alien -d *.rpm
+</code></pre><p>然后就可以用 deb 的安装方式进行软件安装<br>也可以不需转换而直接对 rpm 包进行安装:</p>
+<pre><code>alien -i *.rpm
+</code></pre><p>更多的 alien 使用方法可以用-h 参数查看相应说明文档</p>
+<h3 id="其它安装方式"><a href="#其它安装方式" class="headerlink" title="其它安装方式"></a>其它安装方式</h3><p>其他安装方式一般还有脚本安装方式,这类软件,你会在软件安装目录下发现类似后缀名的文件,如: .sh .py .run 等等,有的甚至连后缀名都没有,直接只有一个<br>INSTALL 文件,对于这种软件,可尝试以下几种方式安装<br>最简单的就是直接在软件目录下输入: </p>
+<pre><code>./软件名* (注意有一个*号,那是一般可以通配所有后缀名)
+或者 : sh 软件名.sh
+或者: python 软件名.py
+</code></pre><h4 id="安装各种格式的软件包方法示例"><a href="#安装各种格式的软件包方法示例" class="headerlink" title="安装各种格式的软件包方法示例:"></a>安装各种格式的软件包方法示例:</h4><p>1)解.tar:</p>
+<pre><code>tar xf nianqing.tar
+</code></pre><p>2)解.tar.gz:</p>
+<pre><code>tar zxf nianqing.tar.gz
+</code></pre><p>3)解.tar.Z:</p>
+<pre><code>tar zxf nianqing.tar.Z
+</code></pre><p>4)解.tgz:</p>
+<pre><code>tar zxf nianqing.tgz
+</code></pre><p>5)解.bz2:</p>
+<pre><code>bunzip2 nianqing.bz2
+</code></pre><p>6)解.tar.bz2:</p>
+<pre><code>tar jxf nianqing.tar.bz2
+
+bin:先给予权限,然后直接执行,如*.bin 的安装:
+sudo chmod 755 *.bin—— 把 bin 文 件改 成可 执行 文件 ,也 可以 sudo chmod +x
+a.bin
+sudo *.bin———直接执行 bin 文件,然后按提示操作
+</code></pre><h2 id="Q-E-D"><a href="#Q-E-D" class="headerlink" title="Q.E.D"></a>Q.E.D</h2></the>
                 </div>
                 <hr/>
 
@@ -215,7 +258,7 @@
                         <span class="reprint-tip">Reprint please specify: </span>
                         <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
                         <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                        <a href="/2016/01/03/C_CPP_notes/" class="b-link-green">C/C++笔记</a>
+                        <a href="/2018/03/16/ubuntu-install-software/" class="b-link-green">ubuntu_install_software</a>
                     </p>
                 </div>
             </div>
@@ -232,7 +275,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Sun Jan 03 2016 15:44:00 GMT+0800',
+    id: 'Fri Mar 16 2018 23:27:22 GMT+0800',
     owner: 'dybl',
     repo: 'https://github.com/dybl/blog_backup',
     oauth: {
@@ -255,34 +298,21 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2016/01/17/shell-part-two/">
+                <a href="/2018/09/22/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Shell学习：基本语法">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">Shell学习：基本语法</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                     <div class="card-content article-content">
                         <div class="summary">
-                            在学习和工作中shell的使用是相当普遍。为了跟上开源时代的步伐，我也得抽时间进行基础学习。
-
-
-
-书名
-作者
-下载地址
-
-
-
-
-Classic Shell Scripting
-Arnold R. &amp; Nelson H.F.B
-暂无
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2016-01-17
+                                <i class="fa fa-calendar fa-fw"></i>2018-09-22
                             </span>
                             <span class="publish-author">
                                 <i class="fa fa-user fa-fw"></i>
@@ -291,18 +321,6 @@ Arnold R. &amp; Nelson H.F.B
                                 
                             </span>
                         </div>
-                    </div>
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#ubuntu" target="_blank">
-                            <span class="chip bg-color">ubuntu</span>
-                        </a>
-                        
-                        <a href="/tags/#shell" target="_blank">
-                            <span class="chip bg-color">shell</span>
-                        </a>
-                        
                     </div>
                     
                 </a>
@@ -313,22 +331,32 @@ Arnold R. &amp; Nelson H.F.B
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2016/01/03/makefile-notes/">
+                <a href="/2018/02/24/general-machine-learning-alogrithm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Makefile读书笔记">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="general_machine_learning_alogrithm">
                         
-                        <span class="card-title">Makefile读书笔记</span>
+                        <span class="card-title">general_machine_learning_alogrithm</span>
                     </div>
                     <div class="card-content article-content">
                         <div class="summary">
-                            Makefile是帮助我们进行编译的工具，可以简化流程，易于维护，编译不必依赖IDE，当源文件数量较多时候，使用Makefile更适合管理Project的开发。在开源软件中大多采用Makefile进行管理。
-花时间读了两本书，讲的很明白。做
+                            本文旨在为那些获取关于重要机器学习概念知识的人们提供一些机器学习算法，同时免费提供相关的材料和资源。并且附上相关算法的程序实现。  
+
+
+
+
+
+通用的机器学习算法包括：
+1.决策树。
+2.SVM。
+3.朴素贝叶斯。
+4.KNN。
+5.K均值
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2016-01-03
+                                <i class="fa fa-calendar fa-fw"></i>2018-02-24
                             </span>
                             <span class="publish-author">
                                 <i class="fa fa-user fa-fw"></i>
@@ -341,8 +369,16 @@ Arnold R. &amp; Nelson H.F.B
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/#ubuntu" target="_blank">
-                            <span class="chip bg-color">ubuntu</span>
+                        <a href="/tags/#machine learning" target="_blank">
+                            <span class="chip bg-color">machine learning</span>
+                        </a>
+                        
+                        <a href="/tags/#python" target="_blank">
+                            <span class="chip bg-color">python</span>
+                        </a>
+                        
+                        <a href="/tags/#algorithms" target="_blank">
+                            <span class="chip bg-color">algorithms</span>
                         </a>
                         
                     </div>

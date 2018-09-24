@@ -150,13 +150,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Python列表,元组,字典,数组,set,struct
+                        Python_list_and_triple
                     </div>
                 </div>
             </div>
@@ -204,16 +204,38 @@
 &gt;&gt;&gt; name[2:] = list(&apos;ar&apos;)
 &gt;&gt;&gt; name
 [&apos;P&apos;, &apos;e&apos;, &apos;a&apos;, &apos;r&apos;]
-</code></pre><p>在使用分片赋值时，可以使用与原序列不等长的序列将分片替换：<br>    &gt;&gt;&gt; name = list(‘Perl’)<br>    &gt;&gt;&gt; name[1:] = list(‘ython’)<br>    &gt;&gt;&gt; name<br>    [‘P’, ‘y’, ‘t’, ‘h’, ‘o’, ‘n’]<br>分片赋值语句可以在不需要替换任何原有元素的情况下插入新的元素。<br>    &gt;&gt;&gt; numbers = [1, 5]<br>    &gt;&gt;&gt; numbers[1:1] = [2, 3, 4]<br>    &gt;&gt;&gt; numbers<br>    [1, 2, 3, 4, 5]<br>通过分片赋值来删除元素也是可行的。<br>    &gt;&gt;&gt; numbers<br>    [1, 2, 3, 4, 5]<br>    &gt;&gt;&gt; numbers[1:4] = []<br>    &gt;&gt;&gt; numbers<br>    [1, 5]</p>
-<h3 id="列表方法"><a href="#列表方法" class="headerlink" title="列表方法"></a>列表方法</h3><p>方法是一个与某些对象有紧密联系的函数。一般，方法可以这样进行调用：<br>对象.方法(参数)<br>除了对象被放置到方法名之前，并且两者之间用一个点号隔开。</p>
+</code></pre><p>在使用分片赋值时，可以使用与原序列不等长的序列将分片替换：</p>
+<pre><code>&gt;&gt;&gt; name = list(&apos;Perl&apos;)
+&gt;&gt;&gt; name[1:] = list(&apos;ython&apos;)
+&gt;&gt;&gt; name
+[&apos;P&apos;, &apos;y&apos;, &apos;t&apos;, &apos;h&apos;, &apos;o&apos;, &apos;n&apos;]
+</code></pre><p>分片赋值语句可以在不需要替换任何原有元素的情况下插入新的元素。</p>
+<pre><code>&gt;&gt;&gt; numbers = [1, 5]
+&gt;&gt;&gt; numbers[1:1] = [2, 3, 4]
+&gt;&gt;&gt; numbers
+[1, 2, 3, 4, 5]
+</code></pre><p>通过分片赋值来删除元素也是可行的。</p>
+<pre><code>&gt;&gt;&gt; numbers
+[1, 2, 3, 4, 5]
+&gt;&gt;&gt; numbers[1:4] = []
+&gt;&gt;&gt; numbers
+[1, 5]
+</code></pre><h3 id="列表方法"><a href="#列表方法" class="headerlink" title="列表方法"></a>列表方法</h3><p>方法是一个与某些对象有紧密联系的函数。一般，方法可以这样进行调用：<br>对象.方法(参数)<br>除了对象被放置到方法名之前，并且两者之间用一个点号隔开。</p>
 <h4 id="append"><a href="#append" class="headerlink" title="append"></a>append</h4><p>append方法用于在列表末尾追加新的对象：</p>
 <pre><code>&gt;&gt;&gt; lst = [1, 2, 3]  
 &gt;&gt;&gt; lst.append(4)  
 &gt;&gt;&gt; lst  
 [1, 2, 3, 4]  
 </code></pre><p>append方法和其他一些方法类似，只是在恰当位置修改原来的列表。这意味着，它不是简单地返回一个修改过的新列表——而是直接修改原来的列表。</p>
-<h4 id="count"><a href="#count" class="headerlink" title="count"></a>count</h4><p>count 方法统计某个元素在列表中出现的次数：<br>    &gt;&gt;&gt; [‘to’, ‘be’, ‘or’, ‘not’, ‘to’, ‘be’].count(‘to’)<br>    2<br>    &gt;&gt;&gt; x = [[1,2], 1, 1, [2, 1, [1, 2]]]<br>    &gt;&gt;&gt; x.count(1)<br>    2<br>    &gt;&gt;&gt; x.count([1,2])<br>    1</p>
-<h4 id="extend"><a href="#extend" class="headerlink" title="extend"></a>extend</h4><p>extend 方法可以在列表的末尾一次性追加另一个序列中的多个值。</p>
+<h4 id="count"><a href="#count" class="headerlink" title="count"></a>count</h4><p>count 方法统计某个元素在列表中出现的次数：</p>
+<pre><code>&gt;&gt;&gt; [&apos;to&apos;, &apos;be&apos;, &apos;or&apos;, &apos;not&apos;, &apos;to&apos;, &apos;be&apos;].count(&apos;to&apos;)  
+2  
+&gt;&gt;&gt; x = [[1,2], 1, 1, [2, 1, [1, 2]]]  
+&gt;&gt;&gt; x.count(1)  
+2  
+&gt;&gt;&gt; x.count([1,2])  
+1
+</code></pre><h4 id="extend"><a href="#extend" class="headerlink" title="extend"></a>extend</h4><p>extend 方法可以在列表的末尾一次性追加另一个序列中的多个值。</p>
 <pre><code>&gt;&gt;&gt; a = [1, 2, 3]  
 &gt;&gt;&gt; b = [4, 5, 6]  
 &gt;&gt;&gt; a.extend(b)  
@@ -230,7 +252,11 @@
 [1, 2, 3, 4, 5, 6, 4, 5, 6]  
 &gt;&gt;&gt; a  
 [1, 2, 3, 4, 5, 6]  
-</code></pre><h4 id="index"><a href="#index" class="headerlink" title="index"></a>index</h4><p>index 方法用于从列表中找出某个值第一个匹配项的索引位置：<br>    &gt;&gt;&gt; knights = [‘We’, ‘are’, ‘the’, ‘knights’, ‘who’, ‘say’, ‘ni’]<br>    &gt;&gt;&gt; knights.index(‘who’)<br>    4<br>当搜索不存在的值时，就会引发一个异常。</p>
+</code></pre><h4 id="index"><a href="#index" class="headerlink" title="index"></a>index</h4><p>index 方法用于从列表中找出某个值第一个匹配项的索引位置：</p>
+<pre><code>&gt;&gt;&gt; knights = [&apos;We&apos;, &apos;are&apos;, &apos;the&apos;, &apos;knights&apos;, &apos;who&apos;, &apos;say&apos;, &apos;ni&apos;]  
+&gt;&gt;&gt; knights.index(&apos;who&apos;)  
+4 
+</code></pre><p>当搜索不存在的值时，就会引发一个异常。</p>
 <h4 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h4><p>insert 方法用于将对象插入到列表中：</p>
 <pre><code>&gt;&gt;&gt; numbers = [1, 2, 3, 5, 6, 7]  
 &gt;&gt;&gt; numbers.insert(3, &apos;four&apos;)  
@@ -261,7 +287,7 @@ ValueError: list.remove(x): x not in list
 <pre><code>&gt;&gt;&gt; x = [1, 2, 3]  
 &gt;&gt;&gt; x.reverse()  
 &gt;&gt;&gt; x  
-[3, 2, 1]  
+[3, 2, 1]
 </code></pre><p>该方法改变了列表但不返回值。</p>
 <h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p>sort 方法用于在原位置对列表进行排序。 </p>
 <pre><code>&gt;&gt;&gt; x = [4, 6, 2, 1, 7, 9]  
@@ -296,7 +322,10 @@ dict2 = { &apos;abc&apos;: 123, 98.6: 37 };
 
 print &quot;dict[&apos;Name&apos;]: &quot;, dict[&apos;Name&apos;];
 print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;];
-</code></pre><p>以上实例输出结果：<br>dict[‘Name’]:  Zara<br>dict[‘Age’]:  7<br>如果用字典里没有的键访问数据，会输出错误KeyError: ‘Alice’[/code]</p>
+</code></pre><p>以上实例输出结果：</p>
+<pre><code>dict[&apos;Name&apos;]:  Zara
+dict[&apos;Age&apos;]:  7
+</code></pre><p>如果用字典里没有的键访问数据，会输出错误KeyError: ‘Alice’[/code]</p>
 <h3 id="修改字典"><a href="#修改字典" class="headerlink" title="修改字典"></a>修改字典</h3><p>向字典添加新内容的方法是增加新的键/值对，修改或删除已有键/值对如下实例:</p>
 <pre><code>dict = {&apos;Name&apos;: &apos;Zara&apos;, &apos;Age&apos;: 7, &apos;Class&apos;: &apos;First&apos;};
 
@@ -305,8 +334,10 @@ dict[&apos;School&apos;] = &quot;DPS School&quot;; # Add new entry
 
 print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;];
 print &quot;dict[&apos;School&apos;]: &quot;, dict[&apos;School&apos;];
-</code></pre><p>以上实例输出结果：<br>dict[‘Age’]:  8<br>dict[‘School’]:  DPS School</p>
-<h3 id="删除字典元素"><a href="#删除字典元素" class="headerlink" title="删除字典元素"></a>删除字典元素</h3><p>能删单一的元素也能清空字典，清空只需一项操作。<br>显示删除一个字典用del命令，如下实例：</p>
+</code></pre><p>以上实例输出结果：</p>
+<pre><code>dict[&apos;Age&apos;]:  8
+dict[&apos;School&apos;]:  DPS School
+</code></pre><h3 id="删除字典元素"><a href="#删除字典元素" class="headerlink" title="删除字典元素"></a>删除字典元素</h3><p>能删单一的元素也能清空字典，清空只需一项操作。<br>显示删除一个字典用del命令，如下实例：</p>
 <pre><code>dict = {&apos;Name&apos;: &apos;Zara&apos;, &apos;Age&apos;: 7, &apos;Class&apos;: &apos;First&apos;};
 
 del dict[&apos;Name&apos;]; # 删除键是&apos;Name&apos;的条目
@@ -316,8 +347,11 @@ del dict ;        # 删除词典
 print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;];
 print &quot;dict[&apos;School&apos;]: &quot;, dict[&apos;School&apos;];
 </code></pre><p>但这会引发一个异常，因为用del后字典不再存在：dict[‘Age’]:</p>
-<p>#Traceback (most recent call last):<br>#  File “test.py”, line 8, in <module><br>#    print “dict[‘Age’]: “, dict[‘Age’];<br>#TypeError: ‘type’ object is unsubscriptable</module></p>
-<h3 id="字典键的特性"><a href="#字典键的特性" class="headerlink" title="字典键的特性"></a>字典键的特性</h3><p>字典值可以没有限制地取任何python对象，既可以是标准的对象，也可以是用户定义的，但键不行。<br>两个重要的点需要记住：</p>
+<pre><code>\#Traceback (most recent call last):
+\#  File &quot;test.py&quot;, line 8, in &lt;module&gt;
+\#    print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;];
+\#TypeError: &apos;type&apos; object is unsubscriptable
+</code></pre><h3 id="字典键的特性"><a href="#字典键的特性" class="headerlink" title="字典键的特性"></a>字典键的特性</h3><p>字典值可以没有限制地取任何python对象，既可以是标准的对象，也可以是用户定义的，但键不行。<br>两个重要的点需要记住：</p>
 <ul>
 <li><p>不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会被记住，如下实例：</p>
 <pre><code>dict = {&apos;Name&apos;: &apos;Zara&apos;, &apos;Age&apos;: 7, &apos;Name&apos;: &apos;Manni&apos;};
@@ -348,8 +382,11 @@ a = array.array(&apos;c&apos;, s)
 print &apos;As string:&apos;, s
 print &apos;As array :&apos;, a
 print &apos;As hex   :&apos;, binascii.hexlify(a)
-</code></pre><p>输出结果：<br>As string: This is the array.<br>As array : array(‘c’, ‘This is the array.’)<br>As hex   : 54686973206973207468652061727261792e</p>
-<h3 id="处理数组"><a href="#处理数组" class="headerlink" title="处理数组"></a>处理数组</h3><p>类似于其他python序列，可以采用同样方式扩展和处理array。</p>
+</code></pre><p>输出结果：</p>
+<pre><code>As string: This is the array.
+As array : array(&apos;c&apos;, &apos;This is the array.&apos;)
+As hex   : 54686973206973207468652061727261792e
+</code></pre><h3 id="处理数组"><a href="#处理数组" class="headerlink" title="处理数组"></a>处理数组</h3><p>类似于其他python序列，可以采用同样方式扩展和处理array。</p>
 <pre><code>import array
 import pprint
 a = array.array(&apos;i&apos;, xrange(3))
@@ -359,8 +396,13 @@ print &apos;Extended:&apos;, a
 print &apos;slice:  :&apos;, a[2:5]
 print &apos;Itetator:&apos;
 print list(enumerate(a))
-</code></pre><p>输出结果：<br>Initial : array(‘i’, [0, 1, 2])<br>Extended: array(‘i’, [0, 1, 2, 0, 1, 2])<br>slice:  : array(‘i’, [2, 0, 1])<br>Itetator:<br>[(0, 0), (1, 1), (2, 2), (3, 0), (4, 1), (5, 2)]</p>
-<h3 id="数组和文件"><a href="#数组和文件" class="headerlink" title="数组和文件"></a>数组和文件</h3><p>可以使用高效读/写文件的专用内置方法将数组的内容写入文件或从文件读取数组。</p>
+</code></pre><p>输出结果：</p>
+<pre><code>Initial : array(&apos;i&apos;, [0, 1, 2])
+Extended: array(&apos;i&apos;, [0, 1, 2, 0, 1, 2])
+slice:  : array(&apos;i&apos;, [2, 0, 1])
+Itetator:
+[(0, 0), (1, 1), (2, 2), (3, 0), (4, 1), (5, 2)]
+</code></pre><h3 id="数组和文件"><a href="#数组和文件" class="headerlink" title="数组和文件"></a>数组和文件</h3><p>可以使用高效读/写文件的专用内置方法将数组的内容写入文件或从文件读取数组。</p>
 <pre><code>import array
 import binascii
 import tempfile
@@ -456,8 +498,12 @@ print &apos;Uses :&apos;, s.size, &apos;bytes&apos;
 print &apos;Packed Value :&apos;, binascii.hexlify(packed_data)
 print &apos;Unpacked Type :&apos;, type(unpacked_data), &apos; Value:&apos;, unpacked_data
 </code></pre><p>输出：</p>
-<p>Original values: (1, ‘abc’, 2.7)<br>Format string : I3sf<br>Uses : 12 bytes<br>Packed Value : 0100000061626300cdcc2c40<br>Unpacked Type : <type 'tuple'="">  Value: (1, ‘abc’, 2.700000047683716)</type></p>
-<p>对应的c结构体：<br><img src="/images/python_struct/struct_api1.png" alt=""></p>
+<pre><code>Original values: (1, &apos;abc&apos;, 2.7) 
+Format string : I3sf 
+Uses : 12 bytes 
+Packed Value : 0100000061626300cdcc2c40 
+Unpacked Type : &lt;type &apos;tuple&apos;&gt;  Value: (1, &apos;abc&apos;, 2.700000047683716)
+</code></pre><p>对应的c结构体：<br><img src="/images/python_struct/struct_api1.png" alt=""></p>
 <p>另一方面，打包的后的字节顺序默认上是由操作系统的决定的，当然struct模块也提供了自定义字节顺序的功能，可以指定大端存储、小端存储等特定的字节顺序</p>
 <p>不同的字节顺序和存储方式也会导致字节大小的不同。在format字符串前面加上特定的符号即可以表示不同的字节顺序存储方式，例如采用小端存储：</p>
 <pre><code>s = struct.Struct(‘&lt;I3sf’)
@@ -499,7 +545,7 @@ for x, y in zip(a, b):
 print &quot;List:&quot;
 for x, y in [(x,y) for x in a for y in b]:
     print x, y
-</code></pre>
+</code></pre><h2 id="Q-E-D"><a href="#Q-E-D" class="headerlink" title="Q.E.D"></a>Q.E.D</h2>
                 </div>
                 <hr/>
 
@@ -518,7 +564,7 @@ for x, y in [(x,y) for x in a for y in b]:
                         <span class="reprint-tip">Reprint please specify: </span>
                         <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
                         <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                        <a href="/2015/09/01/python-list-and-triple/" class="b-link-green">Python列表,元组,字典,数组,set,struct</a>
+                        <a href="/2015/09/01/python-list-and-triple/" class="b-link-green">Python_list_and_triple</a>
                     </p>
                 </div>
             </div>
@@ -562,9 +608,9 @@ gitment.render('gitment-content');
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Makefile读书笔记">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Makefile_notes">
                         
-                        <span class="card-title">Makefile读书笔记</span>
+                        <span class="card-title">Makefile_notes</span>
                     </div>
                     <div class="card-content article-content">
                         <div class="summary">
@@ -604,9 +650,9 @@ gitment.render('gitment-content');
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Markdown学习笔记">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Markdown_tutorial">
                         
-                        <span class="card-title">Markdown学习笔记</span>
+                        <span class="card-title">Markdown_tutorial</span>
                     </div>
                     <div class="card-content article-content">
                         <div class="summary">

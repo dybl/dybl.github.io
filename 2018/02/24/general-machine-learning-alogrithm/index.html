@@ -150,13 +150,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        通用机器学习算法
+                        general_machine_learning_alogrithm
                     </div>
                 </div>
             </div>
@@ -173,12 +173,12 @@
                 
                 <div class="article-tag">
                     
-                    <a href="/tags/#python" target="_blank">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
                     <a href="/tags/#machine learning" target="_blank">
                         <span class="chip bg-color">machine learning</span>
+                    </a>
+                    
+                    <a href="/tags/#python" target="_blank">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                     <a href="/tags/#algorithms" target="_blank">
@@ -217,9 +217,28 @@
 <p>这是作者最喜欢的算法之一，作者经常使用它。它是一种主要用于分类问题的监督学习算法。<br>令人惊讶的是，它竟然适用于分类和连续因变量。<br>在这个算法中，我们可以将人口分成两个或更多的齐次集合。<br>这需要基于一些非常重要的属性和独立变量完成的，以使组群尽可能独立。</p>
 </blockquote>
 <p>Python代码：</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Import Library</span></span><br><span class="line"><span class="comment">#Import other necessary libraries like pandas, numpy...</span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"><span class="comment">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span></span><br><span class="line"><span class="comment"># Create tree object </span></span><br><span class="line">model = tree.DecisionTreeClassifier(criterion=<span class="string">'gini'</span>) <span class="comment"># for classification, here you can change the algorithm as gini or entropy (information gain) by default it is gini  </span></span><br><span class="line"><span class="comment"># model = tree.DecisionTreeRegressor() for regression</span></span><br><span class="line"><span class="comment"># Train the model using the training sets and check score</span></span><br><span class="line">model.fit(X, y)</span><br><span class="line">model.score(X, y)</span><br><span class="line"><span class="comment">#Predict Output</span></span><br><span class="line">predicted= model.predict(x_test)</span><br></pre></td></tr></table></figure>
-<p>R代码：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(rpart)</span><br><span class="line">x &lt;- cbind(x_train,y_train)</span><br><span class="line"><span class="comment"># grow tree </span></span><br><span class="line">fit &lt;- rpart(y_train ~ ., data = x,method=<span class="string">"class"</span>)</span><br><span class="line">summary(fit)</span><br><span class="line"><span class="comment">#Predict Output </span></span><br><span class="line">predicted= predict(fit,x_test)</span><br></pre></td></tr></table></figure></p>
-<p>2.支持向量机（SVM）</p>
+<pre><code>// Import Library
+// Import other necessary libraries like pandas, numpy...
+from sklearn import tree
+// Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset
+// Create tree object 
+model = tree.DecisionTreeClassifier(criterion=&apos;gini&apos;) 
+// for classification, here you can change the algorithm as gini or entropy (information gain) by default it is gini  
+model = tree.DecisionTreeRegressor() for regression
+// Train the model using the training sets and check score
+model.fit(X, y)
+model.score(X, y)
+#Predict Output
+predicted= model.predict(x_test)
+</code></pre><p>R代码：</p>
+<pre><code>library(rpart)
+x &lt;- cbind(x_train,y_train)
+// grow tree 
+fit &lt;- rpart(y_train ~ ., data = x,method=&quot;class&quot;)
+summary(fit)
+// Predict Output 
+predicted= predict(fit,x_test)
+</code></pre><p>2.支持向量机（SVM）</p>
 <blockquote>
 <p>这是一种分类方法。在这个算法中，我们将每个数据项绘制为一个n维空间中的一个点（其中n是你拥有的特征的数量），每个特征的值是特定坐标的值。<br>例如，如果我们只有两个特征，比如一个人的身高和头发长度，我们首先将这两个变量绘制在二维空间中，每个点有两个坐标值表示（称为支持向量）。<br>接着，我们将找到一些将两个不同分类的数据组之间的数据分割的行，这将是两组中最近点之间距离最远的线。</p>
 </blockquote>
@@ -231,17 +250,14 @@
 <blockquote>
 <p>这是一种基于贝叶斯定理的分类技术，假设预测变量之间具有独立性。<br>简而言之，朴素贝叶斯分类器假设类中特定特征的存在与任何其他特征的存在无关。<br>例如，如果果实呈红色，圆形，直径约3英寸，则果实可以被认为是苹果。<br>即使这些特征依赖于彼此或者依赖于其他特征的存在，朴素贝叶斯分类器也会考虑所有这些特性来独立地预测该水果是苹果的可能性。<br>朴素贝叶斯模型很容易构建，对于非常大的数据集特别有用。朴素贝叶斯是众所周知的，高度复杂的分类方法。</p>
 </blockquote>
-<h3 id="贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。"><a href="#贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。" class="headerlink" title="贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。"></a>贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。</h3><ul>
-<li><p>P（c|x）是给定预测器（属性）的类（目标）的后验概率。</p>
-</li>
-<li><p>P（c）是类的先验概率。</p>
-</li>
-<li><p>P（x|c）是预测器给定类的概率的可能性。</p>
-</li>
-<li><p>P（x）是预测器的先验概率。</p>
-</li>
-</ul>
-<p>Python代码：</p>
+<h3 id="贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。"><a href="#贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。" class="headerlink" title="贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。"></a>贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。</h3><pre><code>P（c|x）是给定预测器（属性）的类（目标）的后验概率。
+
+P（c）是类的先验概率。
+
+P（x|c）是预测器给定类的概率的可能性。
+
+P（x）是预测器的先验概率。
+</code></pre><p>Python代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Import Library</span></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"><span class="comment">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span></span><br><span class="line"><span class="comment"># Create SVM classification object model = GaussianNB() # there is other distribution for multinomial classes like Bernoulli Naive Bayes, Refer link</span></span><br><span class="line"><span class="comment"># Train the model using the training sets and check score</span></span><br><span class="line">model.fit(X, y)</span><br><span class="line"><span class="comment">#Predict Output</span></span><br><span class="line">predicted= model.predict(x_test)</span><br></pre></td></tr></table></figure>
 <p>R代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">library(e1071)</span><br><span class="line">x &lt;- cbind(x_train,y_train)</span><br><span class="line"><span class="comment"># Fitting model</span></span><br><span class="line">fit &lt;-naiveBayes(y_train ~ ., data = x)</span><br><span class="line">summary(fit)</span><br><span class="line"><span class="comment">#Predict Output </span></span><br><span class="line">predicted= predict(fit,x_test)</span><br></pre></td></tr></table></figure>
@@ -301,7 +317,8 @@
 <p>Python代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Import Library</span></span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="comment">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span></span><br><span class="line"><span class="comment"># Create Random Forest object</span></span><br><span class="line">model= RandomForestClassifier()</span><br><span class="line"><span class="comment"># Train the model using the training sets and check score</span></span><br><span class="line">model.fit(X, y)</span><br><span class="line"><span class="comment">#Predict Output</span></span><br><span class="line">predicted= model.predict(x_test)</span><br></pre></td></tr></table></figure>
 <p>R代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(randomForest)</span><br><span class="line">x &lt;- cbind(x_train,y_train)</span><br><span class="line"><span class="comment"># Fitting model</span></span><br><span class="line">fit &lt;- randomForest(Species ~ ., x,ntree=<span class="number">500</span>)</span><br><span class="line">summary(fit)</span><br><span class="line"><span class="comment">#Predict Output </span></span><br><span class="line">predicted= predict(fit,x_test)</span><br></pre></td></tr></table></figure></the>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(randomForest)</span><br><span class="line">x &lt;- cbind(x_train,y_train)</span><br><span class="line"><span class="comment"># Fitting model</span></span><br><span class="line">fit &lt;- randomForest(Species ~ ., x,ntree=<span class="number">500</span>)</span><br><span class="line">summary(fit)</span><br><span class="line"><span class="comment">#Predict Output </span></span><br><span class="line">predicted= predict(fit,x_test)</span><br></pre></td></tr></table></figure>
+<h2 id="Q-E-D"><a href="#Q-E-D" class="headerlink" title="Q.E.D"></a>Q.E.D</h2></the>
                 </div>
                 <hr/>
 
@@ -320,7 +337,7 @@
                         <span class="reprint-tip">Reprint please specify: </span>
                         <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
                         <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                        <a href="/2018/02/24/通用机器学习算法/" class="b-link-green">通用机器学习算法</a>
+                        <a href="/2018/02/24/general-machine-learning-alogrithm/" class="b-link-green">general_machine_learning_alogrithm</a>
                     </p>
                 </div>
             </div>
@@ -360,13 +377,13 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/03/16/ubuntu软件安装/">
+                <a href="/2018/03/16/ubuntu-install-software/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="ubuntu软件安装">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="ubuntu_install_software">
                         
-                        <span class="card-title">ubuntu软件安装</span>
+                        <span class="card-title">ubuntu_install_software</span>
                     </div>
                     <div class="card-content article-content">
                         <div class="summary">
@@ -376,9 +393,7 @@ ubuntu软件安装
 
 
 
-首先说明一下 ubuntu 的软件安装大概有几种方式:
-
-deb 包的安装方式deb 是 debian 系 Linux 的包管理方式, ubuntu 是属于 debian 系的 Linux 发行版,所以默
+首先说明一下 ubuntu 的软件安装大概有几种方式:deb 包的安装方式deb 是 debian 系 Linux 的包管理方式, ubuntu 是属于 debian 系的 Linux 发行版,所以默认支
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
@@ -413,13 +428,13 @@ deb 包的安装方式deb 是 debian 系 Linux 的包管理方式, ubuntu 是属
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2017/11/07/Git学习笔记/">
+                <a href="/2017/11/07/Git_notes/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Git学习笔记">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Git_notes">
                         
-                        <span class="card-title">Git学习笔记</span>
+                        <span class="card-title">Git_notes</span>
                     </div>
                     <div class="card-content article-content">
                         <div class="summary">
