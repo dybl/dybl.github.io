@@ -1,10 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="">
 <head>
-    <head>
+    
+
+<head>
     <meta charset="utf-8">
-    <meta name="keywords" content=", hexo-theme-matery">
-    <meta name="description" content="我买几个橘子去，你就在此地，不要走动。">
+    <meta name="keywords" content="general_machine_learning_alogrithm, FunYou">
+    <meta name="description" content="本文旨在为那些获取关于重要机器学习概念知识的人们提供一些机器学习算法，同时免费提供相关的材料和资源。并且附上相关算法的程序实现。  
+
+
+
+
+
+通用的机器学习算法包括：
+1.决策树。
+2.SVM。
+3.朴素贝叶斯。
+4.KNN。
+5.K均值">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -12,7 +25,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>FunYou</title>
+    <title>general_machine_learning_alogrithm | FunYou</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -24,7 +37,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
 </head>
 
 <body>
@@ -41,39 +56,53 @@
                         <span class="logo-span">FunYou</span>
                     </a>
                 </div>
-
                 <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
-    
     <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">Index</a>
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">Tags</a>
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">Archives</a>
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">About</a>
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/docs" class="waves-effect waves-light">Docs</a>
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
     </li>
-    
     
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
@@ -84,6 +113,7 @@
 </ul>
 
 <div class="side-nav" id="mobile-nav">
+
     <div class="mobile-head bg-color">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
@@ -95,56 +125,73 @@
             
         </div>
     </div>
-    <ul class="menu-list">
+
+    <ul class="menu-list mobile-menu-list">
         
         <li>
             <a href="/" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Index
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
             </a>
         </li>
         
         <li>
             <a href="/tags" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Tags
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
             </a>
         </li>
         
         <li>
             <a href="/archives" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Archives
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
             </a>
         </li>
         
         <li>
             <a href="/about" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>About
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
             </a>
         </li>
         
-        <li>
-            <a href="/docs" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Docs
-            </a>
-        </li>
         
     </ul>
-    <div class="social-link">
-        <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
-           data-position="top" data-delay="50">
-            <i class="fa fa-github fa-lg"></i>
-        </a>
-        <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
-           data-position="top" data-delay="50">
-            <i class="fa fa-envelope fa-lg"></i>
-        </a>
-        <a href="#!" class="tooltipped" data-tooltip="QQ号：1181062873" data-position="top" data-delay="50">
-            <i class="fa fa-qq fa-lg"></i>
-        </a>
-    </div>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
 </div>
 
             </div>
         </div>
+
+        
     </nav>
 </header>
 
@@ -164,39 +211,57 @@
     </div>
 </div>
 
-<main class="content">
 
+
+<main class="container content">
+
+    
     <!-- 文章内容详情 -->
-    <div id="artDetail" class="container">
-        <div class="card">
-            <div class="card-content article-info">
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
                 
-                <div class="article-tag">
-                    
-                    <a href="/tags/#machine learning" target="_blank">
-                        <span class="chip bg-color">machine learning</span>
-                    </a>
-                    
-                    <a href="/tags/#python" target="_blank">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/#algorithms" target="_blank">
-                        <span class="chip bg-color">algorithms</span>
-                    </a>
-                    
-                </div>
+                <a href="/tags/algorithms/" target="_blank">
+                    <span class="chip bg-color">algorithms</span>
+                </a>
                 
-                <div class="author-info">
-                    <span>
-                        <i class="fa fa-calendar fa-fw"></i>2018-02-24
-                    </span>
-                </div>
+                <a href="/tags/machine-learning/" target="_blank">
+                    <span class="chip bg-color">machine learning</span>
+                </a>
+                
+                <a href="/tags/python/" target="_blank">
+                    <span class="chip bg-color">python</span>
+                </a>
+                
             </div>
-            <hr>
-            <div class="card-content article-card-content">
-                <div id="articleContent">
-                    <p><img src="http://blog-1253739411.file.myqcloud.com/acg/147aeae341def3b13e0fafd99bb966d0.jpg" alt=""><br><strong>本文旨在为那些获取关于重要机器学习概念知识的人们提供一些机器学习算法，同时免费提供相关的材料和资源。并且附上相关算法的程序实现。</strong> <excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/算法/" class="post-category" target="_blank">
+                        算法
+                    </a>
+                    
+                    <a href="/categories/算法/机器学习/" class="post-category" target="_blank">
+                        机器学习
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-02-24
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><img src="http://blog-1253739411.file.myqcloud.com/acg/147aeae341def3b13e0fafd99bb966d0.jpg" alt=""><br><strong>本文旨在为那些获取关于重要机器学习概念知识的人们提供一些机器学习算法，同时免费提供相关的材料和资源。并且附上相关算法的程序实现。</strong> <excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
 <a id="more"></a>
 <the rest="" of="" contents="" |="" 余下全文="">
 
@@ -217,50 +282,82 @@
 <p>这是作者最喜欢的算法之一，作者经常使用它。它是一种主要用于分类问题的监督学习算法。<br>令人惊讶的是，它竟然适用于分类和连续因变量。<br>在这个算法中，我们可以将人口分成两个或更多的齐次集合。<br>这需要基于一些非常重要的属性和独立变量完成的，以使组群尽可能独立。</p>
 </blockquote>
 <p>Python代码：</p>
-<pre><code>// Import Library
-// Import other necessary libraries like pandas, numpy...
-from sklearn import tree
-// Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset
-// Create tree object 
-model = tree.DecisionTreeClassifier(criterion=&apos;gini&apos;) 
-// for classification, here you can change the algorithm as gini or entropy (information gain) by default it is gini  
-model = tree.DecisionTreeRegressor() for regression
-// Train the model using the training sets and check score
-model.fit(X, y)
-model.score(X, y)
-#Predict Output
-predicted= model.predict(x_test)
-</code></pre><p>R代码：</p>
-<pre><code>library(rpart)
-x &lt;- cbind(x_train,y_train)
-// grow tree 
-fit &lt;- rpart(y_train ~ ., data = x,method=&quot;class&quot;)
-summary(fit)
-// Predict Output 
-predicted= predict(fit,x_test)
-</code></pre><p>2.支持向量机（SVM）</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">//</span> Import Library
+<span class="token operator">//</span> Import other necessary libraries like pandas<span class="token punctuation">,</span> numpy<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">from</span> sklearn <span class="token keyword">import</span> tree
+<span class="token operator">//</span> Assumed you have<span class="token punctuation">,</span> X <span class="token punctuation">(</span>predictor<span class="token punctuation">)</span> <span class="token operator">and</span> Y <span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token keyword">for</span> training data set <span class="token operator">and</span> x_test<span class="token punctuation">(</span>predictor<span class="token punctuation">)</span> of test_dataset
+<span class="token operator">//</span> Create tree object 
+model <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">'gini'</span><span class="token punctuation">)</span> 
+<span class="token operator">//</span> <span class="token keyword">for</span> classification<span class="token punctuation">,</span> here you can change the algorithm <span class="token keyword">as</span> gini <span class="token operator">or</span> entropy <span class="token punctuation">(</span>information gain<span class="token punctuation">)</span> by default it <span class="token keyword">is</span> gini  
+model <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeRegressor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> regression
+<span class="token operator">//</span> Train the model using the training sets <span class="token operator">and</span> check score
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>score<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output</span>
+predicted<span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>R代码：</p>
+<pre class="line-numbers language-r"><code class="language-r">library<span class="token punctuation">(</span>rpart<span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span>y_train<span class="token punctuation">)</span>
+<span class="token operator">/</span><span class="token operator">/</span> grow tree 
+fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>y_train <span class="token operator">~</span> .<span class="token punctuation">,</span> data <span class="token operator">=</span> x<span class="token punctuation">,</span>method<span class="token operator">=</span><span class="token string">"class"</span><span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+<span class="token operator">/</span><span class="token operator">/</span> Predict Output 
+predicted<span class="token operator">=</span> predict<span class="token punctuation">(</span>fit<span class="token punctuation">,</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2.支持向量机（SVM）</p>
 <blockquote>
 <p>这是一种分类方法。在这个算法中，我们将每个数据项绘制为一个n维空间中的一个点（其中n是你拥有的特征的数量），每个特征的值是特定坐标的值。<br>例如，如果我们只有两个特征，比如一个人的身高和头发长度，我们首先将这两个变量绘制在二维空间中，每个点有两个坐标值表示（称为支持向量）。<br>接着，我们将找到一些将两个不同分类的数据组之间的数据分割的行，这将是两组中最近点之间距离最远的线。</p>
 </blockquote>
 <p>Python代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Import Library</span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="comment">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span></span><br><span class="line"><span class="comment"># Create SVM classification object </span></span><br><span class="line">model = svm.svc() <span class="comment"># there is various option associated with it, this is simple for classification. You can refer link, for mo# re detail.</span></span><br><span class="line"><span class="comment"># Train the model using the training sets and check score</span></span><br><span class="line">model.fit(X, y)</span><br><span class="line">model.score(X, y)</span><br><span class="line"><span class="comment">#Predict Output</span></span><br><span class="line">predicted= model.predict(x_test)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Import Library</span>
+<span class="token keyword">from</span> sklearn <span class="token keyword">import</span> svm
+<span class="token comment" spellcheck="true">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span>
+<span class="token comment" spellcheck="true"># Create SVM classification object </span>
+model <span class="token operator">=</span> svm<span class="token punctuation">.</span>svc<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># there is various option associated with it, this is simple for classification. You can refer link, for mo# re detail.</span>
+<span class="token comment" spellcheck="true"># Train the model using the training sets and check score</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>score<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output</span>
+predicted<span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>R代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(e1071)</span><br><span class="line">x &lt;- cbind(x_train,y_train)</span><br><span class="line"><span class="comment"># Fitting model</span></span><br><span class="line">fit &lt;-svm(y_train ~ ., data = x)</span><br><span class="line">summary(fit)</span><br><span class="line"><span class="comment">#Predict Output </span></span><br><span class="line">predicted= predict(fit,x_test)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-r"><code class="language-r">library<span class="token punctuation">(</span>e1071<span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span>y_train<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Fitting model</span>
+fit <span class="token operator">&lt;-</span>svm<span class="token punctuation">(</span>y_train <span class="token operator">~</span> .<span class="token punctuation">,</span> data <span class="token operator">=</span> x<span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output </span>
+predicted<span class="token operator">=</span> predict<span class="token punctuation">(</span>fit<span class="token punctuation">,</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3.朴素贝叶斯：</p>
 <blockquote>
 <p>这是一种基于贝叶斯定理的分类技术，假设预测变量之间具有独立性。<br>简而言之，朴素贝叶斯分类器假设类中特定特征的存在与任何其他特征的存在无关。<br>例如，如果果实呈红色，圆形，直径约3英寸，则果实可以被认为是苹果。<br>即使这些特征依赖于彼此或者依赖于其他特征的存在，朴素贝叶斯分类器也会考虑所有这些特性来独立地预测该水果是苹果的可能性。<br>朴素贝叶斯模型很容易构建，对于非常大的数据集特别有用。朴素贝叶斯是众所周知的，高度复杂的分类方法。</p>
 </blockquote>
-<h3 id="贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。"><a href="#贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。" class="headerlink" title="贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。"></a>贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。</h3><pre><code>P（c|x）是给定预测器（属性）的类（目标）的后验概率。
-
-P（c）是类的先验概率。
+<h3 id="贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。"><a href="#贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。" class="headerlink" title="贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。"></a>贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。</h3><p>P（c|x）是给定预测器（属性）的类（目标）的后验概率。</p>
+<pre><code>P（c）是类的先验概率。
 
 P（x|c）是预测器给定类的概率的可能性。
-
-P（x）是预测器的先验概率。
-</code></pre><p>Python代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Import Library</span></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"><span class="comment">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span></span><br><span class="line"><span class="comment"># Create SVM classification object model = GaussianNB() # there is other distribution for multinomial classes like Bernoulli Naive Bayes, Refer link</span></span><br><span class="line"><span class="comment"># Train the model using the training sets and check score</span></span><br><span class="line">model.fit(X, y)</span><br><span class="line"><span class="comment">#Predict Output</span></span><br><span class="line">predicted= model.predict(x_test)</span><br></pre></td></tr></table></figure>
+</code></pre><p>P（x）是预测器的先验概率。</p>
+<p>Python代码：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Import Library</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>naive_bayes <span class="token keyword">import</span> GaussianNB
+<span class="token comment" spellcheck="true">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span>
+<span class="token comment" spellcheck="true"># Create SVM classification object model = GaussianNB() # there is other distribution for multinomial classes like Bernoulli Naive Bayes, Refer link</span>
+<span class="token comment" spellcheck="true"># Train the model using the training sets and check score</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output</span>
+predicted<span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>R代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">library(e1071)</span><br><span class="line">x &lt;- cbind(x_train,y_train)</span><br><span class="line"><span class="comment"># Fitting model</span></span><br><span class="line">fit &lt;-naiveBayes(y_train ~ ., data = x)</span><br><span class="line">summary(fit)</span><br><span class="line"><span class="comment">#Predict Output </span></span><br><span class="line">predicted= predict(fit,x_test)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python"><code class="language-python">library<span class="token punctuation">(</span>e1071<span class="token punctuation">)</span>
+x <span class="token operator">&lt;</span><span class="token operator">-</span> cbind<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span>y_train<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Fitting model</span>
+fit <span class="token operator">&lt;</span><span class="token operator">-</span>naiveBayes<span class="token punctuation">(</span>y_train <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token punctuation">,</span> data <span class="token operator">=</span> x<span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output </span>
+predicted<span class="token operator">=</span> predict<span class="token punctuation">(</span>fit<span class="token punctuation">,</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>4.KNN(最近邻居):</p>
 <blockquote>
 <p>这个算法可以用于分类和回归问题。但在ML行业中分类问题更为广泛。<br>K近邻是一种简单的算法，它存储所有可用的案例，并通过其K个邻居的多数投票来分类新案例。<br>KNN算法的核心是如果一个样本在特征空间中的K个最相邻样本值得大多数属于某一个类别，则该样本也属于这个类别，并具有这个类别上样本的特性。<br>其中判断的依据是距离函数的计算。</p>
@@ -278,9 +375,25 @@ P（x）是预测器的先验概率。
 <p>KNN在计算资源上是昂贵的。<br>变量应该被标准化，否则较高范围的变量可能会偏差。<br>在进行KNN之前更多地处理预处理阶段，如异常值/噪音消除。</p>
 </blockquote>
 <p>Python代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Import Library</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="comment">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span></span><br><span class="line"><span class="comment"># Create KNeighbors classifier object model </span></span><br><span class="line">KNeighborsClassifier(n_neighbors=<span class="number">6</span>) <span class="comment"># default value for n_neighbors is 5</span></span><br><span class="line"><span class="comment"># Train the model using the training sets and check score</span></span><br><span class="line">model.fit(X, y)</span><br><span class="line"><span class="comment">#Predict Output</span></span><br><span class="line">predicted= model.predict(x_test)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Import Library</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>neighbors <span class="token keyword">import</span> KNeighborsClassifier
+<span class="token comment" spellcheck="true">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span>
+<span class="token comment" spellcheck="true"># Create KNeighbors classifier object model </span>
+KNeighborsClassifier<span class="token punctuation">(</span>n_neighbors<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># default value for n_neighbors is 5</span>
+<span class="token comment" spellcheck="true"># Train the model using the training sets and check score</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output</span>
+predicted<span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>R代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(knn)</span><br><span class="line">x &lt;- cbind(x_train,y_train)</span><br><span class="line"><span class="comment"># Fitting model</span></span><br><span class="line">fit &lt;-knn(y_train ~ ., data = x,k=<span class="number">5</span>)</span><br><span class="line">summary(fit)</span><br><span class="line"><span class="comment">#Predict Output </span></span><br><span class="line">predicted= predict(fit,x_test)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-r"><code class="language-r">library<span class="token punctuation">(</span>knn<span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span>y_train<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Fitting model</span>
+fit <span class="token operator">&lt;-</span>knn<span class="token punctuation">(</span>y_train <span class="token operator">~</span> .<span class="token punctuation">,</span> data <span class="token operator">=</span> x<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output </span>
+predicted<span class="token operator">=</span> predict<span class="token punctuation">(</span>fit<span class="token punctuation">,</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>5.K均值：</p>
 <blockquote>
 <p>这是一种解决聚类问题的无监督算法，其过程遵循一个简单的方法，即通过一定数量的聚类来分类给定的数据集（假设K个聚类）。<br>群集内的数据点与同级群组是同质且异质的。</p>
@@ -301,9 +414,20 @@ P（x）是预测器的先验概率。
 <p>我们知道，随着簇数量的增加，这个值会不断下降，但是如果你绘制结果的话，你可能会看到，平方距离的总和急剧下降到某个K值，然后慢得多。<br>这样，我们就可以找到最佳的簇数。</p>
 </blockquote>
 <p>Python代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Import Library</span></span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br><span class="line"><span class="comment">#Assumed you have, X (attributes) for training data set and x_test(attributes) of test_dataset</span></span><br><span class="line"><span class="comment"># Create KNeighbors classifier object model </span></span><br><span class="line">k_means = KMeans(n_clusters=<span class="number">3</span>, random_state=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># Train the model using the training sets and check score</span></span><br><span class="line">model.fit(X)</span><br><span class="line"><span class="comment">#Predict Output</span></span><br><span class="line">predicted= model.predict(x_test)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Import Library</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>cluster <span class="token keyword">import</span> KMeans
+<span class="token comment" spellcheck="true">#Assumed you have, X (attributes) for training data set and x_test(attributes) of test_dataset</span>
+<span class="token comment" spellcheck="true"># Create KNeighbors classifier object model </span>
+k_means <span class="token operator">=</span> KMeans<span class="token punctuation">(</span>n_clusters<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Train the model using the training sets and check score</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output</span>
+predicted<span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>R代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(cluster)</span><br><span class="line">fit &lt;- kmeans(X, <span class="number">3</span>) <span class="comment"># 5 cluster solution</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-r"><code class="language-r">library<span class="token punctuation">(</span>cluster<span class="token punctuation">)</span>
+fit <span class="token operator">&lt;-</span> kmeans<span class="token punctuation">(</span>X<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 5 cluster solution</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>6.随机森林：</p>
 <blockquote>
 <p>随机森林是一个决策树集合的术语。在随机森林里，我们有一系列被称为森林的决策树。<br>为了根据属性对新的对象进行分类，每棵树都给出了一个分类，并且我们说这棵树对那个分类“投票”，森林选择票数最多的分类（在森林中的所有树上）。</p>
@@ -315,14 +439,149 @@ P（x）是预测器的先验概率。
 <p>如果训练集中的病例数为N，则随机抽取N个病例样本，并进行替换。<br>如果有M个输入变量，则指定一个数m &lt;&lt; M，使得从M中随机选择每个m变量，并且使用m上的最佳划分来分割节点。在森林生长期间，m的值保持不变。<br>每棵树都尽可能地生长。没有修剪。</p>
 </blockquote>
 <p>Python代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Import Library</span></span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="comment">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span></span><br><span class="line"><span class="comment"># Create Random Forest object</span></span><br><span class="line">model= RandomForestClassifier()</span><br><span class="line"><span class="comment"># Train the model using the training sets and check score</span></span><br><span class="line">model.fit(X, y)</span><br><span class="line"><span class="comment">#Predict Output</span></span><br><span class="line">predicted= model.predict(x_test)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Import Library</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>ensemble <span class="token keyword">import</span> RandomForestClassifier
+<span class="token comment" spellcheck="true">#Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset</span>
+<span class="token comment" spellcheck="true"># Create Random Forest object</span>
+model<span class="token operator">=</span> RandomForestClassifier<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Train the model using the training sets and check score</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output</span>
+predicted<span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>R代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(randomForest)</span><br><span class="line">x &lt;- cbind(x_train,y_train)</span><br><span class="line"><span class="comment"># Fitting model</span></span><br><span class="line">fit &lt;- randomForest(Species ~ ., x,ntree=<span class="number">500</span>)</span><br><span class="line">summary(fit)</span><br><span class="line"><span class="comment">#Predict Output </span></span><br><span class="line">predicted= predict(fit,x_test)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-r"><code class="language-r">library<span class="token punctuation">(</span>randomForest<span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span>y_train<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Fitting model</span>
+fit <span class="token operator">&lt;-</span> randomForest<span class="token punctuation">(</span>Species <span class="token operator">~</span> .<span class="token punctuation">,</span> x<span class="token punctuation">,</span>ntree<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#Predict Output </span>
+predicted<span class="token operator">=</span> predict<span class="token punctuation">(</span>fit<span class="token punctuation">,</span>x_test<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Q-E-D"><a href="#Q-E-D" class="headerlink" title="Q.E.D"></a>Q.E.D</h2></the>
-                </div>
-                <hr/>
+            </div>
+            <hr/>
 
-                <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">走一波赞赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
 <div id="article-share">
     
@@ -332,46 +591,48 @@ P（x）是预测器的先验概率。
 
 <script src="/libs/share/js/social-share.min.js"></script>
 
-                <div class="reprint">
-                    <p>
-                        <span class="reprint-tip">Reprint please specify: </span>
-                        <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
-                        <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                        <a href="/2018/02/24/general-machine-learning-alogrithm/" class="b-link-green">general_machine_learning_alogrithm</a>
-                    </p>
-                </div>
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/02/24/general-machine-learning-alogrithm/" class="b-link-green">general_machine_learning_alogrithm</a>
+                </p>
             </div>
         </div>
+    </div>
 
-        
-        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
-<link rel="stylesheet" href="/css/gitment.css">
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="gitment-card card" data-aos="fade-up">
-    <div id="gitment-content" class="card-content"></div>
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitment/gitment.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-var gitment = new Gitment({
-    id: 'Sat Feb 24 2018 18:05:13 GMT+0800',
-    owner: 'dybl',
-    repo: 'https://github.com/dybl/blog_backup',
-    oauth: {
-        client_id: 'f120cd4af15e4483511b',
-        client_secret: '0cbbd24d59314d1948516419787059bd2e44cfa7'
-    }
-});
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2018-02-24T18-05-13',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
 
-gitment.render('gitment-content');
+    gitalk.render('gitalk-container');
 </script>
-        
+    
 
-        
+    
 
-        
+    
 
-<article id="articles" class="container prev-next articles">
+    
+
+<article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
@@ -385,42 +646,56 @@ gitment.render('gitment-content');
                         
                         <span class="card-title">ubuntu_install_software</span>
                     </div>
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
 ubuntu软件安装  
 
 
 
 
-首先说明一下 ubuntu 的软件安装大概有几种方式:deb 包的安装方式deb 是 debian 系 Linux 的包管理方式, ubuntu 是属于 debian 系的 Linux 发行版,所以默认支
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2018-03-16
-                            </span>
-                            <span class="publish-author">
-                                <i class="fa fa-user fa-fw"></i>
-                                
-                                Junjc9
-                                
-                            </span>
-                        </div>
+首先说明一下 ubuntu 的软件安装大概有几种方式:deb 包的安装方式deb 是 debian 系 Linux 的包管理方式, ubuntu 是属于 debian 系的 Linux 发行版,所以默认支</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/操作系统/" class="post-category" target="_blank">
+                                    操作系统
+                                </a>
+                            
+                            <a href="/categories/操作系统/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/操作系统/Linux/Ubuntu/" class="post-category" target="_blank">
+                                    Ubuntu
+                                </a>
+                            
+                            <a href="/categories/操作系统/Linux/Ubuntu/GNU/" class="post-category" target="_blank">
+                                    GNU
+                                </a>
+                            
+                            
+                        </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#ubuntu" target="_blank">
-                            <span class="chip bg-color">ubuntu</span>
-                        </a>
-                        
-                        <a href="/tags/#linux" target="_blank">
-                            <span class="chip bg-color">linux</span>
-                        </a>
-                        
-                    </div>
+                    <a href="/tags/ubuntu/" target="_blank">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
                     
-                </a>
+                    <a href="/tags/linux/" target="_blank">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -436,51 +711,55 @@ ubuntu软件安装
                         
                         <span class="card-title">Git_notes</span>
                     </div>
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            学习Git需要清楚的几个术语
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">学习Git需要清楚的几个术语
 Workspace：工作区
 Index/Stage：暂存区，也叫索引
 Repository：仓库区（或本地仓库），也存储库
 Remote：远程仓库
-工作区: 通过git init创建的代码库的所有文件但是不包括
-                        </div>
-                        <div class="publish-info">
+工作区: 通过git init创建的代码库的所有文件但是不包括</div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2017-11-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-11-07
                             </span>
-                            <span class="publish-author">
-                                <i class="fa fa-user fa-fw"></i>
-                                
-                                Junjc9
-                                
-                            </span>
-                        </div>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/技术/" class="post-category" target="_blank">
+                                    技术
+                                </a>
+                            
+                            <a href="/categories/技术/Git/" class="post-category" target="_blank">
+                                    Git
+                                </a>
+                            
+                            
+                        </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#Git" target="_blank">
-                            <span class="chip bg-color">Git</span>
-                        </a>
-                        
-                        <a href="/tags/#Git学习" target="_blank">
-                            <span class="chip bg-color">Git学习</span>
-                        </a>
-                        
-                    </div>
+                    <a href="/tags/Git/" target="_blank">
+                        <span class="chip bg-color">Git</span>
+                    </a>
                     
-                </a>
+                    <a href="/tags/Git学习/" target="_blank">
+                        <span class="chip bg-color">Git学习</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
     </div>
 </article>
+</div>
+    
 
-        
-            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-            
-    </div>
 </main>
 
 <footer class="page-footer bg-color">
@@ -543,6 +822,5 @@ Remote：远程仓库
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

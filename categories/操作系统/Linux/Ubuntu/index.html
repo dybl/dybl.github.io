@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="">
 <head>
-    <head>
+    
+
+<head>
     <meta charset="utf-8">
-    <meta name="keywords" content=", hexo-theme-matery">
-    <meta name="description" content="我买几个橘子去，你就在此地，不要走动。">
+    <meta name="keywords" content="Category: Ubuntu, FunYou">
+    <meta name="description" content="Category: Ubuntu | FunYou">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -12,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>FunYou</title>
+    <title>Category: Ubuntu | FunYou</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -24,7 +26,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
 </head>
 
 <body>
@@ -41,39 +45,53 @@
                         <span class="logo-span">FunYou</span>
                     </a>
                 </div>
-
                 <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
-    
     <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">Index</a>
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">Tags</a>
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">Archives</a>
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">About</a>
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/docs" class="waves-effect waves-light">Docs</a>
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
     </li>
-    
     
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
@@ -84,6 +102,7 @@
 </ul>
 
 <div class="side-nav" id="mobile-nav">
+
     <div class="mobile-head bg-color">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
@@ -95,61 +114,77 @@
             
         </div>
     </div>
-    <ul class="menu-list">
+
+    <ul class="menu-list mobile-menu-list">
         
         <li>
             <a href="/" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Index
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
             </a>
         </li>
         
         <li>
             <a href="/tags" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Tags
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
             </a>
         </li>
         
         <li>
             <a href="/archives" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Archives
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
             </a>
         </li>
         
         <li>
             <a href="/about" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>About
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
             </a>
         </li>
         
-        <li>
-            <a href="/docs" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Docs
-            </a>
-        </li>
         
     </ul>
-    <div class="social-link">
-        <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
-           data-position="top" data-delay="50">
-            <i class="fa fa-github fa-lg"></i>
-        </a>
-        <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
-           data-position="top" data-delay="50">
-            <i class="fa fa-envelope fa-lg"></i>
-        </a>
-        <a href="#!" class="tooltipped" data-tooltip="QQ号：1181062873" data-position="top" data-delay="50">
-            <i class="fa fa-qq fa-lg"></i>
-        </a>
-    </div>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
 </div>
 
             </div>
         </div>
+
+        
     </nav>
 </header>
 
-
-<div class="bg-cover" style="background-image: url('/medias/cover.jpg')">
+<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -168,6 +203,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 
@@ -177,613 +213,212 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </script>
 
 <main class="content">
+
     
-    <div class="container archive-calendar">
+
+<div id="category-cloud" class="container chip-container">
     <div class="card">
-        <div id="post-calendar" class="card-content"></div>
+        <div class="card-content">
+            <div class="tag-title center-align">Post Categories</div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/技术/" title="技术: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">技术
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/网络/" title="网络: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">网络
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/算法/" title="算法: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">算法
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/技术/Git/" title="Git: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">Git
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/读书笔记/" title="读书笔记: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">读书笔记
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/算法/机器学习/" title="机器学习: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">机器学习
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/RDBMS/" title="RDBMS: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">RDBMS
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/编程/" title="编程: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">编程
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/操作系统/" title="操作系统: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #A3E4D7;">操作系统
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/RDBMS/DB/" title="DB: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #85C1E9;">DB
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/操作系统/Linux/" title="Linux: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8C471;">Linux
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/操作系统/Linux/Ubuntu/" title="Ubuntu: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #F9E79F;">Ubuntu
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/操作系统/Linux/Ubuntu/GNU/" title="GNU: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">GNU
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+            </div>
+        </div>
     </div>
 </div>
 
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let myChart = echarts.init(document.getElementById('post-calendar'));
-
     
 
-    let option = {
-        title: {
-            top: 0,
-            text: 'Post Calendar',
-            left: 'center',
-            textStyle: {
-                color: '#666'
-            }
-        },
-        tooltip: {
-            padding: 10,
-            backgroundColor: '#555',
-            borderColor: '#777',
-            borderWidth: 1,
-            formatter: function (obj) {
-                var value = obj.value;
-                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
-            }
-        },
-        visualMap: {
-            show: true,
-            showLabel: true,
-            categories: [0, 1, 2, 3, 4],
-            calculable: true,
-            inRange: {
-                symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
-            },
-            itemWidth: 12,
-            itemHeight: 12,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0
-        },
-        calendar: [{
-            left: 'center',
-            range: ["2017-09-24", "2018-09-24"],
-            cellSize: [13, 13],
-            splitLine: {
-                show: false
-            },
-            itemStyle: {
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            yearLabel: {
-                show: false
-            },
-            monthLabel: {
-                nameMap: 'en',
-                fontSize: 11
-            },
-            dayLabel: {
-                formatter: '{start}  1st',
-                nameMap: 'en',
-                fontSize: 11
-            }
-        }],
-        series: [{
-            type: 'heatmap',
-            coordinateSystem: 'calendar',
-            calendarIndex: 0,
-            data: [["2017-09-24", 0], ["2017-09-25", 0], ["2017-09-26", 0], ["2017-09-27", 0], ["2017-09-28", 0], ["2017-09-29", 0], ["2017-09-30", 0], ["2017-10-01", 0], ["2017-10-02", 0], ["2017-10-03", 0], ["2017-10-04", 0], ["2017-10-05", 0], ["2017-10-06", 0], ["2017-10-07", 0], ["2017-10-08", 0], ["2017-10-09", 0], ["2017-10-10", 0], ["2017-10-11", 0], ["2017-10-12", 0], ["2017-10-13", 0], ["2017-10-14", 0], ["2017-10-15", 0], ["2017-10-16", 0], ["2017-10-17", 0], ["2017-10-18", 0], ["2017-10-19", 0], ["2017-10-20", 0], ["2017-10-21", 0], ["2017-10-22", 0], ["2017-10-23", 0], ["2017-10-24", 0], ["2017-10-25", 0], ["2017-10-26", 0], ["2017-10-27", 0], ["2017-10-28", 0], ["2017-10-29", 0], ["2017-10-30", 0], ["2017-10-31", 0], ["2017-11-01", 0], ["2017-11-02", 0], ["2017-11-03", 0], ["2017-11-04", 0], ["2017-11-05", 0], ["2017-11-06", 0], ["2017-11-07", 1], ["2017-11-08", 0], ["2017-11-09", 0], ["2017-11-10", 0], ["2017-11-11", 0], ["2017-11-12", 0], ["2017-11-13", 0], ["2017-11-14", 0], ["2017-11-15", 0], ["2017-11-16", 0], ["2017-11-17", 0], ["2017-11-18", 0], ["2017-11-19", 0], ["2017-11-20", 0], ["2017-11-21", 0], ["2017-11-22", 0], ["2017-11-23", 0], ["2017-11-24", 0], ["2017-11-25", 0], ["2017-11-26", 0], ["2017-11-27", 0], ["2017-11-28", 0], ["2017-11-29", 0], ["2017-11-30", 0], ["2017-12-01", 0], ["2017-12-02", 0], ["2017-12-03", 0], ["2017-12-04", 0], ["2017-12-05", 0], ["2017-12-06", 0], ["2017-12-07", 0], ["2017-12-08", 0], ["2017-12-09", 0], ["2017-12-10", 0], ["2017-12-11", 0], ["2017-12-12", 0], ["2017-12-13", 0], ["2017-12-14", 0], ["2017-12-15", 0], ["2017-12-16", 0], ["2017-12-17", 0], ["2017-12-18", 0], ["2017-12-19", 0], ["2017-12-20", 0], ["2017-12-21", 0], ["2017-12-22", 0], ["2017-12-23", 0], ["2017-12-24", 0], ["2017-12-25", 0], ["2017-12-26", 0], ["2017-12-27", 0], ["2017-12-28", 0], ["2017-12-29", 0], ["2017-12-30", 0], ["2017-12-31", 0], ["2018-01-01", 0], ["2018-01-02", 0], ["2018-01-03", 0], ["2018-01-04", 0], ["2018-01-05", 0], ["2018-01-06", 0], ["2018-01-07", 0], ["2018-01-08", 0], ["2018-01-09", 0], ["2018-01-10", 0], ["2018-01-11", 0], ["2018-01-12", 0], ["2018-01-13", 0], ["2018-01-14", 0], ["2018-01-15", 0], ["2018-01-16", 0], ["2018-01-17", 0], ["2018-01-18", 0], ["2018-01-19", 0], ["2018-01-20", 0], ["2018-01-21", 0], ["2018-01-22", 0], ["2018-01-23", 0], ["2018-01-24", 0], ["2018-01-25", 0], ["2018-01-26", 0], ["2018-01-27", 0], ["2018-01-28", 0], ["2018-01-29", 0], ["2018-01-30", 0], ["2018-01-31", 0], ["2018-02-01", 0], ["2018-02-02", 0], ["2018-02-03", 0], ["2018-02-04", 0], ["2018-02-05", 0], ["2018-02-06", 0], ["2018-02-07", 0], ["2018-02-08", 0], ["2018-02-09", 0], ["2018-02-10", 0], ["2018-02-11", 0], ["2018-02-12", 0], ["2018-02-13", 0], ["2018-02-14", 0], ["2018-02-15", 0], ["2018-02-16", 0], ["2018-02-17", 0], ["2018-02-18", 0], ["2018-02-19", 0], ["2018-02-20", 0], ["2018-02-21", 0], ["2018-02-22", 0], ["2018-02-23", 0], ["2018-02-24", 1], ["2018-02-25", 0], ["2018-02-26", 0], ["2018-02-27", 0], ["2018-02-28", 0], ["2018-03-01", 0], ["2018-03-02", 0], ["2018-03-03", 0], ["2018-03-04", 0], ["2018-03-05", 0], ["2018-03-06", 0], ["2018-03-07", 0], ["2018-03-08", 0], ["2018-03-09", 0], ["2018-03-10", 0], ["2018-03-11", 0], ["2018-03-12", 0], ["2018-03-13", 0], ["2018-03-14", 0], ["2018-03-15", 0], ["2018-03-16", 1], ["2018-03-17", 0], ["2018-03-18", 0], ["2018-03-19", 0], ["2018-03-20", 0], ["2018-03-21", 0], ["2018-03-22", 0], ["2018-03-23", 0], ["2018-03-24", 0], ["2018-03-25", 0], ["2018-03-26", 0], ["2018-03-27", 0], ["2018-03-28", 0], ["2018-03-29", 0], ["2018-03-30", 0], ["2018-03-31", 0], ["2018-04-01", 0], ["2018-04-02", 0], ["2018-04-03", 0], ["2018-04-04", 0], ["2018-04-05", 0], ["2018-04-06", 0], ["2018-04-07", 0], ["2018-04-08", 0], ["2018-04-09", 0], ["2018-04-10", 0], ["2018-04-11", 0], ["2018-04-12", 0], ["2018-04-13", 0], ["2018-04-14", 0], ["2018-04-15", 0], ["2018-04-16", 0], ["2018-04-17", 0], ["2018-04-18", 0], ["2018-04-19", 0], ["2018-04-20", 0], ["2018-04-21", 0], ["2018-04-22", 0], ["2018-04-23", 0], ["2018-04-24", 0], ["2018-04-25", 0], ["2018-04-26", 0], ["2018-04-27", 0], ["2018-04-28", 0], ["2018-04-29", 0], ["2018-04-30", 0], ["2018-05-01", 0], ["2018-05-02", 0], ["2018-05-03", 0], ["2018-05-04", 0], ["2018-05-05", 0], ["2018-05-06", 0], ["2018-05-07", 0], ["2018-05-08", 0], ["2018-05-09", 0], ["2018-05-10", 0], ["2018-05-11", 0], ["2018-05-12", 0], ["2018-05-13", 0], ["2018-05-14", 0], ["2018-05-15", 0], ["2018-05-16", 0], ["2018-05-17", 0], ["2018-05-18", 0], ["2018-05-19", 0], ["2018-05-20", 0], ["2018-05-21", 0], ["2018-05-22", 0], ["2018-05-23", 0], ["2018-05-24", 0], ["2018-05-25", 0], ["2018-05-26", 0], ["2018-05-27", 0], ["2018-05-28", 0], ["2018-05-29", 0], ["2018-05-30", 0], ["2018-05-31", 0], ["2018-06-01", 0], ["2018-06-02", 0], ["2018-06-03", 0], ["2018-06-04", 0], ["2018-06-05", 0], ["2018-06-06", 0], ["2018-06-07", 0], ["2018-06-08", 0], ["2018-06-09", 0], ["2018-06-10", 0], ["2018-06-11", 0], ["2018-06-12", 0], ["2018-06-13", 0], ["2018-06-14", 0], ["2018-06-15", 0], ["2018-06-16", 0], ["2018-06-17", 0], ["2018-06-18", 0], ["2018-06-19", 0], ["2018-06-20", 0], ["2018-06-21", 0], ["2018-06-22", 0], ["2018-06-23", 0], ["2018-06-24", 0], ["2018-06-25", 0], ["2018-06-26", 0], ["2018-06-27", 0], ["2018-06-28", 0], ["2018-06-29", 0], ["2018-06-30", 0], ["2018-07-01", 0], ["2018-07-02", 0], ["2018-07-03", 0], ["2018-07-04", 0], ["2018-07-05", 0], ["2018-07-06", 0], ["2018-07-07", 0], ["2018-07-08", 0], ["2018-07-09", 0], ["2018-07-10", 0], ["2018-07-11", 0], ["2018-07-12", 0], ["2018-07-13", 0], ["2018-07-14", 0], ["2018-07-15", 0], ["2018-07-16", 0], ["2018-07-17", 0], ["2018-07-18", 0], ["2018-07-19", 0], ["2018-07-20", 0], ["2018-07-21", 0], ["2018-07-22", 0], ["2018-07-23", 0], ["2018-07-24", 0], ["2018-07-25", 0], ["2018-07-26", 0], ["2018-07-27", 0], ["2018-07-28", 0], ["2018-07-29", 0], ["2018-07-30", 0], ["2018-07-31", 0], ["2018-08-01", 0], ["2018-08-02", 0], ["2018-08-03", 0], ["2018-08-04", 0], ["2018-08-05", 0], ["2018-08-06", 0], ["2018-08-07", 0], ["2018-08-08", 0], ["2018-08-09", 0], ["2018-08-10", 0], ["2018-08-11", 0], ["2018-08-12", 0], ["2018-08-13", 0], ["2018-08-14", 0], ["2018-08-15", 0], ["2018-08-16", 0], ["2018-08-17", 0], ["2018-08-18", 0], ["2018-08-19", 0], ["2018-08-20", 0], ["2018-08-21", 0], ["2018-08-22", 0], ["2018-08-23", 0], ["2018-08-24", 0], ["2018-08-25", 0], ["2018-08-26", 0], ["2018-08-27", 0], ["2018-08-28", 0], ["2018-08-29", 0], ["2018-08-30", 0], ["2018-08-31", 0], ["2018-09-01", 0], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 0], ["2018-09-07", 0], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 0], ["2018-09-11", 0], ["2018-09-12", 0], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 1], ["2018-09-23", 0], ["2018-09-24", 2]]
-        }]
-
-    };
-
-    myChart.setOption(option);
-</script>
-    
-
-    <div id="cd-timeline" class="container">
-        
-        <div class="cd-timeline-img year bg-color">
-            <span>2018</span>
-        </div>
-        
-        <div class="cd-timeline-img month bg-color">
-            <span>09</span>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>24</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/19.jpg">
-                            <img src="/medias/featureimages/19.jpg" class="archive-img thumbnail-img" alt="ubuntu-notes"/>
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/03/16/ubuntu-install-software/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="ubuntu_install_software">
+                            
+                            <span class="card-title">ubuntu_install_software</span>
                         </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2018/09/24/ubuntu_notes/">ubuntu-notes</a>
-                        <div class="summary">学电脑打字的练习软件
-sudo apt-get install tuxtype ktouch
-编译环境 :安装 JAVA 环境支持a. 打开终端,执行以下命令,</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    <span class="cd-date">2018-09-24</span>
-                </div>
-
-            </div>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>24</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/15.jpg">
-                            <img src="/medias/featureimages/15.jpg" class="archive-img thumbnail-img" alt="mysql_intro"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2018/09/24/mysql-intro-1/">mysql_intro</a>
-                        <div class="summary">安装 mysql$sudo apt install mysql-server
-$sudo apt install mysql-client
-$sudo apt </div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    <span class="cd-date">2018-09-24</span>
-                </div>
-
-            </div>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>22</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/12.jpg">
-                            <img src="/medias/featureimages/12.jpg" class="archive-img thumbnail-img" alt="Hello World"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2018/09/22/hello-world/">Hello World</a>
-                        <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    <span class="cd-date">2018-09-22</span>
-                </div>
-
-            </div>
-        </div>
-        
-        
-        <div class="cd-timeline-img month bg-color">
-            <span>03</span>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>16</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/11.jpg">
-                            <img src="/medias/featureimages/11.jpg" class="archive-img thumbnail-img" alt="ubuntu_install_software"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2018/03/16/ubuntu-install-software/">ubuntu_install_software</a>
+                    </a>
+                    <div class="card-content article-content">
                         <div class="summary">
 ubuntu软件安装  
 
 
 
 
-首先说明一下 ubuntu 的软件安装大概有几种方式:deb 包的安装方式deb 是 debian 系 Linux 的包管理</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#ubuntu" target="_blank">
-                        <span class="tag bg-color">ubuntu</span>
-                    </a>
-                    
-                    <a href="/tags/#linux" target="_blank">
-                        <span class="tag bg-color">linux</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2018-03-16</span>
-                </div>
-
-            </div>
-        </div>
-        
-        
-        <div class="cd-timeline-img month bg-color">
-            <span>02</span>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>24</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/13.jpg">
-                            <img src="/medias/featureimages/13.jpg" class="archive-img thumbnail-img" alt="general_machine_learning_alogrithm"/>
+首先说明一下 ubuntu 的软件安装大概有几种方式:deb 包的安装方式deb 是 debian 系 </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/操作系统/" class="post-category" target="_blank">
+                                    操作系统
+                                </a>
+                                
+                                <a href="/categories/操作系统/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                                
+                                <a href="/categories/操作系统/Linux/Ubuntu/" class="post-category" target="_blank">
+                                    Ubuntu
+                                </a>
+                                
+                                <a href="/categories/操作系统/Linux/Ubuntu/GNU/" class="post-category" target="_blank">
+                                    GNU
+                                </a>
+                                
+                                
+                            </span>
                         </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ubuntu/" target="_blank">
+                            <span class="chip bg-color">ubuntu</span>
+                        </a>
+                        
+                        <a href="/tags/linux/" target="_blank">
+                            <span class="chip bg-color">linux</span>
+                        </a>
                         
                     </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2018/02/24/general-machine-learning-alogrithm/">general_machine_learning_alogrithm</a>
-                        <div class="summary">本文旨在为那些获取关于重要机器学习概念知识的人们提供一些机器学习算法，同时免费提供相关的材料和资源。并且附上相关算法的程序实现。  
-
-
-
-
-
-通用的机器学习算</div>
-                    </div>
+                    
                 </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#machine learning" target="_blank">
-                        <span class="tag bg-color">machine learning</span>
-                    </a>
-                    
-                    <a href="/tags/#python" target="_blank">
-                        <span class="tag bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/#algorithms" target="_blank">
-                        <span class="tag bg-color">algorithms</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2018-02-24</span>
-                </div>
-
             </div>
+            
         </div>
-        
-        
-        
-        <div class="cd-timeline-img year bg-color">
-            <span>2017</span>
-        </div>
-        
-        <div class="cd-timeline-img month bg-color">
-            <span>11</span>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>07</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/4.jpg">
-                            <img src="/medias/featureimages/4.jpg" class="archive-img thumbnail-img" alt="Git_notes"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2017/11/07/Git_notes/">Git_notes</a>
-                        <div class="summary">学习Git需要清楚的几个术语
-Workspace：工作区
-Index/Stage：暂存区，也叫索引
-Repository：仓库区（或本地仓库），也存储库
-Rem</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#Git" target="_blank">
-                        <span class="tag bg-color">Git</span>
-                    </a>
-                    
-                    <a href="/tags/#Git学习" target="_blank">
-                        <span class="tag bg-color">Git学习</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2017-11-07</span>
-                </div>
-
-            </div>
-        </div>
-        
-        
-        
-        <div class="cd-timeline-img year bg-color">
-            <span>2016</span>
-        </div>
-        
-        <div class="cd-timeline-img month bg-color">
-            <span>04</span>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>04</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/17.jpg">
-                            <img src="/medias/featureimages/17.jpg" class="archive-img thumbnail-img" alt="LaTex_intro"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2016/04/04/LaTex-intro/">LaTex_intro</a>
-                        <div class="summary">如果用写代码的方式创造公式的话，那就可以装逼了！本文是我翻译自LaTex数学符号手册在浏览器中使用Latex，使用Mathjax库
-
-MathJax是一套开源j</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#html" target="_blank">
-                        <span class="tag bg-color">html</span>
-                    </a>
-                    
-                    <a href="/tags/#LaTex" target="_blank">
-                        <span class="tag bg-color">LaTex</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2016-04-04</span>
-                </div>
-
-            </div>
-        </div>
-        
-        
-        <div class="cd-timeline-img month bg-color">
-            <span>01</span>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>22</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/3.jpg">
-                            <img src="/medias/featureimages/3.jpg" class="archive-img thumbnail-img" alt="shell_commands_files_processes"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2016/01/22/shell-commands-files-processes/">shell_commands_files_processes</a>
-                        <div class="summary">我的读书笔记，学习shell的强大的文件进程管理命令。
-
-
-
-书名
-作者
-下载地址
-
-
-
-
-Classic Shell Scripting
-Arnold R. </div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#ubuntu" target="_blank">
-                        <span class="tag bg-color">ubuntu</span>
-                    </a>
-                    
-                    <a href="/tags/#shell" target="_blank">
-                        <span class="tag bg-color">shell</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2016-01-22</span>
-                </div>
-
-            </div>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>17</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/3.jpg">
-                            <img src="/medias/featureimages/3.jpg" class="archive-img thumbnail-img" alt="Shell_intro"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2016/01/17/shell-part-two/">Shell_intro</a>
-                        <div class="summary">在学习和工作中shell的使用是相当普遍。为了跟上开源时代的步伐，我也得抽时间进行基础学习。
-
-
-
-书名
-作者
-下载地址
-
-
-
-
-Classic Shell S</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#ubuntu" target="_blank">
-                        <span class="tag bg-color">ubuntu</span>
-                    </a>
-                    
-                    <a href="/tags/#shell" target="_blank">
-                        <span class="tag bg-color">shell</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2016-01-17</span>
-                </div>
-
-            </div>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>03</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/12.jpg">
-                            <img src="/medias/featureimages/12.jpg" class="archive-img thumbnail-img" alt="Makefile_notes"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2016/01/03/makefile-notes/">Makefile_notes</a>
-                        <div class="summary">Makefile是帮助我们进行编译的工具，可以简化流程，易于维护，编译不必依赖IDE，当源文件数量较多时候，使用Makefile更适合管理Project的开发。</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#ubuntu" target="_blank">
-                        <span class="tag bg-color">ubuntu</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2016-01-03</span>
-                </div>
-
-            </div>
-        </div>
-        
-        
-        
-        <div class="cd-timeline-img year bg-color">
-            <span>2015</span>
-        </div>
-        
-        <div class="cd-timeline-img month bg-color">
-            <span>09</span>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>01</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/20.jpg">
-                            <img src="/medias/featureimages/20.jpg" class="archive-img thumbnail-img" alt="Python_list_and_triple"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2015/09/01/python-list-and-triple/">Python_list_and_triple</a>
-                        <div class="summary">本文摘录有关python数据类型的内容
-列表:可变列表可以使用所有适用于序列的标准操作，例如索引、分片、连接和乘法。本文介绍一些可以改变列表的方法。
-列表简介列</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#python" target="_blank">
-                        <span class="tag bg-color">python</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2015-09-01</span>
-                </div>
-
-            </div>
-        </div>
-        
-        
-        <div class="cd-timeline-img month bg-color">
-            <span>08</span>
-        </div>
-        
-        <div class="cd-timeline-block" data-aos="fade-up">
-            <div class="cd-timeline-img day bg-color">
-                <span>25</span>
-            </div>
-            <div class="cd-timeline-content">
-                <div class="row valign-wrapper">
-                    <div class="col m4 s4">
-                        
-                        
-                        <div class="img-item" data-src="/medias/featureimages/18.jpg">
-                            <img src="/medias/featureimages/18.jpg" class="archive-img thumbnail-img" alt="Markdown_tutorial"/>
-                        </div>
-                        
-                    </div>
-                    <div class="col m8 s8 article-title">
-                        <a href="/2015/08/25/markdown_tutorial/">Markdown_tutorial</a>
-                        <div class="summary">标题生成h1–h6,在文字前面加上 1–6个# 来实现
-# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### </div>
-                    </div>
-                </div>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#Markdown" target="_blank">
-                        <span class="tag bg-color">Markdown</span>
-                    </a>
-                    
-                    
-                    <span class="cd-date">2015-08-25</span>
-                </div>
-
-            </div>
-        </div>
-        
-        
-        
-    </div>
+    </article>
 </main>
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -845,6 +480,5 @@ Classic Shell S</div>
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

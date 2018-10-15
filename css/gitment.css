@@ -52,7 +52,7 @@ a.gitment-header-issue-link:visited {
 }
 
 .gitment-editor-container .gitment-editor-avatar .gitment-github-icon {
-    background-color: #000000;
+    background-color: #ab47bc;
 }
 
 .gitment-editor-container .gitment-editor-main {
@@ -73,7 +73,7 @@ a.gitment-header-issue-link:visited {
 .gitment-editor-main .gitment-editor-tabs {
     margin-left: 0;
     padding-left: 10px;
-    background: linear-gradient(60deg, #0f2dbf, #12af4c);
+    background: linear-gradient(60deg, #ab47bc, #7b1fa2);
 }
 
 .gitment-editor-main .gitment-editor-tabs .gitment-editor-tab {

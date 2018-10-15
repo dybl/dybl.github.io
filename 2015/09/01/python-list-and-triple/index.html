@@ -1,10 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="">
 <head>
-    <head>
+    
+
+<head>
     <meta charset="utf-8">
-    <meta name="keywords" content=", hexo-theme-matery">
-    <meta name="description" content="我买几个橘子去，你就在此地，不要走动。">
+    <meta name="keywords" content="Python_list_and_triple, FunYou">
+    <meta name="description" content="本文摘录有关python数据类型的内容
+列表:可变列表可以使用所有适用于序列的标准操作，例如索引、分片、连接和乘法。本文介绍一些可以改变列表的方法。
+列表简介列表（list）是Python以及其他语言中最常用到的数据结构之一。Python使">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -12,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>FunYou</title>
+    <title>Python_list_and_triple | FunYou</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -24,7 +28,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
 </head>
 
 <body>
@@ -41,39 +47,53 @@
                         <span class="logo-span">FunYou</span>
                     </a>
                 </div>
-
                 <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
-    
     <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">Index</a>
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">Tags</a>
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">Archives</a>
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">About</a>
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/docs" class="waves-effect waves-light">Docs</a>
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
     </li>
-    
     
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
@@ -84,6 +104,7 @@
 </ul>
 
 <div class="side-nav" id="mobile-nav">
+
     <div class="mobile-head bg-color">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
@@ -95,56 +116,73 @@
             
         </div>
     </div>
-    <ul class="menu-list">
+
+    <ul class="menu-list mobile-menu-list">
         
         <li>
             <a href="/" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Index
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
             </a>
         </li>
         
         <li>
             <a href="/tags" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Tags
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
             </a>
         </li>
         
         <li>
             <a href="/archives" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Archives
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
             </a>
         </li>
         
         <li>
             <a href="/about" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>About
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
             </a>
         </li>
         
-        <li>
-            <a href="/docs" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Docs
-            </a>
-        </li>
         
     </ul>
-    <div class="social-link">
-        <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
-           data-position="top" data-delay="50">
-            <i class="fa fa-github fa-lg"></i>
-        </a>
-        <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
-           data-position="top" data-delay="50">
-            <i class="fa fa-envelope fa-lg"></i>
-        </a>
-        <a href="#!" class="tooltipped" data-tooltip="QQ号：1181062873" data-position="top" data-delay="50">
-            <i class="fa fa-qq fa-lg"></i>
-        </a>
-    </div>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
 </div>
 
             </div>
         </div>
+
+        
     </nav>
 </header>
 
@@ -164,51 +202,65 @@
     </div>
 </div>
 
-<main class="content">
 
+
+<main class="container content">
+
+    
     <!-- 文章内容详情 -->
-    <div id="artDetail" class="container">
-        <div class="card">
-            <div class="card-content article-info">
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
                 
-                <div class="article-tag">
+                <a href="/tags/python/" target="_blank">
+                    <span class="chip bg-color">python</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/tags/#python" target="_blank">
-                        <span class="chip bg-color">python</span>
+                    <a href="/categories/编程/" class="post-category" target="_blank">
+                        编程
                     </a>
                     
-                </div>
+                </span>
                 
-                <div class="author-info">
-                    <span>
-                        <i class="fa fa-calendar fa-fw"></i>2015-09-01
-                    </span>
-                </div>
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2015-09-01
+                </span>
             </div>
-            <hr>
-            <div class="card-content article-card-content">
-                <div id="articleContent">
-                    <p>本文摘录有关python数据类型的内容</p>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本文摘录有关python数据类型的内容</p>
 <h2 id="列表-可变"><a href="#列表-可变" class="headerlink" title="列表:可变"></a>列表:可变</h2><p>列表可以使用所有适用于序列的标准操作，例如索引、分片、连接和乘法。本文介绍一些可以改变列表的方法。<br><a id="more"></a></p>
 <h3 id="列表简介"><a href="#列表简介" class="headerlink" title="列表简介"></a>列表简介</h3><p>列表（list）是Python以及其他语言中最常用到的数据结构之一。Python使用使用中括号 [ ] 来解析列表。列表是可变的（mutable）——可以改变列表的内容。</p>
 <h3 id="list-函数"><a href="#list-函数" class="headerlink" title="list 函数"></a>list 函数</h3><p>通过 list(seq) 函数把一个序列类型转换成一个列表。<br>    &gt;&gt;&gt; list(‘hello’)<br>    [‘h’, ‘e’, ‘l’, ‘l’, ‘o’]]<br>list 函数使用于所有类型的序列，而不只是字符串。</p>
 <h3 id="改变列表：元素赋值"><a href="#改变列表：元素赋值" class="headerlink" title="改变列表：元素赋值"></a>改变列表：元素赋值</h3><p>使用索引标记来为某个特定的、位置明确的元素赋值。<br>    &gt;&gt;&gt; x = [1, 1, 1]<br>    &gt;&gt;&gt; x[1] = 2<br>    &gt;&gt;&gt; x<br>    [1, 2, 1]<br>不能为一个位置不存在的元素进行赋值。</p>
-<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><pre><code>&gt;&gt;&gt; names = [&apos;Alice&apos;, &apos;Beth&apos;, &apos;Cecil&apos;, &apos;Dee-Dee&apos;, &apos;Earl&apos;]
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><pre><code>&gt;&gt;&gt; names = [&#39;Alice&#39;, &#39;Beth&#39;, &#39;Cecil&#39;, &#39;Dee-Dee&#39;, &#39;Earl&#39;]
 &gt;&gt;&gt; del names[2]
 &gt;&gt;&gt; names
-[&apos;Alice&apos;, &apos;Beth&apos;, &apos;Dee-Dee&apos;, &apos;Earl&apos;]
+[&#39;Alice&#39;, &#39;Beth&#39;, &#39;Dee-Dee&#39;, &#39;Earl&#39;]
 </code></pre><p>除了删除列表中的元素，del 语句还能用于删除其他元素。</p>
-<h3 id="分片赋值"><a href="#分片赋值" class="headerlink" title="分片赋值"></a>分片赋值</h3><pre><code>&gt;&gt;&gt; name = list(&apos;Perl&apos;)
+<h3 id="分片赋值"><a href="#分片赋值" class="headerlink" title="分片赋值"></a>分片赋值</h3><pre><code>&gt;&gt;&gt; name = list(&#39;Perl&#39;)
 &gt;&gt;&gt; name
-[&apos;P&apos;, &apos;e&apos;, &apos;r&apos;, &apos;l&apos;]
-&gt;&gt;&gt; name[2:] = list(&apos;ar&apos;)
+[&#39;P&#39;, &#39;e&#39;, &#39;r&#39;, &#39;l&#39;]
+&gt;&gt;&gt; name[2:] = list(&#39;ar&#39;)
 &gt;&gt;&gt; name
-[&apos;P&apos;, &apos;e&apos;, &apos;a&apos;, &apos;r&apos;]
+[&#39;P&#39;, &#39;e&#39;, &#39;a&#39;, &#39;r&#39;]
 </code></pre><p>在使用分片赋值时，可以使用与原序列不等长的序列将分片替换：</p>
-<pre><code>&gt;&gt;&gt; name = list(&apos;Perl&apos;)
-&gt;&gt;&gt; name[1:] = list(&apos;ython&apos;)
+<pre><code>&gt;&gt;&gt; name = list(&#39;Perl&#39;)
+&gt;&gt;&gt; name[1:] = list(&#39;ython&#39;)
 &gt;&gt;&gt; name
-[&apos;P&apos;, &apos;y&apos;, &apos;t&apos;, &apos;h&apos;, &apos;o&apos;, &apos;n&apos;]
+[&#39;P&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, &#39;o&#39;, &#39;n&#39;]
 </code></pre><p>分片赋值语句可以在不需要替换任何原有元素的情况下插入新的元素。</p>
 <pre><code>&gt;&gt;&gt; numbers = [1, 5]
 &gt;&gt;&gt; numbers[1:1] = [2, 3, 4]
@@ -228,7 +280,7 @@
 [1, 2, 3, 4]  
 </code></pre><p>append方法和其他一些方法类似，只是在恰当位置修改原来的列表。这意味着，它不是简单地返回一个修改过的新列表——而是直接修改原来的列表。</p>
 <h4 id="count"><a href="#count" class="headerlink" title="count"></a>count</h4><p>count 方法统计某个元素在列表中出现的次数：</p>
-<pre><code>&gt;&gt;&gt; [&apos;to&apos;, &apos;be&apos;, &apos;or&apos;, &apos;not&apos;, &apos;to&apos;, &apos;be&apos;].count(&apos;to&apos;)  
+<pre><code>&gt;&gt;&gt; [&#39;to&#39;, &#39;be&#39;, &#39;or&#39;, &#39;not&#39;, &#39;to&#39;, &#39;be&#39;].count(&#39;to&#39;)  
 2  
 &gt;&gt;&gt; x = [[1,2], 1, 1, [2, 1, [1, 2]]]  
 &gt;&gt;&gt; x.count(1)  
@@ -253,15 +305,15 @@
 &gt;&gt;&gt; a  
 [1, 2, 3, 4, 5, 6]  
 </code></pre><h4 id="index"><a href="#index" class="headerlink" title="index"></a>index</h4><p>index 方法用于从列表中找出某个值第一个匹配项的索引位置：</p>
-<pre><code>&gt;&gt;&gt; knights = [&apos;We&apos;, &apos;are&apos;, &apos;the&apos;, &apos;knights&apos;, &apos;who&apos;, &apos;say&apos;, &apos;ni&apos;]  
-&gt;&gt;&gt; knights.index(&apos;who&apos;)  
+<pre><code>&gt;&gt;&gt; knights = [&#39;We&#39;, &#39;are&#39;, &#39;the&#39;, &#39;knights&#39;, &#39;who&#39;, &#39;say&#39;, &#39;ni&#39;]  
+&gt;&gt;&gt; knights.index(&#39;who&#39;)  
 4 
 </code></pre><p>当搜索不存在的值时，就会引发一个异常。</p>
 <h4 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h4><p>insert 方法用于将对象插入到列表中：</p>
 <pre><code>&gt;&gt;&gt; numbers = [1, 2, 3, 5, 6, 7]  
-&gt;&gt;&gt; numbers.insert(3, &apos;four&apos;)  
+&gt;&gt;&gt; numbers.insert(3, &#39;four&#39;)  
 &gt;&gt;&gt; numbers  
-[1, 2, 3, &apos;four&apos;, 5, 6, 7]  
+[1, 2, 3, &#39;four&#39;, 5, 6, 7]  
 </code></pre><h4 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h4><p>pop 方法会移除列表中的一个元素（默认是最后一个），并且返回该元素的值：</p>
 <pre><code>&gt;&gt;&gt; x = [1, 2, 3]  
 &gt;&gt;&gt; x.pop()  
@@ -274,11 +326,11 @@
 [2]  
 </code></pre><p>pop方法是唯一一个即能修改列表又返回元素值（除了None）的列表方法。</p>
 <h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h4><p>remove 方法用于移除列表中某个值的第一个匹配项：</p>
-<pre><code>&gt;&gt;&gt; x = [&apos;to&apos;, &apos;be&apos;, &apos;or&apos;, &apos;not&apos;, &apos;to&apos;, &apos;be&apos;]  
-&gt;&gt;&gt; x.remove(&apos;be&apos;)  
+<pre><code>&gt;&gt;&gt; x = [&#39;to&#39;, &#39;be&#39;, &#39;or&#39;, &#39;not&#39;, &#39;to&#39;, &#39;be&#39;]  
+&gt;&gt;&gt; x.remove(&#39;be&#39;)  
 &gt;&gt;&gt; x  
-[&apos;to&apos;, &apos;or&apos;, &apos;not&apos;, &apos;to&apos;, &apos;be&apos;]  
-&gt;&gt;&gt; x.remove(&apos;bee&apos;)  
+[&#39;to&#39;, &#39;or&#39;, &#39;not&#39;, &#39;to&#39;, &#39;be&#39;]  
+&gt;&gt;&gt; x.remove(&#39;bee&#39;)  
 Traceback (most recent call last):  
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;  
 ValueError: list.remove(x): x not in list  
@@ -313,63 +365,63 @@ ValueError: list.remove(x): x not in list
 <p><a href="http://blog.csdn.net/bolike/article/details/19996667" target="_blank" rel="noopener">参考资料：tuple/list原文地址</a></p>
 <h2 id="字典：可变"><a href="#字典：可变" class="headerlink" title="字典：可变"></a>字典：可变</h2><p>可存储任意类型对象，如字符串、数字、元组等其他容器模型。</p>
 <h3 id="创建字典"><a href="#创建字典" class="headerlink" title="创建字典"></a>创建字典</h3><p>字典由键和对应值成对组成。字典也被称作关联数组或哈希表。基本语法如下：</p>
-<pre><code>dict = {&apos;Alice&apos;: &apos;2341&apos;, &apos;Beth&apos;: &apos;9102&apos;, &apos;Cecil&apos;: &apos;3258&apos;}
+<pre><code>dict = {&#39;Alice&#39;: &#39;2341&#39;, &#39;Beth&#39;: &#39;9102&#39;, &#39;Cecil&#39;: &#39;3258&#39;}
 </code></pre><p>也可如此创建字典：</p>
-<pre><code>dict1 = { &apos;abc&apos;: 456 };
-dict2 = { &apos;abc&apos;: 123, 98.6: 37 };
+<pre><code>dict1 = { &#39;abc&#39;: 456 };
+dict2 = { &#39;abc&#39;: 123, 98.6: 37 };
 </code></pre><p>每个键与值用冒号隔开（:），每对用逗号，每对用逗号分割，整体放在花括号中（{}）。<br>键必须独一无二，但值则不必。<br>值可以取任何数据类型，但必须是不可变的，如字符串，数或元组。</p>
-<h3 id="访问字典里的值"><a href="#访问字典里的值" class="headerlink" title="访问字典里的值"></a>访问字典里的值</h3><pre><code>dict = {&apos;Name&apos;: &apos;Zara&apos;, &apos;Age&apos;: 7, &apos;Class&apos;: &apos;First&apos;};
+<h3 id="访问字典里的值"><a href="#访问字典里的值" class="headerlink" title="访问字典里的值"></a>访问字典里的值</h3><pre><code>dict = {&#39;Name&#39;: &#39;Zara&#39;, &#39;Age&#39;: 7, &#39;Class&#39;: &#39;First&#39;};
 
-print &quot;dict[&apos;Name&apos;]: &quot;, dict[&apos;Name&apos;];
-print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;];
+print &quot;dict[&#39;Name&#39;]: &quot;, dict[&#39;Name&#39;];
+print &quot;dict[&#39;Age&#39;]: &quot;, dict[&#39;Age&#39;];
 </code></pre><p>以上实例输出结果：</p>
-<pre><code>dict[&apos;Name&apos;]:  Zara
-dict[&apos;Age&apos;]:  7
+<pre><code>dict[&#39;Name&#39;]:  Zara
+dict[&#39;Age&#39;]:  7
 </code></pre><p>如果用字典里没有的键访问数据，会输出错误KeyError: ‘Alice’[/code]</p>
 <h3 id="修改字典"><a href="#修改字典" class="headerlink" title="修改字典"></a>修改字典</h3><p>向字典添加新内容的方法是增加新的键/值对，修改或删除已有键/值对如下实例:</p>
-<pre><code>dict = {&apos;Name&apos;: &apos;Zara&apos;, &apos;Age&apos;: 7, &apos;Class&apos;: &apos;First&apos;};
+<pre><code>dict = {&#39;Name&#39;: &#39;Zara&#39;, &#39;Age&#39;: 7, &#39;Class&#39;: &#39;First&#39;};
 
-dict[&apos;Age&apos;] = 8; # update existing entry
-dict[&apos;School&apos;] = &quot;DPS School&quot;; # Add new entry
+dict[&#39;Age&#39;] = 8; # update existing entry
+dict[&#39;School&#39;] = &quot;DPS School&quot;; # Add new entry
 
-print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;];
-print &quot;dict[&apos;School&apos;]: &quot;, dict[&apos;School&apos;];
+print &quot;dict[&#39;Age&#39;]: &quot;, dict[&#39;Age&#39;];
+print &quot;dict[&#39;School&#39;]: &quot;, dict[&#39;School&#39;];
 </code></pre><p>以上实例输出结果：</p>
-<pre><code>dict[&apos;Age&apos;]:  8
-dict[&apos;School&apos;]:  DPS School
+<pre><code>dict[&#39;Age&#39;]:  8
+dict[&#39;School&#39;]:  DPS School
 </code></pre><h3 id="删除字典元素"><a href="#删除字典元素" class="headerlink" title="删除字典元素"></a>删除字典元素</h3><p>能删单一的元素也能清空字典，清空只需一项操作。<br>显示删除一个字典用del命令，如下实例：</p>
-<pre><code>dict = {&apos;Name&apos;: &apos;Zara&apos;, &apos;Age&apos;: 7, &apos;Class&apos;: &apos;First&apos;};
+<pre><code>dict = {&#39;Name&#39;: &#39;Zara&#39;, &#39;Age&#39;: 7, &#39;Class&#39;: &#39;First&#39;};
 
-del dict[&apos;Name&apos;]; # 删除键是&apos;Name&apos;的条目
+del dict[&#39;Name&#39;]; # 删除键是&#39;Name&#39;的条目
 dict.clear();     # 清空词典所有条目
 del dict ;        # 删除词典
 
-print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;];
-print &quot;dict[&apos;School&apos;]: &quot;, dict[&apos;School&apos;];
+print &quot;dict[&#39;Age&#39;]: &quot;, dict[&#39;Age&#39;];
+print &quot;dict[&#39;School&#39;]: &quot;, dict[&#39;School&#39;];
 </code></pre><p>但这会引发一个异常，因为用del后字典不再存在：dict[‘Age’]:</p>
 <pre><code>\#Traceback (most recent call last):
 \#  File &quot;test.py&quot;, line 8, in &lt;module&gt;
-\#    print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;];
-\#TypeError: &apos;type&apos; object is unsubscriptable
+\#    print &quot;dict[&#39;Age&#39;]: &quot;, dict[&#39;Age&#39;];
+\#TypeError: &#39;type&#39; object is unsubscriptable
 </code></pre><h3 id="字典键的特性"><a href="#字典键的特性" class="headerlink" title="字典键的特性"></a>字典键的特性</h3><p>字典值可以没有限制地取任何python对象，既可以是标准的对象，也可以是用户定义的，但键不行。<br>两个重要的点需要记住：</p>
 <ul>
 <li><p>不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会被记住，如下实例：</p>
-<pre><code>dict = {&apos;Name&apos;: &apos;Zara&apos;, &apos;Age&apos;: 7, &apos;Name&apos;: &apos;Manni&apos;};
-print &quot;dict[&apos;Name&apos;]: &quot;, dict[&apos;Name&apos;];
-#输出结果：
-#dict[&apos;Name&apos;]:  Manni
+<pre><code>  dict = {&#39;Name&#39;: &#39;Zara&#39;, &#39;Age&#39;: 7, &#39;Name&#39;: &#39;Manni&#39;};
+  print &quot;dict[&#39;Name&#39;]: &quot;, dict[&#39;Name&#39;];
+  #输出结果：
+  #dict[&#39;Name&#39;]:  Manni
 </code></pre></li>
 </ul>
 <ul>
 <li><p>键必须不可变，所以可以用数，字符串或元组充当，所以用列表就不行，如下实例：</p>
-<pre><code>dict = {[&apos;Name&apos;]: &apos;Zara&apos;, &apos;Age&apos;: 7};
+<pre><code>  dict = {[&#39;Name&#39;]: &#39;Zara&#39;, &#39;Age&#39;: 7};
 
-print &quot;dict[&apos;Name&apos;]: &quot;, dict[&apos;Name&apos;];
-#输出结果：
-#Traceback (most recent call last):
-#  File &quot;test.py&quot;, line 3, in &lt;module&gt;
-#    dict = {[&apos;Name&apos;]: &apos;Zara&apos;, &apos;Age&apos;: 7};
-#TypeError: list objects are unhashable
+  print &quot;dict[&#39;Name&#39;]: &quot;, dict[&#39;Name&#39;];
+  #输出结果：
+  #Traceback (most recent call last):
+  #  File &quot;test.py&quot;, line 3, in &lt;module&gt;
+  #    dict = {[&#39;Name&#39;]: &#39;Zara&#39;, &#39;Age&#39;: 7};
+  #TypeError: list objects are unhashable
 </code></pre></li>
 </ul>
 <p><a href="http://www.jb51.net/article/47990.htm" target="_blank" rel="noopener">参考资料：dict原文链接</a></p>
@@ -377,29 +429,29 @@ print &quot;dict[&apos;Name&apos;]: &quot;, dict[&apos;Name&apos;];
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>array实例化可以提供一个参数来描述允许那种数据类型，还可以有一个初始的数据序列存储在数组中。</p>
 <pre><code>import array
 import binascii
-s = &apos;This is the array.&apos;
-a = array.array(&apos;c&apos;, s)
-print &apos;As string:&apos;, s
-print &apos;As array :&apos;, a
-print &apos;As hex   :&apos;, binascii.hexlify(a)
+s = &#39;This is the array.&#39;
+a = array.array(&#39;c&#39;, s)
+print &#39;As string:&#39;, s
+print &#39;As array :&#39;, a
+print &#39;As hex   :&#39;, binascii.hexlify(a)
 </code></pre><p>输出结果：</p>
 <pre><code>As string: This is the array.
-As array : array(&apos;c&apos;, &apos;This is the array.&apos;)
+As array : array(&#39;c&#39;, &#39;This is the array.&#39;)
 As hex   : 54686973206973207468652061727261792e
 </code></pre><h3 id="处理数组"><a href="#处理数组" class="headerlink" title="处理数组"></a>处理数组</h3><p>类似于其他python序列，可以采用同样方式扩展和处理array。</p>
 <pre><code>import array
 import pprint
-a = array.array(&apos;i&apos;, xrange(3))
-print &apos;Initial :&apos;, a
+a = array.array(&#39;i&#39;, xrange(3))
+print &#39;Initial :&#39;, a
 a.extend(xrange(3))
-print &apos;Extended:&apos;, a
-print &apos;slice:  :&apos;, a[2:5]
-print &apos;Itetator:&apos;
+print &#39;Extended:&#39;, a
+print &#39;slice:  :&#39;, a[2:5]
+print &#39;Itetator:&#39;
 print list(enumerate(a))
 </code></pre><p>输出结果：</p>
-<pre><code>Initial : array(&apos;i&apos;, [0, 1, 2])
-Extended: array(&apos;i&apos;, [0, 1, 2, 0, 1, 2])
-slice:  : array(&apos;i&apos;, [2, 0, 1])
+<pre><code>Initial : array(&#39;i&#39;, [0, 1, 2])
+Extended: array(&#39;i&#39;, [0, 1, 2, 0, 1, 2])
+slice:  : array(&#39;i&#39;, [2, 0, 1])
 Itetator:
 [(0, 0), (1, 1), (2, 2), (3, 0), (4, 1), (5, 2)]
 </code></pre><h3 id="数组和文件"><a href="#数组和文件" class="headerlink" title="数组和文件"></a>数组和文件</h3><p>可以使用高效读/写文件的专用内置方法将数组的内容写入文件或从文件读取数组。</p>
@@ -407,20 +459,20 @@ Itetator:
 import binascii
 import tempfile
 
-a = array.array(&apos;i&apos;, xrange(5))
-print &apos;A1: &apos;,a
+a = array.array(&#39;i&#39;, xrange(5))
+print &#39;A1: &#39;,a
 output = tempfile.NamedTemporaryFile()
 a.tofile(output.file)
 output.flush
 
-with open(output.name, &apos;rb&apos;) as input:
+with open(output.name, &#39;rb&#39;) as input:
     raw_input = input.read()
-    print &apos;Raw Contents:&apos;, binascii.hexlify(raw_data)
+    print &#39;Raw Contents:&#39;, binascii.hexlify(raw_data)
 
     input.seek(0)
-    a2 = array.array(&apos;i&apos;)
+    a2 = array.array(&#39;i&#39;)
     a2.fromfile(input, len(a))
-    print &apos;A2: &apos;, a2
+    print &#39;A2: &#39;, a2
 </code></pre><h3 id="候选字节顺序"><a href="#候选字节顺序" class="headerlink" title="候选字节顺序"></a>候选字节顺序</h3><p>如果数组中的数据没有采用固有的字节顺序，或者在发送到一个采用不同字节顺序的系统前需要交换顺序，可以在python转换整个数组而无须迭代处理每个元素。</p>
 <pre><code>import array
 import binascii
@@ -434,13 +486,13 @@ def to_hex(a):
         end = start + chars_per_item
         yield hex_version[start:end]
 
-a1 = array.array(&apos;i&apos;, xrange(5))
-a2 = array.array(&apos;i&apos;, xrange(5))
+a1 = array.array(&#39;i&#39;, xrange(5))
+a2 = array.array(&#39;i&#39;, xrange(5))
 a2.byteswap()
 
-fmt = &apos;%10s %10s %10s %10s&apos;
-print fmt % (&apos;A1_hex&apos;, &apos;A1&apos;, &apos;A2_hex&apos;, &apos;A2&apos;)
-print fmt % ((&apos;-&apos; * 10,) * 4)
+fmt = &#39;%10s %10s %10s %10s&#39;
+print fmt % (&#39;A1_hex&#39;, &#39;A1&#39;, &#39;A2_hex&#39;, &#39;A2&#39;)
+print fmt % ((&#39;-&#39; * 10,) * 4)
 for value in zip(to_hex(a1), a1, to_hex(a2), a2):
     print fmt % value
 </code></pre><p>byteswap()会交换C数组中元素的字节顺序，比在python中循环处理数据高效的多。<br>输出结果：</p>
@@ -454,18 +506,18 @@ for value in zip(to_hex(a1), a1, to_hex(a2), a2):
 </code></pre><p><a href="http://my.oschina.net/u/1449160/blog/199275" target="_blank" rel="noopener">参考资料：array原文链接</a></p>
 <h2 id="Set：集合"><a href="#Set：集合" class="headerlink" title="Set：集合"></a>Set：集合</h2><p>python的set和其他语言类似, 是一个无序不重复元素集, 基本功能包括关系测试和消除重复元素. 集合对象还支持union(联合), intersection(交), difference(差)和sysmmetric difference(对称差集)等数学运算.  </p>
 <p>sets 支持 x in set, len(set),和 for x in set。作为一个无序的集合，sets不记录元素位置或者插入点。因此，sets不支持 indexing, slicing, 或其它类序列（sequence-like）的操作。  </p>
-<h3 id="基本的操作："><a href="#基本的操作：" class="headerlink" title="基本的操作："></a>基本的操作：</h3><pre><code>set.add(&apos;x&apos;) #添加一项
+<h3 id="基本的操作："><a href="#基本的操作：" class="headerlink" title="基本的操作："></a>基本的操作：</h3><pre><code>set.add(&#39;x&#39;) #添加一项
 set.update([10, 3, 32]) # 添加更多项
-set.remove(&apos;x&apos;) #删掉一项
+set.remove(&#39;x&#39;) #删掉一项
 len(s) #长度
 </code></pre><h3 id="判断元素："><a href="#判断元素：" class="headerlink" title="判断元素："></a>判断元素：</h3><pre><code>x in set #判断是否在里面
 s.issubset(t) #测试是否 s 中的每一个元素都在 t 中 
 s.issuperset(t)  #测试是否 t 中的每一个元素都在 s 中  
-</code></pre><h3 id="简单应用："><a href="#简单应用：" class="headerlink" title="简单应用："></a>简单应用：</h3><pre><code>x = set(&apos;spam&apos;)
-y = set([&apos;h&apos;,&apos;a&apos;,&apos;m&apos;])
+</code></pre><h3 id="简单应用："><a href="#简单应用：" class="headerlink" title="简单应用："></a>简单应用：</h3><pre><code>x = set(&#39;spam&#39;)
+y = set([&#39;h&#39;,&#39;a&#39;,&#39;m&#39;])
 print x,y
 </code></pre><p>运行结果：</p>
-<pre><code>(set([&apos;a&apos;, &apos;p&apos;, &apos;s&apos;, &apos;m&apos;]), set([&apos;a&apos;, &apos;h&apos;, &apos;m&apos;]))  
+<pre><code>(set([&#39;a&#39;, &#39;p&#39;, &#39;s&#39;, &#39;m&#39;]), set([&#39;a&#39;, &#39;h&#39;, &#39;m&#39;]))  
 </code></pre><p>求交集，并集，差集：</p>
 <pre><code>print x &amp; y
 print x | y
@@ -487,22 +539,22 @@ print c
 <p>简单例子：</p>
 <pre><code>import struct
 import binascii
-values = (1, &apos;abc&apos;, 2.7)
-s = struct.Struct(&apos;I3sf&apos;)
+values = (1, &#39;abc&#39;, 2.7)
+s = struct.Struct(&#39;I3sf&#39;)
 packed_data = s.pack(*values)
 unpacked_data = s.unpack(packed_data)
 
-print &apos;Original values:&apos;, values
-print &apos;Format string :&apos;, s.format
-print &apos;Uses :&apos;, s.size, &apos;bytes&apos;
-print &apos;Packed Value :&apos;, binascii.hexlify(packed_data)
-print &apos;Unpacked Type :&apos;, type(unpacked_data), &apos; Value:&apos;, unpacked_data
+print &#39;Original values:&#39;, values
+print &#39;Format string :&#39;, s.format
+print &#39;Uses :&#39;, s.size, &#39;bytes&#39;
+print &#39;Packed Value :&#39;, binascii.hexlify(packed_data)
+print &#39;Unpacked Type :&#39;, type(unpacked_data), &#39; Value:&#39;, unpacked_data
 </code></pre><p>输出：</p>
-<pre><code>Original values: (1, &apos;abc&apos;, 2.7) 
+<pre><code>Original values: (1, &#39;abc&#39;, 2.7) 
 Format string : I3sf 
 Uses : 12 bytes 
 Packed Value : 0100000061626300cdcc2c40 
-Unpacked Type : &lt;type &apos;tuple&apos;&gt;  Value: (1, &apos;abc&apos;, 2.700000047683716)
+Unpacked Type : &lt;type &#39;tuple&#39;&gt;  Value: (1, &#39;abc&#39;, 2.700000047683716)
 </code></pre><p>对应的c结构体：<br><img src="/images/python_struct/struct_api1.png" alt=""></p>
 <p>另一方面，打包的后的字节顺序默认上是由操作系统的决定的，当然struct模块也提供了自定义字节顺序的功能，可以指定大端存储、小端存储等特定的字节顺序</p>
 <p>不同的字节顺序和存储方式也会导致字节大小的不同。在format字符串前面加上特定的符号即可以表示不同的字节顺序存储方式，例如采用小端存储：</p>
@@ -514,18 +566,18 @@ a=[1,2,3,4]
 len_a=len(a)
 s=struct.pack(&quot;{0}B&quot;.format(len_a),*a)
 print repr(s)
-# &apos;\x1\x2\x3\x4&apos;
+# &#39;\x1\x2\x3\x4&#39;
 </code></pre><p>这里用到了一个小把戏，string类的format格式化，详见<a href="https://docs.python.org/2/library/string.html" target="_blank" rel="noopener">python参考手册</a>，相当于把pack的第一个形参的d前面替换成4d，非常方便。<br>下列两个是等效的</p>
-<pre><code>&apos;&lt;{0}B&apos;.format(4)
-&apos;&lt;4B&apos;
+<pre><code>&#39;&lt;{0}B&#39;.format(4)
+&#39;&lt;4B&#39;
 </code></pre><p>测试其它</p>
 <pre><code># string 带有*args的格式化
-print &apos;{0}, {1}, {2}&apos;.format(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;)
-# &apos;a, b, c&apos;
-print &apos;GPS: {latitude},{longitude}&apos;.format(latitude=&apos;37.24N&apos;,longitude=&apos;-115.81W&apos;)
-# &apos;GPS: 37.24N, -115.81W&apos;
-</code></pre><h2 id="多重循环"><a href="#多重循环" class="headerlink" title="多重循环"></a>多重循环</h2><pre><code>a = [&apos;a1&apos;, &apos;a2&apos;, &apos;a3&apos;]
-b = [&apos;b1&apos;, &apos;b2&apos;]
+print &#39;{0}, {1}, {2}&#39;.format(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)
+# &#39;a, b, c&#39;
+print &#39;GPS: {latitude},{longitude}&#39;.format(latitude=&#39;37.24N&#39;,longitude=&#39;-115.81W&#39;)
+# &#39;GPS: 37.24N, -115.81W&#39;
+</code></pre><h2 id="多重循环"><a href="#多重循环" class="headerlink" title="多重循环"></a>多重循环</h2><pre><code>a = [&#39;a1&#39;, &#39;a2&#39;, &#39;a3&#39;]
+b = [&#39;b1&#39;, &#39;b2&#39;]
 
 # will iterate 3 times,
 # the last iteration, b will be None
@@ -546,10 +598,129 @@ print &quot;List:&quot;
 for x, y in [(x,y) for x in a for y in b]:
     print x, y
 </code></pre><h2 id="Q-E-D"><a href="#Q-E-D" class="headerlink" title="Q.E.D"></a>Q.E.D</h2>
-                </div>
-                <hr/>
+            </div>
+            <hr/>
 
-                <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">走一波赞赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
 <div id="article-share">
     
@@ -559,46 +730,48 @@ for x, y in [(x,y) for x in a for y in b]:
 
 <script src="/libs/share/js/social-share.min.js"></script>
 
-                <div class="reprint">
-                    <p>
-                        <span class="reprint-tip">Reprint please specify: </span>
-                        <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
-                        <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                        <a href="/2015/09/01/python-list-and-triple/" class="b-link-green">Python_list_and_triple</a>
-                    </p>
-                </div>
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2015/09/01/python-list-and-triple/" class="b-link-green">Python_list_and_triple</a>
+                </p>
             </div>
         </div>
+    </div>
 
-        
-        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
-<link rel="stylesheet" href="/css/gitment.css">
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="gitment-card card" data-aos="fade-up">
-    <div id="gitment-content" class="card-content"></div>
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitment/gitment.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-var gitment = new Gitment({
-    id: 'Tue Sep 01 2015 17:12:32 GMT+0800',
-    owner: 'dybl',
-    repo: 'https://github.com/dybl/blog_backup',
-    oauth: {
-        client_id: 'f120cd4af15e4483511b',
-        client_secret: '0cbbd24d59314d1948516419787059bd2e44cfa7'
-    }
-});
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2015-09-01T17-12-32',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
 
-gitment.render('gitment-content');
+    gitalk.render('gitalk-container');
 </script>
-        
+    
 
-        
+    
 
-        
+    
 
-<article id="articles" class="container prev-next articles">
+    
+
+<article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
@@ -612,33 +785,35 @@ gitment.render('gitment-content');
                         
                         <span class="card-title">Makefile_notes</span>
                     </div>
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            Makefile是帮助我们进行编译的工具，可以简化流程，易于维护，编译不必依赖IDE，当源文件数量较多时候，使用Makefile更适合管理Project的开发。在开源软件中大多采用Makefile进行管理。
-花时间读了两本书，讲的很明白。做
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2016-01-03
-                            </span>
-                            <span class="publish-author">
-                                <i class="fa fa-user fa-fw"></i>
-                                
-                                Junjc9
-                                
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#ubuntu" target="_blank">
-                            <span class="chip bg-color">ubuntu</span>
-                        </a>
-                        
-                    </div>
-                    
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary">Makefile是帮助我们进行编译的工具，可以简化流程，易于维护，编译不必依赖IDE，当源文件数量较多时候，使用Makefile更适合管理Project的开发。在开源软件中大多采用Makefile进行管理。
+花时间读了两本书，讲的很明白。做</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2016-01-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/读书笔记/" class="post-category" target="_blank">
+                                    读书笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ubuntu/" target="_blank">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -654,9 +829,9 @@ gitment.render('gitment-content');
                         
                         <span class="card-title">Markdown_tutorial</span>
                     </div>
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            标题生成h1–h6,在文字前面加上 1–6个# 来实现
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">标题生成h1–h6,在文字前面加上 1–6个# 来实现
 # 一级标题
 ## 二级标题
 ### 三级标题
@@ -669,40 +844,40 @@ gitment.render('gitment-content');
 -
 
 效果：
-一级标题二级标题三级标题四级标题五级
-                        </div>
-                        <div class="publish-info">
+一级标题二级标题三级标题四级标题五级</div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2015-08-25
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2015-08-25
                             </span>
-                            <span class="publish-author">
-                                <i class="fa fa-user fa-fw"></i>
-                                
-                                Junjc9
-                                
-                            </span>
-                        </div>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/读书笔记/" class="post-category" target="_blank">
+                                    读书笔记
+                                </a>
+                            
+                            
+                        </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#Markdown" target="_blank">
-                            <span class="chip bg-color">Markdown</span>
-                        </a>
-                        
-                    </div>
+                    <a href="/tags/Markdown/" target="_blank">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
                     
-                </a>
+                </div>
+                
             </div>
         </div>
         
     </div>
 </article>
+</div>
+    
 
-        
-            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-            
-    </div>
 </main>
 
 <footer class="page-footer bg-color">
@@ -765,6 +940,5 @@ gitment.render('gitment-content');
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

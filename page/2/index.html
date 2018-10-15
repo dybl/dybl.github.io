@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="">
 <head>
-    <head>
+    
+
+<head>
     <meta charset="utf-8">
-    <meta name="keywords" content=", hexo-theme-matery">
-    <meta name="description" content="我买几个橘子去，你就在此地，不要走动。">
+    <meta name="keywords" content="FunYou">
+    <meta name="description" content="FunYou">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +26,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
 </head>
 
 <body>
@@ -41,39 +45,53 @@
                         <span class="logo-span">FunYou</span>
                     </a>
                 </div>
-
                 <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
-    
     <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">Index</a>
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">Tags</a>
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">Archives</a>
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">About</a>
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/docs" class="waves-effect waves-light">Docs</a>
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
     </li>
-    
     
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
@@ -84,6 +102,7 @@
 </ul>
 
 <div class="side-nav" id="mobile-nav">
+
     <div class="mobile-head bg-color">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
@@ -95,60 +114,84 @@
             
         </div>
     </div>
-    <ul class="menu-list">
+
+    <ul class="menu-list mobile-menu-list">
         
         <li>
             <a href="/" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Index
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
             </a>
         </li>
         
         <li>
             <a href="/tags" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Tags
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
             </a>
         </li>
         
         <li>
             <a href="/archives" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Archives
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
             </a>
         </li>
         
         <li>
             <a href="/about" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>About
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
             </a>
         </li>
         
-        <li>
-            <a href="/docs" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Docs
-            </a>
-        </li>
         
     </ul>
-    <div class="social-link">
-        <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
-           data-position="top" data-delay="50">
-            <i class="fa fa-github fa-lg"></i>
-        </a>
-        <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
-           data-position="top" data-delay="50">
-            <i class="fa fa-envelope fa-lg"></i>
-        </a>
-        <a href="#!" class="tooltipped" data-tooltip="QQ号：1181062873" data-position="top" data-delay="50">
-            <i class="fa fa-qq fa-lg"></i>
-        </a>
-    </div>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
 </div>
 
             </div>
         </div>
+
+        
     </nav>
 </header>
 
-<div class="bg-cover" style="background-image: url('/medias/cover.jpg')">
+<style type="text/css">
+    /* don't remove. */
+    .index-cover {
+        height: 95vh;
+    }
+</style>
+
+<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -167,6 +210,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 
@@ -189,9 +233,69 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
+    
+
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2016/01/17/shell-part-two/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Shell_intro">
+                            
+                            <span class="card-title">Shell_intro</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">在学习和工作中shell的使用是相当普遍。为了跟上开源时代的步伐，我也得抽时间进行基础学习。
+
+
+
+书名
+作者
+下载地址
+
+
+
+
+Class</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-01-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/读书笔记/" class="post-category" target="_blank">
+                                    读书笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ubuntu/" target="_blank">
+                            <span class="chip bg-color">ubuntu</span>
+                        </a>
+                        
+                        <a href="/tags/shell/" target="_blank">
+                            <span class="chip bg-color">shell</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -203,32 +307,36 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             
                             <span class="card-title">Makefile_notes</span>
                         </div>
-
-                        <div class="card-content article-content">
-                            <div class="summary">Makefile是帮助我们进行编译的工具，可以简化流程，易于维护，编译不必依赖IDE，当源文件数量较多时候，使用Make</div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-calendar fa-fw"></i>2016-01-03
-                                </span>
-                                <span class="publish-author">
-                                    <i class="fa fa-user fa-fw"></i>
-                                    
-                                    Junjc9
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/#ubuntu" target="_blank">
-                                <span class="chip bg-color">ubuntu</span>
-                            </a>
-                            
-                        </div>
-                        
                     </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">Makefile是帮助我们进行编译的工具，可以简化流程，易于维护，编译不必依赖IDE，当源文件数量较多时候，使用Makefile更适合管理P</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-01-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/读书笔记/" class="post-category" target="_blank">
+                                    读书笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ubuntu/" target="_blank">
+                            <span class="chip bg-color">ubuntu</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
@@ -242,33 +350,37 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             
                             <span class="card-title">Python_list_and_triple</span>
                         </div>
-
-                        <div class="card-content article-content">
-                            <div class="summary">本文摘录有关python数据类型的内容
-列表:可变列表可以使用所有适用于序列的标准操作，例如索引、分片、连接和乘法。本文</div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-calendar fa-fw"></i>2015-09-01
-                                </span>
-                                <span class="publish-author">
-                                    <i class="fa fa-user fa-fw"></i>
-                                    
-                                    Junjc9
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/#python" target="_blank">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                            
-                        </div>
-                        
                     </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">本文摘录有关python数据类型的内容
+列表:可变列表可以使用所有适用于序列的标准操作，例如索引、分片、连接和乘法。本文介绍一些可以改变列表</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2015-09-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/编程/" class="post-category" target="_blank">
+                                    编程
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/python/" target="_blank">
+                            <span class="chip bg-color">python</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
@@ -282,36 +394,41 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             
                             <span class="card-title">Markdown_tutorial</span>
                         </div>
+                    </a>
 
-                        <div class="card-content article-content">
-                            <div class="summary">标题生成h1–h6,在文字前面加上 1–6个# 来实现
+                    <div class="card-content article-content">
+                        <div class="summary">标题生成h1–h6,在文字前面加上 1–6个# 来实现
 # 一级标题
 ## 二级标题
 ### 三级标题
-#### 四级标</div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-calendar fa-fw"></i>2015-08-25
-                                </span>
-                                <span class="publish-author">
-                                    <i class="fa fa-user fa-fw"></i>
-                                    
-                                    Junjc9
-                                    
-                                </span>
-                            </div>
+#### 四级标题
+##### 五级</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2015-08-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/读书笔记/" class="post-category" target="_blank">
+                                    读书笔记
+                                </a>
+                                
+                                
+                            </span>
                         </div>
+                    </div>
 
+                    
+                    <div class="card-action article-tags">
                         
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/#Markdown" target="_blank">
-                                <span class="chip bg-color">Markdown</span>
-                            </a>
-                            
-                        </div>
+                        <a href="/tags/Markdown/" target="_blank">
+                            <span class="chip bg-color">Markdown</span>
+                        </a>
                         
-                    </a>
+                    </div>
+                    
                 </div>
             </div>
             
@@ -406,6 +523,5 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -1,10 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="">
 <head>
-    <head>
+    
+
+<head>
     <meta charset="utf-8">
-    <meta name="keywords" content=", hexo-theme-matery">
-    <meta name="description" content="我买几个橘子去，你就在此地，不要走动。">
+    <meta name="keywords" content="LaTex_intro, FunYou">
+    <meta name="description" content="如果用写代码的方式创造公式的话，那就可以装逼了！本文是我翻译自LaTex数学符号手册在浏览器中使用Latex，使用Mathjax库
+
+MathJax是一套开源js库，它并不是将公式转化为一个图片，而是在浏览器端通过位置控制、字体、大小来显示">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -12,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>FunYou</title>
+    <title>LaTex_intro | FunYou</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -24,7 +28,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
 </head>
 
 <body>
@@ -41,39 +47,53 @@
                         <span class="logo-span">FunYou</span>
                     </a>
                 </div>
-
                 <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
-    
     <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">Index</a>
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">Tags</a>
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">Archives</a>
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">About</a>
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/docs" class="waves-effect waves-light">Docs</a>
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
     </li>
-    
     
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
@@ -84,6 +104,7 @@
 </ul>
 
 <div class="side-nav" id="mobile-nav">
+
     <div class="mobile-head bg-color">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
@@ -95,56 +116,73 @@
             
         </div>
     </div>
-    <ul class="menu-list">
+
+    <ul class="menu-list mobile-menu-list">
         
         <li>
             <a href="/" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Index
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
             </a>
         </li>
         
         <li>
             <a href="/tags" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Tags
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
             </a>
         </li>
         
         <li>
             <a href="/archives" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Archives
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
             </a>
         </li>
         
         <li>
             <a href="/about" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>About
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
             </a>
         </li>
         
-        <li>
-            <a href="/docs" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Docs
-            </a>
-        </li>
         
     </ul>
-    <div class="social-link">
-        <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
-           data-position="top" data-delay="50">
-            <i class="fa fa-github fa-lg"></i>
-        </a>
-        <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
-           data-position="top" data-delay="50">
-            <i class="fa fa-envelope fa-lg"></i>
-        </a>
-        <a href="#!" class="tooltipped" data-tooltip="QQ号：1181062873" data-position="top" data-delay="50">
-            <i class="fa fa-qq fa-lg"></i>
-        </a>
-    </div>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
 </div>
 
             </div>
         </div>
+
+        
     </nav>
 </header>
 
@@ -164,42 +202,56 @@
     </div>
 </div>
 
-<main class="content">
 
+
+<main class="container content">
+
+    
     <!-- 文章内容详情 -->
-    <div id="artDetail" class="container">
-        <div class="card">
-            <div class="card-content article-info">
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
                 
-                <div class="article-tag">
-                    
-                    <a href="/tags/#html" target="_blank">
-                        <span class="chip bg-color">html</span>
-                    </a>
-                    
-                    <a href="/tags/#LaTex" target="_blank">
-                        <span class="chip bg-color">LaTex</span>
-                    </a>
-                    
-                </div>
+                <a href="/tags/html/" target="_blank">
+                    <span class="chip bg-color">html</span>
+                </a>
                 
-                <div class="author-info">
-                    <span>
-                        <i class="fa fa-calendar fa-fw"></i>2016-04-04
-                    </span>
-                </div>
+                <a href="/tags/LaTex/" target="_blank">
+                    <span class="chip bg-color">LaTex</span>
+                </a>
+                
             </div>
-            <hr>
-            <div class="card-content article-card-content">
-                <div id="articleContent">
-                    <p>如果用写代码的方式创造公式的话，那就可以装逼了！本文是我翻译自<a href="https://www.artofproblemsolving.com/wiki/index.php/LaTeX:Symbols" target="_blank" rel="noopener">LaTex数学符号手册</a><br><a id="more"></a><br>在浏览器中使用Latex，使用Mathjax库</p>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/网络/" class="post-category" target="_blank">
+                        网络
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2016-04-04
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>如果用写代码的方式创造公式的话，那就可以装逼了！本文是我翻译自<a href="https://www.artofproblemsolving.com/wiki/index.php/LaTeX:Symbols" target="_blank" rel="noopener">LaTex数学符号手册</a><br><a id="more"></a><br>在浏览器中使用Latex，使用Mathjax库</p>
 <blockquote>
 <p>MathJax是一套开源js库，它并不是将公式转化为一个图片，而是在浏览器端通过位置控制、字体、大小来显示一个公式。支持LaTeX数学公式。</p>
 </blockquote>
 <p>对于hexo博客框架：首先更改next主题中的mathjax库的URL，MathJax2.4版有些许bug：显示尾随的竖线。</p>
 <pre><code>vi themes/next/layout/_scripts/third-party/mathjax.swig
 从
-if config.language === &apos;zh-Hans&apos;
+if config.language === &#39;zh-Hans&#39;
 到配对的endif标签
 替换为固定的js链接：
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
@@ -861,10 +913,129 @@ if config.language === &apos;zh-Hans&apos;
 </tbody>
 </table>
 <h2 id="Q-E-D"><a href="#Q-E-D" class="headerlink" title="Q.E.D"></a>Q.E.D</h2>
-                </div>
-                <hr/>
+            </div>
+            <hr/>
 
-                <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">走一波赞赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
 <div id="article-share">
     
@@ -874,46 +1045,48 @@ if config.language === &apos;zh-Hans&apos;
 
 <script src="/libs/share/js/social-share.min.js"></script>
 
-                <div class="reprint">
-                    <p>
-                        <span class="reprint-tip">Reprint please specify: </span>
-                        <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
-                        <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                        <a href="/2016/04/04/LaTex-intro/" class="b-link-green">LaTex_intro</a>
-                    </p>
-                </div>
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2016/04/04/LaTex-intro/" class="b-link-green">LaTex_intro</a>
+                </p>
             </div>
         </div>
+    </div>
 
-        
-        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
-<link rel="stylesheet" href="/css/gitment.css">
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="gitment-card card" data-aos="fade-up">
-    <div id="gitment-content" class="card-content"></div>
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitment/gitment.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-var gitment = new Gitment({
-    id: 'Mon Apr 04 2016 15:05:54 GMT+0800',
-    owner: 'dybl',
-    repo: 'https://github.com/dybl/blog_backup',
-    oauth: {
-        client_id: 'f120cd4af15e4483511b',
-        client_secret: '0cbbd24d59314d1948516419787059bd2e44cfa7'
-    }
-});
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2016-04-04T15-05-54',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
 
-gitment.render('gitment-content');
+    gitalk.render('gitalk-container');
 </script>
-        
+    
 
-        
+    
 
-        
+    
 
-<article id="articles" class="container prev-next articles">
+    
+
+<article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
@@ -927,41 +1100,47 @@ gitment.render('gitment-content');
                         
                         <span class="card-title">Git_notes</span>
                     </div>
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            学习Git需要清楚的几个术语
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">学习Git需要清楚的几个术语
 Workspace：工作区
 Index/Stage：暂存区，也叫索引
 Repository：仓库区（或本地仓库），也存储库
 Remote：远程仓库
-工作区: 通过git init创建的代码库的所有文件但是不包括
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2017-11-07
-                            </span>
-                            <span class="publish-author">
-                                <i class="fa fa-user fa-fw"></i>
-                                
-                                Junjc9
-                                
-                            </span>
-                        </div>
+工作区: 通过git init创建的代码库的所有文件但是不包括</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-11-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/技术/" class="post-category" target="_blank">
+                                    技术
+                                </a>
+                            
+                            <a href="/categories/技术/Git/" class="post-category" target="_blank">
+                                    Git
+                                </a>
+                            
+                            
+                        </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#Git" target="_blank">
-                            <span class="chip bg-color">Git</span>
-                        </a>
-                        
-                        <a href="/tags/#Git学习" target="_blank">
-                            <span class="chip bg-color">Git学习</span>
-                        </a>
-                        
-                    </div>
+                    <a href="/tags/Git/" target="_blank">
+                        <span class="chip bg-color">Git</span>
+                    </a>
                     
-                </a>
+                    <a href="/tags/Git学习/" target="_blank">
+                        <span class="chip bg-color">Git学习</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -977,9 +1156,9 @@ Remote：远程仓库
                         
                         <span class="card-title">shell_commands_files_processes</span>
                     </div>
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            我的读书笔记，学习shell的强大的文件进程管理命令。
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">我的读书笔记，学习shell的强大的文件进程管理命令。
 
 
 
@@ -995,44 +1174,44 @@ Arnold R. &amp; Nelson H.F.B
 暂无
 
 
-Advanced Bash-Sc
-                        </div>
-                        <div class="publish-info">
+Advanced Bash-Sc</div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2016-01-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-01-22
                             </span>
-                            <span class="publish-author">
-                                <i class="fa fa-user fa-fw"></i>
-                                
-                                Junjc9
-                                
-                            </span>
-                        </div>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/读书笔记/" class="post-category" target="_blank">
+                                    读书笔记
+                                </a>
+                            
+                            
+                        </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#ubuntu" target="_blank">
-                            <span class="chip bg-color">ubuntu</span>
-                        </a>
-                        
-                        <a href="/tags/#shell" target="_blank">
-                            <span class="chip bg-color">shell</span>
-                        </a>
-                        
-                    </div>
+                    <a href="/tags/ubuntu/" target="_blank">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
                     
-                </a>
+                    <a href="/tags/shell/" target="_blank">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
     </div>
 </article>
+</div>
+    
 
-        
-            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-            
-    </div>
 </main>
 
 <footer class="page-footer bg-color">
@@ -1095,6 +1274,5 @@ Advanced Bash-Sc
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

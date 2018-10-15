@@ -1,10 +1,28 @@
 <!DOCTYPE HTML>
 <html lang="">
 <head>
-    <head>
+    
+
+<head>
     <meta charset="utf-8">
-    <meta name="keywords" content=", hexo-theme-matery">
-    <meta name="description" content="我买几个橘子去，你就在此地，不要走动。">
+    <meta name="keywords" content="shell_commands_files_processes, FunYou">
+    <meta name="description" content="我的读书笔记，学习shell的强大的文件进程管理命令。
+
+
+
+书名
+作者
+下载地址
+
+
+
+
+Classic Shell Scripting
+Arnold R. &amp;amp; Nelson H.F.B
+暂无
+
+
+Advanced Bash-Sc">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -12,7 +30,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>FunYou</title>
+    <title>shell_commands_files_processes | FunYou</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -24,7 +42,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
 </head>
 
 <body>
@@ -41,39 +61,53 @@
                         <span class="logo-span">FunYou</span>
                     </a>
                 </div>
-
                 <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
-    
     <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">Index</a>
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">Tags</a>
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">Archives</a>
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">About</a>
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
     </li>
     
-    
-    
     <li class="hide-on-med-and-down">
-        <a href="/docs" class="waves-effect waves-light">Docs</a>
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
     </li>
-    
     
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
@@ -84,6 +118,7 @@
 </ul>
 
 <div class="side-nav" id="mobile-nav">
+
     <div class="mobile-head bg-color">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
@@ -95,56 +130,73 @@
             
         </div>
     </div>
-    <ul class="menu-list">
+
+    <ul class="menu-list mobile-menu-list">
         
         <li>
             <a href="/" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Index
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
             </a>
         </li>
         
         <li>
             <a href="/tags" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Tags
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
             </a>
         </li>
         
         <li>
             <a href="/archives" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Archives
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
             </a>
         </li>
         
         <li>
             <a href="/about" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>About
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
             </a>
         </li>
         
-        <li>
-            <a href="/docs" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i>Docs
-            </a>
-        </li>
         
     </ul>
-    <div class="social-link">
-        <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
-           data-position="top" data-delay="50">
-            <i class="fa fa-github fa-lg"></i>
-        </a>
-        <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
-           data-position="top" data-delay="50">
-            <i class="fa fa-envelope fa-lg"></i>
-        </a>
-        <a href="#!" class="tooltipped" data-tooltip="QQ号：1181062873" data-position="top" data-delay="50">
-            <i class="fa fa-qq fa-lg"></i>
-        </a>
-    </div>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
 </div>
 
             </div>
         </div>
+
+        
     </nav>
 </header>
 
@@ -164,35 +216,49 @@
     </div>
 </div>
 
-<main class="content">
 
+
+<main class="container content">
+
+    
     <!-- 文章内容详情 -->
-    <div id="artDetail" class="container">
-        <div class="card">
-            <div class="card-content article-info">
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
                 
-                <div class="article-tag">
-                    
-                    <a href="/tags/#ubuntu" target="_blank">
-                        <span class="chip bg-color">ubuntu</span>
-                    </a>
-                    
-                    <a href="/tags/#shell" target="_blank">
-                        <span class="chip bg-color">shell</span>
-                    </a>
-                    
-                </div>
+                <a href="/tags/ubuntu/" target="_blank">
+                    <span class="chip bg-color">ubuntu</span>
+                </a>
                 
-                <div class="author-info">
-                    <span>
-                        <i class="fa fa-calendar fa-fw"></i>2016-01-22
-                    </span>
-                </div>
+                <a href="/tags/shell/" target="_blank">
+                    <span class="chip bg-color">shell</span>
+                </a>
+                
             </div>
-            <hr>
-            <div class="card-content article-card-content">
-                <div id="articleContent">
-                    <p>我的读书笔记，学习shell的强大的文件进程管理命令。</p>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/读书笔记/" class="post-category" target="_blank">
+                        读书笔记
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2016-01-22
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>我的读书笔记，学习shell的强大的文件进程管理命令。</p>
 <table>
 <thead>
 <tr>
@@ -216,10 +282,13 @@
 </table>
 <a id="more"></a>
 <h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>列出文件列表，等价于windows的dir<br>ll命令列出当前的文件属性</p>
-<pre><code>[root@www ~]# ls -l
--rw-r--r--      1        root    users    6845 Jun 25 08:53 install.log
-# 输出结果格式化一下，如下表：
-</code></pre><table>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@www ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l</span>
+-rw-r--r--  1rootusers6845 Jun 25 08:53 install.log
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>输出结果格式化一下，如下表：</p>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>-rw-r--r--</th>
@@ -243,21 +312,20 @@
 </tr>
 </tbody>
 </table>
-<p>注释<br>0：文件类型：</p>
-<ul>
-<li>d:目录</li>
-<li>-:文件</li>
-<li>l:链接</li>
-<li>b:ram设备</li>
-<li>c:串行设备</li>
-</ul>
+<p>注释:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">- 0：文件类型：
+- d:目录
+- \-:文件
+- l:链接
+- b:ram设备
+- c:串行设备
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>1～9:拥有者权限，所属群组权限，其他人权限<br>权限掩码，<a href="#umask">看这里</a></p>
 <p>link：文件硬链接数或目录子目录数，在<a href="#ln">这里</a>看看</p>
 <p>chgrp:改变文件所属群组<br>chowm:改变文件拥有者<br>chmod:改变文件权限（suid,sgid,sbit）<br>以上三个命令都要求改变后的用户或群存在于系统中/etc/passwd或group</p>
 <p>chmod 可以使用数字形式或者符号形式：</p>
-<pre><code>chmod 777 filename
-chmod a+x filename
-</code></pre><p>其中a+x格式化一下：</p>
+<p>chmod 777 filename<br>chmod a+x filename</p>
+<p>其中a+x格式化一下：</p>
 <table>
 <thead>
 <tr>
@@ -281,213 +349,321 @@ chmod a+x filename
 <li>3:可选r w x分别对应读写执行</li>
 </ul>
 <p>显示当前的文件夹名称：</p>
-<pre><code>pwd
-</code></pre><p>显示当前文件夹绝对路径，加上-P 参数</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">pwd</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>显示当前文件夹绝对路径，加上-P 参数</p>
 <p>pwd对应系统变量PWD</p>
 <p>@ruanyf的奇淫技巧：有关显示目录的命令：</p>
 <ul>
-<li><p>只显示普通目录，不显示隐藏目录</p>
-<p>  ls -d */<br>  ls -F | grep /<br>  ls -l | grep ^d</p>
-</li>
-<li><p>只显示隐藏目录，不显示普通目录</p>
-<p>  ls -d .*/</p>
-</li>
-<li><p>显示所有目录，不显示文件</p>
-<p>  find -maxdepth 1 -type d</p>
-</li>
+<li>只显示普通目录，不显示隐藏目录</li>
 </ul>
-<h2 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h2><p>实现文件符号链接，硬链接。相当于windows的mklink</p>
-<pre><code>ln [-sf] 来源文件(夹)src 目标文件(夹)dest
-</code></pre><p>选项与参数：<br>-s  ：通常采用符号链接，如果不加任何参数就进行连结，那就是hard link，-s 就是symbolic link，<br>-f  ：如果 目标文件 存在时，就主动的将目标文件直接移除后再创建！</p>
-<p>注意【SRC】和【DEST】需要写全绝对路径，否则提示</p>
-<pre><code>Too many levels of symbolic links!
-</code></pre><p>建立软链接就是建立了一个新文件。当访问链接文件时，系统就会发现他是个链接文件，它读取链接文件找到真正要访问的文件。建立硬链接会获得与原文件等同的地位。</p>
-<p>博客上面ls命令提到的第二个字段link的含义如下：</p>
-<p>一、如果是一个普通文件：</p>
-<p>那么这一字段表示,这个文件所具有的硬链接数,即这个文件总共有多少个文件名.查看第一个文件:</p>
-<pre><code>-rw-r--r-- 1 root root 1581 11月 24 18:14 aaa.cfg
-</code></pre><p>第2字段的值为1,说明这个文件只有aaa.cfg这一个文件名.即只有一个指向该链接的硬链接.<br>如果我用ln,做一个指向该文件的硬链接再查看该文件,该搜索文件的第2字段就会变成2:</p>
-<pre><code>[root@ubuntu]# ln aaa.cfg aaa.cfg.hardlink 
-[root@ubuntu]# ls -l 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ls</span> -d */
+<span class="token function">ls</span> -F <span class="token operator">|</span> <span class="token function">grep</span> /
+<span class="token function">ls</span> -l <span class="token operator">|</span> <span class="token function">grep</span> ^d
+
+
+- 只显示隐藏目录，不显示普通目录
+
+<span class="token function">ls</span> -d .*/
+
+- 显示所有目录，不显示文件
+
+<span class="token function">find</span> -maxdepth 1 -type d
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h2><pre class="line-numbers language-bash"><code class="language-bash">实现文件符号链接，硬链接。相当于windows的mklink
+
+<span class="token function">ln</span> <span class="token punctuation">[</span>-sf<span class="token punctuation">]</span> 来源文件<span class="token punctuation">(</span>夹<span class="token punctuation">)</span>src 目标文件<span class="token punctuation">(</span>夹<span class="token punctuation">)</span>dest
+
+选项与参数：
+-s  ：通常采用符号链接，如果不加任何参数就进行连结，那就是hard link，-s 就是symbolic link，
+-f  ：如果 目标文件 存在时，就主动的将目标文件直接移除后再创建！
+
+注意【SRC】和【DEST】需要写全绝对路径，否则提示
+
+Too many levels of symbolic links<span class="token operator">!</span>
+
+建立软链接就是建立了一个新文件。当访问链接文件时，系统就会发现他是个链接文件，它读取链接文件找到真正要访问的文件。建立硬链接会获得与原文件等同的地位。
+
+博客上面ls命令提到的第二个字段link的含义如下：
+
+一、如果是一个普通文件：
+
+那么这一字段表示,这个文件所具有的硬链接数,即这个文件总共有多少个文件名.查看第一个文件:
+
+-rw-r--r-- 1 root root 1581 11月 24 18:14 aaa.cfg
+
+
+第2字段的值为1,说明这个文件只有aaa.cfg这一个文件名.即只有一个指向该链接的硬链接. 
+如果我用ln,做一个指向该文件的硬链接再查看该文件,该搜索文件的第2字段就会变成2:
+
+
+<span class="token punctuation">[</span>root@ubuntu<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ln aaa.cfg aaa.cfg.hardlink </span>
+<span class="token punctuation">[</span>root@ubuntu<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l </span>
 总用量 4071 
 -rw-r--r-- 2 root root 1581 11月 24 18:14 aaa.cfg 
 -rw-r--r-- 2 root root 1581 11月 24 18:14 aaa.cfg.hardlink
-</code></pre><p>此时,aaa.cfg 和aaa.cfg.hardlink 称为互为硬链接.他们指向同一个文件,无论是修改哪一个文件,另一个里也做相应的变化,因为实际上他们指向同一个文件.<br>可以查看它的文件节点(inode) </p>
-<pre><code>ls -i aaa.cfg
-</code></pre><p>互为硬链接的文件具有相同的文件节点. 以下是验证实验:</p>
-<pre><code>[root@ubuntu]# ls -i aaa.cfg 
+
+
+此时,aaa.cfg 和aaa.cfg.hardlink 称为互为硬链接.他们指向同一个文件,无论是修改哪一个文件,另一个里也做相应的变化,因为实际上他们指向同一个文件.
+可以查看它的文件节点<span class="token punctuation">(</span>inode<span class="token punctuation">)</span> 
+
+
+<span class="token function">ls</span> -i aaa.cfg
+
+
+互为硬链接的文件具有相同的文件节点. 以下是验证实验:
+
+
+<span class="token punctuation">[</span>root@ubuntu<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -i aaa.cfg </span>
 18102 aaa.cfg 
-[root@ubuntu]# ls -i aaa.cfg.hardlink 
+<span class="token punctuation">[</span>root@ubuntu<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -i aaa.cfg.hardlink </span>
 18102 aaa.cfg.hardlink
-</code></pre><p>可以看到,这两个文件具有相同的文件节点号:18102<br>如果你知道一个文件有多个文件名,如何查找他的其他文件名分布在什么地方呢?<br>可以先用ls -i 获得它的节点号,然后用find查找，若具有多个文件名,我要查找与它互为硬链接的文件:</p>
-<pre><code>[root@gucuiwen devices]# ls -i /etc/sysconfig/networking/devices/ifcfg-eth0 
+
+可以看到,这两个文件具有相同的文件节点号:18102
+如果你知道一个文件有多个文件名,如何查找他的其他文件名分布在什么地方呢?
+可以先用ls -i 获得它的节点号,然后用find查找，若具有多个文件名,我要查找与它互为硬链接的文件:
+
+<span class="token punctuation">[</span>root@gucuiwen devices<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -i /etc/sysconfig/networking/devices/ifcfg-eth0 </span>
 147181 /etc/sysconfig/networking/devices/ifcfg-eth0
-</code></pre><p>得到它的节点号为 147181，再用find查找:</p>
-<pre><code>[root@ubuntu]# find /etc -inum 147181 
+
+得到它的节点号为 147181，再用find查找:
+
+<span class="token punctuation">[</span>root@ubuntu<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># find /etc -inum 147181 </span>
 /etc/sysconfig/networking/devices/ifcfg-eth0 
 /etc/sysconfig/networking/profiles/default/ifcfg-eth0
-</code></pre><p>这样就得到了同一个文件的不同文件名的位置.</p>
+
+
+这样就得到了同一个文件的不同文件名的位置.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>二、如果是一个目录：</p>
 <p>link字段表示该目录所含子目录的个数.<br>新建一个空目录,这个目录的第二字段就是2,表示该目录下有两个子目录.有一个指向它本身的子目录”.” 和指向它上级目录的子目录”..”,这两个默认子目录是隐藏的.用ls -a可以看到.<br>每次在目录下新建一个子目录,该目录第2字段的值就增1,但是新建一个普通文件该字段值不增加.</p>
 <h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><p>经典的命令，(Change Dir)</p>
 <p>建议配合使用压栈出栈的方式cd：</p>
-<pre><code>cd ~
-pushd .ssh/
-# 这样打开了.ssh文件夹，并把上一次的位置入栈
-popd
-# 返回到～，出栈了
-</code></pre><h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><p>搜索当前文件夹，并以ascii顺序排序结果：</p>
-<pre><code>find | LC_ALL=C sort
-</code></pre><p>搜索文件夹，使用ls的风格显示结果，以第11个字段【文件名】进行排序</p>
-<pre><code>find -ls | sort -k11
-</code></pre><p>寻找”o”开头的文件，排除目录：</p>
-<pre><code>find &apos;o&apos; -type f
-</code></pre><p>搜索我的目录下大于1MB的文件:</p>
-<pre><code>find /home/ubuntu -size +1024k
-</code></pre><p>搜索大小在1k~1M的文件：-a代表AND逻辑与，同样-o代表OR</p>
-<pre><code>find . -size +1k -a -size -1024k
-</code></pre><p>搜索空文件：</p>
-<pre><code>find . -size 0
-</code></pre><p>搜索符号链接</p>
-<pre><code>find -L /var/www/ -xtype l
-</code></pre><p>其他选项：-ctime是inode变更时间，-atime访问时间，-mtime修改时间。</p>
-<p>寻找文件，类似的命令 locate，支持通配符搜索</p>
-<p>还有个很实用的命令：type 能搜索到当前命令的别名，类型，还有指向位置</p>
-<pre><code>type cd &amp;&amp; type gcc &amp;&amp; type ll &amp;&amp; type foorbar
-cd is a shell builtin
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> ~
+<span class="token function">pushd</span> .ssh/
+<span class="token comment" spellcheck="true"># 这样打开了.ssh文件夹，并把上一次的位置入栈</span>
+<span class="token function">popd</span>
+<span class="token comment" spellcheck="true"># 返回到～，出栈了</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><pre class="line-numbers language-bash"><code class="language-bash">搜索当前文件夹，并以ascii顺序排序结果：
+
+<span class="token function">find</span> <span class="token operator">|</span> LC_ALL<span class="token operator">=</span>C <span class="token function">sort</span>
+
+搜索文件夹，使用ls的风格显示结果，以第11个字段【文件名】进行排序
+
+<span class="token function">find</span> -ls <span class="token operator">|</span> <span class="token function">sort</span> -k11
+
+寻找<span class="token string">"o"</span>开头的文件，排除目录：
+
+<span class="token function">find</span> <span class="token string">'o'</span> -type f
+
+搜索我的目录下大于1MB的文件:
+
+<span class="token function">find</span> /home/ubuntu -size +1024k
+
+搜索大小在1k~1M的文件：-a代表AND逻辑与，同样-o代表OR
+
+<span class="token function">find</span> <span class="token keyword">.</span> -size +1k -a -size -1024k
+
+搜索空文件：
+
+<span class="token function">find</span> <span class="token keyword">.</span> -size 0
+
+搜索符号链接
+
+<span class="token function">find</span> -L /var/www/ -xtype l
+
+其他选项：-ctime是inode变更时间，-atime访问时间，-mtime修改时间。
+
+寻找文件，类似的命令 locate，支持通配符搜索
+
+还有个很实用的命令：type 能搜索到当前命令的别名，类型，还有指向位置
+
+<span class="token function">type</span> <span class="token function">cd</span> <span class="token operator">&amp;&amp;</span> <span class="token function">type</span> gcc <span class="token operator">&amp;&amp;</span> <span class="token function">type</span> ll <span class="token operator">&amp;&amp;</span> <span class="token function">type</span> foorbar
+<span class="token function">cd</span> is a shell <span class="token function">builtin</span>
 gcc is /usr/bin/gcc
-ll is alias of ‘ls -alF’
+ll is <span class="token function">alias</span> of ‘ls -alF’
 sh: type: foorbar: could not found
-</code></pre><p>还有个常用的命令：file，判断文件类型</p>
-<pre><code>file /etc/passwd
-# /etc/passwd: ASCII text
-file /tmp/sogou-qimpanel-cell
-# /tmp/sogou-qimpanel-cell: socket
-file /dev/sda
-# /dev/sda: block special
-</code></pre><p>在文件中查找字符串：(Finds string in files)</p>
-<pre><code>grep -rnw &apos;/home/ubuntu&apos; -e &quot;pattern_to_find&quot;
-</code></pre><h2 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a>xargs</h2><p>防止A命令的结果为空时，作为参数输入到B命令出错。<br>例如下列命令，当搜索不到结果时会使得grep报错：</p>
-<pre><code>grep POSIX /dev/null $(find /usr/include -type f)
-</code></pre><p>使用xargs防止这种错误发生，遇到空结果时候不执行grep：</p>
-<pre><code>find /usr/include -type f | xargs grep POSIX /dev/null
-</code></pre><h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><p>是Disk Free的缩写。查看磁盘分区用量</p>
-<p>使用-h (human-readable)查看简洁的摘要：</p>
-<pre><code>df -h
-#结果
-文件系统        容量  已用  可用 已用% 挂载点
-udev            3.9G  4.0K  3.9G    1% /dev
-tmpfs           788M  1.3M  786M    1% /run
-/dev/sdb5       4.8G 1020M  3.6G   22% /
-none            4.0K     0  4.0K    0% /sys/fs/cgroup
-none            5.0M     0  5.0M    0% /run/lock
-tmpfs           512M  128M  385M   25% /run/shm
-</code></pre><p>类似的命令是du (Disk Usage)，告诉你的磁盘用量</p>
-<pre><code>du /tmp
-# 结果
-4    /tmp/.ICE-unix
-52    /tmp/.org.chromium.Chromium.ucrnZv/html
-12    /tmp/.org.chromium.Chromium.ucrnZv/css/viewer-toc
-16    /tmp/.org.chromium.Chromium.ucrnZv/css/column
-</code></pre><p>同样支持 -h (huaman-readable)选项。<br>du的原理就是深入查找文件，将每个文件空间求和输出。</p>
+
+还有个常用的命令：file，判断文件类型
+
+<span class="token function">file</span> /etc/passwd
+<span class="token comment" spellcheck="true"># /etc/passwd: ASCII text</span>
+<span class="token function">file</span> /tmp/sogou-qimpanel-cell
+<span class="token comment" spellcheck="true"># /tmp/sogou-qimpanel-cell: socket</span>
+<span class="token function">file</span> /dev/sda
+<span class="token comment" spellcheck="true"># /dev/sda: block special</span>
+
+在文件中查找字符串：<span class="token punctuation">(</span>Finds string <span class="token keyword">in</span> files<span class="token punctuation">)</span>
+
+<span class="token function">grep</span> -rnw <span class="token string">'/home/ubuntu'</span> -e <span class="token string">"pattern_to_find"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a>xargs</h2><pre class="line-numbers language-bash"><code class="language-bash">防止A命令的结果为空时，作为参数输入到B命令出错。
+例如下列命令，当搜索不到结果时会使得grep报错：
+
+<span class="token function">grep</span> POSIX /dev/null <span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> /usr/include -type f<span class="token variable">)</span></span>
+
+使用xargs防止这种错误发生，遇到空结果时候不执行grep：
+
+<span class="token function">find</span> /usr/include -type f <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">grep</span> POSIX /dev/null
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><pre class="line-numbers language-bash"><code class="language-bash">是Disk Free的缩写。查看磁盘分区用量
+
+使用-h <span class="token punctuation">(</span>human-readable<span class="token punctuation">)</span>查看简洁的摘要：
+
+<span class="token function">df</span> -h
+<span class="token comment" spellcheck="true">#结果</span>
+文件系统容量  已用  可用 已用% 挂载点
+udev3.9G  4.0K  3.9G1% /dev
+tmpfs   788M  1.3M  786M1% /run
+/dev/sdb5   4.8G 1020M  3.6G   22% /
+none4.0K 0  4.0K0% /sys/fs/cgroup
+none5.0M 0  5.0M0% /run/lock
+tmpfs   512M  128M  385M   25% /run/shm
+
+类似的命令是du <span class="token punctuation">(</span>Disk Usage<span class="token punctuation">)</span>，告诉你的磁盘用量
+
+<span class="token function">du</span> /tmp
+<span class="token comment" spellcheck="true"># 结果</span>
+4/tmp/.ICE-unix
+52/tmp/.org.chromium.Chromium.ucrnZv/html
+12/tmp/.org.chromium.Chromium.ucrnZv/css/viewer-toc
+16/tmp/.org.chromium.Chromium.ucrnZv/css/column
+
+同样支持 -h <span class="token punctuation">(</span>huaman-readable<span class="token punctuation">)</span>选项。
+du的原理就是深入查找文件，将每个文件空间求和输出。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h2><p>比较文件，git里面也是集成了一个diff，感觉比系统自带的好用，因为有彩色显示。这里就不介绍git diff了。</p>
 <p>使用diff的惯例：把旧文件作为参数第一个。</p>
-<pre><code># 1.txt文件
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 1.txt文件</span>
 hello world
 i am tony
-i live in China
+i live <span class="token keyword">in</span> China
 
-# 2.txt文件
+<span class="token comment" spellcheck="true"># 2.txt文件</span>
 hello world
 add a line
 I am Tony
 Now I am sleepy
-</code></pre><p>执行比较</p>
-<pre><code>diff 1.txt 2.txt
-# 结果
-2,3c2,4     # 表示旧文件的2~3行发生变化(c符号)，变成新文件的2~4行
-&lt; i am tony  # 左箭头表示旧文件
-&lt; i live in China.
----          # 分隔新旧文件
-&gt; add a line   # 右箭头代表新文件
-&gt; I am Tony
-&gt; Now I am sleepy
-</code></pre><p>c代表change a代表add d代表delete。</p>
-<p>建议使用-u参数，接近git diff的输出风格：</p>
-<pre><code>diff -u 1.txt 2.txt
-# 结果
---- 1.txt    2016-01-22 19:12:27.838666220 +0800
-+++ 2.txt    2016-01-22 19:12:41.914666098 +0800
-@@ -1,3 +1,4 @@  # 原文件的1~3行在输出结果前面3行
-                 # 新文件的1~4行为输出结果是结果除去掉减号内容
+
+执行比较
+
+<span class="token function">diff</span> 1.txt 2.txt
+<span class="token comment" spellcheck="true"># 结果</span>
+2,3c2,4 <span class="token comment" spellcheck="true"># 表示旧文件的2~3行发生变化(c符号)，变成新文件的2~4行</span>
+<span class="token operator">&lt;</span> i am tony  <span class="token comment" spellcheck="true"># 左箭头表示旧文件</span>
+<span class="token operator">&lt;</span> i live <span class="token keyword">in</span> China.
+---  <span class="token comment" spellcheck="true"># 分隔新旧文件</span>
+<span class="token operator">></span> add a line   <span class="token comment" spellcheck="true"># 右箭头代表新文件</span>
+<span class="token operator">></span> I am Tony
+<span class="token operator">></span> Now I am sleepy
+
+c代表change a代表add d代表delete。
+
+建议使用-u参数，接近git diff的输出风格：
+
+<span class="token function">diff</span> -u 1.txt 2.txt
+<span class="token comment" spellcheck="true"># 结果</span>
+--- 1.txt2016-01-22 19:12:27.838666220 +0800
++++ 2.txt2016-01-22 19:12:41.914666098 +0800
+@@ -1,3 +1,4 @@  <span class="token comment" spellcheck="true"># 原文件的1~3行在输出结果前面3行</span>
+ <span class="token comment" spellcheck="true"># 新文件的1~4行为输出结果是结果除去掉减号内容</span>
  hello world
 -i am tony
--i live in China
+-i live <span class="token keyword">in</span> China
 +add a line
 +I am Tony
 +Now I am sleepy
-</code></pre><h2 id="patch"><a href="#patch" class="headerlink" title="patch"></a>patch</h2><p>执行由diff命令比较结果的改动，自动完成差异更改。通常用于程序员之间交流代码，很方便的对同一份代码进行比较修改。</p>
-<pre><code>diff -c old.txt new.txt &gt; /tmp/patch.dif
-cp old.txt /tmp
-cd /tmp
-patch &lt; patch.dif # 这个patch直接对源文件生效，改动覆盖原文件
-cat old.txt
-</code></pre><p>patch尽可能地套用不同之处，然后报告失败的地方，由你手动处理</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="patch"><a href="#patch" class="headerlink" title="patch"></a>patch</h2><p>执行由diff命令比较结果的改动，自动完成差异更改。通常用于程序员之间交流代码，很方便的对同一份代码进行比较修改。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">diff</span> -c old.txt new.txt <span class="token operator">></span> /tmp/patch.dif
+<span class="token function">cp</span> old.txt /tmp
+<span class="token function">cd</span> /tmp
+patch <span class="token operator">&lt;</span> patch.dif <span class="token comment" spellcheck="true"># 这个patch直接对源文件生效，改动覆盖原文件</span>
+<span class="token function">cat</span> old.txt
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>patch尽可能地套用不同之处，然后报告失败的地方，由你手动处理</p>
 <h2 id="pgp"><a href="#pgp" class="headerlink" title="pgp"></a>pgp</h2><p>通常下载完毕，首先检验md5：</p>
-<pre><code>md5sum ubuntu.iso
-</code></pre><p>但是并不能保证是发布者原封不动的发布的，当黑客改动文件，并把改动后的MD5发布到网站上，也能进行欺骗，所以引入GPG签名保证文件是签名是正确的。</p>
-<p>在更新ubutnu软件包时，开发者首先公布他的pgp公钥，然后让用户下载。</p>
-<pre><code>wget -O- http://shadowsocks.org/debian/1D27208A.gpg | sudo apt-key add -
-</code></pre><p>pgp这部分暂时没资料，不过感觉和openssl一块用进行加密是完全可以的。</p>
-<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><p>PID：进程id<br>PPID：父进程id<br>相关命令： pgrep pkill trap</p>
-<pre><code>pgrep netscape # 寻找netspace的PID
-pkill -HUP netspace
-pkill -TERM netspace
-pkill -KILL netspace
-# 上面三个命令不建议，因为进程名称不是唯一的。误杀。
-</code></pre><p>使用kill杀死进程 pid</p>
-<h2 id="trap"><a href="#trap" class="headerlink" title="trap"></a>trap</h2><p>假设有个脚本，模拟后台运行：trap语句被触发：当后面的信号到达时</p>
-<pre><code># loop.sh
-#! /bin/sh
-trap &apos;echo ignoring HUP&apos; HUP
-trap &apos;echo Terminating on USR1; exit 1&apos; USR1
+<pre class="line-numbers language-bash"><code class="language-bash">md5sum ubuntu.iso
 
-while true; do
-    sleep 2
-    date &gt; /dev/null
-done
-</code></pre><p>执行：</p>
-<pre><code>sh ./boop.sh &amp;
-# 24444
-kill -HUP 24444
-# Ingoring HUP
-kill -USR1
-# Terminating on USR1
-[1] + Done(1)
-</code></pre><p>试试向他发出其他信号：</p>
-<pre><code>sh ./loop.sh &amp;
-# 22222
-kill -CHLD 22222
-jobs
-[1] + Running sh ./loop.sh &amp;
-kill -PIPE 22222
-[1] + Broken Pipe ./loop.sh &amp;
-</code></pre><p>原来一个broken pipe信号就杀死他了。。<br>试一下默认的kill信号：</p>
-<pre><code>sh ./loop.sh &amp;
-# 11111
-kill 11111   # 默认是TERM信号
-[1] + Done sh ./loop.sh &amp;
-</code></pre><p>经过我的无数次实验，发现使用trap被触发后，调用trap前的一条命令会被退出，然后执行trap所在那行的命令：</p>
-<pre><code># 1.sh内容
-#! /bin/bash
-trap &apos;echo in trap..; sleep 5; exit(0)&apos; 2   # 信号2代表SIGINT就是Ctrl+C
+但是并不能保证是发布者原封不动的发布的，当黑客改动文件，并把改动后的MD5发布到网站上，也能进行欺骗，所以引入GPG签名保证文件是签名是正确的。
+
+在更新ubutnu软件包时，开发者首先公布他的pgp公钥，然后让用户下载。
+
+<span class="token function">wget</span> -O- http://shadowsocks.org/debian/1D27208A.gpg <span class="token operator">|</span> <span class="token function">sudo</span> apt-key add -
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>pgp这部分暂时没资料，不过感觉和openssl一块用进行加密是完全可以的。</p>
+<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><pre class="line-numbers language-bash"><code class="language-bash">PID：进程id
+PPID：父进程id
+相关命令： pgrep <span class="token function">pkill</span> <span class="token function">trap</span>
+
+pgrep netscape <span class="token comment" spellcheck="true"># 寻找netspace的PID</span>
+<span class="token function">pkill</span> -HUP netspace
+<span class="token function">pkill</span> -TERM netspace
+<span class="token function">pkill</span> -KILL netspace
+<span class="token comment" spellcheck="true"># 上面三个命令不建议，因为进程名称不是唯一的。误杀。</span>
+
+使用kill杀死进程 pid
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="trap"><a href="#trap" class="headerlink" title="trap"></a>trap</h2><pre class="line-numbers language-bash"><code class="language-bash">假设有个脚本，模拟后台运行：trap语句被触发：当后面的信号到达时
+
+<span class="token comment" spellcheck="true"># loop.sh</span>
+<span class="token comment" spellcheck="true">#! /bin/sh</span>
+<span class="token function">trap</span> <span class="token string">'echo ignoring HUP'</span> HUP
+<span class="token function">trap</span> <span class="token string">'echo Terminating on USR1; exit 1'</span> USR1
+
+<span class="token keyword">while</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+<span class="token function">sleep</span> 2
+<span class="token function">date</span> <span class="token operator">></span> /dev/null
+<span class="token keyword">done</span>
+
+执行：
+
+sh ./boop.sh <span class="token operator">&amp;</span>
+<span class="token comment" spellcheck="true"># 24444</span>
+<span class="token function">kill</span> -HUP 24444
+<span class="token comment" spellcheck="true"># Ingoring HUP</span>
+<span class="token function">kill</span> -USR1
+<span class="token comment" spellcheck="true"># Terminating on USR1</span>
+<span class="token punctuation">[</span>1<span class="token punctuation">]</span> + Done<span class="token punctuation">(</span>1<span class="token punctuation">)</span>
+
+试试向他发出其他信号：
+
+sh ./loop.sh <span class="token operator">&amp;</span>
+<span class="token comment" spellcheck="true"># 22222</span>
+<span class="token function">kill</span> -CHLD 22222
+<span class="token function">jobs</span>
+<span class="token punctuation">[</span>1<span class="token punctuation">]</span> + Running sh ./loop.sh <span class="token operator">&amp;</span>
+<span class="token function">kill</span> -PIPE 22222
+<span class="token punctuation">[</span>1<span class="token punctuation">]</span> + Broken Pipe ./loop.sh <span class="token operator">&amp;</span>
+
+原来一个broken pipe信号就杀死他了。。
+试一下默认的kill信号：
+
+sh ./loop.sh <span class="token operator">&amp;</span>
+<span class="token comment" spellcheck="true"># 11111</span>
+<span class="token function">kill</span> 11111   <span class="token comment" spellcheck="true"># 默认是TERM信号</span>
+<span class="token punctuation">[</span>1<span class="token punctuation">]</span> + Done sh ./loop.sh <span class="token operator">&amp;</span>
+
+
+经过我的无数次实验，发现使用trap被触发后，调用trap前的一条命令会被退出，然后执行trap所在那行的命令：
+
+<span class="token comment" spellcheck="true"># 1.sh内容</span>
+<span class="token comment" spellcheck="true">#! /bin/bash</span>
+<span class="token function">trap</span> <span class="token string">'echo in trap..; sleep 5; exit(0)'</span> 2   <span class="token comment" spellcheck="true"># 信号2代表SIGINT就是Ctrl+C</span>
 2.sh
 
-# 2.sh内容
-while true; do echo from 2.sh!; sleep 1; done
-</code></pre><p>实验过程：<br>在A终端执行1.sh，屏幕不断输出from 2.sh，另外开一个终端B</p>
-<pre><code>ps aux | grep 2.sh
-</code></pre><p>发现有2行输出（2.sh 和 grep auto 2.sh），在A终端按Ctrl+C，触发trap命令。接下来5秒时间内，可以在终端B执行上面这句ps aux发现已经没有2.sh的进程了。证明了我的猜想。</p>
+<span class="token comment" spellcheck="true"># 2.sh内容</span>
+<span class="token keyword">while</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token keyword">echo</span> from 2.sh<span class="token operator">!</span><span class="token punctuation">;</span> <span class="token function">sleep</span> 1<span class="token punctuation">;</span> <span class="token keyword">done</span>
+
+
+实验过程：
+在A终端执行1.sh，屏幕不断输出from 2.sh，另外开一个终端B
+
+<span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> 2.sh
+
+发现有2行输出（2.sh 和 <span class="token function">grep</span> auto 2.sh），在A终端按Ctrl+C，触发trap命令。接下来5秒时间内，可以在终端B执行上面这句ps aux发现已经没有2.sh的进程了。证明了我的猜想。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h2><p>umask值一共有4组数字，其中第1组数字用于定义特殊权限，我们一般不予考虑，与一般权限有关的是后3组数字。</p>
 <p>默认情况下，对于目录，用户所能拥有的最大权限是777；对于文件，用户所能拥有的最大权限是目录的最大权限去掉执行权限，即666。因为x执行权限对于目录是必须的，没有执行权限就无法进入目录，而对于文件则不必默认赋予x执行权限。</p>
 <p>对于root用户，他的umask值是022。</p>
@@ -496,10 +672,129 @@ while true; do echo from 2.sh!; sleep 1; done
 <p>Q:如果将umask值设为0003，那么此时创建的目录或文件的默认权限是多少？</p>
 <p>A:正确的结果应该是：目录的默认权限是774，文件的默认权限是664。在计算默认权限时，不是用十进制的最大权限直接减去umask值，要以二进制考虑。将umask值所对应的相应位置的权限去掉，这样才能得到正确的结果。</p>
 <h2 id="Q-E-D"><a href="#Q-E-D" class="headerlink" title="Q.E.D"></a>Q.E.D</h2>
-                </div>
-                <hr/>
+            </div>
+            <hr/>
 
-                <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">走一波赞赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
 <div id="article-share">
     
@@ -509,46 +804,48 @@ while true; do echo from 2.sh!; sleep 1; done
 
 <script src="/libs/share/js/social-share.min.js"></script>
 
-                <div class="reprint">
-                    <p>
-                        <span class="reprint-tip">Reprint please specify: </span>
-                        <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
-                        <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                        <a href="/2016/01/22/shell-commands-files-processes/" class="b-link-green">shell_commands_files_processes</a>
-                    </p>
-                </div>
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2016/01/22/shell-commands-files-processes/" class="b-link-green">shell_commands_files_processes</a>
+                </p>
             </div>
         </div>
+    </div>
 
-        
-        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
-<link rel="stylesheet" href="/css/gitment.css">
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="gitment-card card" data-aos="fade-up">
-    <div id="gitment-content" class="card-content"></div>
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitment/gitment.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-var gitment = new Gitment({
-    id: 'Fri Jan 22 2016 15:26:18 GMT+0800',
-    owner: 'dybl',
-    repo: 'https://github.com/dybl/blog_backup',
-    oauth: {
-        client_id: 'f120cd4af15e4483511b',
-        client_secret: '0cbbd24d59314d1948516419787059bd2e44cfa7'
-    }
-});
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2016-01-22T15-26-18',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
 
-gitment.render('gitment-content');
+    gitalk.render('gitalk-container');
 </script>
-        
+    
 
-        
+    
 
-        
+    
 
-<article id="articles" class="container prev-next articles">
+    
+
+<article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
@@ -562,38 +859,40 @@ gitment.render('gitment-content');
                         
                         <span class="card-title">LaTex_intro</span>
                     </div>
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            如果用写代码的方式创造公式的话，那就可以装逼了！本文是我翻译自LaTex数学符号手册在浏览器中使用Latex，使用Mathjax库
-
-MathJax是一套开源js库，它并不是将公式转化为一个图片，而是在浏览器端通过位置控制、字体、大小来显示
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2016-04-04
-                            </span>
-                            <span class="publish-author">
-                                <i class="fa fa-user fa-fw"></i>
-                                
-                                Junjc9
-                                
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#html" target="_blank">
-                            <span class="chip bg-color">html</span>
-                        </a>
-                        
-                        <a href="/tags/#LaTex" target="_blank">
-                            <span class="chip bg-color">LaTex</span>
-                        </a>
-                        
-                    </div>
-                    
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary">如果用写代码的方式创造公式的话，那就可以装逼了！本文是我翻译自LaTex数学符号手册在浏览器中使用Latex，使用Mathjax库
+
+MathJax是一套开源js库，它并不是将公式转化为一个图片，而是在浏览器端通过位置控制、字体、大小来显示</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2016-04-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络/" class="post-category" target="_blank">
+                                    网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/html/" target="_blank">
+                        <span class="chip bg-color">html</span>
+                    </a>
+                    
+                    <a href="/tags/LaTex/" target="_blank">
+                        <span class="chip bg-color">LaTex</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -609,9 +908,9 @@ MathJax是一套开源js库，它并不是将公式转化为一个图片，而�
                         
                         <span class="card-title">Shell_intro</span>
                     </div>
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            在学习和工作中shell的使用是相当普遍。为了跟上开源时代的步伐，我也得抽时间进行基础学习。
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">在学习和工作中shell的使用是相当普遍。为了跟上开源时代的步伐，我也得抽时间进行基础学习。
 
 
 
@@ -624,44 +923,44 @@ MathJax是一套开源js库，它并不是将公式转化为一个图片，而�
 
 Classic Shell Scripting
 Arnold R. &amp; Nelson H.F.B
-暂无
-                        </div>
-                        <div class="publish-info">
+暂无</div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2016-01-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-01-17
                             </span>
-                            <span class="publish-author">
-                                <i class="fa fa-user fa-fw"></i>
-                                
-                                Junjc9
-                                
-                            </span>
-                        </div>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/读书笔记/" class="post-category" target="_blank">
+                                    读书笔记
+                                </a>
+                            
+                            
+                        </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/#ubuntu" target="_blank">
-                            <span class="chip bg-color">ubuntu</span>
-                        </a>
-                        
-                        <a href="/tags/#shell" target="_blank">
-                            <span class="chip bg-color">shell</span>
-                        </a>
-                        
-                    </div>
+                    <a href="/tags/ubuntu/" target="_blank">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
                     
-                </a>
+                    <a href="/tags/shell/" target="_blank">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
     </div>
 </article>
+</div>
+    
 
-        
-            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-            
-    </div>
 </main>
 
 <footer class="page-footer bg-color">
@@ -724,6 +1023,5 @@ Arnold R. &amp; Nelson H.F.B
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
