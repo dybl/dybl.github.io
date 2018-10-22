@@ -168,11 +168,7 @@ $sudo apt install libmysqlclient-dev
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
-    data-position="top" data-delay="50">
-    <i class="fa fa-github fa-lg"></i>
-</a>
-<a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    <div class="social-link"><a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
     data-delay="50">
     <i class="fa fa-envelope fa-lg"></i>
 </a>
@@ -411,7 +407,7 @@ $sudo apt-get remove mysql-common (非常重要)
 
 <div id="article-share">
     
-    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    <div class="social-share" data-disabled="qzone, qq, douban"></div>
     
 </div>
 
@@ -420,7 +416,7 @@ $sudo apt-get remove mysql-common (非常重要)
             <div class="reprint">
                 <p>
                     <span class="reprint-tip">Reprint please specify: </span>
-                    <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
+                    <a href="https://dybl.github.io/blog" class="b-link-green">FunYou</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2018/09/24/mysql-install_on_linux/" class="b-link-green">mysql-install_on_linux</a>
                 </p>
@@ -464,24 +460,20 @@ $sudo apt-get remove mysql-common (非常重要)
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/10/12/hexo-theme/">
+                <a href="/2018/10/12/datastructure/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="hexo-theme">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="data structure">
                         
-                        <span class="card-title">hexo-theme</span>
+                        <span class="card-title">data structure</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">hexo-theme-matery      
-English Document | 演示示例
+                    <div class="summary">1. 数据结构的基本概念“数据结构”是研究各种数据的特性以及数据之间存在的关系，进而根据实际应用的要求，合理地组织和存储数据，设计出相应的算法。
+数据是对客观事物的符号表示，
 
-这是一个采用Material Design和响应式设计的 Hexo 博客主题。
-
-特性
-简单漂亮，文章内容美观易读
-Material Desi</div>
+数据元素（节点）：数据的基本单位，在程序中通常作为一个整体进行</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-12
@@ -497,8 +489,8 @@ Material Desi</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/" target="_blank">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/algorithms/" target="_blank">
+                        <span class="chip bg-color">algorithms</span>
                     </a>
                     
                 </div>
@@ -574,6 +566,7 @@ Material Desi</div>
 <div class="progress-bar"></div>
 
 
+
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -596,6 +589,26 @@ Material Desi</div>
         <i class="fa fa-angle-double-up"></i>
     </a>
 </div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
 
 
 <script src="/libs/materialize/js/materialize.min.js"></script>

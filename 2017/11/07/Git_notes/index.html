@@ -170,11 +170,7 @@ Remote：远程仓库
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
-    data-position="top" data-delay="50">
-    <i class="fa fa-github fa-lg"></i>
-</a>
-<a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    <div class="social-link"><a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
     data-delay="50">
     <i class="fa fa-envelope fa-lg"></i>
 </a>
@@ -493,7 +489,7 @@ Changes not staged for commit:
 
 <div id="article-share">
     
-    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    <div class="social-share" data-disabled="qzone, qq, douban"></div>
     
 </div>
 
@@ -502,7 +498,7 @@ Changes not staged for commit:
             <div class="reprint">
                 <p>
                     <span class="reprint-tip">Reprint please specify: </span>
-                    <a href="https://dybl.github.io" class="b-link-green">FunYou</a>
+                    <a href="https://dybl.github.io/blog" class="b-link-green">FunYou</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2017/11/07/Git_notes/" class="b-link-green">Git_notes</a>
                 </p>
@@ -591,16 +587,16 @@ Changes not staged for commit:
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/algorithms/" target="_blank">
+                        <span class="chip bg-color">algorithms</span>
+                    </a>
+                    
                     <a href="/tags/machine-learning/" target="_blank">
                         <span class="chip bg-color">machine learning</span>
                     </a>
                     
                     <a href="/tags/python/" target="_blank">
                         <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/algorithms/" target="_blank">
-                        <span class="chip bg-color">algorithms</span>
                     </a>
                     
                 </div>
@@ -694,6 +690,7 @@ MathJax是一套开源js库，它并不是将公式转化为一个图片，而�
 <div class="progress-bar"></div>
 
 
+
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -716,6 +713,26 @@ MathJax是一套开源js库，它并不是将公式转化为一个图片，而�
         <i class="fa fa-angle-double-up"></i>
     </a>
 </div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
 
 
 <script src="/libs/materialize/js/materialize.min.js"></script>

@@ -165,11 +165,7 @@
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
-    data-position="top" data-delay="50">
-    <i class="fa fa-github fa-lg"></i>
-</a>
-<a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    <div class="social-link"><a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
     data-delay="50">
     <i class="fa fa-envelope fa-lg"></i>
 </a>
@@ -246,6 +242,55 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2016/04/04/LaTex-intro/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="LaTex_intro">
+                            
+                            <span class="card-title">LaTex_intro</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">如果用写代码的方式创造公式的话，那就可以装逼了！本文是我翻译自LaTex数学符号手册在浏览器中使用Latex，使用Mathjax库
+
+Mat</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-04-04
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/网络/" class="post-category" target="_blank">
+                                    网络
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/html/" target="_blank">
+                            <span class="chip bg-color">html</span>
+                        </a>
+                        
+                        <a href="/tags/LaTex/" target="_blank">
+                            <span class="chip bg-color">LaTex</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -560,6 +605,7 @@ Class</div>
 <div class="progress-bar"></div>
 
 
+
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -582,6 +628,26 @@ Class</div>
         <i class="fa fa-angle-double-up"></i>
     </a>
 </div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
 
 
 <script src="/libs/materialize/js/materialize.min.js"></script>

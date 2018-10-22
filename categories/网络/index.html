@@ -165,11 +165,7 @@
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
-    data-position="top" data-delay="50">
-    <i class="fa fa-github fa-lg"></i>
-</a>
-<a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    <div class="social-link"><a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
     data-delay="50">
     <i class="fa fa-envelope fa-lg"></i>
 </a>
@@ -232,19 +228,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 
                 
-                <a href="/categories/技术/" title="技术: 1">
+                <a href="/categories/网络/" title="网络: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">技术
+                             chip-active "
+                            style="background-color: #F9EBEA;">网络
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/网络/" title="网络: 1">
+                <a href="/categories/技术/" title="技术: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F5EEF8;">网络
+                             chip-default "
+                            style="background-color: #F5EEF8;">技术
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -286,10 +282,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/categories/PM/" title="PM: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">PM
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/RDBMS/" title="RDBMS: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #82E0AA;">RDBMS
+                            style="background-color: #D7BDE2;">RDBMS
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -298,17 +303,8 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/categories/编程/" title="编程: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D7BDE2;">编程
+                            style="background-color: #A3E4D7;">编程
                         <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/RDBMS/DB/" title="DB: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #A3E4D7;">DB
-                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -322,10 +318,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/categories/RDBMS/DB/" title="DB: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8C471;">DB
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/操作系统/Linux/" title="Linux: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8C471;">Linux
+                            style="background-color: #F9E79F;">Linux
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -334,7 +339,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/categories/操作系统/Linux/Ubuntu/" title="Ubuntu: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9E79F;">Ubuntu
+                            style="background-color: #FEF9E7;">Ubuntu
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -442,6 +447,7 @@ Mat</div>
 <div class="progress-bar"></div>
 
 
+
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -464,6 +470,26 @@ Mat</div>
         <i class="fa fa-angle-double-up"></i>
     </a>
 </div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
 
 
 <script src="/libs/materialize/js/materialize.min.js"></script>

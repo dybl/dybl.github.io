@@ -1,0 +1,780 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="project-version-name-rule, FunYou">
+    <meta name="description" content="版本号的命名和更新问题，是开发者的责任感和前瞻性的问题
+软件项目版本号的命名规则及格式版本控制比较普遍的 3 种命名格式 :
+一、GNU 风格的版本号命名格式 :
+主版本号 . 子版本号 [. 修正版本号 [. 编译版本号 ]]
+
+Majo">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>project-version-name-rule | FunYou</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">FunYou</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-anchor"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-snowflake-o"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-dot-circle-o"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-plus"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">FunYou</div>
+        <div class="logo-desc">
+            
+            Do not show me the f***ing source code!
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-anchor"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-snowflake-o"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-dot-circle-o"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-plus"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+    <i class="fa fa-twitter fa-lg"></i>
+</a>
+<a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+    <i class="fa fa-facebook-official fa-lg"></i>
+</a>
+<a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+    <i class="fa fa-instagram fa-lg"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        project-version-name-rule
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/version/" target="_blank">
+                    <span class="chip bg-color">version</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/PM/" class="post-category" target="_blank">
+                        PM
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-18
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>版本号的命名和更新问题，是开发者的责任感和前瞻性的问题</strong></p>
+<h1 id="软件项目版本号的命名规则及格式"><a href="#软件项目版本号的命名规则及格式" class="headerlink" title="软件项目版本号的命名规则及格式"></a>软件项目版本号的命名规则及格式</h1><p>版本控制比较普遍的 3 种命名格式 :</p>
+<h2 id="一、GNU-风格的版本号命名格式"><a href="#一、GNU-风格的版本号命名格式" class="headerlink" title="一、GNU 风格的版本号命名格式 :"></a>一、GNU 风格的版本号命名格式 :</h2><blockquote>
+<p>主版本号 . 子版本号 [. 修正版本号 [. 编译版本号 ]]</p>
+</blockquote>
+<pre><code>Major_Version_Number.Minor_Version_Number[.Revision_Number[.Build_Number]]
+</code></pre><ul>
+<li>示例 : 1.2.1, 2.0, 5.0.0 build-13124</li>
+</ul>
+<h2 id="二、Windows-风格的版本号命名格式"><a href="#二、Windows-风格的版本号命名格式" class="headerlink" title="二、Windows 风格的版本号命名格式 :"></a>二、Windows 风格的版本号命名格式 :</h2><blockquote>
+<p>主版本号 . 子版本号 [ 修正版本号 [. 编译版本号 ]]</p>
+</blockquote>
+<pre><code>Major_Version_Number.Minor_Version_Number[Revision_Number[.Build_Number]]
+</code></pre><ul>
+<li>示例: 1.21, 2.0</li>
+</ul>
+<h2 id="三、-Net-Framework-风格的版本号命名格式"><a href="#三、-Net-Framework-风格的版本号命名格式" class="headerlink" title="三、.Net Framework 风格的版本号命名格式:"></a>三、.Net Framework 风格的版本号命名格式:</h2><blockquote>
+<p>主版本号.子版本号[.编译版本号[.修正版本号]]</p>
+</blockquote>
+<pre><code>Major_Version_Number.Minor_Version_Number[.Build_Number[.Revision_Number]]
+</code></pre><p>版本号由二至四个部分组成：主版本号、次版本号、内部版本号和修订号。主版本号和次版本号是必选的；内部版本号和修订号是可选的，但是如果定义了修订号部分，则内部版本号就是必选的。所有定义的部分都必须是大于或等于 0 的整数。</p>
+<p>应根据下面的约定使用这些部分：</p>
+<ul>
+<li><p>Major ：具有相同名称但不同主版本号的程序集不可互换。例如，这适用于对产品的大量重写，这些重写使得无法实现向后兼容性。</p>
+</li>
+<li><p>Minor ：如果两个程序集的名称和主版本号相同，而次版本号不同，这指示显著增强，但照顾到了向后兼容性。例如，这适用于产品的修正版或完全向后兼容的新版本。</p>
+</li>
+<li><p>Build ：内部版本号的不同表示对相同源所作的重新编译。这适合于更改处理器、平台或编译器的情况。</p>
+</li>
+<li><p>Revision ：名称、主版本号和次版本号都相同但修订号不同的程序集应是完全可互换的。这适用于修复以前发布的程序集中的安全漏洞。</p>
+</li>
+</ul>
+<p>程序集的只有内部版本号或修订号不同的后续版本被认为是先前版本的修补程序 (Hotfix) 更新。</p>
+<h2 id="1-项目立项时"><a href="#1-项目立项时" class="headerlink" title="1. 项目立项时"></a>1. 项目立项时</h2><p>版本格式：0.0.0</p>
+<h2 id="2-开发阶段时"><a href="#2-开发阶段时" class="headerlink" title="2. 开发阶段时"></a>2. 开发阶段时</h2><p>此时系统尚不稳定，随时可能增减或者修正API。</p>
+<p>版本格式：0.次版本号.修订号，版本号递增规则如下：</p>
+<p>主版本号：0表示正在开发阶段；<br>次版本号：增加新的功能时增加；<br>修订号：只要有改动就增加。</p>
+<h2 id="3-开发完成后，发布API，或进入二方库时"><a href="#3-开发完成后，发布API，或进入二方库时" class="headerlink" title="3. 开发完成后，发布API，或进入二方库时"></a>3. 开发完成后，发布API，或进入二方库时</h2><p>此时系统已经基本稳定，可以对外公布使用，意味着API不再会被随意修改。</p>
+<p>版本格式：1.0.0</p>
+<h2 id="4-后续的维护升级时"><a href="#4-后续的维护升级时" class="headerlink" title="4. 后续的维护升级时"></a>4. 后续的维护升级时</h2><p>没有特殊需求不会修改API，尤其是对API进行不兼容的升级，或弃用时要特别谨慎。如果需要弃用API，要提前在一个或几个版本中加入弃用标示或注解，并在文档中，建议用户更换为其他可替换的API，然后在下个主版本号升级时，再真正丢掉弃用的API。</p>
+<p>版本格式：主版本号.次版本号.修订号，版本号递增规则如下：</p>
+<p>主版本号：全盘重构时增加；重大功能或方向改变时增加；大范围不兼容之前的接口时增加；<br>次版本号：增加新的业务功能时增加；<br>修订号：增加新的接口时增加；在接口不变的情况下，增加接口的非必填属性时增加；增强和扩展接口功能时增加。<br>新增接口：如果该新增的接口只是对现有的业务线进行扩展则增加修订号；如果是为了增加新的业务线则增加次版本号。</p>
+<h2 id="5-先行版本号和开发版本号"><a href="#5-先行版本号和开发版本号" class="headerlink" title="5. 先行版本号和开发版本号"></a>5. 先行版本号和开发版本号</h2><p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
+<p>先行版本号(Pre-release)：意味该版本不稳定，可能存在兼容性问题。<br>其格式为：X.Y.Z.[a-c][正整数]，如 1.0.0.a1，1.0.0.b99，1.0.0.c1000。<br>开发版本号：常用于 CI-CD（持续集成和持续交付）。<br>格式为 X.Y.Z-dev[正整数]，如 1.0.1-dev4。<br>版本号的排序规则为依次比较主版本号、次版本号和修订号的数值，如 1.0.0 &lt; 1.0.1 &lt; 1.1.1 &lt; 2.0.0；对于先行版本号和开发版本号，有：1.0.0.a100 &lt; 1.0.0，2.1.0-dev3 &lt; 2.1.0；当存在字母时，以 ASCII 的排序来比较，如 1.0.0.a1 &lt; 1.0.0.b1。<br>特别注意：</p>
+<ol>
+<li>版本一经发布，不得修改其内容，任何修改必须在新版本发布！ </li>
+<li>在接口还没有确定下来的时候，应该先使用开发版本号。 </li>
+<li>业务功能 &gt; 功能 &gt; 接口</li>
+</ol>
+<h3 id="版本号管理策略"><a href="#版本号管理策略" class="headerlink" title="版本号管理策略"></a>版本号管理策略</h3><p>一、GNU 风格的版本号管理策略：</p>
+<p>1．项目初版本时，版本号可以为 0.1 或 0.1.0, 也可以为 1.0 或 1.0.0，如果你为人很低调，我想你会选择那个主版本号为 0 的方式；<br>2．当项目在进行了局部修改或 bug 修正时，主版本号和子版本号都不变，修正版本号加 1；</p>
+<ol start="3">
+<li>当项目在原有的基础上增加了部分功能时，主版本号不变，子版本号加 1，修正版本号复位为 0，因而可以被忽略掉；<br>4．当项目在进行了重大修改或局部修正累积较多，而导致项目整体发生全局变化时，主版本号加 1；<br>5．另外，编译版本号一般是编译器在编译过程中自动生成的，我们只定义其格式，并不进行人为控制。</li>
+</ol>
+<p>二、Window 下的版本号管理策略：<br>1．项目初版时，版本号为 1.0 或 1.00；</p>
+<ol start="2">
+<li>当项目在进行了局部修改或 bug 修正时，主版本号和子版本号都不变，修正版本号加 1；</li>
+<li>当项目在原有的基础上增加了部分功能时，主版本号不变，子版本号加 1，修正版本号复位为 0，因而可以被忽略掉；</li>
+<li>当项目在进行了重大修改或局部修正累积较多，而导致项目整体发生全局变化时，主版本号加 1；</li>
+<li>另外 , 编译版本号一般是编译器在编译过程中自动生成的，我们只定义其格式，并不进行人为控制。</li>
+</ol>
+<p>另外，还可以在版本号后面加入 Alpha、Beta、Gamma、Current、RC (Release Candidate)、Release、Stable 等后缀，在这些后缀后面还可以加入 1 位数字的版本号。</p>
+<p>对于用户来说，如果某个软件的主版本号进行了升级，用户还想继续那个软件，则发行软件的公司一般要对用户收取升级费用；而如果子版本号或修正版本号发生了升级，一般来说是免费的。</p>
+<h2 id="附录软件版本名称"><a href="#附录软件版本名称" class="headerlink" title="=====附录软件版本名称====="></a>=====附录软件版本名称=====</h2><ul>
+<li><p>α（alphal） 内部测试版</p>
+<blockquote>
+<p>α版，此版本表示该软件仅仅是一个初步完成品，通常只在软件开发者内部交流，也有很少一部分发布给专业测试人员。一般而言，该版本软件的 bug 较多，普通用户最好不要安装。</p>
+</blockquote>
+</li>
+<li><p>β（beta）外部测试版</p>
+<blockquote>
+<p>该版本相对于α版已有了很大的改进，消除了严重的错误，但还是存在着一些缺陷，需要经过大规模的发布测试来进一步消除。这一版本通常由软件公司免费发布，用户可从相关的站点下载。通过一些专业爱好者的测试，将结果反馈给开发者，开发者们再进行有针对性的修改。该版本也不适合一般用户安装。</p>
+</blockquote>
+</li>
+<li><p>γ（gamma）版</p>
+<blockquote>
+<p>该版本已经相当成熟了，与即将发行的正式版相差无几，如果用户实在等不及了，尽可以装上一试。</p>
+</blockquote>
+</li>
+<li><p>trial（试用版）</p>
+<blockquote>
+<p>试用版软件在最近的几年里颇为流行，主要是得益于互联网的迅速发展。该版本软件通常都有时间限制，过期之后用户如果希望继续使用，一般得交纳一定的费用进行注册或购买。有些试用版软件还在功能上做了一定的限制。</p>
+</blockquote>
+</li>
+<li><p>unregistered（未注册版）</p>
+<blockquote>
+<p>未注册版与试用版极其类似，只是未注册版通常没有时间限制，在功能上相对于正式版做了一定的限制，例如绝大多数网络电话软件的注册版和未注册版，两者之间在通话质量上有很大差距。还有些虽然在使用上与正式版毫无二致，但是动不动就会弹出一个恼人的消息框来提醒你注册，如看图软件acdsee、智能陈桥汉字输入软件等。</p>
+</blockquote>
+</li>
+<li><p>demo 演示版</p>
+<blockquote>
+<p>在非正式版软件中，该版本的知名度最大。demo版仅仅集成了正式版中的几个功能，颇有点像 unregistered。不同的是，demo版一般不能通过升级或注册的方法变为正式版。</p>
+</blockquote>
+</li>
+</ul>
+<p>以上是软件正式版本推出之前的几个版本，α、β、γ可以称为测试版，大凡成熟软件总会有多个测试版，如 windows 98 的β版，前前后后将近有10个。这么多的测试版一方面为了最终产品尽可能地满足用户的需要，另一方面也尽量减少了软件中的bug 。而 trial 、unregistered 、demo有时统称为演示版，这一类版本的广告色彩较浓，颇有点先尝后买的味道，对于普通用户而言自然是可以免费尝鲜了。</p>
+<p><strong>正式版，不同类型的软件的正式版本通常也有区别</strong></p>
+<ul>
+<li><p>release 最终释放版</p>
+<blockquote>
+<p>该版本意味“最终释放版”，在出了一系列的测试版之后，终归会有一个正式版本，对于用户而言，购买该版本的软件绝对不会错。该版本有时也称为标准版。一般情况下，release不会以单词形式出现在软件封面上，取而代之的是符号 (r) ，如 windows nt(r) 4.0、ms-dos(r) 6.22 等。</p>
+</blockquote>
+</li>
+<li><p>registered 注册版</p>
+<blockquote>
+<p>很显然，该版本是与 unregistered 相对的注册版。注册版、release和下面所讲的standard版一样，都是软件的正式版本，只是注册版软件的前身有很大一部分是从网上下载的。</p>
+</blockquote>
+</li>
+<li><p>standard 标准版</p>
+<blockquote>
+<p>这是最常见的标准版，不论是什么软件，标准版一定存在。标准版中包含了该软件的基本组件及一些常用功能，可以满足一般用户的需求。其价格相对高一级版本而言还是“平易近人”的。</p>
+</blockquote>
+</li>
+<li><p>deluxe 豪华版</p>
+<blockquote>
+<p>顾名思义即为“豪华版”。豪华版通常是相对于标准版而言的，主要区别是多了几项功能，价格当然会高出一大块，不推荐一般用户购买。此版本通常是为那些追求“完美”的专业用户所准备的。</p>
+</blockquote>
+</li>
+<li><p>reference</p>
+<blockquote>
+<p>该版本型号常见于百科全书中，比较有名的是微软的encarta系列。 reference是最高级别，其包含的主题、图像、影片剪辑等相对于standard和deluxe版均有大幅增加，容量由一张光盘猛增至三张光盘，并且加入了很强的交互功能，当然价格也不菲。可以这么说，这一版本的百科全书才能算是真正的百科全书，也是发烧友们收藏的首选。</p>
+</blockquote>
+</li>
+<li><p>professional（专业版）</p>
+<blockquote>
+<p>专业版是针对某些特定的开发工具软件而言的。专业版中有许多内容是标准版中所没有的，这些内容对于一个专业的软件开发人员来说是极为重要的。如微软的visual foxpro标准版并不具备编译成可执行文件的功能，这对于一个完整的开发项目而言显然是无法忍受的，若客户机上没有foxpro将不能使用。如果用专业版就没有这个问题了。</p>
+</blockquote>
+</li>
+<li><p>enterprise（企业版）</p>
+<blockquote>
+<p>企业版是开发类软件中的极品（相当于百科全书中的reference版）。拥有一套这种版本的软件可以毫无障碍地开发任何级别的应用软件。如著名的visual c++的企业版相对于专业版来说增加了几个附加的特性，如sql调试、扩展的存储过程向导、支持as/400对ole db的访问等。而这一版本的价格也是普通用户无法接受的。如微软的visual studios 6.0 enterprise 中文版的价格为 23000 元。</p>
+</blockquote>
+</li>
+<li><p>其他版本，除了以上介绍的一些版本外，还有一些专有版本名称。</p>
+</li>
+<li><p>update（升级版）<br>升级版的软件是不能独立使用的，该版本的软件在安装过程中会搜索原有的正式版，如果不存在，则拒绝执行下一步。如microsoft office 2000升级版、windows 9x升级版等等。</p>
+</li>
+<li><p>oem版<br>oem 版通常是捆绑在硬件中而不单独销售的版本。将自己的产品交给别的公司去卖，保留自己的著作权，双方互惠互利，一举两得。</p>
+</li>
+<li><p>单机（网络）版<br>网络版在功能、结构上远比单机版复杂，如果留心一下软件的报价，你就会发现某些软件单机版和网络版的价格相差非常大，有些网络版甚至多一个客户端口就要加不少钱。</p>
+</li>
+<li><p>普及版<br>该版本有时也会被称为共享版，其特点是价格便宜（有些甚至完全免费）、功能单一、针对性强（当然也有占领市场、打击盗版等因素）。与试用版不同的是，该版本的软件一般不会有时间上的限制。当然，如果用户想升级，最好还是去购买正式版。</p>
+</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">Enhance 增强版或者加强版 属于正式版
+Free 自由版
+Full version 完全版 属于正式版
+shareware 共享版
+Release 发行版 有时间限制
+Upgrade 升级版
+Retail 零售版
+Cardware 属共享软件的一种，只要给作者回复一封电邮或明信片即可。（有的作者并由此提供注册码等），目前这种形式已不多见。
+Plus 属增强版，不过这种大部分是在程序界面及多媒体功能上增强。
+Preview 预览版
+Corporation <span class="token operator">&amp;</span> Enterprise 企业版
+Standard 标准版
+Mini 迷你版也叫精简版只有最基本的功能
+Premium -- 贵价版
+Professional -- 专业版
+Express -- 特别版
+Deluxe -- 豪华版
+Regged -- 已注册版
+CN -- 简体中文版
+CHT -- 繁体中文版
+EN -- 英文版
+Multilanguage -- 多语言版
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">走一波赞赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://dybl.github.io/blog" class="b-link-green">FunYou</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/10/18/project-version-name-rule/" class="b-link-green">project-version-name-rule</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2018-10-18T14-07-23',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Current</div>
+            <div class="card">
+                <a href="/2018/10/18/project-version-name-rule/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="project-version-name-rule">
+                        
+                        <span class="card-title">project-version-name-rule</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">版本号的命名和更新问题，是开发者的责任感和前瞻性的问题
+软件项目版本号的命名规则及格式版本控制比较普遍的 3 种命名格式 :
+一、GNU 风格的版本号命名格式 :
+主版本号 . 子版本号 [. 修正版本号 [. 编译版本号 ]]
+
+Majo</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PM/" class="post-category" target="_blank">
+                                    PM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/version/" target="_blank">
+                        <span class="chip bg-color">version</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/10/14/mysql_create_user/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="mysql-create_user">
+                        
+                        <span class="card-title">mysql-create_user</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">常规用法create user your_user; 
+set password for you_user=password("your_password");
+grant all privileges on *.* to you_user</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/RDBMS/" class="post-category" target="_blank">
+                                    RDBMS
+                                </a>
+                            
+                            <a href="/categories/RDBMS/DB/" class="post-category" target="_blank">
+                                    DB
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/" target="_blank">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2018 &copy;<a href="http://dybl.github.io" target="_blank"> FunYou co.,ltd</a>
+        </div>
+        <div class="col s12 m4 l4 social-link">
+            <a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
+                data-position="top" data-delay="50">
+                <i class="fa fa-github fa-lg"></i>
+            </a>
+            <a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+                data-delay="50">
+                <i class="fa fa-envelope fa-lg"></i>
+            </a>
+            <a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+                <i class="fa fa-twitter fa-lg"></i>
+            </a>
+            <a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+                <i class="fa fa-facebook-official fa-lg"></i>
+            </a>
+            <a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+                <i class="fa fa-instagram fa-lg"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
