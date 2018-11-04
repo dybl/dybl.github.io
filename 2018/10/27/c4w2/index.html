@@ -1,0 +1,845 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="c4w2, FunYou">
+    <meta name="description" content="本周主要包含两部分：
+
+CNN模型案例研究：LeNet-5、AlexNet、VGG-16、ResNets、1x1 CONV、Inception Network。
+CNN的实践建议：迁移学习、数据增强。
+
+1- Case studies1.1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>c4w2 | FunYou</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">FunYou</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-anchor"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-snowflake-o"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-dot-circle-o"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-plus"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">FunYou</div>
+        <div class="logo-desc">
+            
+            Do not show me the f***ing source code!
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-anchor"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-snowflake-o"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-dot-circle-o"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-plus"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+    <i class="fa fa-twitter fa-lg"></i>
+</a>
+<a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+    <i class="fa fa-facebook-official fa-lg"></i>
+</a>
+<a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+    <i class="fa fa-instagram fa-lg"></i>
+</a>
+</div>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        c4w2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/algorithms/" target="_blank">
+                    <span class="chip bg-color">algorithms</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-27
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本周主要包含两部分：</p>
+<ol>
+<li>CNN模型案例研究：LeNet-5、AlexNet、VGG-16、ResNets、1x1 CONV、Inception Network。</li>
+<li>CNN的实践建议：迁移学习、数据增强。</li>
+</ol>
+<h2 id="1-Case-studies"><a href="#1-Case-studies" class="headerlink" title="1- Case studies"></a>1- Case studies</h2><h2 id="1-1-Why-look-at-case-studies"><a href="#1-1-Why-look-at-case-studies" class="headerlink" title="1.1- Why look at case studies?"></a>1.1- Why look at case studies?</h2><p>通过学习案例，建立起对CNN网络的直觉理解。在计算机视觉上适用于一个任务的Neural Network Architecture通常也适用于另外一个任务。并且计算机视觉领域的思想，也可以应用到其他领域。</p>
+<p>接下来将要讲解的Neural Network：</p>
+<ul>
+<li>经典网络：<ul>
+<li>LeNet-5</li>
+<li>AlexNet</li>
+<li>VGG</li>
+</ul>
+</li>
+<li>ResNet：152层的网络 </li>
+<li>Inception</li>
+</ul>
+<h2 id="1-2-Classic-Networks"><a href="#1-2-Classic-Networks" class="headerlink" title="1.2- Classic Networks"></a>1.2- Classic Networks</h2><ol>
+<li>LeNet-5</li>
+</ol>
+<p>1998年发表，用来识别32x32大小的灰度手写数字，架构如下：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-06_08-26-13.jpg" alt="Xnip2018-07-06_08-26-13"></p>
+<ul>
+<li>Height和Weight不断减小，channel在增加。</li>
+<li>拥有60k个参数，而今天的Neural Network通常有10M到100M个参数。</li>
+<li>该模型的经典架构到现在还是很常见，即：Conv Layer紧跟着Pooling Layer，最后有多个FC layer。</li>
+</ul>
+<p>LeNet-5现代的改进：</p>
+<ul>
+<li>现代方法使用Max pooling代替原来的Average pooling</li>
+<li>现代方法隐藏层non-linear激活函数，使用ReLU代替了原来的sigmoid或tanh</li>
+<li>原始模型的non-linear激活函数，放在pooling之后</li>
+<li>现代方法会使用softmax代替多个classifier</li>
+</ul>
+<p>paper参考：<a href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf" target="_blank" rel="noopener">LeCun et al., 1998. Gradient-based learning applied to document recognition</a></p>
+<p>paper阅读：<br>主要看section 2，论文中有些细节是为了处理当时计算力不足的问题，现在已经不是问题，不用深究。</p>
+<ol start="2">
+<li>AlexNet</li>
+</ol>
+<p>2012年发表，以 Alex Krizhevsky 命名，作者还包括Geoffrey Hinton。架构如下：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-06_08-58-27.jpg" alt="Xnip2018-07-06_08-58-27"></p>
+<ul>
+<li>目标是将ImageNet图片做1000个分类</li>
+<li>与LeNet-5类似，但拥有60M个参数</li>
+<li>使用ReLU作为激活函数</li>
+<li>让人们正式认识到deep learning在计算机视觉上的作用，不仅如此，还对计算机视觉意外的领域有深远影响。</li>
+</ul>
+<p>paper参考：<a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf" target="_blank" rel="noopener">Krizhevsky et al., 2012. ImageNet classification with deep convolutional neural networks</a></p>
+<p>paper阅读：</p>
+<ul>
+<li>由于GPU比较慢，论文里有如何在两个GPU上运行的处理。</li>
+<li>使用了Local Response Normalization（目前已不常用 ）</li>
+</ul>
+<ol start="3">
+<li>VGG-16</li>
+</ol>
+<p>2015年发表，架构如下：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-06_09-13-50.jpg" alt="Xnip2018-07-06_09-13-50"></p>
+<ul>
+<li>VGG-16中16的含义是16个有参数的layer。</li>
+<li>只有两个典型单元（CONV=3×3filter, s=1, same；MAX-POOL=2×2, s=2），超参较少，简化了神经网络的架构，设计上和很规律：Height不断减倍，而filter不断加倍。</li>
+<li>若干个Conv Layer后跟着一个Pooling Layer。 </li>
+<li>参数达136M。</li>
+</ul>
+<p>paper参考：<a href="https://arxiv.org/pdf/1409.1556.pdf" target="_blank" rel="noopener">Simonyan &amp; Zisserman 2015. Very deep convolutional networks for large-scale image recognition</a></p>
+<p>衍生版：VGG-19，网络更大，但提升不大，因此VGG-16更常用。</p>
+<p>三篇paper的阅读顺序建议：AlexNet ==&gt; VGG-16 ==&gt; LeNet-5</p>
+<h2 id="1-3-ResNets"><a href="#1-3-ResNets" class="headerlink" title="1.3- ResNets"></a>1.3- ResNets</h2><p><strong>超大型深度神经难以训练，因为会出现梯度消失和梯度爆炸问题（vanishing and exploding gradient），导致训练超大型神经网络非常困难</strong>。在反向传播的过程中，越是前层网络，叠加相乘的权重越多，因此越是前层网络的梯度消失现象越严重（极少情况下，也为出现严重的梯度爆炸）。下图显示，不同层的梯度下降的速度，越是前层下降越看。</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/vanishing_grad_kiank.jpg" alt="vanishing_grad_kiank"></p>
+<p><strong>ResNets（Residual Network）使用short cut的方法（也称skip connection），解决了训练超大型Neural Network的问题</strong>。</p>
+<ol>
+<li>Residual block与Residual Network</li>
+</ol>
+<p>下图是一个一般的Neural Network（相对于ResNets，也称为<strong>Plain Network</strong>）</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-07_12-52-25.jpg" alt="Xnip2018-07-07_12-52-25"></p>
+<p>forward计算过程是一层接着一层顺序的进行，ResNets称之为<strong>Main Path</strong>，即是：</p>
+<p>\(a^{[l]}\) ==&gt; Linear计算 ==&gt; ReLU ==&gt; \(a^{[l+1]}\) ==&gt; Linear计算 ==&gt; ReLU ==&gt; \(a^{[l+2]}\)</p>
+<p>计算表达式则为：</p>
+<p>$$z^{[l+1]} = W^{[l+1]} a^{[l]} + b^{[l+1]} $$<br>$$a^{[l+1]} = g(z^{[l+1]})$$<br>$$z^{[l+2]} = W^{[l+2]} a^{[l+1]} + b^{[l+2]} $$<br>$$a^{[l+2]} = g(z^{[l+2]})$$</p>
+<p>Residual block，则是在Main Path之外，<strong>将\(a^{[l]}\)的值直接加入到\(a^{[l+2]}\)的运算中，即\(a^{[l+2]} = g(z^{[l+2]}+a^{[l]})\)</strong> ， 称之为short cut或skip connection，如下图：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-07_18-10-26.jpg" alt="Xnip2018-07-07_18-10-26"></p>
+<p>上面包含short cut的layer在一起组成了一个<strong>Residual block</strong>，多个Residual Block则构成了ResNets，如下图，是一个ResNet，共有5个Residual block：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-07_18-16-56.jpg" alt="Xnip2018-07-07_18-16-56"></p>
+<ol start="2">
+<li>ResNet vs Plain Network</li>
+</ol>
+<p>理论上，随着layer的增加，Neural Network的Training error的趋势是降低；<strong>但现实情况是，Plain Network会先下降再上升，而ResNet则不会出现这种情况</strong>。所以会形成下面的趋势图：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-07_18-26-48.jpg" alt="Xnip2018-07-07_18-26-48"></p>
+<p>因此即便训练几百层甚至上千层的Neural Network，ResNet依然不会出现Training Error上升的情况。相比Plain Network，ResNet可以训练更多层的神经网络。</p>
+<p>Paper参考：<a href="https://arxiv.org/pdf/1512.03385.pdf" target="_blank" rel="noopener">He et al., 2015. Deep residual networks for image recognition</a></p>
+<h2 id="1-4-Why-ResNets-Work"><a href="#1-4-Why-ResNets-Work" class="headerlink" title="1.4- Why ResNets Work"></a>1.4- Why ResNets Work</h2><p>看一个例子，对于一个大型Neural Network如下：</p>
+<p> <img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-07_21-49-03.jpg" alt="Xnip2018-07-07_21-49-03"></p>
+<p>在此基础上，增加一个Residual block，如下：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-07_21-49-44.jpg" alt="Xnip2018-07-07_21-49-44"></p>
+<p>则有：</p>
+<p>$$\begin{equation}<br>\begin{split}<br> a^{[l+2]} &amp;= g(z^{[l+2]}+a^{[l]})      \\ &amp;= g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})<br>\end{split}<br>\end{equation}$$</p>
+<p>如果使用L2 Regularization，则\(W^{[l+2]}\)趋近于0，如果也假设\(b^{[l+2]}\)为0，并且激活函数是ReLU，则有</p>
+<p>$$a^{[l+2]} = g(a^{[l]}) = ReLU(a^{[l]})= a^{[l]}$$</p>
+<p><strong>也就是说ResNets很容易学习到一个等效函数，相当于Residual Block不起作用。但如果\(W^{[l+2]}\)没有趋近于0，则又可以保留更多的网络，实现网络更复杂的Non-linearity</strong>。</p>
+<p>即shortcut允许梯度直接反向传播到前层网络。</p>
+<p>（注：说实话这个解释我感觉有点牵强，以后有机会再理解理解。或者是不是可以这样理解：ResNet可以让算法自己<strong>弹性的选择网络的实际深度</strong>， 某种角度看，相当于把层数这个超参交给了网络自己学习）</p>
+<p>另外，一般我们假设\(z^{[l+2]}\)如果和\(a^{[l]}\)的维度一样，所以经常是和“SAME”卷积一起使用。 如果维度不同（一般是\(z^{[l+2]}\)维度较大），则增加一个\(W_s\)矩阵调整\(a^{[l]}\)为\(W_s a^{[l]}\)，其中\(W_s\)可以是一个需要学习的参数；或者仅仅将\(a^{[l]}\) padding补零。</p>
+<p>下图是ResNet论文中将一个Plain Network转换成ResNet的例子：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-07_22-23-20.jpg" alt="Xnip2018-07-07_22-23-20"></p>
+<p>下面是作业中的例子：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-09_21-14-42.jpg" alt="Xnip2018-07-09_21-14-42"></p>
+<p>这里的short cut也跨越了3层。</p>
+<h2 id="1-5-Networks-in-Networks-and-1x1-Convolutions"><a href="#1-5-Networks-in-Networks-and-1x1-Convolutions" class="headerlink" title="1.5- Networks in Networks and 1x1 Convolutions"></a>1.5- Networks in Networks and 1x1 Convolutions</h2><p>1x1 指的是filter的维度是1x1，下图是一个6x6的矩阵和一个1x1的filter做卷积，显然结果矩阵仅相当于将输入矩阵每个元素乘以2，并没有什么实质用途：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_11-34-06.jpg" alt="Xnip2018-07-08_11-34-06"></p>
+<p>但矩阵和filter如果有多个channel，则情况有所不同：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_11-36-29.jpg" alt="Xnip2018-07-08_11-36-29"></p>
+<p>此时，<strong>1x1 Convolutions相当于在channel之间形成FC</strong>：即输入矩阵每个位置的元素在filter之间组成了一个向量（上图蓝色volume中的黄色部分），和多层channel的1x1 filter（实际上也是一个向量）做线性组合，再将结果应用激活函数（如ReLU），这个操作过程和一般NN中的一层是一样的。因此，<strong>1x1 Convolutions也称为Network in Networks</strong>。如果有多个1x1 Convolutions，则输出矩阵也是多个channel的。</p>
+<p>从本质上看，1x1 Convolutions并没有什么特别，不过是filter维度为1x1的这种特殊情况。</p>
+<p>1x1 Convolutions的效果：</p>
+<ul>
+<li>在不改变矩阵维度的情况下，增加、减少或不改变channel的数量</li>
+<li>增加了Non-linearity</li>
+</ul>
+<p>1x1 Covolutions的理念有很大影响力，比如Inception Network都受到其影响。</p>
+<p>paper参考：<a href="https://arxiv.org/pdf/1312.4400.pdf" target="_blank" rel="noopener">Lin et al., 2013. Network in network</a></p>
+<h2 id="1-6-Inception-Network-Motivation"><a href="#1-6-Inception-Network-Motivation" class="headerlink" title="1.6- Inception Network Motivation"></a>1.6- Inception Network Motivation</h2><ol>
+<li><strong>Inception network的目的</strong></li>
+</ol>
+<p>在设计ConvNet时，你可能需要手工决定用多大的filter以及是否需要pooling layer，而Inception Network则很简单粗暴：<strong>纠结什么，为何不把各种大小的filter都做一遍，并把结果连接在一起</strong>。</p>
+<p>下图显示了，在一个layer里同时应用了1x1, 3x3, 5x5的filter以及Max Pooling，然后把所有结果堆在一起：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_12-28-52.jpg" alt="Xnip2018-07-08_12-28-52"></p>
+<p>主要思想是：<strong>与其从众多filter中选择一个，不如将所有的filter都加入，并将输出连接在一起，让网络自己学习用应该哪些filter</strong>。某种角度看，相当于把filter size这个超参交给网络自己学习。</p>
+<p>paper参考：<a href="https://www.cv-foundation.org/openaccess/content_cvpr_2015/ext/1A_001_ext.pdf" target="_blank" rel="noopener">Szegedy et al. 2014. Going deeper with convolutions</a></p>
+<ol start="2">
+<li><strong>计算量问题</strong></li>
+</ol>
+<p>Inception network带来的一个问题是，大幅增加计算量。仅以上面例子中3x3 filter部分计算，计算乘法的次数达到：28x28x32x5x5x192，大概为120M：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_14-56-59.jpg" alt="Xnip2018-07-08_14-56-59"></p>
+<ol start="3">
+<li><strong>1x1 convolution降低计算量</strong></li>
+</ol>
+<p>但如果在上面的例子中间加一层1x1 Convolution（下图黄色部分），则计算量可以显著下降：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_14-59-08.jpg" alt="Xnip2018-07-08_14-59-08"></p>
+<p>同样最后输出28x28x32的volume，但计算量是：28x28x16x1x1x192 + 28x28x32x5x5x16，算下来大概10M，相比原先120M，降低了10倍左右。</p>
+<p>这主要是因为，通过1x1 Convolution，将原始的192的channel上缩小到16。正因为如此，1x1 Convolution层也称作<strong>bootleneck layer</strong>。</p>
+<p>本节总结：</p>
+<ol>
+<li>如果你不想决定Neural Network的一个layer应该用1x1、3x3、5x5还是pooling layer，可以用inception module。</li>
+<li>通过1x1 Convolution创建一个bottleneck layer，大幅降低运算量，且基本不影响Network的性能。</li>
+</ol>
+<h2 id="1-7-Inception-Network"><a href="#1-7-Inception-Network" class="headerlink" title="1.7- Inception Network"></a>1.7- Inception Network</h2><p>上面已介绍了构建Inception Network基本要素，现在可以构建一个完整的Inception Network了。</p>
+<ol>
+<li><strong>Inception Module</strong></li>
+</ol>
+<p>将1x1 Convolution和Inception结合在一起形成如下网络：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_15-33-54.jpg" alt="Xnip2018-07-08_15-33-54"></p>
+<ul>
+<li>一般的CONV layer一般在前面增加一个1x1 CONV，降低计算量</li>
+<li>Max Pooling要使用SAME CONV保证维度一致，并在之后使用1x1 CONV降低channel</li>
+<li>最终将所有输出的channel全部Concat在一起</li>
+</ul>
+<ol start="2">
+<li><strong>Inception Network</strong></li>
+</ol>
+<p>Inception Network，即将Inception Module重复多次。形成如下的形式：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_15-40-49.jpg" alt="Xnip2018-07-08_15-40-49"></p>
+<ul>
+<li>比如红框里面圈出的就是一个Inception Block。</li>
+<li>最后几层还是FC layer加softmax layer </li>
+</ul>
+<p>另外，在中间的隐藏层，还会引出几个FC layer加softmax layer，称之为<strong>side-branches</strong>，使用隐藏层直接做预测，比如下图。</p>
+<p><img src="http://imshuai.comhttps://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_15-43-32-1.jpg" alt=""></p>
+<p>Side-branches，在预测输出上表现也不差；同时还能起到regularization的作用，抑制overfitting。</p>
+<p>上面的Inception Network由Google的作者创立，因此也叫<strong>GoogleNet</strong>（致敬LeNet）。</p>
+<p>Inception Network也发展出了很多版本，比如结合Skip Connection。</p>
+<p>另外，为什么取名叫“Inception Network”？Inception的paper也做了说明，是取自电影《盗梦空间》（<em>Inception</em>）的梗（meme），意味 <em>We need to go deeper</em>（<a href="http://knowyourmeme.com/memes/we-need-to-go-deeper）" target="_blank" rel="noopener">http://knowyourmeme.com/memes/we-need-to-go-deeper）</a></p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/a88.jpg" alt="a88"></p>
+<h1 id="2-Practical-advices-for-using-ConvnNets"><a href="#2-Practical-advices-for-using-ConvnNets" class="headerlink" title="2- Practical advices for using ConvnNets"></a>2- Practical advices for using ConvnNets</h1><h2 id="2-1-Using-Open-Source-Implementation"><a href="#2-1-Using-Open-Source-Implementation" class="headerlink" title="2.1- Using Open-Source Implementation"></a>2.1- Using Open-Source Implementation</h2><p>直接参考论文自己实现复杂的ConvNets并不容易，涉及到很多细节，例如超参的选择，都会影响效果。即便对顶级的AI专家或PhD也不容易。因此，在实践中推荐使用高手写好的开源实现。</p>
+<h2 id="2-2-Transfer-Learning"><a href="#2-2-Transfer-Learning" class="headerlink" title="2.2- Transfer Learning"></a>2.2- Transfer Learning</h2><p>构建computer vision任务，通常并不推荐从头开始训练（即random initialization），而是建议使用别人已经训练好的网络架构和参数，<strong>把这些参数当成pre-training，transfer到你要做的新任务上，这样会快很多</strong>。</p>
+<p>Computer Vision社区，也有不少共享的data sets，比如：</p>
+<ul>
+<li>Image Net</li>
+<li>MS COCO</li>
+<li>Pascal types of date sets</li>
+</ul>
+<p>举例：如果要训练算法，识别自己的两只宠物猫（一直叫Tigger，一只叫Misty），很可能你并没有很多Tigger和Misty的照片，直接训练的效果会很差。可以这样做：</p>
+<ul>
+<li><strong>先下载一个图片识别的开源实现，包括已训练好的参数。</strong> 比如从ImageNet下载一个可以识别1000种图片的开源实现。</li>
+<li>我们只要将网络的最后一层1000维的softmarx去掉，<strong>替换成自己需要的3维的softmax</strong>（分别输出Tigger, Misty或None）</li>
+<li><strong>冻结所有layer的参数不变</strong>（freeze），只训练新的softmax layer的参数。这样即便在小数据下也能获得不错的训练效果。</li>
+</ul>
+<p>幸运的是，很多deep learning框架，也支持这种冻结部分参数的学习方式。（我的理解：这个transfer的过程就像一个换头手术-_-||）</p>
+<p>由于参数被冻结了，因此可以做一个缓存。即首先把所有图片都输入到网络，并计算出到softmax之前的activation，即图片到最后一个activation的映射，这样以后训练softmax就不用重复计算很长的网络了。</p>
+<p>当然，如果拥有的training set够大，也可以少冻结一些layer的参数，训练最后几层，或者重新设计最后几层的结构。（我的理解：相当于头和上半身都换称自己的 -_-|| ）</p>
+<p>如果training set非常大，也可以不冻结任何参数，仅用别人已训练的参数做初始化。</p>
+<p>总结：在所有deep learning的应用中，<strong>Computer Vision是特别适合transfer learning的</strong>，没有特别原因，一般都会使用。</p>
+<h2 id="2-3-Data-Augmentation"><a href="#2-3-Data-Augmentation" class="headerlink" title="2.3- Data Augmentation"></a>2.3- Data Augmentation</h2><p>Data Augmentation是增加训练数据的一种方法。下面介绍几种Data Augmentation的方法。</p>
+<ol>
+<li>常见的Augmentation方法有：</li>
+</ol>
+<ul>
+<li>Mirroring</li>
+<li>Random Cropping（但并不总是一个完美的方法，因为有时裁剪的地方可能是其他对象，比如裁剪到了背景）</li>
+</ul>
+<p>另外，还有：</p>
+<ul>
+<li>Rotation</li>
+<li>Shearing</li>
+<li>Local warping</li>
+</ul>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_16-59-09.jpg" alt="Xnip2018-07-08_16-59-09"></p>
+<ol start="2">
+<li>Color shifting</li>
+</ol>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_16-52-55.jpg" alt="Xnip2018-07-08_16-52-55"></p>
+<p>关于Color shifting，有一种更复杂的办法是PCA Color Augmentation（在AlexNet中有介绍）</p>
+<ol start="3">
+<li>Implementating distortions during training</li>
+</ol>
+<p>通常，我们会有一个线程去读取图片，并做Data Augmentation，然后再将数据输入NN进行训练。在实践中，Data Augmentation和真正的训练应该并行处理。</p>
+<ol start="4">
+<li>另外，Data Augmentation也引入了些超参，比如Color shifting的力度，random cropping的参数。</li>
+</ol>
+<h2 id="2-4-State-of-Computer-Vision"><a href="#2-4-State-of-Computer-Vision" class="headerlink" title="2.4- State of Computer Vision"></a>2.4- State of Computer Vision</h2><ol>
+<li>Data vs. hand-engineering</li>
+</ol>
+<p><strong>手工工程（hand-engineering或hack）</strong>，是指人为精心的设计特征、神经网络架构或其他系统组件。</p>
+<p><strong>数据量越大，用的算法也更简单，hand-engineering或hack的成分更少</strong>；相反<strong>数据不足的情况下，hand-engineering或hack的成分更大，也更有效</strong>。即形成了下面的特点：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/07/Xnip2018-07-08_17-38-38.jpg" alt="Xnip2018-07-08_17-38-38"></p>
+<p>Computer vision的数据集还是相对较小，特别是Computer Vision还需要训练出一个相当复杂的函数。尤其是Object Detection，标注成本很大，因此数据集更小。因此，直到现在，Computer Vision还需要很多hand-engineering。</p>
+<p>但也不是贬低hand-engineering，在没有足够数据的情况，hand-engineering是一项非常困难、技巧性的、需要经验的工作。</p>
+<p>机器学习知识的两大来源：</p>
+<ul>
+<li>Labeled Data</li>
+<li>Hand engineered features/network architecture/other components</li>
+</ul>
+<ol start="2">
+<li>Tips for doing well on benchmarks/Winning competitions</li>
+</ol>
+<ul>
+<li>Ensembling<br>即独立的训练多个神经网络，然后取所有网络的平均值。（相当于专家会诊）</li>
+<li>Multi-crop at test time<br>将Data Augmentation应用到测试集，对结果进行平均。</li>
+</ul>
+<p>但这些针对竞赛的优化手段，需要更多的内存或运行时间，一般不适用与生产系统。</p>
+<ol start="3">
+<li>使用开源代码</li>
+</ol>
+<ul>
+<li>使用已发表的论文里的网络架构</li>
+<li>尽可能的使用开源实现</li>
+<li>使用预训练（pretrained）好的模型，再用自己的数据调优（fine-tune）</li>
+</ul>
+<h1 id="3-Assignment"><a href="#3-Assignment" class="headerlink" title="3- Assignment"></a>3- Assignment</h1><ol>
+<li>作业中介绍了Keras框架，Keras框架是一个高层神经网络API，建立在TensorFlow和CNTK之上。</li>
+<li>Keras特别适合做神经网络的原型设计，就像搭积木一样。快速尝试不同的网络架构</li>
+<li>Keras的编码流程：Create-&gt;Compile-&gt;Fit/Train-&gt;Evaluate/Test</li>
+</ol>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">走一波赞赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://dybl.github.io/blog" class="b-link-green">FunYou</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/10/27/c4w2/" class="b-link-green">c4w2</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2018-10-27T22-26-24',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/10/28/c4w3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="c4w3">
+                        
+                        <span class="card-title">c4w3</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本周介绍了目标检测算法，包括使用bounding box定位，sliding window算法以及YOLO算法。其中YOLO算法涉及IoU、Non-max Suppression、Anchor Boxes。
+1- Detection Alg</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Junjc9
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/algorithms/" target="_blank">
+                        <span class="chip bg-color">algorithms</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/10/27/test-for-html/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="test-for-html">
+                        
+                        <span class="card-title">test-for-html</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+.quickstart {
+background-color: #3F1F1F;
+color: #fff;
+margin: 60px 0;
+-webkit-box-shadow: inset 0 3px 10px rgba(0, 0, 0</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Junjc9
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/html/" target="_blank">
+                        <span class="chip bg-color">html</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2018 &copy;<a href="http://dybl.github.io" target="_blank"> FunYou co.,ltd</a>
+        </div>
+        <div class="col s12 m4 l4 social-link">
+            <a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
+                data-position="top" data-delay="50">
+                <i class="fa fa-github fa-lg"></i>
+            </a>
+            <a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+                data-delay="50">
+                <i class="fa fa-envelope fa-lg"></i>
+            </a>
+            <a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+                <i class="fa fa-twitter fa-lg"></i>
+            </a>
+            <a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+                <i class="fa fa-facebook-official fa-lg"></i>
+            </a>
+            <a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+                <i class="fa fa-instagram fa-lg"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

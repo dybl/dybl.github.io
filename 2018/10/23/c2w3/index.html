@@ -1,0 +1,920 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="c2w3, FunYou">
+    <meta name="description" content="本周介绍了深度学习超参的调优方法，Batch Norm算法、Softmax实现多元分类。并以tensorflow介绍了deep learing框架。
+1- Hyperparameter tuning1.1- Turning process
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>c2w3 | FunYou</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">FunYou</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-anchor"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-snowflake-o"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-dot-circle-o"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-plus"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">FunYou</div>
+        <div class="logo-desc">
+            
+            Do not show me the f***ing source code!
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-anchor"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-snowflake-o"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-dot-circle-o"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-plus"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+    <i class="fa fa-twitter fa-lg"></i>
+</a>
+<a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+    <i class="fa fa-facebook-official fa-lg"></i>
+</a>
+<a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+    <i class="fa fa-instagram fa-lg"></i>
+</a>
+</div>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        c2w3
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/algorithms/" target="_blank">
+                    <span class="chip bg-color">algorithms</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-23
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本周介绍了深度学习超参的调优方法，Batch Norm算法、Softmax实现多元分类。并以tensorflow介绍了deep learing框架。</p>
+<h1 id="1-Hyperparameter-tuning"><a href="#1-Hyperparameter-tuning" class="headerlink" title="1- Hyperparameter tuning"></a>1- Hyperparameter tuning</h1><h2 id="1-1-Turning-process"><a href="#1-1-Turning-process" class="headerlink" title="1.1- Turning process"></a>1.1- Turning process</h2><ol>
+<li>到目前为止，我们接触到的hyperparameter有：</li>
+</ol>
+<ul>
+<li>learning rate: \(\alpha\)</li>
+<li>momentum 参数: \(\beta\)</li>
+<li>Adam参数: \(\beta_1\)和 \(\beta_2\)以及\(\varepsilon\)</li>
+<li>神经网络层数: L</li>
+<li>神经网络隐藏层neuron数：\(n^{[l]}\)</li>
+<li>learning rate decay参数</li>
+<li>min-batch size</li>
+</ul>
+<ol start="2">
+<li>这些hyperparameter重要性排序：</li>
+</ol>
+<ul>
+<li>最重要的：<br>learning rate: \(\alpha\)</li>
+<li>比较重要的：<br>momentum 参数: \(\beta\)<br>神经网络层数: L<br>神经网络隐藏层neuron数：\(n^{[l]}\)</li>
+<li>次重要的：<br>神经网络隐藏层neuron数<br>learning rate decay参数</li>
+<li>基本不需调整的<br>\(\beta_1\)和 \(\beta_2\)以及\(\varepsilon\)</li>
+</ul>
+<ol start="3">
+<li>如何搜索hyperparameter<ul>
+<li>使用随机搜索，而不是在网格中定点搜索</li>
+<li>先整体粗略搜索，再到表现好的区域精细搜索。</li>
+</ul>
+</li>
+</ol>
+<h2 id="1-2-Using-an-appropriate-scale-to-pick-hyperparameters"><a href="#1-2-Using-an-appropriate-scale-to-pick-hyperparameters" class="headerlink" title="1.2- Using an appropriate scale to pick hyperparameters"></a>1.2- Using an appropriate scale to pick hyperparameters</h2><p>上面虽然说是“随机”搜索，但不是完全的随机，而是在合理的范围内搜索，同时在范围内搜索，也不是均匀分布（uniformly random）的，通常有这个参数的scale，<strong>比如对数scale</strong>。</p>
+<p>比如α，一般是使用log scale。比如α的合理区间是[0.0001, 1]，并不是说在这个区间随机的进行均匀分布的搜索，手工选择是会这样：先选择0.0001，不好的话再选择0.001，0.01等，<br><strong>这是因为对于learning rate来说，线性scale并不敏感。</strong></p>
+<p>放到Python中实现是：</p>
+<pre><code>r = -4 * np.random.rand()  # r取值范围是[-4,1]的均匀分布
+α = 10^r 
+</code></pre><p><strong>这个做法的结果是α的对数满足均匀分布。</strong></p>
+<p>又比如β的合理区间是0.9到0.999。β取值0.9和0.905的区别很小，相当于取最近10个或10.5个均值的差异。但同样增加0.005，0.994和0.999就截然不同，前者相当于对最近200个数值的加权平均，而后者相当于最近1000个数值的加权平均。</p>
+<p>可以这样实现：</p>
+<pre><code>r = -2 * np.random.rand() -1 # r取值在[-3,-1]的均匀分布
+1-β = 10^r
+β = 1 - 10^r
+</code></pre><h2 id="1-3-Hyperparameters-tuning-in-practice-Pandas-vs-Caviar"><a href="#1-3-Hyperparameters-tuning-in-practice-Pandas-vs-Caviar" class="headerlink" title="1.3- Hyperparameters tuning in practice: Pandas vs. Caviar"></a>1.3- Hyperparameters tuning in practice: Pandas vs. Caviar</h2><ol>
+<li>不同的算法和场景，对超参的scale敏感性可能不一样.</li>
+<li>根据计算资源和数据量，可以采取两种策略来调参<ul>
+<li>Panda（熊猫策略）：对一个模型先后修改参数，查看其表现，最终选择最好的参数。就像熊猫一样，一次只抚养一个后代。</li>
+<li>Caviar（鱼子酱策略）：计算资源足够，可以同时运行很多模型实例，采用不同的参数，然后最终选择一个好的。类似鱼类，一次下很多卵，自动竞争成活。<br><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-23_17-02-47.jpg" alt="Xnip2018-06-23_17-02-47"></li>
+</ul>
+</li>
+</ol>
+<h1 id="2-Batch-Normalization"><a href="#2-Batch-Normalization" class="headerlink" title="2- Batch Normalization"></a>2- Batch Normalization</h1><h2 id="2-1-Normalizing-activations-in-a-network"><a href="#2-1-Normalizing-activations-in-a-network" class="headerlink" title="2.1- Normalizing activations in a network"></a>2.1- Normalizing activations in a network</h2><ol>
+<li>基本思想：<br>在机器学习算法中，我们会将输入数据X做 Normalization 处理，使得每个属性都在同一个尺度上，从而加快梯度下降的速度。同样在深度学习网络中，也会对输入数据X做 Normalization 处理，但网络中有隐藏层，<strong>隐藏层内的输入是上一层的输出，同样面临隐藏层的输入数据不在同一尺度上的问题</strong>。<br>因此最简单的办法是对每一层的输入，即上一层activation function的输出做normalization。</li>
+</ol>
+<p>2.Batch Norm的实现<br>实践中，是对z进行normalization，具体算如下：<br>对某一层l的中间值\(Z^{[l]}\)（注意下面的计算都是向量，计算都省略了上标l）,<br>先计算均值和方差：<br>$$ \mu = \frac{1}{m} \sum_i z^{(i)} $$<br>$$ \sigma^2 = \frac{1}{m} \sum_i {(z^{(i)} - \mu)}^2 $$<br>然后对每一个样本i的z进行标准化（分母增加\(\varepsilon\)是为了防止方差为0，一般取10^-8）：<br>$$z_{norm}^{(i)} = \frac{z^{(i)} - \mu}{\sqrt{\sigma^2 + \varepsilon}}$$</p>
+<ol start="3">
+<li><p>从normalization的目的看，已经完成了。<strong>但实际上在深度网络中，我们希望每一层拥有不同的分布（即不同的\( \mu \)和\(\sigma^2\)），尤其是对于sigmoid等activation function来说，z如果处于均值为0，方差为1的范围，无法充分利用到activation function的non-linear特性</strong>，因为在这范围，sigmoid函数近似的表现为线性函数。因此会再次处理：<br>$$ \tilde z^{(i)} = \gamma z^{(i)}_{norm} + \beta $$<br>处理后，\(\tilde z^{(i)} \)将服从均值为\(\beta \)，方差为\(\gamma\)的分布。<br><strong>需要注意的是，\(\beta \)和\(\gamma\)不是超参，而是梯度下降需学习的参数。</strong></p>
+</li>
+<li><p>接下来，用\(\tilde z^{(i)} \)代替\(z^{(i)} \)输入到activation function计算。</p>
+</li>
+</ol>
+<h2 id="2-2-Fitting-Batch-Norm-into-a-neural-network"><a href="#2-2-Fitting-Batch-Norm-into-a-neural-network" class="headerlink" title="2.2- Fitting Batch Norm into a neural network"></a>2.2- Fitting Batch Norm into a neural network</h2><p>上面讲的是如何将batch norm应用到一层网络中，下面将介绍如何将batch norm应用到整个网络中。<br>实际上就是在z和a的计算中间增加了一道BN(Batch Norm):</p>
+<p>$$X \xrightarrow{W^{[1]},b^{[1]}} Z^{[1]} \xrightarrow[BN]{\beta^{[1]},\gamma^{[1]} } \tilde Z^{[1]} \xrightarrow{g^{[1]}} A^{[1]} \xrightarrow{} … A^{[L-1]} \xrightarrow{W^{[L]},b^{[L]}} Z^{[L]} \xrightarrow[BN]{\beta^{[L]},\gamma^{[L]} } \tilde Z^{[L]} \xrightarrow{g^{[L]}} A^{[L]}$$</p>
+<p><strong>从梯度下降算法上看，和W和b的地位是一样的了，也是需要学习的参数了。</strong></p>
+<p>由于β会再次对Z设置均值，因此原来的bias参数b就可以省略了（作用其实和β重复了），所以在应用<strong>batch-norm的情况下，参数b就省略了</strong>，实际要训练的参数只有W,β和γ，对应的流程如下：<br>$$X \xrightarrow{W^{[1]}} Z^{[1]} \xrightarrow[BN]{\beta^{[1]},\gamma^{[1]} } \tilde Z^{[1]} \xrightarrow{g^{[1]}} A^{[1]} \xrightarrow{} … A^{[L-1]} \xrightarrow{W^{[L]}} Z^{[L]} \xrightarrow[BN]{\beta^{[L]},\gamma^{[L]} } \tilde Z^{[L]} \xrightarrow{g^{[L]}} A^{[L]}$$</p>
+<p>其中对每一层的\(\beta^{[l]}\)与\(\gamma^{[l]}\)的shape都和\(Z^{[l]}\)一样，都是\((n^{[x]},1)\)。</p>
+<p>伪代码实现：</p>
+<pre><code>for t =1,num of mini batch:
+    compute forward prop on X^{t}
+        in each hidden layer, use BN to replace Z^[l]
+    use backprop to compute dW^[l], dβ^[l], dγ^[l]
+    update parameters
+        W^[l] -= α * dW^[l]
+        β^[l] -= α * dβ^[l]
+        γ^[l] -= α * dγ^[l]
+</code></pre><p>这种batch-norm改进过的梯度下降算法，同样可以使用前面学过的mini-batch、momentum、RMSprop和Adam。</p>
+<h2 id="2-3-Why-does-Batch-Norm-work"><a href="#2-3-Why-does-Batch-Norm-work" class="headerlink" title="2.3- Why does Batch Norm work?"></a>2.3- Why does Batch Norm work?</h2><p>Batch Norm总体上有三个作用：</p>
+<ol>
+<li>首先，起到了normalization的作用，同对输入数据X的normalization作用类似。</li>
+<li>让每一层的学习，<strong>一定程度解耦了前层参数和后层参数，让各层更加独立的学习</strong>。无论前一层如何变，本层输入的数据总是保持稳定的均值和方差。（主要原因）</li>
+<li>有轻微的regularization effect（虽然不是BN算法的本意，尽是顺带的副作用）。<br>对于min-batch来说，每一个mini-batch采用的mean/variance不一样，相当于对z的计算引入了一定的噪声，类似于dropout算法，对a的计算引入了噪声，让下游的hidden units不过度依赖于上层的某个hidden unit。mini-batch的size越大，regularization effect越小。</li>
+</ol>
+<p>关于第二点，Batch norm使得后层的hidden layer比初始数据更具鲁棒性。数据样本的变化（比如原本都是黑猫，现在增加了彩色猫），可能导致数据的分布随着变化，即Covariate Shift（协变量），就需要重新训练学习算法，And this is true even if the function, the ground true function, mapping from X to Y, remains unchanged, which it is in this example, because the ground true function is, is this picture a cat or not.</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-23_21-41-09-1.jpg" alt="Xnip2018-06-23_21-41-09"></p>
+<p>What batch norm does, is it reduces the amount that the distribution of these hidden unit values shifts around。BN算法限制了输入数据的变化对当前层依赖的隐藏层输入的分布影响。</p>
+<h2 id="2-4-Batch-Norm-at-test-time"><a href="#2-4-Batch-Norm-at-test-time" class="headerlink" title="2.4- Batch Norm at test time"></a>2.4- Batch Norm at test time</h2><p>问题：BN算法在训练时是一个批次的数据训练，能算出每一层Z的均值和方差；而在测试时，输入的则是单个数据，<strong>单条数据没法做均值和方差的计算</strong>，怎么在测试期输入均值和方差呢？</p>
+<p>思路：在training阶段，<strong>就通过exponentially weighted average的方法，顺便计算μ和σ^2针对每一个epoch的加权平均。</strong> 最终用迭代完成后的这个加权平均作为test阶段的μ和σ^2</p>
+<p>理论上，还有一种思路：可以在迭代结束后，做一次全量测试数据X的forward propagation，在每一层计算μ和σ^2，用作test阶段的μ和σ^2，实践中更多的用上面的思路。</p>
+<h1 id="3-Multi-class-classification"><a href="#3-Multi-class-classification" class="headerlink" title="3- Multi-class classification"></a>3- Multi-class classification</h1><p>问题：之前的Neural Network都是二元分类，比如识别是否是猫咪。如果要识别的类别多余两个，比如要识别图中的动物是(猫, 小鸡, 狗, 其他)则称为Multi-class classification。下面将介绍如何处理。</p>
+<h2 id="3-1-Softmax-Regression"><a href="#3-1-Softmax-Regression" class="headerlink" title="3.1- Softmax Regression"></a>3.1- Softmax Regression</h2><p>假设要分类的个数记为\(C\)（比如上例中\(C=4\)）<br>首先，在设计网络时，让最后一层的neuron个数为\(n^{[L]}=C\)，每一个neuron输出每一个class的概率，如下图：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-24_10-46-25.jpg" alt="Xnip2018-06-24_10-46-25"></p>
+<p>为了实现上面的设计，<strong>对最后一层使用Softmax Layer</strong>。<br>实现softmarx Layer的关键是activation function改为如下计算方法：<br>计算\(z^{[L]}\)的算法不变，计算\(a^{[L]}\)的算法如下：<br>先对\(z^{[L]}\)取自然对数为底的指数（注意t是向量）：<br>$$t = \mathrm{e}^{(z^{[L]})}$$<br>然后计算\(a^{[L]}\)：<br>$$a^{[L]} = \frac{t}{\sum\limits_{j = 1}^{C}t_j}$$</p>
+<p>在这种计算下，a值有特性：<br>$$\sum^C_{i=1}a^{[L]}_i = 1$$</p>
+<p>具体来说，就是将每个neuron的z做e的指数，然后用这个结果的<strong>占比</strong>作为a。</p>
+<p>举例：<br><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-24_11-22-41.jpg" alt="Xnip2018-06-24_11-22-41"><br>对于soft layer的activation function要注意一点：虽然看起来输入是向量，输出的也是向量，但与sigmoid或tanh等不一样。后者，只是vectorization的结果，实际每个neuron的activation计算是相互独立，互不影响的。<strong>但对于soft layer，并不相互独立，输入是整个\(z^{[L]}\)因为中间需要对所有的t进行加总，因此任何一个neuron的z值改变，都会影响所有neuron的a值</strong>。</p>
+<p>疑问：</p>
+<ul>
+<li>为什么要做e的指数？</li>
+<li>和one-vs-all比较，有什么优势？</li>
+</ul>
+<p>参考资料：<a href="http://ufldl.stanford.edu/wiki/index.php/Softmax%E5%9B%9E%E5%BD%92" target="_blank" rel="noopener">Softmax回归-ufldl</a></p>
+<h2 id="3-2-Training-a-softmax-classifier"><a href="#3-2-Training-a-softmax-classifier" class="headerlink" title="3.2- Training a softmax classifier"></a>3.2- Training a softmax classifier</h2><ol>
+<li><p>Understanding softmax</p>
+<ul>
+<li>对比hard max</li>
+<li><strong>Softmax regression将logistic regression推广到C个分类。如果C=2，softmax则退化为logistic regression。</strong> </li>
+</ul>
+</li>
+<li><p>Loss function<br>与logistic regression一样，也是取对数：<br>$$L(\hat y, y) = -\sum^C_{j=1}y_j\log\hat y_j$$<br>虽然这是一个求和，但实际对应到一个样本时，只会有一个\(y_j\)等于1，其他的都是0，假如是第t个为1，则有：<br>$$L(\hat y, y) = -\log\hat y_t $$<br>若让L最小，显然就是让\(\hat y_t \)最大，即让和数据集实际值匹配的y的概率最大。Logistics Regression的Loss function可以看成其特例。</p>
+</li>
+<li><p>Cost Function<br>很简单，就素对的所有Loss function求均值。<br>$$J(W, b, …) = \frac{1}{m} \sum^m_{i=1}L(\hat y^{(i)}, y^{(i)})$$</p>
+</li>
+<li><p>Gradient descent with softmax<br>与原来的Gradient descent的主要区别是backprop时计算最后一层对Z的偏导数\(dz^{[L]}\) :<br>$$dz^{[L]} = \hat y- y$$</p>
+</li>
+</ol>
+<h1 id="4-Introducton-to-programming-frameworks"><a href="#4-Introducton-to-programming-frameworks" class="headerlink" title="4- Introducton to programming frameworks"></a>4- Introducton to programming frameworks</h1><h2 id="4-1-Deep-learning-frameworks"><a href="#4-1-Deep-learning-frameworks" class="headerlink" title="4.1- Deep learning frameworks"></a>4.1- Deep learning frameworks</h2><p>之前我们都是从头自己写算法（from scratch），接下来我们在<strong>了解原理的基础上</strong>，没必要去实现复杂的细节了。</p>
+<p>Deep learning framewroks：</p>
+<ul>
+<li>Caffe/Caffe2</li>
+<li>CNTK</li>
+<li>DL4J</li>
+<li>Keras</li>
+<li>Lasagne</li>
+<li>mxnet</li>
+<li>PaddlePaddle</li>
+<li>TensorFlow</li>
+<li>Theano</li>
+<li>Torch</li>
+</ul>
+<p>Choosing deep learning frameworks</p>
+<ul>
+<li>Ease of programming (development and deployment)</li>
+<li>Running speed</li>
+<li>Truly open (open source with good governance)</li>
+</ul>
+<h2 id="4-2-TensorFlow"><a href="#4-2-TensorFlow" class="headerlink" title="4.2- TensorFlow"></a>4.2- TensorFlow</h2><ol>
+<li>以一元二次函数为例，计算下面的cost function的最小值对应的参数w：</li>
+</ol>
+<p>$$J(w) = w^2 -10w + 25$$</p>
+<pre><code>import numpy as np
+import tensorflow as tf # 导入Tensorflow
+
+w = tf.Variable(0, dtype=tf.float32)
+cost = w**2 - 10*w + 25 # 要优化的cost function（即forward prop的形式）
+train = tf.train.GradientDescentOptimizer(0.01).minimize(cost) 
+
+init = tf.global_variables_initializer()
+session = tf.Session()
+session.run(init)
+print(session.run(w))
+
+session.run(train)
+print(session.run(w))
+
+for i in range(1000):
+    session.run(train)
+print(session.run(w))
+</code></pre><p>使用tensorflow，只要告诉tensorflow forward prop，它自己就会做backprop，因此不用自己实现backprop</p>
+<ol start="2">
+<li>placeholder<br>在实际的训练过程中，要用不同的样本反复放到一个待优化函数中的，这个时候就可以用tensorflow的placeholder实现。举例如下：</li>
+</ol>
+<pre><code>import numpy as np
+import tensorflow as tf # 导入Tensorflow
+
+coefficient = np.array([[2.],[-10.],[25.]])
+
+w = tf.Variable(0, dtype=tf.float32)
+x = tf.placeholder(tf.float32, [3,1]) # 3x1大小的placeholder
+cost = w**x[0][0] - x[1][0]*w + x[2][0] # 要优化的cost function（即forward prop的形式）
+train = tf.train.GradientDescentOptimizer(0.01).minimize(cost) 
+
+init = tf.global_variables_initializer()
+session = tf.Session()
+session.run(init)
+print(session.run(w))
+
+session.run(train, feed_dict={x:coefficient}) # x占位符替换为coefficient
+print(session.run(w))
+
+for i in range(1000):
+    session.run(train, feed_dict={x:coefficient}) # # x占位符替换为coefficient
+print(session.run(w))
+</code></pre><p>使用<code>tf.placeholder(tf.float32, [3,1])</code>构造了一个3x1大小的placeholder，然后输入到cost函数<code>cost = w**x[0][0] - x[1][0]*w + x[2][0]</code>，在run的时候，对应给出<code>feed_dict</code>，表名占位符x的实际值。</p>
+<ol start="3">
+<li><p>with语句<br>为了自动回收session，可以用Python的with语句声明session对象：</p>
+<pre><code>with tf.Session() as session:
+ session.run(init)
+ print(session.run(w))
+</code></pre></li>
+<li><p>computation graph<br>上面的例子<code>cost = w**x[0][0] - x[1][0]*w + x[2][0]</code>实际是告诉tensorflow如何生成计算图，进而可以做forward prop和backprop</p>
+</li>
+</ol>
+<h1 id="5-TensorFlow作业"><a href="#5-TensorFlow作业" class="headerlink" title="5- TensorFlow作业"></a>5- TensorFlow作业</h1><p>以下内容从本周的作业总结：</p>
+<ol>
+<li><p>Writing and running programs in TensorFlow has the following steps:</p>
+<ul>
+<li>Create Tensors (variables) that are not yet executed/evaluated.</li>
+<li>Write operations between those Tensors.</li>
+<li>Initialize your Tensors.</li>
+<li>Create a Session.</li>
+<li>Run the Session. This will run the operations you’d written above.</li>
+</ul>
+</li>
+<li><p>理解run<br>Therefore, when we created a variable for the loss, <strong>we simply defined the loss as a function of other quantities</strong>, but did not evaluate its value. <strong>To evaluate it, we had to run init=tf.global_variables_initializer(). That initialized the loss variable,</strong> and in the last line we were finally able to evaluate the value of loss and print its value.</p>
+</li>
+</ol>
+<p>tf中的运算只是定义operation，添加到了运算图，但实际运算还没有进行；实际运算是靠session.run方法完成的。<br>一个简单的例子：</p>
+<pre><code>a = tf.constant(2)
+b = tf.constant(10)
+c = tf.multiply(a,b)
+print(c) # 输出 Tensor(&quot;Mul:0&quot;, shape=(), dtype=int32)
+</code></pre><p>上面<code>tf.multiply</code>并不会立即计算出c的值，<code>print(c)</code>的结果只是一个空白的tensor。</p>
+<p>接下来，创建session，然后run(c)，才会有结果：</p>
+<pre><code>sess = tf.Session()
+print(sess.run(c)) # 输出 20
+</code></pre><ol start="3">
+<li>place holder</li>
+</ol>
+<p>A placeholder is simply <strong>a variable that you will assign data to only later</strong>, when running the session. We say that you <strong>feed data</strong> to these placeholders when running the session.<br>举例:</p>
+<pre><code># Change the value of x in the feed_dict
+x = tf.placeholder(tf.int64, name = &#39;x&#39;)
+print(sess.run(2 * x, feed_dict = {x: 3}))
+sess.close() # 输出 6
+</code></pre><p>Here’s what’s happening: <strong>When you specify the operations needed for a computation, you are telling TensorFlow how to construct a computation graph</strong>. The computation graph can have some placeholders whose values you will specify only later. Finally, when you run the session, you are telling TensorFlow to execute the computation graph.</p>
+<ol start="4">
+<li><p>最后作业给出了一个tensorflow的框架代码，很有参考意义，这里收藏一下，供以后参考：</p>
+<pre><code>def model(X_train, Y_train, X_test, Y_test, learning_rate = 0.0001,
+       num_epochs = 1500, minibatch_size = 32, print_cost = True):
+ &quot;&quot;&quot;
+ Implements a three-layer tensorflow neural network: LINEAR-&gt;RELU-&gt;LINEAR-&gt;RELU-&gt;LINEAR-&gt;SOFTMAX.
+
+ Arguments:
+ X_train -- training set, of shape (input size = 12288, number of training examples = 1080)
+ Y_train -- test set, of shape (output size = 6, number of training examples = 1080)
+ X_test -- training set, of shape (input size = 12288, number of training examples = 120)
+ Y_test -- test set, of shape (output size = 6, number of test examples = 120)
+ learning_rate -- learning rate of the optimization
+ num_epochs -- number of epochs of the optimization loop
+ minibatch_size -- size of a minibatch
+ print_cost -- True to print the cost every 100 epochs
+
+ Returns:
+ parameters -- parameters learnt by the model. They can then be used to predict.
+ &quot;&quot;&quot;
+
+ ops.reset_default_graph()                         # to be able to rerun the model without overwriting tf variables
+ tf.set_random_seed(1)                             # to keep consistent results
+ seed = 3                                          # to keep consistent results
+ (n_x, m) = X_train.shape                          # (n_x: input size, m : number of examples in the train set)
+ n_y = Y_train.shape[0]                            # n_y : output size
+ costs = []                                        # To keep track of the cost
+
+ # Create Placeholders of shape (n_x, n_y)
+ ### START CODE HERE ### (1 line)
+ X, Y = create_placeholders(n_x, n_y)
+ ### END CODE HERE ###
+
+ # Initialize parameters
+ ### START CODE HERE ### (1 line)
+ parameters = initialize_parameters()
+ ### END CODE HERE ###
+
+ # Forward propagation: Build the forward propagation in the tensorflow graph
+ ### START CODE HERE ### (1 line)
+ Z3 = forward_propagation(X, parameters)
+ ### END CODE HERE ###
+
+ # Cost function: Add cost function to tensorflow graph
+ ### START CODE HERE ### (1 line)
+ cost = compute_cost(Z3, Y)
+ ### END CODE HERE ###
+
+ # Backpropagation: Define the tensorflow optimizer. Use an AdamOptimizer.
+ ### START CODE HERE ### (1 line)
+ optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+ ### END CODE HERE ###
+
+ # Initialize all the variables
+ init = tf.global_variables_initializer()
+
+ # Start the session to compute the tensorflow graph
+ with tf.Session() as sess:
+
+     # Run the initialization
+     sess.run(init)
+
+     # Do the training loop
+     for epoch in range(num_epochs):
+
+         epoch_cost = 0.                       # Defines a cost related to an epoch
+         num_minibatches = int(m / minibatch_size) # number of minibatches of size minibatch_size in the train set
+         seed = seed + 1
+         minibatches = random_mini_batches(X_train, Y_train, minibatch_size, seed)
+
+         for minibatch in minibatches:
+
+             # Select a minibatch
+             (minibatch_X, minibatch_Y) = minibatch
+
+             # IMPORTANT: The line that runs the graph on a minibatch.
+             # Run the session to execute the &quot;optimizer&quot; and the &quot;cost&quot;, the feedict should contain a minibatch for (X,Y).
+             ### START CODE HERE ### (1 line)
+             _ , minibatch_cost = sess.run([optimizer, cost], feed_dict={X:minibatch_X, Y:minibatch_Y})
+             ### END CODE HERE ###
+
+             epoch_cost += minibatch_cost / num_minibatches
+
+         # Print the cost every epoch
+         if print_cost == True and epoch % 100 == 0:
+             print (&quot;Cost after epoch %i: %f&quot; % (epoch, epoch_cost))
+         if print_cost == True and epoch % 5 == 0:
+             costs.append(epoch_cost)
+
+     # plot the cost
+     plt.plot(np.squeeze(costs))
+     plt.ylabel(&#39;cost&#39;)
+     plt.xlabel(&#39;iterations (per tens)&#39;)
+     plt.title(&quot;Learning rate =&quot; + str(learning_rate))
+     plt.show()
+
+     # lets save the parameters in a variable
+     parameters = sess.run(parameters)
+     print (&quot;Parameters have been trained!&quot;)
+
+     # Calculate the correct predictions
+     correct_prediction = tf.equal(tf.argmax(Z3), tf.argmax(Y))
+
+     # Calculate accuracy on the test set
+     accuracy = tf.reduce_mean(tf.cast(correct_prediction, &quot;float&quot;))
+
+     print (&quot;Train Accuracy:&quot;, accuracy.eval({X: X_train, Y: Y_train}))
+     print (&quot;Test Accuracy:&quot;, accuracy.eval({X: X_test, Y: Y_test}))
+
+     return parameters
+</code></pre></li>
+</ol>
+<p>另外，这个方法在Coursera的jupyter notebook似乎训练很慢，并不像作业里面提示的5min完成，我估计了一下至少要1500s</p>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">走一波赞赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://dybl.github.io/blog" class="b-link-green">FunYou</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/10/23/c2w3/" class="b-link-green">c2w3</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2018-10-23T22-26-24',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/10/24/c3w1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="c3w1">
+                        
+                        <span class="card-title">c3w1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本周介绍了机器学习的策略。强调了方法的正交性，介绍了单值指标并根据情况调整它，以及通过比较人类水平改进bias或variance。
+1- Introduction to ML Stratedy1-1 Why ML Strategy比如下面识</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Junjc9
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/algorithms/" target="_blank">
+                        <span class="chip bg-color">algorithms</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/10/22/c2w2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="c2w2">
+                        
+                        <span class="card-title">c2w2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">1- Optimization algorithms应用Machine learning是一项非常经验性（empirical）的过程，需要训练很多模型，然后找出效果最好的。因此，训练的速度够快是至关重要的。
+本周课程介绍几种加快Gradie</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Junjc9
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/algorithms/" target="_blank">
+                        <span class="chip bg-color">algorithms</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2018 &copy;<a href="http://dybl.github.io" target="_blank"> FunYou co.,ltd</a>
+        </div>
+        <div class="col s12 m4 l4 social-link">
+            <a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
+                data-position="top" data-delay="50">
+                <i class="fa fa-github fa-lg"></i>
+            </a>
+            <a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+                data-delay="50">
+                <i class="fa fa-envelope fa-lg"></i>
+            </a>
+            <a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+                <i class="fa fa-twitter fa-lg"></i>
+            </a>
+            <a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+                <i class="fa fa-facebook-official fa-lg"></i>
+            </a>
+            <a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+                <i class="fa fa-instagram fa-lg"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

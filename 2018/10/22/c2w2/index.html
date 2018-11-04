@@ -1,0 +1,733 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="c2w2, FunYou">
+    <meta name="description" content="1- Optimization algorithms应用Machine learning是一项非常经验性（empirical）的过程，需要训练很多模型，然后找出效果最好的。因此，训练的速度够快是至关重要的。
+本周课程介绍几种加快Gradie">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>c2w2 | FunYou</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">FunYou</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-anchor"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-snowflake-o"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-dot-circle-o"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-plus"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">FunYou</div>
+        <div class="logo-desc">
+            
+            Do not show me the f***ing source code!
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-anchor"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-snowflake-o"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-dot-circle-o"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-plus"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+    <i class="fa fa-twitter fa-lg"></i>
+</a>
+<a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+    <i class="fa fa-facebook-official fa-lg"></i>
+</a>
+<a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+    <i class="fa fa-instagram fa-lg"></i>
+</a>
+</div>
+</div>
+
+
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        c2w2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/algorithms/" target="_blank">
+                    <span class="chip bg-color">algorithms</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-22
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="1-Optimization-algorithms"><a href="#1-Optimization-algorithms" class="headerlink" title="1- Optimization algorithms"></a>1- Optimization algorithms</h1><p>应用Machine learning是一项非常经验性（empirical）的过程，需要训练很多模型，然后找出效果最好的。因此，训练的速度够快是至关重要的。</p>
+<p>本周课程介绍几种加快Gradient descent的算法：</p>
+<ul>
+<li>mini-batch</li>
+<li>momentum</li>
+<li>RMSprop</li>
+<li>Adam</li>
+<li>Learning rate decay</li>
+</ul>
+<p>另外，在最后说明了梯度下降的主要问题不是local optima问题，而是plateaus问题。</p>
+<h2 id="1-1-Mini-batch-gradient-descent"><a href="#1-1-Mini-batch-gradient-descent" class="headerlink" title="1-1 Mini-batch gradient descent"></a>1-1 Mini-batch gradient descent</h2><ol>
+<li>Vectorization本身已经很大程度提升了gradient descent的速度，但之前介绍的是最基本的gradient descent算法（即batch gradient descent） <strong>要遍历所有m个数据样本才会做一次梯度下降</strong> 。随着m的增大，这个过程会很慢，一次梯度下降的成本变得很大。</li>
+<li>mini-batch gradient descent即针对上述问题，<strong>每次只使用少量的样本（即min-batch大小）去做迭代</strong>，计算梯度并更新参数。由于不少全量样本，<strong>计算的梯度不一定很准，即存在抖动（后面会通过其他算法解决抖动），但速度很快</strong> 。因此，同样是遍历了m个样本，min-batch算法可以拆分成多个批次，做到更多次梯度下降，达到更快的下降速度。</li>
+<li>引入标记：使用上标{i}表示拆分出的第i个批次。比如 \(X^{\{i\}}\) 表示第i个批次组成的数据集。如果一个批次的大小是1000，则每个批次的数据集\(X^{\{i\}}\) 的shape都是\((n_x, 1000)\) ， Y的shape是(1, 1000)（不考虑最后一个批次零头的情况）。</li>
+<li>mini-batch算法很简单：<ul>
+<li>先确定分多个batch，假如总的数据集大小是500万，分成5000个批去做，那么每个批处理1000个数据集。循环5000个批次：</li>
+<li>每个批次取出对应批次的1000条数据，在一个批次内，和传统的gradient descent没有差别，唯一就是输入的数据集不是全集，而一个批次。</li>
+</ul>
+</li>
+<li>epoch：当所有批次都循环完成了，即全部m个数据集都参与过了计算，这叫一个epoch。整个算法在epoch层还会做循环，迭代很多次epoch。</li>
+<li>在大数据下，基本上必然要采用min-batch gradient descent。</li>
+<li>相比而言，mini-batch gradient descent的迭代过程会比较震荡。<br><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-20_20-38-43.jpg" alt="Xnip2018-06-20_20-38-43"></li>
+<li>不同mini-batch size（批次大小，即一个批次包含的样本数）的区别：<ul>
+<li>gradient descent可以认为是mini-batch size是m的mini-batch gradient descent。噪声较小，但一次下降的计算速度太慢。</li>
+<li>如果mini-batch size = 1，则每次只用一个样本做梯度下降，则变成 stochastic gradient descent （随机梯度下降）。噪声太大，且失去了vectorization加速。</li>
+<li>mini-batch和stochastic都存在噪声问题，且在local optima附近会徘徊。但设置合适大小的mini-batch size，噪声和徘徊问题可接受的范围内。</li>
+</ul>
+</li>
+<li>如何选择mini-batch size（这是一个hyperparameter）：<ul>
+<li>小数据量，比如总的样本只有几千个，完全可以直接用batch gradient descent</li>
+<li>大数量，mini-batch size倾向于选择2^n个，比如64, 128, 256等 </li>
+<li>mini-batch 与CPU/GPU memory的内存容量。</li>
+</ul>
+</li>
+</ol>
+<h2 id="1-2-Exponentially-weighted-averages"><a href="#1-2-Exponentially-weighted-averages" class="headerlink" title="1-2 Exponentially weighted averages"></a>1-2 Exponentially weighted averages</h2><p>Exponentially weighted averages（指数加权平均），在统计学也称作Exponentially weighted moving averages（指数加权滑动平均）</p>
+<h3 id="Exponentially-weighted-averages概念举例："><a href="#Exponentially-weighted-averages概念举例：" class="headerlink" title="Exponentially weighted averages概念举例："></a>Exponentially weighted averages概念举例：</h3><p>下图蓝色点是伦敦某段时间每日温度值\(\theta_t\)，而红色是加权平均后的\(v_t\)，<br><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-20_20-58-12.jpg" alt="Xnip2018-06-20_20-58-12"><br>具体的加权平均方法是：每天的温度值加权值\(v_t\)设置为前一天的温度加权值\(v_{t-1}\)和当天的温度实际值\(\theta_{t}\)做加权平均：<br>$$v_t = \beta v_{t-1} + (1-\beta) \theta_{t}$$</p>
+<p>参数β的影响是，β越大，则：</p>
+<ol>
+<li>曲线越平滑</li>
+<li>曲线会比实际值向右偏移</li>
+</ol>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-20_21-11-20.jpg" alt="Xnip2018-06-20_21-11-20"></p>
+<p>比如图中，绿色的β就比红色的β大。β越大代表历史数据的权重越大，稳定性越好，同样也更迟钝。</p>
+<h3 id="如何理解Exponentially-weighted-average"><a href="#如何理解Exponentially-weighted-average" class="headerlink" title="如何理解Exponentially weighted average"></a>如何理解Exponentially weighted average</h3><p>假如β=0.9，每个v的计算如下：</p>
+<p>$$v_{100} = 0.9v_{99} + 0.1 \theta_{100}$$<br>$$v_{99} = 0.9v_{98} + 0.1 \theta_{99}$$<br>$$v_{98} = 0.9v_{97} + 0.1 \theta_{98}$$</p>
+<p>递归展开\(v_{100}\)，得到如下：<br>$$v_{100} = 0.1 \theta_{100} + 0.1 * 0.9 \theta_{99} + 0.1 * {(0.9)}^2 \theta_{98} + …$$</p>
+<p>一般的：<br>$$v_t = \sum\limits_{i = 1}^{t} (1-\beta)\beta^{t-i}\theta_i $$</p>
+<p>另有无穷级数求和：<br>$$ \sum\limits_{t = 1}^{n} (1-\beta)\beta^{t} = 1 $$</p>
+<p>因此可以近似的认为所有项的系数之和正好为100%。</p>
+<p>即，\(v_t\)是对t日之前<strong>所有的实际温度的加权平均</strong>，而每个\(\theta_t\)给予的权重是\(\beta^{t-i}\)，这个权重是<strong>指数递减的</strong>，越早的数据权重越小。这就是Exponentially weighted average名称的来源。</p>
+<p>另外，有极限：<br>$$\lim_{\varepsilon \to 0} (1-\varepsilon)^{\frac{1}{\varepsilon}} = \frac{1}{e}$$</p>
+<p>因此当\(\varepsilon\)足够小的时候，认为：<br>$$(1-\varepsilon)^{\frac{1}{\varepsilon}} \approx \frac{1}{e}$$</p>
+<p>当β取0.9的时候，<br>$$\beta^{t} = 0.1^{10} = (1-0.1)^{\frac{1}{0.1}} \approx \frac{1}{e} \approx 0.35 $$<br>即当β取0.9时，10天前的气温的权重就衰减到了只有0.35，如果将其忽略，则有</p>
+<p>\(v_t\)近似的等于最近\(\frac{1}{1-\beta}\)天的温度加权平均值：<br>$$v_t \approx avg(\frac{1}{1-\beta} days’ temperature) $$<br>比如β=0.9，则近似相当于最近10天的温度加权均值。</p>
+<p><strong>一般的，可以认为，\(v_t\)近似的为前\(\frac{1}{(1-\beta)}\)天的加权平均值。</strong></p>
+<h3 id="机器学习实践中的操作"><a href="#机器学习实践中的操作" class="headerlink" title="机器学习实践中的操作"></a>机器学习实践中的操作</h3><ol>
+<li>并不是无限制的计算所有历史值的加权平均，而是近似的做前\(\frac{1}{(1-\beta)}\)天的加权平均值。</li>
+<li>计算前\(\frac{1}{(1-\beta)}\)天的平均值，使用循环不断override的的方法，减少内存占用，只需一行代码：<br>$$v := \beta v + (1 - \beta)\theta_t$$</li>
+</ol>
+<h3 id="Bias-correction-in-exponentially-weighted-averages"><a href="#Bias-correction-in-exponentially-weighted-averages" class="headerlink" title="Bias correction in exponentially weighted averages"></a>Bias correction in exponentially weighted averages</h3><p>由于计算\(v_1\)的时候，并没有历史值做加权，这个时候令其前一个加权值\(v_0 = 0\)，则会导致\(v_1 = (1-\beta)v_0 + \beta \theta_1 = \beta \theta_1\)，这个值会远小于\(\theta_1\)，进而\(v_2\)也会偏小，依次类推，<strong>在靠近前面的值会出现显著的小于实际值的情况：</strong><br><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-21_08-45-18-1.jpg" alt="Xnip2018-06-21_08-45-18-1"></p>
+<p>图中紫色部分的前端会明显的小于实际值。显然这是不合理的，需要修正。修正的方法是原来的计算值做如下操作：<br>$$v_t:= \frac{v_t}{1-\beta^t}$$</p>
+<p>合起来就是：<br>$$v_t = \frac{\beta v_{t-1} + (1 - \beta)\theta_t}NaN$$</p>
+<p>在t较小的时候，\(1-\beta\ \approx 1-\beta^t\)，也就是加大了\(\theta_t\)本身的权重，但当t足够大的时候，这个修正微乎其微，因此只对前面的数据有实际影响。</p>
+<p>即便如此，<strong>在真正的Machine Learning中，也并不做这种“没必要的”修正</strong>，因为在Machine Learning中看重的是很多次迭代后的结果，初期的偏差影响并不大。</p>
+<h2 id="1-3-Gradient-descent-with-momentum"><a href="#1-3-Gradient-descent-with-momentum" class="headerlink" title="1-3 Gradient descent with momentum"></a>1-3 Gradient descent with momentum</h2><p>In one sentence, the basic idea is to compute <strong>an exponentially weighted average of your gradients</strong>, and then use that gradient to update your weights instead.</p>
+<ol>
+<li>问题背景：<br> <img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-22_08-31-00.jpg" alt="Xnip2018-06-22_08-31-00"><ul>
+<li>某个方向（属性范围较小的，如上图蓝色曲线的垂直方向）出现震荡，会让梯度下降速度会变慢（Just <strong>slowly oscillate toward the minimum</strong>. And this up and down oscillations <strong>slows down gradient descent</strong> and prevents you from using a much larger learning rate.）</li>
+<li>然而，又不能通过加大learning rate解决，因为这样会在出现overshooting（如上图左边的紫色曲线）。</li>
+<li>因此，在不同的参数上，希望速度不一样，比如上图垂直方向希望慢一点（避免震荡），而水平方向希望快一点（加快到optima）。基于此就有了Gradient descent with momentum。</li>
+</ul>
+</li>
+<li>应用exponentially weighted average<ul>
+<li>与上面伦敦气温类似，这里将每轮迭代的梯度做exponentially weighted average处理</li>
+<li>每次梯度迭代（下面的式子省略标注参数所在的layer，另外\(v_{dW}\)和\(v_{dW}\)初始化为0）:<br>$$v_{dW} := \beta v_{dW} + (1 - \beta) dW$$<br>$$v_{db} := \beta v_{db} + (1 - \beta) db$$<br>$$w=w - \alpha v_{dW}$$<br>$$b=b - \alpha v_{db}$$<br><strong>新的算法使用\(v_{dW}\)和\(v_{dW}\)代替了原始的梯度</strong>。这样，可以让gradient更平滑</li>
+<li>对于上图垂直方向，原来是会上下震荡，但引入了exponentially weighted average，相当于对前面的震荡进行了平均，<strong>结果就是上下震荡互相抵消了</strong>。而水平方向都是向右没有震荡，因此平均后还是向右。最终导致呈现上图红色的下降路线。</li>
+</ul>
+</li>
+<li>Intuition for momentum<br>可以将上面的图想象成一个碗，梯度下降就像一个小球往碗底滚，而<strong>β的作用就相当于摩擦力</strong>。</li>
+<li>引入了超参：β，实践中通常取0.9。</li>
+<li>通常并不像上面计算温度的时候需要做bias correction，因为对梯度下降来说迭代次数很多，初期的不准确影响并不大，如果β为0.9，大概10次就看不到bias了。</li>
+<li>另外，对于抑制mini-batch的震荡也有很好的效果：<br>Because mini-batch gradient descent makes a parameter update after seeing just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will “oscillate” toward convergence. Using momentum can reduce these oscillations.<br>换个角度理解：在mini-batch中，引入之前迭代gradient做平均，<strong>相当于变相考虑了全部的数据集的特征。</strong></li>
+</ol>
+<p>但关于上图我有个疑问，理论上属性做过normalizing之后，应该是整个图形趋于圆形，而不是椭圆啊？<br>这个问题后面想通了：对于单层网络，你可以对数据集X做normalizing，但对于隐藏层，它的输入是上一层的输出，而上一层的输出并没有做normalizing。后面的课程提到了这一点，其思想就是对每一层activation function的输出都做normalizing。</p>
+<h2 id="1-4-RMSprop"><a href="#1-4-RMSprop" class="headerlink" title="1-4 RMSprop"></a>1-4 RMSprop</h2><p>RMSprop (Root Mean Square Propagation，均方根传递)，<strong>与momentum一样，也是降低梯度的抖动</strong>。以上面的图为例，降低处置方向的下降速率，并提升水平方向的下降速率。</p>
+<p>实际上是对梯度的平方进行exponentially weighted average，<strong>但这个结果并不承担梯度的作用（Gradient descent with momentum却是这样，计算的\(v_{dW}\)代替了\(dW\)去更新参数。），而是平抑不同大小梯度的更新速率。实际上 作用在α上的</strong>。</p>
+<ol start="2">
+<li>算法：<br>$$s_{dw} = \beta s_{dw} + (1 - \beta)(dw)^2$$<br>$$s_{db} = \beta s_{db} + (1 - \beta)(db)^2$$<br>$$w := w - \alpha \frac{dw}{\sqrt{s_{dw} + \varepsilon}}$$<br>$$b := b - \alpha \frac{db}{\sqrt{s_{db} + \varepsilon}}$$</li>
+</ol>
+<p>其中上式中分母中增加\(\varepsilon\)通常取一个很小的值，仅仅是为避免出现分母太小趋近于0导致计算失败的问题。</p>
+<ol start="4">
+<li>Intuition<br>垂直方向，比较陡，梯度比较大，但我们又希望它下降的慢。因此对梯度除以一个较大的值，所以用梯度的平方的平均来表示。让不同的参数拥有不同的learning rate。</li>
+</ol>
+<p><strong>从某种角度看，RMSprop会根据当前的梯度自动调整参数的learning rate，梯度大降低learning rate，梯度小的时候提高learning rate，从而一方面避免了震荡，另一方面避免在平坦的地方徘徊太久。</strong></p>
+<h2 id="1-5-Adam-optimization-algorithm"><a href="#1-5-Adam-optimization-algorithm" class="headerlink" title="1-5 Adam optimization algorithm"></a>1-5 Adam optimization algorithm</h2><p>简单的说，Adam（Adaptive Moment Estimation，自适应矩估计）就是momentum和RMSprop的结合。momentum负责平滑梯度，而RMSprop负责调解learning rate。</p>
+<p>算法如下（以下都省略了layer）：</p>
+<ol>
+<li><p>引入的变量有：</p>
+<ul>
+<li>\(v\) : 计算同momentum算法，将梯度进行指数加权平均</li>
+<li>\(s\) : 计算同RMSprop，将梯度的平方进行指数加权平均</li>
+<li>\(\beta_1\) : 计算\(v\)的加权参数</li>
+<li>\(\beta_2\) : 计算\(s\)的加权参数</li>
+</ul>
+</li>
+<li><p>在迭代前，初始化参数v和s<br>$$v_{dW} = 0, s_{dW} = 0, v_{db} = 0, s_{db} = 0$$</p>
+</li>
+<li><p>对第t次梯度下降的迭代<br> a. 首先计算dw和db的v和s</p>
+<p> $$v_{dW} = \beta_1 v_{dW} + (1 - \beta_1) dW $$<br> $$s_{dW} = \beta_2 s_{dW} + (1 - \beta_2) (dW)^2 $$<br> $$v_{db} = \beta_1 v_{db} + (1 - \beta_1) db $$<br> $$s_{db} = \beta_2 s_{db} + (1 - \beta_2) (db)^2 $$</p>
+<p> b. 然后做修正</p>
+<p> $$v^{corrected}_{dW} = \frac{v_{dW}}{1 - (\beta_1)^t} $$<br> $$s^{corrected}_{dW} = \frac{s_{dW}}{1 - (\beta_2)^t} $$<br> $$v^{corrected}_{db} = \frac{v_{db}}{1 - (\beta_1)^t} $$<br> $$s^{corrected}_{db} = \frac{s_{db}}{1 - (\beta_2)^t} $$</p>
+<p> c. 最后更新参数W和b</p>
+<p> $$W = W - \alpha \frac{v^{corrected}_{dW}}{\sqrt{s^{corrected}_{dW}} + \varepsilon}$$</p>
+<p> $$b = b - \alpha \frac{v^{corrected}_{db}}{\sqrt{s^{corrected}_{db}} + \varepsilon}$$</p>
+</li>
+</ol>
+<p>超参的选择：</p>
+<ul>
+<li>\(\alpha\)：需要调优</li>
+<li>\(\beta_1\): 通常选择为0.9</li>
+<li>\(\beta_2\): 通常选择为0.999</li>
+<li>\(\varepsilon\): 一般不需要调优，选择一个小数，比如\(10^{-8}\)</li>
+</ul>
+<h2 id="1-6-Learning-rate-decay"><a href="#1-6-Learning-rate-decay" class="headerlink" title="1-6 Learning rate decay"></a>1-6 Learning rate decay</h2><p>为什么要做learning rate decay？<br>较大的learning rate虽然在算法开始阶段会加快收敛速度，但在收敛接近到优化点的时候，算法会在优化点附近震荡，如下图：<br><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-23_15-20-05.jpg" alt="Xnip2018-06-23_15-20-05"></p>
+<p>如何做learning rate decay？<br><strong>思路很简单，就是引入一个函数，让α随着迭代（比如min-batch的epoch）递减</strong>。为此可以采用的decay函数有：</p>
+<ul>
+<li><p>倒数：<br>  $$\alpha := \frac{1}{1 + decay\_rate * epoch\_num} \alpha  $$</p>
+</li>
+<li><p>指数函数：<br>  $$\alpha := 0.95^{epoch\_num} * \alpha$$</p>
+</li>
+<li><p>根号倒数<br>  $$\alpha := \frac{k}{\sqrt{epoch_num}} * \alpha$$</p>
+</li>
+</ul>
+<p>甚至手工调节。</p>
+<p>看到这里，我不禁想起来Andrew Ng在Machine Learning中提到的，learning rate不需要根据迭代去调整，因为越靠近optima，梯度本身就变小了，所有learning rate无需调节小。但引用到deep learning中的mini-batch情况，显然就不适合了。</p>
+<h2 id="1-10-The-problem-of-local-optima"><a href="#1-10-The-problem-of-local-optima" class="headerlink" title="1-10 The problem of local optima"></a>1-10 The problem of local optima</h2><p>直觉上，人们认为梯度下降的主要问题是收敛到local optima，如下图：</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-23_15-32-07.jpg" alt="Xnip2018-06-23_15-32-07"></p>
+<p>长期以来，这也是人们“直觉的误解”，但在高维空间里，其实local optima并不常见。原因就是在高维空间，<strong>所有维度同时得到同方向导数（都是凹函数）为0的概率极低</strong>。更常见的情况是收敛到了鞍点（saddle），即某些维度取的是最小值，某些取的是最小值。</p>
+<p><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-23_15-42-07.jpg" alt="Xnip2018-06-23_15-42-07"></p>
+<p>所有，担心收敛到local optima，真是人们想多了，实际上并没有想象的那么多local optima。在高维空间，几乎不太可能被困在一个local optima，这是一个好消息。</p>
+<p>令人意外的是，这样一个误解，竟然在最近不久才被人们认识到。这部分可以参考我找的资料：<a href="https://www.zhihu.com/question/68109802" target="_blank" rel="noopener">https://www.zhihu.com/question/68109802</a></p>
+<p>但梯度下降的真正挑战是高原问题（Problem of plateaus），即在广阔的高原上，梯度下降算法下降太慢。而Adam算法正好可以解决这个问题，在该加速的时候加速。<br><img src="https://blog-1253739411.cos.ap-shanghai.myqcloud.com/content/2018/06/Xnip2018-06-23_15-48-50.jpg" alt="Xnip2018-06-23_15-48-50"></p>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">走一波赞赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://dybl.github.io/blog" class="b-link-green">FunYou</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/10/22/c2w2/" class="b-link-green">c2w2</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2018-10-22T22-26-24',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/10/23/c2w3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="c2w3">
+                        
+                        <span class="card-title">c2w3</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本周介绍了深度学习超参的调优方法，Batch Norm算法、Softmax实现多元分类。并以tensorflow介绍了deep learing框架。
+1- Hyperparameter tuning1.1- Turning process
+</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Junjc9
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/algorithms/" target="_blank">
+                        <span class="chip bg-color">algorithms</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/10/21/c2w1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="c2w1">
+                        
+                        <span class="card-title">c2w1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">这是Course 2的内容，涉及：
+
+训练集、开发集、测试集的概念
+Bias/Variance问题
+如何通过泛化（regularization）算法，解决High variance问题，以及常用的集中regularization算法。
+最小</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Junjc9
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/algorithms/" target="_blank">
+                        <span class="chip bg-color">algorithms</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2018 &copy;<a href="http://dybl.github.io" target="_blank"> FunYou co.,ltd</a>
+        </div>
+        <div class="col s12 m4 l4 social-link">
+            <a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
+                data-position="top" data-delay="50">
+                <i class="fa fa-github fa-lg"></i>
+            </a>
+            <a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+                data-delay="50">
+                <i class="fa fa-envelope fa-lg"></i>
+            </a>
+            <a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+                <i class="fa fa-twitter fa-lg"></i>
+            </a>
+            <a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+                <i class="fa fa-facebook-official fa-lg"></i>
+            </a>
+            <a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+                <i class="fa fa-instagram fa-lg"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+    
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
