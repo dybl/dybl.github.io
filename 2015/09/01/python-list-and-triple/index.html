@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
@@ -112,7 +112,7 @@
         <div class="logo-name">FunU</div>
         <div class="logo-desc">
             
-            Do not show me the f***ing source code!
+            show me the f***ing source code!
             
         </div>
     </div>
@@ -210,10 +210,76 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -739,7 +805,7 @@ for x, y in [(x,y) for x in a for y in b]:
             <div class="reprint">
                 <p>
                     <span class="reprint-tip">Reprint please specify: </span>
-                    <a href="https://dybl.github.io/blog" class="b-link-green">FunU</a>
+                    <a href="https://dybl.github.io" class="b-link-green">FunU</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2015/09/01/python-list-and-triple/" class="b-link-green">Python_list_and_triple</a>
                 </p>
@@ -882,6 +948,76 @@ for x, y in [(x,y) for x in a for y in b]:
     </div>
 </article>
 </div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>TOC</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表-可变"><span class="post-toc-text">列表:可变</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#列表简介"><span class="post-toc-text">列表简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#list-函数"><span class="post-toc-text">list 函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#改变列表：元素赋值"><span class="post-toc-text">改变列表：元素赋值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除元素"><span class="post-toc-text">删除元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分片赋值"><span class="post-toc-text">分片赋值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#列表方法"><span class="post-toc-text">列表方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#append"><span class="post-toc-text">append</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#count"><span class="post-toc-text">count</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#extend"><span class="post-toc-text">extend</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#index"><span class="post-toc-text">index</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#insert"><span class="post-toc-text">insert</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#pop"><span class="post-toc-text">pop</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#remove"><span class="post-toc-text">remove</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#reverse"><span class="post-toc-text">reverse</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#sort"><span class="post-toc-text">sort</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#元组：不可变序列"><span class="post-toc-text">元组：不可变序列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字典：可变"><span class="post-toc-text">字典：可变</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建字典"><span class="post-toc-text">创建字典</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#访问字典里的值"><span class="post-toc-text">访问字典里的值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改字典"><span class="post-toc-text">修改字典</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除字典元素"><span class="post-toc-text">删除字典元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字典键的特性"><span class="post-toc-text">字典键的特性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Array数组-固定类型"><span class="post-toc-text">Array数组:固定类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化"><span class="post-toc-text">初始化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#处理数组"><span class="post-toc-text">处理数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组和文件"><span class="post-toc-text">数组和文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#候选字节顺序"><span class="post-toc-text">候选字节顺序</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Set：集合"><span class="post-toc-text">Set：集合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本的操作："><span class="post-toc-text">基本的操作：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断元素："><span class="post-toc-text">判断元素：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单应用："><span class="post-toc-text">简单应用：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#struct-打包为c结构体"><span class="post-toc-text">struct:打包为c结构体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多重循环"><span class="post-toc-text">多重循环</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Q-E-D"><span class="post-toc-text">Q.E.D</span></a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
     
 
 </main>
@@ -968,5 +1104,5 @@ for x, y in [(x,y) for x in a for y in b]:
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"superSample":2,"width":125,"height":250,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":1,"opacityOnHover":0.7},"log":false});</script></body>
+</body>
 </html>
