@@ -220,76 +220,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <style>
-    #artDetail h1,
-    #artDetail h2,
-    #artDetail h3,
-    #artDetail h4,
-    #artDetail h5,
-    #artDetail h6 {
-        padding-top: 76px;
-        margin-top: -76px;
-    }
-
-    #artDetail h1 {
-        line-height: 3.3rem;
-    }
-
-    #artDetail h2 {
-        line-height: 3rem;
-    }
-
-    #artDetail h3 {
-        line-height: 2.5rem;
-    }
-
-    #artDetail h4 {
-        line-height: 2.2rem;
-    }
-
-    #artDetail h5 {
-        line-height: 1.9rem;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    .post-toc ol {
-        padding-left: 20px;
-    }
-
-    .post-toc a {
-        color: #34495e;
-        font-size: 0.96rem;
-    }
-
-    .post-toc a:hover {
-        color: #42b983;
-        text-decoration: underline;
-    }
-
-    .post-toc .active {
-        color: #42b983;
-        font-weight: 500;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -795,76 +729,6 @@ MathJax是一套开源js库，它并不是将公式转化为一个图片，而�
     </div>
 </article>
 </div>
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <h4>TOC</h4>
-            <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通用的机器学习算法包括："><span class="post-toc-text">通用的机器学习算法包括：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面是使用Python和R代码实现并简要解释这些常见机器学习算法。"><span class="post-toc-text">下面是使用Python和R代码实现并简要解释这些常见机器学习算法。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#贝叶斯定理提供了一种计算P（c），P（x）和P（x-c）的后验概率的方法：P（c-x）。"><span class="post-toc-text">贝叶斯定理提供了一种计算P（c），P（x）和P（x|c）的后验概率的方法：P（c|x）。</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Q-E-D"><span class="post-toc-text">Q.E.D</span></a></li></ol></li></ol>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        let tocLinks = $('#toc-content a');
-        let setTocLinkActive = function (jqObj) {
-            tocLinks.removeClass('active');
-            jqObj.addClass('active');
-        };
-
-        // 监听点击TOC目录.
-        tocLinks.on('click', function () {
-            setTocLinkActive($(this));
-        });
-
-        let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
-            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
-        });
-        let titleLen = titleTopArr.length;
-
-        /* 监听滚动条.*/
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-
-            /* add post toc fixed. */
-            if (scroll > 240) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-
-            /** 以下代码为动态设置TOC激活高亮的目录. */
-            if (titleLen === 0) {
-                return;
-            }
-
-            let firstTitleObj = titleTopArr[0];
-            if (firstTitleObj.top > scroll) {
-                return;
-            } else if (firstTitleObj.top === scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
-                return;
-            }
-
-            let lastTitleObj = titleTopArr[titleLen - 1];
-            if (lastTitleObj.top <= scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
-                return;
-            }
-
-            for (let i = 0; i < titleLen; i++) {
-                if (titleTopArr[i].top > scroll) {
-                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
-                    break;
-                }
-            }
-        });
-    });
-</script>
     
 
 </main>

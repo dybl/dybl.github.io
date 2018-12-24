@@ -209,76 +209,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <style>
-    #artDetail h1,
-    #artDetail h2,
-    #artDetail h3,
-    #artDetail h4,
-    #artDetail h5,
-    #artDetail h6 {
-        padding-top: 76px;
-        margin-top: -76px;
-    }
-
-    #artDetail h1 {
-        line-height: 3.3rem;
-    }
-
-    #artDetail h2 {
-        line-height: 3rem;
-    }
-
-    #artDetail h3 {
-        line-height: 2.5rem;
-    }
-
-    #artDetail h4 {
-        line-height: 2.2rem;
-    }
-
-    #artDetail h5 {
-        line-height: 1.9rem;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    .post-toc ol {
-        padding-left: 20px;
-    }
-
-    .post-toc a {
-        color: #34495e;
-        font-size: 0.96rem;
-    }
-
-    .post-toc a:hover {
-        color: #42b983;
-        text-decoration: underline;
-    }
-
-    .post-toc .active {
-        color: #42b983;
-        font-weight: 500;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -727,51 +661,51 @@ target_link_libraries(compress jpeg ${log-lib} ${graphics})
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Current</div>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/21/android-ndk-cmake/">
+                <a href="/2018/12/24/sensor-review/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="android-ndk-cmake">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="sensor-review">
                         
-                        <span class="card-title">android-ndk-cmake</span>
+                        <span class="card-title">sensor-review</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-前言当在做 Android NDK 开发时，如果不熟悉用 CMake 来构建，读不懂 CMakeLists.txt 的配置脚本，很容易就会踩坑，遇到编译失败，一个很小的配置问题都会浪费很多时间。所谓工欲善其事必先利其器，学习 NDK 开发</div>
+                    <div class="summary">传感器复习题
+
+$\Re$ 填空题1.传感器的分类方法  P2  ★
+1)按(输入量)分类
+2)按(工作原理)分类
+3)按(物理现象)分类
+4)按(能量关系)分类
+5)按(输出信号)分类
+
+10、自感式传感器的组成和工作原理 P47 ★
+自</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category" target="_blank">
-                                    Linux
+                            <a href="/categories/review/" class="post-category" target="_blank">
+                                    review
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/android/" target="_blank">
-                        <span class="chip bg-color">android</span>
-                    </a>
-                    
-                    <a href="/tags/cmake/" target="_blank">
-                        <span class="chip bg-color">cmake</span>
-                    </a>
-                    
-                    <a href="/tags/ndk/" target="_blank">
-                        <span class="chip bg-color">ndk</span>
+                    <a href="/tags/sensor/" target="_blank">
+                        <span class="chip bg-color">sensor</span>
                     </a>
                     
                 </div>
@@ -841,76 +775,6 @@ target_link_libraries(compress jpeg ${log-lib} ${graphics})
     </div>
 </article>
 </div>
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <h4>TOC</h4>
-            <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考："><span class="post-toc-text">参考：</span></a></li></ol>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        let tocLinks = $('#toc-content a');
-        let setTocLinkActive = function (jqObj) {
-            tocLinks.removeClass('active');
-            jqObj.addClass('active');
-        };
-
-        // 监听点击TOC目录.
-        tocLinks.on('click', function () {
-            setTocLinkActive($(this));
-        });
-
-        let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
-            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
-        });
-        let titleLen = titleTopArr.length;
-
-        /* 监听滚动条.*/
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-
-            /* add post toc fixed. */
-            if (scroll > 240) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-
-            /** 以下代码为动态设置TOC激活高亮的目录. */
-            if (titleLen === 0) {
-                return;
-            }
-
-            let firstTitleObj = titleTopArr[0];
-            if (firstTitleObj.top > scroll) {
-                return;
-            } else if (firstTitleObj.top === scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
-                return;
-            }
-
-            let lastTitleObj = titleTopArr[titleLen - 1];
-            if (lastTitleObj.top <= scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
-                return;
-            }
-
-            for (let i = 0; i < titleLen; i++) {
-                if (titleTopArr[i].top > scroll) {
-                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
-                    break;
-                }
-            }
-        });
-    });
-</script>
     
 
 </main>
