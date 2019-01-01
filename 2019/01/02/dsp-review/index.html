@@ -1,0 +1,1330 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="dsp-review, FunU">
+    <meta name="description" content="DSP-review
+
+$\wp$ 填空(10)1.$y(n)=x(n-k),k&amp;gt;0$,表示$y(n)$是整个$x(n)$在整个$x(n)$在时间轴上右移$k$个采样周期所得到的新序列?2. 在数字信号处理中,可以将信号存储起来,用延">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>dsp-review | FunU</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/res/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">FunU</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/res/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">FunU</div>
+        <div class="logo-desc">
+            
+            刊落锋颖，一味恬静
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
+    data-position="top" data-delay="50">
+    <i class="fa fa-github fa-lg"></i>
+</a>
+<a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+    <i class="fa fa-twitter fa-lg"></i>
+</a>
+<a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+    <i class="fa fa-facebook-official fa-lg"></i>
+</a>
+<a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+    <i class="fa fa-instagram fa-lg"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/res/img/15.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        dsp-review
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/dsp/" target="_blank">
+                    <span class="chip bg-color">dsp</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/review/" class="post-category" target="_blank">
+                        review
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-02
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 align="center">DSP-review</h1>
+
+<h1 id="wp-填空-10"><a href="#wp-填空-10" class="headerlink" title="$\wp$ 填空(10)"></a>$\wp$ 填空(10)</h1><h3 id="1-y-n-x-n-k-k-gt-0-表示-y-n-是整个-x-n-在整个-x-n-在时间轴"><a href="#1-y-n-x-n-k-k-gt-0-表示-y-n-是整个-x-n-在整个-x-n-在时间轴" class="headerlink" title="1.$y(n)=x(n-k),k&gt;0$,表示$y(n)$是整个$x(n)$在整个$x(n)$在时间轴"></a>1.$y(n)=x(n-k),k&gt;0$,表示$y(n)$是整个$x(n)$在整个$x(n)$在时间轴</h3><h3 id="上右移-k-个采样周期所得到的新序列"><a href="#上右移-k-个采样周期所得到的新序列" class="headerlink" title="上右移$k$个采样周期所得到的新序列?"></a>上<code>右</code>移$k$个采样周期所得到的新序列?</h3><h3 id="2-在数字信号处理中-可以将信号存储起来-用延迟的方法实现非因"><a href="#2-在数字信号处理中-可以将信号存储起来-用延迟的方法实现非因" class="headerlink" title="2. 在数字信号处理中,可以将信号存储起来,用延迟的方法实现非因"></a>2. 在数字信号处理中,可以将信号存储起来,用<code>延迟</code>的方法实现非因</h3><h3 id="果系统-从而提高了系统的性能指标"><a href="#果系统-从而提高了系统的性能指标" class="headerlink" title="果系统,从而提高了系统的性能指标."></a>果系统,从而提高了系统的性能指标.</h3><h1 id="Re-选择-40"><a href="#Re-选择-40" class="headerlink" title="$\Re$ 选择(40)"></a>$\Re$ 选择(40)</h1><h3 id="1-下面有关数字信号的概念-哪个说法是正确的"><a href="#1-下面有关数字信号的概念-哪个说法是正确的" class="headerlink" title="1.下面有关数字信号的概念,哪个说法是正确的?"></a>1.下面有关数字信号的概念,哪个说法是正确的?</h3><ul>
+<li>A.数字信号是时间变量是连续值，幅度值是离散值。</li>
+<li><code>B.数字信号是时间变量是离散值，幅度值也是离散值。</code></li>
+<li>C.数字信号是时间变量是离散值，幅度值是连续值。</li>
+<li>D.数字信号是时间变量是连续值，幅度值也是连续值。</li>
+</ul>
+<h3 id="2-1024点的DFT需要多少次的复数乘法运算"><a href="#2-1024点的DFT需要多少次的复数乘法运算" class="headerlink" title="2.1024点的DFT需要多少次的复数乘法运算?"></a>2.1024点的DFT需要多少次的复数乘法运算?</h3><ul>
+<li>A.十万次</li>
+<li>B.千万次</li>
+<li>C.一万次</li>
+<li><code>D.百万次</code></li>
+</ul>
+<h3 id="3-哪一年-宾夕法尼亚大学发明了第一代电子管计算机"><a href="#3-哪一年-宾夕法尼亚大学发明了第一代电子管计算机" class="headerlink" title="3.哪一年,宾夕法尼亚大学发明了第一代电子管计算机?"></a>3.哪一年,宾夕法尼亚大学发明了第一代电子管计算机?</h3><ul>
+<li><code>A.1946年</code></li>
+<li>B.1980年</li>
+<li>C.1956年</li>
+<li>D.1936年</li>
+</ul>
+<h3 id="4-CD唱盘是哪一年问世的"><a href="#4-CD唱盘是哪一年问世的" class="headerlink" title="4.CD唱盘是哪一年问世的?"></a>4.CD唱盘是哪一年问世的?</h3><ul>
+<li>A.1990年</li>
+<li>B.1960年</li>
+<li>C.1978年</li>
+<li><code>D.1982年</code></li>
+</ul>
+<h3 id="5-由多个信号源产生的信号称为什么信号"><a href="#5-由多个信号源产生的信号称为什么信号" class="headerlink" title="5.由多个信号源产生的信号称为什么信号?"></a>5.由多个信号源产生的信号称为什么信号?</h3><ul>
+<li>A.离散信号</li>
+<li><code>B.向量信号</code></li>
+<li>C.标量信号</li>
+<li>D.连续信号</li>
+</ul>
+<h3 id="6-请确定以下序列的周期长度-x-n-sin-cfrac-pi-n-4-cos-cfrac-pi-n-7"><a href="#6-请确定以下序列的周期长度-x-n-sin-cfrac-pi-n-4-cos-cfrac-pi-n-7" class="headerlink" title="6. 请确定以下序列的周期长度:$x(n)=\sin(\cfrac{\pi n}{4})-\cos(\cfrac{\pi n}{7})$"></a>6. 请确定以下序列的周期长度:$x(n)=\sin(\cfrac{\pi n}{4})-\cos(\cfrac{\pi n}{7})$</h3><ul>
+<li>A.4</li>
+<li><code>B.56</code></li>
+<li>C.28</li>
+<li>D.7</li>
+</ul>
+<h3 id="7-系统-y-n-x-2-n-y-n-表示输出-x-n-表示输入"><a href="#7-系统-y-n-x-2-n-y-n-表示输出-x-n-表示输入" class="headerlink" title="7.系统$y(n)=x^2(n)$,$y(n)$表示输出,$x(n)$表示输入,"></a>7.系统$y(n)=x^2(n)$,$y(n)$表示输出,$x(n)$表示输入,</h3><h3 id="试确定系统是否是线性系统-是否是时不变系统"><a href="#试确定系统是否是线性系统-是否是时不变系统" class="headerlink" title="试确定系统是否是线性系统?是否是时不变系统?"></a>试确定系统是否是线性系统?是否是时不变系统?</h3><ul>
+<li>A.非线性时变系统</li>
+<li><code>B.非线性时不变系统</code></li>
+<li>C.线性时不变系统</li>
+<li>D.线性时变系统</li>
+</ul>
+<h3 id="8-系统-y-n-sum-limits-m-infty-n-x-m-其中-y-n-表示输出-x-n-表示输入"><a href="#8-系统-y-n-sum-limits-m-infty-n-x-m-其中-y-n-表示输出-x-n-表示输入" class="headerlink" title="8.系统$y(n)=\sum\limits_{m=-{\infty}}^{n}x(m)$,其中$y(n)$表示输出,$x(n)$表示输入,"></a>8.系统$y(n)=\sum\limits_{m=-{\infty}}^{n}x(m)$,其中$y(n)$表示输出,$x(n)$表示输入,</h3><h3 id="试确定系统是否是线性系统-是否是时不变系统？"><a href="#试确定系统是否是线性系统-是否是时不变系统？" class="headerlink" title="试确定系统是否是线性系统?是否是时不变系统？"></a>试确定系统是否是线性系统?是否是时不变系统？</h3><ul>
+<li><code>A.线性时不变系统</code></li>
+<li>B.线性时变系统</li>
+<li>C.非线性时变系统</li>
+<li>D.非线性时不变系统</li>
+</ul>
+<h3 id="9-系统-y-n-x-n-n-0-其中-n-0-lt-0-y-n-表示输出-x-n-表示输入"><a href="#9-系统-y-n-x-n-n-0-其中-n-0-lt-0-y-n-表示输出-x-n-表示输入" class="headerlink" title="9. 系统$y(n)=x(n-n_0)$,其中$n_0&lt;0$,$y(n)$表示输出,$x(n)$表示输入"></a>9. 系统$y(n)=x(n-n_0)$,其中$n_0&lt;0$,$y(n)$表示输出,$x(n)$表示输入</h3><h3 id="试确定系统的因果性和稳定性"><a href="#试确定系统的因果性和稳定性" class="headerlink" title="试确定系统的因果性和稳定性"></a>试确定系统的因果性和稳定性</h3><ul>
+<li>A.非因果不稳定系统</li>
+<li>B.因果不稳定系统</li>
+<li>C.因果稳定系统</li>
+<li><code>D.非因果稳定系统</code></li>
+</ul>
+<h3 id="10-系统-y-n-g-n-x-n-其中-g-n-有界-y-n-表示输出-x-n-表示输入"><a href="#10-系统-y-n-g-n-x-n-其中-g-n-有界-y-n-表示输出-x-n-表示输入" class="headerlink" title="10.系统$y(n)=g(n)x(n)$,其中$g(n)$有界,$y(n)$表示输出,$x(n)$表示输入"></a>10.系统$y(n)=g(n)x(n)$,其中$g(n)$有界,$y(n)$表示输出,$x(n)$表示输入</h3><h3 id="试确定系统的因果性和稳定性-1"><a href="#试确定系统的因果性和稳定性-1" class="headerlink" title="试确定系统的因果性和稳定性"></a>试确定系统的因果性和稳定性</h3><ul>
+<li><code>A.因果稳定系统</code></li>
+<li>B.非因果稳定系统</li>
+<li>C.因果不稳定系统</li>
+<li>D.非因果不稳定系统</li>
+</ul>
+<h3 id="11-令-X-e-j-omega-表示实因果序列-x-n-的DTFT-求-x-n-的DTFT"><a href="#11-令-X-e-j-omega-表示实因果序列-x-n-的DTFT-求-x-n-的DTFT" class="headerlink" title="11.令$X(e^{j\omega})$表示实因果序列$x(n)$的DTFT,求$x^*(n)$的DTFT:"></a>11.令$X(e^{j\omega})$表示实因果序列$x(n)$的DTFT,求$x^*(n)$的DTFT:</h3><ul>
+<li>A.$X(e^{-j\omega})$</li>
+<li><code>B.</code>$X^*(e^{-j\omega})$  </li>
+<li>C.$X^*(e^{j\omega})$</li>
+<li>D.$X(e^{j\omega})$</li>
+</ul>
+<h3 id="12-令-X-e-j-omega-表示实因果序列-x-n-的DTFT-求-x-2n-的DTFT"><a href="#12-令-X-e-j-omega-表示实因果序列-x-n-的DTFT-求-x-2n-的DTFT" class="headerlink" title="12.令$X(e^{j\omega})$表示实因果序列$x(n)$的DTFT,求$x(2n)$的DTFT:"></a>12.令$X(e^{j\omega})$表示实因果序列$x(n)$的DTFT,求$x(2n)$的DTFT:</h3><ul>
+<li>A.$0.5*[X(e^{j\omega/2})-X(-e^{-j\omega/2})]$</li>
+<li><code>B.</code>$0.5*[X(e^{j\omega/2})+X(-e^{j\omega/2})]$</li>
+<li>C.$0.5*[X(e^{j\omega/2})+X(-e^{-j\omega/2})]$</li>
+<li>D.$0.5*[X(e^{j\omega/2})-X(-e^{j\omega/2})]$</li>
+</ul>
+<h3 id="13-求序列-delta-n-1-的Z变换的收敛域"><a href="#13-求序列-delta-n-1-的Z变换的收敛域" class="headerlink" title="13.求序列$\delta(n-1)$的Z变换的收敛域:"></a>13.求序列$\delta(n-1)$的Z变换的收敛域:</h3><ul>
+<li>A.$0\le|z|\le\infty$</li>
+<li>B.$0\le|z|&lt;\infty$</li>
+<li><code>C.</code>$0&lt;|z|\le\infty$</li>
+<li>D.$0&lt;|z|&lt;\infty$</li>
+</ul>
+<h3 id="14-求以下序列的Z变换的收敛域-a-n-a-lt-1"><a href="#14-求以下序列的Z变换的收敛域-a-n-a-lt-1" class="headerlink" title="14.求以下序列的Z变换的收敛域:$a^{|n|},|a|&lt;1$"></a>14.求以下序列的Z变换的收敛域:$a^{|n|},|a|&lt;1$</h3><ul>
+<li><code>A.</code>$|a|&lt;|z|&lt;\cfrac{1}{|a|}$</li>
+<li>B.$|a|&lt;|z|&lt;\infty$</li>
+<li>C.$0&lt;|z|&lt;\cfrac{1}{|a|}$</li>
+<li>D.$\cfrac{1}{|a|}&lt;|z|&lt;\infty$</li>
+</ul>
+<h3 id="15-一个线性时不变系统具有频率响应-H-e-j-omega-cfrac-e-j-omega-1-1-cos-omega"><a href="#15-一个线性时不变系统具有频率响应-H-e-j-omega-cfrac-e-j-omega-1-1-cos-omega" class="headerlink" title="15.一个线性时不变系统具有频率响应$H(e^{j\omega})=\cfrac{e^{j\omega}}{1.1+\cos\omega}$"></a>15.一个线性时不变系统具有频率响应$H(e^{j\omega})=\cfrac{e^{j\omega}}{1.1+\cos\omega}$</h3><h3 id="求系统的差分方程"><a href="#求系统的差分方程" class="headerlink" title="求系统的差分方程."></a>求系统的差分方程.</h3><ul>
+<li><code>A.</code>$y(n)+2.2y(n-1)+y(n-2)=2x(n)$</li>
+<li>B.$y(n)+y(n-1)+y(n-2)=x(n)$</li>
+<li>C.$y(n)+1.1y(n-1)+y(n-2)=2x(n)$</li>
+<li>D.$y(n)+2.2y(n-1)+y(n-2)=x(n)$</li>
+</ul>
+<h3 id="16-给定一连续带限信号-x-a-t-其频谱当-f-gt-B-时-X-a-t-0"><a href="#16-给定一连续带限信号-x-a-t-其频谱当-f-gt-B-时-X-a-t-0" class="headerlink" title="16. 给定一连续带限信号$x_a(t)$,其频谱当$|f|&gt;B$时,$X_a(t)=0$"></a>16. 给定一连续带限信号$x_a(t)$,其频谱当$|f|&gt;B$时,$X_a(t)=0$</h3><h3 id="求-x-a-2-t-的最低采样频率"><a href="#求-x-a-2-t-的最低采样频率" class="headerlink" title="求$x_a^2(t)$的最低采样频率"></a>求$x_a^2(t)$的最低采样频率</h3><ul>
+<li>A.B</li>
+<li>B.2B</li>
+<li><code>C.4B</code></li>
+<li>D.8B</li>
+</ul>
+<h3 id="17-给定一连续带限信号-x-a-t-其频谱当-f-gt-B-时-X-a-t-0"><a href="#17-给定一连续带限信号-x-a-t-其频谱当-f-gt-B-时-X-a-t-0" class="headerlink" title="17. 给定一连续带限信号$x_a(t)$,其频谱当$|f|&gt;B$时,$X_a(t)=0$"></a>17. 给定一连续带限信号$x_a(t)$,其频谱当$|f|&gt;B$时,$X_a(t)=0$</h3><h3 id="求-x-a-2t-的最低采样频率"><a href="#求-x-a-2t-的最低采样频率" class="headerlink" title="求$x_a(2t)$的最低采样频率"></a>求$x_a(2t)$的最低采样频率</h3><ul>
+<li>A.B</li>
+<li>B.2B</li>
+<li><code>C.4B</code></li>
+<li>D.8B</li>
+</ul>
+<h3 id="18-给定一连续带限信号-x-a-t-其频谱当-f-gt-B-时-X-a-t-0"><a href="#18-给定一连续带限信号-x-a-t-其频谱当-f-gt-B-时-X-a-t-0" class="headerlink" title="18. 给定一连续带限信号$x_a(t)$,其频谱当$|f|&gt;B$时,$X_a(t)=0$"></a>18. 给定一连续带限信号$x_a(t)$,其频谱当$|f|&gt;B$时,$X_a(t)=0$</h3><h3 id="求-x-a-t-cos-7-pi-Bt-的最低采样频率"><a href="#求-x-a-t-cos-7-pi-Bt-的最低采样频率" class="headerlink" title="求$x_a(t)\cos(7\pi Bt)$的最低采样频率"></a>求$x_a(t)\cos(7\pi Bt)$的最低采样频率</h3><ul>
+<li>A.B</li>
+<li>B.2B</li>
+<li><code>C.9B</code></li>
+<li><code>D.4.5B (欠采样)</code> </li>
+</ul>
+<h3 id="19-一带通模拟信号如图所示，现用以下采样频率对其采样"><a href="#19-一带通模拟信号如图所示，现用以下采样频率对其采样" class="headerlink" title="19. 一带通模拟信号如图所示，现用以下采样频率对其采样."></a>19. 一带通模拟信号如图所示，现用以下采样频率对其采样.</h3><p>###$(1)10Hz\quad(2)25Hz\quad(3)50Hz\quad(4)100Hz$,</p>
+<h3 id="求采样后哪几种采样频率存在混叠？"><a href="#求采样后哪几种采样频率存在混叠？" class="headerlink" title="求采样后哪几种采样频率存在混叠？"></a>求采样后哪几种采样频率存在混叠？</h3><p><img src="99F480E1BD1C1BD76735332E57D2A9E9.jpg" alt=""></p>
+<ul>
+<li><code>A.(1)</code></li>
+<li><code>B.(2)</code></li>
+<li>C.(3)</li>
+<li>D.(4)</li>
+</ul>
+<h3 id="20-已知信号x-t-为带限信号-最高截止频率300Hz"><a href="#20-已知信号x-t-为带限信号-最高截止频率300Hz" class="headerlink" title="20. 已知信号x(t)为带限信号,最高截止频率300Hz,"></a>20. 已知信号x(t)为带限信号,最高截止频率300Hz,</h3><h3 id="当采样频率为500Hz时-采样信号频谱不会产生混叠"><a href="#当采样频率为500Hz时-采样信号频谱不会产生混叠" class="headerlink" title="当采样频率为500Hz时,采样信号频谱不会产生混叠"></a>当采样频率为500Hz时,采样信号频谱不会产生混叠</h3><ul>
+<li><p>A.$\surd$</p>
+</li>
+<li><p><code>B.</code>$\times$</p>
+</li>
+</ul>
+<h3 id="21-对-x-n-0-le-n-le7-和-y-n-0-le-n-le19-分别作20点的DFT"><a href="#21-对-x-n-0-le-n-le7-和-y-n-0-le-n-le19-分别作20点的DFT" class="headerlink" title="21. 对$x(n) (0\le n\le7)$和$y(n) (0\le n\le19)$分别作20点的DFT,"></a>21. 对$x(n) (0\le n\le7)$和$y(n) (0\le n\le19)$分别作20点的DFT,</h3><h3 id="得-X-k-和-Y-k-F-k-X-k-Y-k-0-le-n-le19-f-n-IDFT-F-k"><a href="#得-X-k-和-Y-k-F-k-X-k-Y-k-0-le-n-le19-f-n-IDFT-F-k" class="headerlink" title="得$X(k)$和$Y(k)$,$F(k)=X(k)Y(k) (0\le n\le19)$,$f(n)=IDFT[F(k)]$,"></a>得$X(k)$和$Y(k)$,$F(k)=X(k)Y(k) (0\le n\le19)$,$f(n)=IDFT[F(k)]$,</h3><h3 id="n在-范围内时-f-n-是-x-n-和-y-n-的线性卷积"><a href="#n在-范围内时-f-n-是-x-n-和-y-n-的线性卷积" class="headerlink" title="n在___ 范围内时,$f(n)$是$x(n)$和$y(n)$的线性卷积"></a>n在___ 范围内时,$f(n)$是$x(n)$和$y(n)$的线性卷积</h3><ul>
+<li>A.$0\le n\le7$</li>
+<li><code>B.</code>$7\le n\le19$</li>
+<li>C.$12\le n\le19$</li>
+<li>D.$0\le n\le19$</li>
+</ul>
+<h3 id="22-x-1-n-R-10-n-x-2-n-R-7-n-用DFT计算二者的线性卷积"><a href="#22-x-1-n-R-10-n-x-2-n-R-7-n-用DFT计算二者的线性卷积" class="headerlink" title="22.$x_1(n)=R_10(n),x_2(n)=R_7(n)$,用DFT计算二者的线性卷积,"></a>22.$x_1(n)=R_10(n),x_2(n)=R_7(n)$,用DFT计算二者的线性卷积,</h3><h3 id="为使计算量尽可能地少-应使DFT的长度N满足"><a href="#为使计算量尽可能地少-应使DFT的长度N满足" class="headerlink" title="为使计算量尽可能地少,应使DFT的长度N满足"></a>为使计算量尽可能地少,应使DFT的长度N满足</h3><ul>
+<li>A.$N&gt;16$</li>
+<li><code>B.</code>$N=16$</li>
+<li>C.$N&lt;16$</li>
+<li>D.$N\not=16$</li>
+</ul>
+<h3 id="23-一个采样频率为-f-s-的-N-点序列-x-n-其-N-点DFT结果-X-2-代表的频谱"><a href="#23-一个采样频率为-f-s-的-N-点序列-x-n-其-N-点DFT结果-X-2-代表的频谱" class="headerlink" title="23. 一个采样频率为$f_s$的$N$点序列$x(n)$,其$N$点DFT结果$X(2)$代表的频谱"></a>23. 一个采样频率为$f_s$的$N$点序列$x(n)$,其$N$点DFT结果$X(2)$代表的频谱</h3><ul>
+<li>A.$ f_s/N$</li>
+<li><code>B.</code>$ 2f_s/N$ </li>
+<li>C.$4f_s/N$</li>
+<li>D.$ f_s/2N$</li>
+</ul>
+<h3 id="24-计算两个N点序列的线性卷积-至少要做多少点得到DFT？"><a href="#24-计算两个N点序列的线性卷积-至少要做多少点得到DFT？" class="headerlink" title="24. 计算两个N点序列的线性卷积,至少要做多少点得到DFT？"></a>24. 计算两个N点序列的线性卷积,至少要做多少点得到DFT？</h3><ul>
+<li>A. N</li>
+<li><code>B. 2N-1</code></li>
+<li>C. 2N</li>
+<li>D. 2N+1</li>
+</ul>
+<h3 id="25-对于高斯序列-x-n-exp-n-p-2-q-取16点作FFT-其幅度谱中"><a href="#25-对于高斯序列-x-n-exp-n-p-2-q-取16点作FFT-其幅度谱中" class="headerlink" title="25. 对于高斯序列$x(n)=exp[-(n-p)^2/q]$,取16点作FFT,其幅度谱中"></a>25. 对于高斯序列$x(n)=exp[-(n-p)^2/q]$,取16点作FFT,其幅度谱中</h3><h3 id="低频分量最多的是"><a href="#低频分量最多的是" class="headerlink" title="低频分量最多的是"></a>低频分量最多的是</h3><ul>
+<li>A. p=8,q=2</li>
+<li><code>B. p=8,q=8</code></li>
+<li>C. p=14,q=8</li>
+<li>D. p=2,q=8</li>
+</ul>
+<h3 id="26-一般说来按时间抽取基二FFT的-序列是按位反转重新排列的"><a href="#26-一般说来按时间抽取基二FFT的-序列是按位反转重新排列的" class="headerlink" title="26. 一般说来按时间抽取基二FFT的___序列是按位反转重新排列的"></a>26. 一般说来按时间抽取基二FFT的___序列是按位反转重新排列的</h3><ul>
+<li><code>A.输入</code></li>
+<li>B.输出</li>
+<li>C.输入和输出</li>
+<li>D.输入和输出都不是</li>
+</ul>
+<h3 id="27-x-n-1-0-0-0-cfrac-1-4-sum-limits-k-0-3-X-k-2"><a href="#27-x-n-1-0-0-0-cfrac-1-4-sum-limits-k-0-3-X-k-2" class="headerlink" title="27.$x(n)={1,0,0,0},\cfrac{1}{4}\sum\limits_{k=0}^{3}|X(k)|^2=?$"></a>27.$x(n)={1,0,0,0},\cfrac{1}{4}\sum\limits_{k=0}^{3}|X(k)|^2=?$</h3><ul>
+<li><code>A. 1</code></li>
+<li>B. 2</li>
+<li>C. 3</li>
+<li>D. 4</li>
+</ul>
+<h3 id="28-Chirp-z-变换的频率采样点不必在单位圆上"><a href="#28-Chirp-z-变换的频率采样点不必在单位圆上" class="headerlink" title="28.$Chirp-z$变换的频率采样点不必在单位圆上"></a>28.$Chirp-z$变换的频率采样点不必在单位圆上</h3><ul>
+<li><code>A.</code>$\surd$</li>
+<li>B.$\times$</li>
+</ul>
+<h3 id="29-采样频率-f-s-5000Hz-DFT长度为2000-其谱线间隔为-2-5Hz"><a href="#29-采样频率-f-s-5000Hz-DFT长度为2000-其谱线间隔为-2-5Hz" class="headerlink" title="29. 采样频率$f_s=5000Hz$,DFT长度为2000,其谱线间隔为$2.5Hz$"></a>29. 采样频率$f_s=5000Hz$,DFT长度为2000,其谱线间隔为$2.5Hz$</h3><ul>
+<li><code>A.</code>$\surd$</li>
+<li>B.$\times$</li>
+</ul>
+<h3 id="30-一个长度为-N-的有限长序列可用-N-个频域的采样值唯一地确定"><a href="#30-一个长度为-N-的有限长序列可用-N-个频域的采样值唯一地确定" class="headerlink" title="30. 一个长度为$N$的有限长序列可用$N$个频域的采样值唯一地确定"></a>30. 一个长度为$N$的有限长序列可用$N$个频域的采样值唯一地确定</h3><ul>
+<li><code>A.</code>$\surd$</li>
+<li>B.$\times$</li>
+</ul>
+<h3 id="31-下面说法哪个是错误的？"><a href="#31-下面说法哪个是错误的？" class="headerlink" title="31. 下面说法哪个是错误的？"></a>31. 下面说法哪个是错误的？</h3><ul>
+<li>A. 绝对可和序列的DTFT必定存在。</li>
+<li>B. 绝对可和序列的能量一定有限。</li>
+<li><code>C. 一个序列的DTFT存在，则该序列一定是绝对可和序列。</code></li>
+<li>D. 一个序列的DTFT存在，表示该序列DTFT对应级数一定收敛。</li>
+</ul>
+<h3 id="32-逆Z变换的围线积分定义式中-积分路径C是一条收敛环域内顺时针"><a href="#32-逆Z变换的围线积分定义式中-积分路径C是一条收敛环域内顺时针" class="headerlink" title="32. 逆Z变换的围线积分定义式中,积分路径C是一条收敛环域内顺时针"></a>32. 逆Z变换的围线积分定义式中,积分路径C是一条收敛环域内顺时针</h3><h3 id="方向绕原点一周的单围线"><a href="#方向绕原点一周的单围线" class="headerlink" title="方向绕原点一周的单围线"></a>方向绕原点一周的单围线</h3><ul>
+<li>A.$ \surd$</li>
+<li><code>B.</code>$\times$</li>
+</ul>
+<h3 id="33-系统-y-n-x-Dn-是时不变系统-其中-D-是正整数"><a href="#33-系统-y-n-x-Dn-是时不变系统-其中-D-是正整数" class="headerlink" title="33. 系统$y(n)=x(Dn)$是时不变系统,其中$D$是正整数"></a>33. 系统$y(n)=x(Dn)$是时不变系统,其中$D$是正整数</h3><ul>
+<li>A.$ \surd$</li>
+<li><code>B.</code>$\times$</li>
+</ul>
+<h3 id="34-一个LTI系统-H-z-是因果稳定的-其收敛域为-R-x-lt-z-le-infty-则"><a href="#34-一个LTI系统-H-z-是因果稳定的-其收敛域为-R-x-lt-z-le-infty-则" class="headerlink" title="34. 一个LTI系统$H(z)$是因果稳定的,其收敛域为$R_{x-}&lt;|z|\le \infty$,则"></a>34. 一个LTI系统$H(z)$是因果稳定的,其收敛域为$R_{x-}&lt;|z|\le \infty$,则</h3><ul>
+<li>A.$R_{x-}\le 1$</li>
+<li><code>B.</code>$R_{x-}&lt; 1$</li>
+<li>C.$ R_{x-}&gt; 1$</li>
+<li>D.$ R_{x-}\ge 1$</li>
+</ul>
+<h3 id="35-对于因果系统函数-H-z-cfrac-z-z-a-0-lt-a-lt-1-试根据系统函数-H-z-的"><a href="#35-对于因果系统函数-H-z-cfrac-z-z-a-0-lt-a-lt-1-试根据系统函数-H-z-的" class="headerlink" title="35. 对于因果系统函数$H(z)=\cfrac{z}{z-a},0&lt;a&lt;1$,试根据系统函数$H (z)$的"></a>35. 对于因果系统函数$H(z)=\cfrac{z}{z-a},0&lt;a&lt;1$,试根据系统函数$H (z)$的</h3><h3 id="零极点分布确定系统的频率特性是"><a href="#零极点分布确定系统的频率特性是" class="headerlink" title="零极点分布确定系统的频率特性是"></a>零极点分布确定系统的频率特性是</h3><ul>
+<li>A. 高通滤波器</li>
+<li><code>B. 低通滤波器</code></li>
+<li>C. 带通滤波器</li>
+<li>D. 带阻滤波器</li>
+</ul>
+<h3 id="36-一个周期为N的周期序列-tilde-x-n-的离散傅立叶级数在频域上仍然是"><a href="#36-一个周期为N的周期序列-tilde-x-n-的离散傅立叶级数在频域上仍然是" class="headerlink" title="36. 一个周期为N的周期序列$\tilde{x}(n)$的离散傅立叶级数在频域上仍然是"></a>36. 一个周期为N的周期序列$\tilde{x}(n)$的离散傅立叶级数在频域上仍然是</h3><h3 id="一个周期序列-其周期是"><a href="#一个周期序列-其周期是" class="headerlink" title="一个周期序列,其周期是"></a>一个周期序列,其周期是</h3><ul>
+<li>A. N-1</li>
+<li><code>B. N</code></li>
+<li>C. 2N-1</li>
+<li>D. 2N</li>
+</ul>
+<h3 id="37-留声机诞生于哪一年？"><a href="#37-留声机诞生于哪一年？" class="headerlink" title="37. 留声机诞生于哪一年？"></a>37. 留声机诞生于哪一年？</h3><ul>
+<li>A. 1988</li>
+<li><code>B. 1877</code></li>
+<li>C. 1977</li>
+<li>D. 1920</li>
+</ul>
+<h3 id="38-哪一年J-W-Cooley和J-W-Tukey提出了快速傅里叶变换算法？"><a href="#38-哪一年J-W-Cooley和J-W-Tukey提出了快速傅里叶变换算法？" class="headerlink" title="38. 哪一年J. W. Cooley和J. W. Tukey提出了快速傅里叶变换算法？"></a>38. 哪一年J. W. Cooley和J. W. Tukey提出了快速傅里叶变换算法？</h3><ul>
+<li>A. 1942</li>
+<li>B. 1952</li>
+<li><code>C. 1965</code></li>
+<li>D. 1975</li>
+</ul>
+<hr>
+<h1 id="mho-简答-30"><a href="#mho-简答-30" class="headerlink" title="$\mho$ 简答(30)"></a>$\mho$ 简答(30)</h1><h3 id="1-信号-signal"><a href="#1-信号-signal" class="headerlink" title="1. 信号(signal):"></a>1. 信号(signal):</h3><blockquote>
+<p> <code>是信息的物理体现形式,或是传递信息的函数,而信息则是信号的具体内容</code></p>
+</blockquote>
+<h3 id="2-模拟信号-analog-signal"><a href="#2-模拟信号-analog-signal" class="headerlink" title="2. 模拟信号(analog signal):"></a>2. 模拟信号(analog signal):</h3><blockquote>
+<p><code>指时间连续、幅度连续的信号</code></p>
+</blockquote>
+<h3 id="3-数字信号-digital-signal"><a href="#3-数字信号-digital-signal" class="headerlink" title="3.数字信号(digital signal):"></a>3.数字信号(digital signal):</h3><blockquote>
+<p><code>时间和幅度上都是离散(量化)的信号</code></p>
+</blockquote>
+<ul>
+<li>数字信号可用一序列的数表示,而每个数又可表示为二制码的形式,适合计算机处理</li>
+<li><ul>
+<li><code>一维(1-D)信号: 一个自变量的函数</code></li>
+</ul>
+</li>
+<li><ul>
+<li><code>二维(2-D)信号: 两个自变量的函数</code></li>
+</ul>
+</li>
+<li><ul>
+<li><code>多维(M-D)信号: 多个自变量的函数</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-系统"><a href="#4-系统" class="headerlink" title="4. 系统:"></a>4. 系统:</h3><blockquote>
+<p><code>处理信号的物理设备。或者说，凡是能将信号加以变换以达到人们要求的各种设备</code></p>
+</blockquote>
+<h3 id="5-信号处理的内容"><a href="#5-信号处理的内容" class="headerlink" title="5. 信号处理的内容:"></a>5. 信号处理的内容:</h3><blockquote>
+<p><code>滤波、变换、检测、谱分析、估计、压缩、识别等一系列的加工处理</code></p>
+</blockquote>
+<h3 id="6-模拟信号处理缺点"><a href="#6-模拟信号处理缺点" class="headerlink" title="6. 模拟信号处理缺点:"></a>6. 模拟信号处理缺点:</h3><blockquote>
+<p><code>难以做到高精度，受环境影响较大，可靠性差，且不灵活等</code></p>
+</blockquote>
+<h3 id="7-数字系统的优点"><a href="#7-数字系统的优点" class="headerlink" title="7. 数字系统的优点:"></a>7. 数字系统的优点:</h3><blockquote>
+<p><code>体积小、功耗低、精度高、可靠性高、灵活性大、易于大规模集成、可进行二维与多维处理</code></p>
+</blockquote>
+<h3 id="8-数字信号处理的应用表现在哪几个方面？"><a href="#8-数字信号处理的应用表现在哪几个方面？" class="headerlink" title="8. 数字信号处理的应用表现在哪几个方面？"></a>8. 数字信号处理的应用表现在哪几个方面？</h3><blockquote>
+<p><code>自动控制</code></p>
+<p><code>消费电子</code></p>
+<p><code>电子通信</code></p>
+<p><code>语音</code></p>
+<p><code>图形/图像</code></p>
+<p><code>工业应用</code></p>
+<p><code>仪器</code></p>
+<p><code>医疗器件</code></p>
+<p><code>军事器件</code></p>
+</blockquote>
+<h3 id="9-数字信号处理与传统的模拟信号处理相比较-除了数字系统共同"><a href="#9-数字信号处理与传统的模拟信号处理相比较-除了数字系统共同" class="headerlink" title="9. 数字信号处理与传统的模拟信号处理相比较,除了数字系统共同"></a>9. 数字信号处理与传统的模拟信号处理相比较,除了数字系统共同</h3><h3 id="优点-如抗干扰-可靠性强-便于大规模集成外-还具有哪些明显的优点？"><a href="#优点-如抗干扰-可靠性强-便于大规模集成外-还具有哪些明显的优点？" class="headerlink" title="优点,如抗干扰,可靠性强,便于大规模集成外,还具有哪些明显的优点？"></a>优点,如抗干扰,可靠性强,便于大规模集成外,还具有哪些明显的优点？</h3><blockquote>
+<ul>
+<li><p>优点</p>
+</li>
+<li><ul>
+<li>精度高</li>
+<li>灵活性强</li>
+<li><p>可以实现模拟信号很难达到的指标式特性</p>
+</li>
+<li><p>可以实现多维信号存储</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+</li>
+<li><ul>
+<li><p>增加了系统的复杂性</p>
+</li>
+<li><p>应用的频率范围受到限制</p>
+</li>
+<li>系统的功率消耗比较大</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="aleph-计算-20"><a href="#aleph-计算-20" class="headerlink" title="$\aleph$ 计算(20)"></a>$\aleph$ 计算(20)</h1><h3 id="1-试求下列序列的DTFT"><a href="#1-试求下列序列的DTFT" class="headerlink" title="1.试求下列序列的DTFT:"></a>1.试求下列序列的DTFT:</h3><h4 id="1-x-n-cfrac-1-2-delta-n-1-delta-n-cfrac-1-2-delta-n-1"><a href="#1-x-n-cfrac-1-2-delta-n-1-delta-n-cfrac-1-2-delta-n-1" class="headerlink" title="(1) $x(n)=\cfrac{1}{2}\delta(n+1)+\delta(n)+\cfrac{1}{2}\delta(n-1)$"></a>(1) $x(n)=\cfrac{1}{2}\delta(n+1)+\delta(n)+\cfrac{1}{2}\delta(n-1)$</h4><h4 id="2-x-n-cfrac-1-2-nu-n-1"><a href="#2-x-n-cfrac-1-2-nu-n-1" class="headerlink" title="(2) $x(n)=(\cfrac{1}{2})^nu(n+1)$"></a>(2) $x(n)=(\cfrac{1}{2})^nu(n+1)$</h4><p>$(1)解: 由 DTFT定义得: \ X(e^{j\omega})=\sum\limits_{n=-\infty}^\infty x(n)e^{-j\omega n} \  = \sum\limits_{n=-\infty}^\infty [\cfrac{1}{2}\delta(n+1)+\delta(n)+\cfrac{1}{2}\delta(n-1)]e^{-j\omega n} \  = \sum\limits_{n=-1}^{-1}\cfrac{1}{2}\delta(n+1)e^{-j\omega n}+\sum\limits_{n=0}^{0}\delta(n)e^{-j\omega n}+\sum\limits_{n=1}^{1}\cfrac{1}{2}\delta(n-1)e^{-j\omega n} \  = \cfrac{1}{2}e^{j\omega n}+1+\cfrac{1}{2}e^{-j\omega n} \  = 1+\cfrac{1}{2}(e^{j\omega n}+e^{-j\omega n}) \  = 1+\cos\omega$</p>
+<p>$(2)解: \quad 由 DTFT定义得: \  X(e^{j\omega})=\sum\limits_{n=-\infty}^\infty x(n)e^{-j\omega n} \  = \sum\limits_{n=-1}^{\infty}(\cfrac{1}{2})^ne^{-j\omega n} \  = \sum\limits_{n=-1}^{\infty}(\cfrac{1}{2}\cdot e^{-j\omega)^n} \  = \cfrac{2e^{j\omega}}{1-\cfrac{1}{2}e^{-j\omega}}$</p>
+<h3 id="2-请问正弦序列-sin-cfrac-16-5-pi-n-是否是周期序列-若是-其周期长度是多少"><a href="#2-请问正弦序列-sin-cfrac-16-5-pi-n-是否是周期序列-若是-其周期长度是多少" class="headerlink" title="2. 请问正弦序列$\sin(\cfrac{16}{5}\pi n)$是否是周期序列?若是,其周期长度是多少?"></a>2. 请问正弦序列$\sin(\cfrac{16}{5}\pi n)$是否是周期序列?若是,其周期长度是多少?</h3><blockquote>
+<p>解：$N=\cfrac{2\pi k}{\omega}=\cfrac{2\pi}{16\pi /5}\times8=5$</p>
+<p><code>是周期序列，最小周期长度为5</code></p>
+</blockquote>
+<h3 id="3-试确定以下系统是否为线性系统？是否为时不变系统？"><a href="#3-试确定以下系统是否为线性系统？是否为时不变系统？" class="headerlink" title="3. 试确定以下系统是否为线性系统？是否为时不变系统？"></a>3. 试确定以下系统是否为线性系统？是否为时不变系统？</h3><h4 id="1-y-n-x-n-n-0"><a href="#1-y-n-x-n-n-0" class="headerlink" title="(1) $y(n)=x(n-n_0)$"></a>(1) $y(n)=x(n-n_0)$</h4><h4 id="2-y-n-nx-n"><a href="#2-y-n-nx-n" class="headerlink" title="(2) $y(n)=nx(n)$"></a>(2) $y(n)=nx(n)$</h4><h4 id="3-y-n-6x-n-3"><a href="#3-y-n-6x-n-3" class="headerlink" title="(3) $y(n)=6x(n)+3$"></a>(3) $y(n)=6x(n)+3$</h4><h4 id="4-y-n-x-3-n"><a href="#4-y-n-x-3-n" class="headerlink" title="(4) $y(n)=x^3(n)$"></a>(4) $y(n)=x^3(n)$</h4><h4 id="5-y-n-sum-limits-m-infty-nx-m"><a href="#5-y-n-sum-limits-m-infty-nx-m" class="headerlink" title="(5) $y(n)=\sum\limits_{m=-\infty}^nx(m)$"></a>(5) $y(n)=\sum\limits_{m=-\infty}^nx(m)$</h4><table>
+<thead>
+<tr>
+<th>解:</th>
+<th>线性系统</th>
+<th>时不变系统</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$y(n)=x(n-n_0)$</td>
+<td>线性系统</td>
+<td>时不变系统</td>
+</tr>
+<tr>
+<td>$y(n)=nx(n)$</td>
+<td>线性系统</td>
+<td>时变系统</td>
+</tr>
+<tr>
+<td>$y(n)=6x(n)+3$</td>
+<td>非线性系统</td>
+<td>时不变系统</td>
+</tr>
+<tr>
+<td>$y(n)=x^3(n)$</td>
+<td>非线性系统</td>
+<td>时不变系统</td>
+</tr>
+<tr>
+<td>$y(n)=\sum\limits_{m=-\infty}^nx(m)$</td>
+<td>线性系统</td>
+<td>时不变系统</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-试确定以下系统的因果性和稳定性："><a href="#4-试确定以下系统的因果性和稳定性：" class="headerlink" title="4.试确定以下系统的因果性和稳定性："></a>4.试确定以下系统的因果性和稳定性：</h3><h4 id="1-y-n-sum-limits-k-n-0-nx-k-n-gt-n-0"><a href="#1-y-n-sum-limits-k-n-0-nx-k-n-gt-n-0" class="headerlink" title="(1) $y(n)=\sum\limits_{k=n_0}^nx(k),n&gt;n_0$"></a>(1) $y(n)=\sum\limits_{k=n_0}^nx(k),n&gt;n_0$</h4><h4 id="2-h-n-cfrac-1-n-u-n"><a href="#2-h-n-cfrac-1-n-u-n" class="headerlink" title="(2) $h(n)=\cfrac{1}{n!}u(n)$"></a>(2) $h(n)=\cfrac{1}{n!}u(n)$</h4><h4 id="3-h-n-2-nR-N-n"><a href="#3-h-n-2-nR-N-n" class="headerlink" title="(3) $h(n)=2^nR_N(n)$"></a>(3) $h(n)=2^nR_N(n)$</h4><h4 id="4-h-n-2-nu-n"><a href="#4-h-n-2-nu-n" class="headerlink" title="(4) $h(n)=2^nu(n)$"></a>(4) $h(n)=2^nu(n)$</h4><h4 id="5-h-n-5-nu-n"><a href="#5-h-n-5-nu-n" class="headerlink" title="(5) $h(n)=5^nu(-n)$"></a>(5) $h(n)=5^nu(-n)$</h4><table>
+<thead>
+<tr>
+<th>解:</th>
+<th>因果性</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$y(n)=\sum\limits_{k=n_0}^nx(k),n&gt;n_0$</td>
+<td>因果</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>$h(n)=\cfrac{1}{n!}u(n)$</td>
+<td>因果</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>$h(n)=2^nR_N(n)$</td>
+<td>因果</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>$h(n)=2^nu(n)$</td>
+<td>因果</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>$h(n)=5^nu(-n)$</td>
+<td>非因果</td>
+<td>稳定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-求以下序列的Z变换及收敛域"><a href="#5-求以下序列的Z变换及收敛域" class="headerlink" title="5. 求以下序列的Z变换及收敛域:"></a>5. 求以下序列的<em>Z</em>变换及收敛域:</h3><h4 id="1-delta-n-n-0"><a href="#1-delta-n-n-0" class="headerlink" title="(1) $\delta(n-n_0)$"></a>(1) $\delta(n-n_0)$</h4><h4 id="2-0-5-n-u-n-u-n-10"><a href="#2-0-5-n-u-n-u-n-10" class="headerlink" title="(2) $0.5^n[u(n)-u(n-10)]$"></a>(2) $0.5^n[u(n)-u(n-10)]$</h4><table>
+<thead>
+<tr>
+<th>解:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$(1): \quad 由Z变换公式得：\   X(z)=\sum\limits_{n=-\infty}^{\infty}\delta(n-n_0)z^{-n} \  = \sum\limits_{n=n_0}^{n_0}\delta(n-n_0)z^{-n} \  =z^{-n_0}$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>收敛域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>若$n_0&lt;0$时，收敛域为：$0\le</td>
+<td>z</td>
+<td>&lt;\infty$</td>
+</tr>
+<tr>
+<td>若$n_0&gt;0$时，收敛域为：$0&lt;</td>
+<td>z</td>
+<td>\le\infty$</td>
+</tr>
+<tr>
+<td>若$n_0=0$时，收敛域为：$0\le</td>
+<td>z</td>
+<td>\le \infty$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>解:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$(2): \quad  由Z变换公式得：\   X(z)=\sum\limits_{n=-\infty}^{\infty}0.5^n(u(n)-u(n-10))z^{-n} \  = \sum\limits_{n=0}^{9}0.5^nz^{-n} \  =\sum\limits_{n=0}^{9}(0.5\cdot z^{-1})^n \  =\cfrac{1-(0.5\cdot z^{-1})^{10}}{1-0.5\cdot z^{-1}}$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>收敛域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>收敛域为: $0&lt;</td>
+<td>z</td>
+<td>$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-设序列-x-n-和-y-n-的Z变换分别为-X-z-和-Y-z-试求-X-z-和-Y-z-的关系"><a href="#6-设序列-x-n-和-y-n-的Z变换分别为-X-z-和-Y-z-试求-X-z-和-Y-z-的关系" class="headerlink" title="6. 设序列$x(n)$和$y(n)$的Z变换分别为$X(z)$和$Y(z)$,试求$X(z)$和$Y(z)$的关系:"></a>6. 设序列$x(n)$和$y(n)$的Z变换分别为$X(z)$和$Y(z)$,试求$X(z)$和$Y(z)$的关系:</h3><p>$\large\left{\begin{aligned}y(2n)=x(n) \ y(2n+1)=0 \ \end{aligned}\right.​$</p>
+<table>
+<thead>
+<tr>
+<th>解：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$Y(z)= \sum\limits_{n={-\infty}}^{\infty}y(n)z^{-n} \  = \sum\limits_{m={-\infty}}^{\infty}y(2m)z^{-2m}+\sum\limits_{m={-\infty}}^{\infty}y(2m+1)z^{-(2m+1)} \  = \sum\limits_{m={-\infty}}^{\infty}X(m)z^{-2m}+0 \  = X(z^2)$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-设序列-x-n-和-y-n-的Z变换分别为-X-z-和-Y-z-试求-X-z-和-Y-z-的关系"><a href="#7-设序列-x-n-和-y-n-的Z变换分别为-X-z-和-Y-z-试求-X-z-和-Y-z-的关系" class="headerlink" title="7. 设序列$x(n)$和$y(n)$的Z变换分别为$X(z)$和$Y(z)$,试求$X(z)$和$Y(z)$的关系:"></a>7. 设序列$x(n)$和$y(n)$的Z变换分别为$X(z)$和$Y(z)$,试求$X(z)$和$Y(z)$的关系:</h3><p>$y(2n)=y(2n+1)=x(n)$</p>
+<table>
+<thead>
+<tr>
+<th>解：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$Y(z)= \sum\limits_{n={-\infty}}^{\infty}y(n)z^{-n} \  = \sum\limits_{m={-\infty}}^{\infty}y(2m)z^{-2m}+\sum\limits_{m={-\infty}}^{\infty}y(2m+1)z^{-(2m+1)} \  = \sum\limits_{m={-\infty}}^{\infty}X(m)z^{-2m}+\sum\limits_{m={-\infty}}^{\infty}X(m)z^{-(2m+1)} \  = X(z^2)+2^{-1}\cdot X(z^2) \  = (1+z^{-1})X(z^2)$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-已知系统的差分方程-y-n-0-25y-n-1-0-5x-n-0-45x-n-1-0-35x-n-2-且在-n-lt-0-时-y-n-0-求该系统的系统函数。"><a href="#8-已知系统的差分方程-y-n-0-25y-n-1-0-5x-n-0-45x-n-1-0-35x-n-2-且在-n-lt-0-时-y-n-0-求该系统的系统函数。" class="headerlink" title="8. 已知系统的差分方程$y(n)-0.25y(n-1)=0.5x(n)+0.45x(n-1)+0.35x(n-2)$,且在$n&lt;0$时$y(n)=0$.求该系统的系统函数。"></a>8. 已知系统的差分方程$y(n)-0.25y(n-1)=0.5x(n)+0.45x(n-1)+0.35x(n-2)$,且在$n&lt;0$时$y(n)=0$.求该系统的系统函数。</h3><table>
+<thead>
+<tr>
+<th>解：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>将等式两边进行Z变换得：</code></td>
+</tr>
+<tr>
+<td>$Y(z)(1-\cfrac{1}{4}\cdot z^{-1})=X(z)(\cfrac{1}{2}+\cfrac{9}{20}\cdot z^{-1}+\cfrac{7}{20}\cdot z^{-2})$</td>
+</tr>
+<tr>
+<td>$H(z)=\cfrac{Y(z)}{X(z)}=\cfrac{\cfrac{1}{2}+\cfrac{9}{20}\cdot z^{-1}+\cfrac{7}{20}\cdot z^{-2}}{1-\cfrac{1}{4}\cdot z^{-1}}=\cfrac{10z^2+9z+7}{20z^2-5z}$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-x-n-的DTFT为-X-e-j-omega-试求-x-n-的DTFT。"><a href="#9-x-n-的DTFT为-X-e-j-omega-试求-x-n-的DTFT。" class="headerlink" title="9.$x(n)$的DTFT为$X(e^{j\omega})$,试求$x(-n)$的DTFT。"></a>9.$x(n)$的DTFT为$X(e^{j\omega})$,试求$x(-n)$的DTFT。</h3><table>
+<thead>
+<tr>
+<th>解：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>令$y(n)=x(-n)$:</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-讨论一个具有下列系统函数的线性时不变因果系统-H-z-cfrac-1-a-1-z-1-1-az-1-其中a为实数。"><a href="#10-讨论一个具有下列系统函数的线性时不变因果系统-H-z-cfrac-1-a-1-z-1-1-az-1-其中a为实数。" class="headerlink" title="10. 讨论一个具有下列系统函数的线性时不变因果系统:$H(z)=\cfrac{1-a^{-1}z^{-1}}{1-az^{-1}}$其中a为实数。"></a>10. 讨论一个具有下列系统函数的线性时不变因果系统:$H(z)=\cfrac{1-a^{-1}z^{-1}}{1-az^{-1}}$其中<em>a</em>为实数。</h3><h4 id="1-对于什么样的a值范围系统是稳定的？"><a href="#1-对于什么样的a值范围系统是稳定的？" class="headerlink" title="(1) 对于什么样的a值范围系统是稳定的？"></a>(1) 对于什么样的<em>a</em>值范围系统是稳定的？</h4><h4 id="2-证明该系统是一个全通系统，即频率响应的幅度为一常数。"><a href="#2-证明该系统是一个全通系统，即频率响应的幅度为一常数。" class="headerlink" title="(2) 证明该系统是一个全通系统，即频率响应的幅度为一常数。"></a>(2) 证明该系统是一个全通系统，即频率响应的幅度为一常数。</h4><p>(1): 极点$z=a,\therefore |a|\le 1$ 又$\because a\not=0,\therefore 0&lt;|a|\le 1$ </p>
+<p>(2): 作图知极点$a$在单位圆的实轴上,零点$1/a$在单位圆外的实轴上,由余弦定理得: </p>
+<p>极点矢量长度 $=\sqrt{a^2+1-2a\cos(\omega)}$  </p>
+<p>零点矢量长度 $=\sqrt{a^{-2}+1-2a^{-1}\cos(\omega)}=\cfrac{1}{|a|}\sqrt{a^2+1-2a\cos(\omega)}$ </p>
+<p>系统频率响应即为极点矢量长度与零点矢量长度之比,<br>$|H(e^{j\omega})|=|\cfrac{1-a^{-1}e^{-j\omega}}{1-ae^{-j\omega}}|=\cfrac{1}{|a|}$</p>
+<p>$\cfrac{1}{|a|}$是常数,所以是全通系统,得证</p>
+<h3 id="11-离散时间信号-x-n-频谱如图所示-试求-M-3-直接抽取-不滤波-后的信号的频谱。"><a href="#11-离散时间信号-x-n-频谱如图所示-试求-M-3-直接抽取-不滤波-后的信号的频谱。" class="headerlink" title="11. 离散时间信号$x(n)$频谱如图所示,试求$M=3$直接抽取(不滤波)后的信号的频谱。"></a>11. 离散时间信号$x(n)$频谱如图所示,试求$M=3$直接抽取(不滤波)后的信号的频谱。</h3><p><img src="https://github.com/dybl/dsp/tree/master/img/07F843624662FBD46CD9FC9AD15F7FBE.jpg" alt=""></p>
+<h3 id="12-数字录音带-DAT-驱动器的采样频率为48kHz-而激光唱盘-CD-播放机则以44-1kHz的采样频率工作。为了直接把声音从CD录制到DAT-需要把采样频率从44-1kHz转换到48kHz。为此-考虑完成图所示的采样率转换系统。求L和M的最小可能值以及适当的滤波器-H-e-j-omega-完成这个转换。"><a href="#12-数字录音带-DAT-驱动器的采样频率为48kHz-而激光唱盘-CD-播放机则以44-1kHz的采样频率工作。为了直接把声音从CD录制到DAT-需要把采样频率从44-1kHz转换到48kHz。为此-考虑完成图所示的采样率转换系统。求L和M的最小可能值以及适当的滤波器-H-e-j-omega-完成这个转换。" class="headerlink" title="12. 数字录音带(DAT)驱动器的采样频率为48kHz,而激光唱盘(CD)播放机则以44.1kHz的采样频率工作。为了直接把声音从CD录制到DAT,需要把采样频率从44.1kHz转换到48kHz。为此,考虑完成图所示的采样率转换系统。求L和M的最小可能值以及适当的滤波器$H(e^{j\omega})$完成这个转换。"></a>12. 数字录音带(DAT)驱动器的采样频率为48kHz,而激光唱盘(CD)播放机则以44.1kHz的采样频率工作。为了直接把声音从CD录制到DAT,需要把采样频率从44.1kHz转换到48kHz。为此,考虑完成图所示的采样率转换系统。求L和M的最小可能值以及适当的滤波器$H(e^{j\omega})$完成这个转换。</h3><p><img src="https://github.com/dybl/dsp/tree/master/img/34B584A321019C168645170B27469EA7.jpg" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>解：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已知$48000=2^7\cdot3 \cdot 5^3$及$44100=2^2\cdot 3^2\cdot 5^2\cdot 7^2$,为改变采样频率,需</td>
+</tr>
+<tr>
+<td>$\cfrac{L}{M}=\cfrac{2^7\cdot3 \cdot 5^3}{2^2\cdot 3^2\cdot 5^2\cdot 7^2}=\cfrac{2^5\cdot 5}{3\cdot 7^2}= \cfrac{160}{147}$</td>
+</tr>
+<tr>
+<td>选择内插因子$L=160$而抽取因子$M=147$,便可转换采样率</td>
+</tr>
+<tr>
+<td>低通滤波器的边界频率为$\omega_c=min(\cfrac{\pi}{L},\cfrac{\pi}{M})=\cfrac{\pi}{160}$</td>
+</tr>
+<tr>
+<td>其增益应等于$L=160$,采样频率为$(44.1\times 160)KHz=7056KHz$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-序列-x-n-的傅里叶变换如图所示-希望最大可能地对-x-n-降低采样率-而不引入混叠。"><a href="#13-序列-x-n-的傅里叶变换如图所示-希望最大可能地对-x-n-降低采样率-而不引入混叠。" class="headerlink" title="13. 序列$x(n)$的傅里叶变换如图所示,希望最大可能地对$x(n)$降低采样率,而不引入混叠。"></a>13. 序列$x(n)$的傅里叶变换如图所示,希望最大可能地对$x(n)$降低采样率,而不引入混叠。</h3><p><img src="https://github.com/dybl/dsp/tree/master/img/2BC4957FBEA2DC2C7FBB112A36BD48E9.jpg" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>解：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\cfrac{L}{M}=\cfrac{2}{9}$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-考虑图所示的系统，假设-x-a-t-输入是带限的-即对于-Omega-gt-4000-pi-rad-s-X-a-j-Omega-equiv0-。"><a href="#14-考虑图所示的系统，假设-x-a-t-输入是带限的-即对于-Omega-gt-4000-pi-rad-s-X-a-j-Omega-equiv0-。" class="headerlink" title="14. 考虑图所示的系统，假设$x_a(t)$输入是带限的,即对于$|\Omega|&gt;4000\pi rad/s,X_a(j\Omega)\equiv0$。"></a>14. 考虑图所示的系统，假设$x_a(t)$输入是带限的,即对于$|\Omega|&gt;4000\pi rad/s,X_a(j\Omega)\equiv0$。</h3><p><img src="https://github.com/dybl/dsp/tree/master/img/F4B4F6A95AC05F50845A6F725C7FDCA5.jpg" alt=""></p>
+<h4 id="1-为使-y-a-t-等于-x-a-t-应该对-M-T-1-T-2-有何约束"><a href="#1-为使-y-a-t-等于-x-a-t-应该对-M-T-1-T-2-有何约束" class="headerlink" title="(1) 为使$y_a(t)$等于$x_a(t)$,应该对$M,T_1,T_2$有何约束?"></a>(1) 为使$y_a(t)$等于$x_a(t)$,应该对$M,T_1,T_2$有何约束?</h4><h4 id="2-如果-f-1-1-T-1-30kHz-M-最大可以取多少"><a href="#2-如果-f-1-1-T-1-30kHz-M-最大可以取多少" class="headerlink" title="(2) 如果$f_1=1/T_1=30kHz,M$最大可以取多少?"></a>(2) 如果$f_1=1/T_1=30kHz,M$最大可以取多少?</h4><table>
+<thead>
+<tr>
+<th>解：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1):$T_2&lt;0.25ms,T_1=T_2/M$</td>
+</tr>
+<tr>
+<td>(2):$M$最大取<code>7</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="15-若已知-DFT-x-n-X-k-求-DFT-x-n-cos-cfrac-2-pi-N-mn-0-lt-m-lt-N"><a href="#15-若已知-DFT-x-n-X-k-求-DFT-x-n-cos-cfrac-2-pi-N-mn-0-lt-m-lt-N" class="headerlink" title="15. 若已知$DFT[x(n)]=X(k)$,求$DFT[x(n)\cos(\cfrac{2\pi}{N}mn)], 0&lt;m&lt;N$"></a>15. 若已知$DFT[x(n)]=X(k)$,求$DFT[x(n)\cos(\cfrac{2\pi}{N}mn)], 0&lt;m&lt;N$</h3><p><strong>解：由欧拉公式得</strong></p>
+<p>$\large DFT[x(n)\cos(\cfrac{2\pi}{N}mn)]=\cfrac{1}{2}[X((k-m))_N+X((k+m))_N]$</p>
+<h3 id="16-已知-x-n-1-2-2-1-求用定义计算-x-n-的DFT并验证-Parseval-定理。"><a href="#16-已知-x-n-1-2-2-1-求用定义计算-x-n-的DFT并验证-Parseval-定理。" class="headerlink" title="16. 已知$x(n)={1,2,2,1}$,求用定义计算$x(n)$的DFT并验证$Parseval$定理。"></a>16. 已知$x(n)={1,2,2,1}$,求用定义计算$x(n)$的DFT并验证$Parseval$定理。</h3><p>$\large X(k)={①+②+③+④,①-③+(④-②)j,(①-②)+(③-④),①-③+(②-④)j} \ X(k)={6,-1-j,0,-1+j} \ 已知:\sum\limits_{n=0}^{N-1}|x(n)|^2=\cfrac{1}{N}\sum\limits_{n=0}^{N-1}|X(k)|^2\ 时域:\sum\limits_{n=0}^{3}|x(n)|^2=1^2+2^2+2^2+1^2=10 \ 频域:\cfrac{1}{4}\sum\limits_{n=0}^{3}|X(k)|^2=\cfrac{1}{4}[6^2+1^2+1^2+0+1^2+1^2]=10 \ 时域频域相等,满足定理$</p>
+<h3 id="17-已知-x-n-是长为-N-的有限长序列-X-k-DFT-x-n-现将-x-n-的每二点之间补进-r-1-个零值-得到一个长为-rN-的有限长序列-y-n"><a href="#17-已知-x-n-是长为-N-的有限长序列-X-k-DFT-x-n-现将-x-n-的每二点之间补进-r-1-个零值-得到一个长为-rN-的有限长序列-y-n" class="headerlink" title="17. 已知$x(n)$是长为$N$的有限长序列,$X(k)=DFT[x(n)]$,现将$x(n)$的每二点之间补进$r-1$个零值,得到一个长为$rN$的有限长序列$y(n)$,"></a>17. 已知$x(n)$是长为$N$的有限长序列,$X(k)=DFT[x(n)]$,现将$x(n)$的每二点之间补进$r-1$个零值,得到一个长为$rN$的有限长序列$y(n)$,</h3><p>$y(n)=\left{\begin{array}{rcl}x(n/r),        n=ir,  i=0,1,\cdots,N-1\ 0        其他\<br>\end{array} \right.$</p>
+<h3 id="求-DFT-y-n-与-X-k-的关系。"><a href="#求-DFT-y-n-与-X-k-的关系。" class="headerlink" title="求$DFT[y(n)]$与$X(k)$的关系。"></a>求$DFT[y(n)]$与$X(k)$的关系。</h3><p>$\large DFT[y(n)]=Y(k)=X((k)_NR_{rN}(k),\qquad k=0,1,2,\cdots,N-1)$</p>
+<h3 id="18-已知-x-n-3-5-1-6-1-0-2-2-DFT-x-n-X-k-并且-Y-k-W-N-3k-X-k-求"><a href="#18-已知-x-n-3-5-1-6-1-0-2-2-DFT-x-n-X-k-并且-Y-k-W-N-3k-X-k-求" class="headerlink" title="18. 已知$x(n)={3,5,-1,6,1,0,2,-2},DFT[x(n)]=X(k)$,并且$Y(k)=W_N^{3k}X(k)$.求:"></a>18. 已知$x(n)={3,5,-1,6,1,0,2,-2},DFT[x(n)]=X(k)$,并且$Y(k)=W_N^{3k}X(k)$.求:</h3><h4 id="1-y-n-IDFT-Y-k"><a href="#1-y-n-IDFT-Y-k" class="headerlink" title="(1)$y(n)=IDFT[Y(k)]$"></a>(1)$y(n)=IDFT[Y(k)]$</h4><h4 id="2-sum-limits-k-0-N-1-Y-k-2"><a href="#2-sum-limits-k-0-N-1-Y-k-2" class="headerlink" title="(2)$\sum\limits_{k=0}^{N-1}|Y(k)|^2$"></a>(2)$\sum\limits_{k=0}^{N-1}|Y(k)|^2$</h4><p>$y(n)=IDFT[Y(k)] \  =IDFT[W_N^{3k}X(k)] \  =\cfrac{1}{N}\sum\limits_{k=0}^{N-1}X(k)W_N^{-kn}W_N^{3k} \  =\cfrac{1}{8}\sum\limits_{k=0}^{7}X(k)W_N^{-(n-3)k} \  =x(n-3) \  ={6,1,0,2,-2,3,5,-1}$</p>
+<p>$\sum\limits_{k=0}^{N-1}|Y(k)|^2 \  =8\cdot\sum\limits_{k=0}^{7}[6^2+1^2+0+2^2+(-2)^+3^2+5^2+(-1)^2] \  = 8\cdot 80 \  =640$</p>
+<h3 id="19-已知复序列-f-n-是由两个实有限长序列-x-n-y-n-组成-f-n-x-n-jy-n-并且-DFT-f-n-F-k-F-k-cfrac-1-a-N-1-aW-N-k-j-cfrac-1-b-N-1-bW-N-k-求-X-k-Y-k-以及-x-n-y-n-。"><a href="#19-已知复序列-f-n-是由两个实有限长序列-x-n-y-n-组成-f-n-x-n-jy-n-并且-DFT-f-n-F-k-F-k-cfrac-1-a-N-1-aW-N-k-j-cfrac-1-b-N-1-bW-N-k-求-X-k-Y-k-以及-x-n-y-n-。" class="headerlink" title="19.  已知复序列$f(n)$是由两个实有限长序列$x(n,)y(n)$组成,$f(n)=x(n)+jy(n)$,并且$DFT[f(n)]=F(k)$,$F(k)=\cfrac{1-a^N}{1-aW_N^k}+j\cfrac{1-b^N}{1-bW_N^k}$,求$X(k),Y(k)$以及$x(n),y(n)$。"></a>19.  已知复序列$f(n)$是由两个实有限长序列$x(n,)y(n)$组成,$f(n)=x(n)+jy(n)$,并且$DFT[f(n)]=F(k)$,$F(k)=\cfrac{1-a^N}{1-aW_N^k}+j\cfrac{1-b^N}{1-bW_N^k}$,求$X(k),Y(k)$以及$x(n),y(n)$。</h3><table>
+<thead>
+<tr>
+<th>解：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$X(k)=\cfrac{1-a^N}{1-aW_N^k}=\sum\limits_{n=0}^{N-1}a^nW_n^{kn}$</td>
+</tr>
+<tr>
+<td>$Y(k)=\cfrac{1-b^N}{1-bW_N^k}=\sum\limits_{n=0}^{N-1}b^nW_n^{kn}$</td>
+</tr>
+<tr>
+<td>$x(n)=a^nR_N(n)$</td>
+</tr>
+<tr>
+<td>$y(n)=b^nR_N(n)$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="20-N-点序列-x-n-的DFT为-X-k-并有-1-x-1-n-1-nx-n-quad-2-x-2-n-x-N-1-n-分别求-x-1-n-的DFT-X-1-k-以及-x-2-n-的DFT-X-2-k-与-X-k-的关系。"><a href="#20-N-点序列-x-n-的DFT为-X-k-并有-1-x-1-n-1-nx-n-quad-2-x-2-n-x-N-1-n-分别求-x-1-n-的DFT-X-1-k-以及-x-2-n-的DFT-X-2-k-与-X-k-的关系。" class="headerlink" title="20.$N$点序列$x(n)$的DFT为$X(k)$,并有$(1)x_1(n)=(-1)^nx(n)\quad (2)x_2(n)=x(N-1-n)$分别求$x_1(n)$的DFT$X_1(k)$以及$x_2(n)$的DFT$X_2(k)$与$X(k)$的关系。"></a>20.$N$点序列$x(n)$的DFT为$X(k)$,并有$(1)x_1(n)=(-1)^nx(n)\quad (2)x_2(n)=x(N-1-n)$分别求$x_1(n)$的DFT$X_1(k)$以及$x_2(n)$的DFT$X_2(k)$与$X(k)$的关系。</h3><p><strong>解: (1)</strong></p>
+<p>$X_1(k) =DFT[x_1(n)] \  =\sum\limits_{k=0}^{N-1}x_1(n)W_N^{kn} \  =\sum\limits_{k=0}^{N-1}(-1)^nx(n)W_N^{kn} \  =\sum\limits_{k=0}^{N-1}e^{-j\pi n}x(n)\cdot e^{-j\frac{2\pi}{N}\cdot kn} \  =\sum\limits_{k=0}^{N-1}e^{-j\frac{2\pi}{N}(k+\frac{N}{2})n} \  =X_1(k)X(k+N/2)$</p>
+<p><strong>解: (2)</strong></p>
+<p>$X_1(k) =DFT[x_1(n)] \  =\sum\limits_{k=0}^{N-1}x_2(n)W_N^{kn} \  =\sum\limits_{k=0}^{N-1}x(N-1-n)W_N^{kn} \ 令N-1-n=t,\quad 则n=N-1-t.\  =\sum\limits_{k=0}^{N-1}x(t)W_N^{(N-1-t)k}\  =\sum\limits_{t=0}^{N-1}x(t)W_N^{kN}\cdot W_N^{-k}\cdot W_N^{-kt} \  =\sum\limits_{t=0}^{N-1}x(t)W_N^{-k}\cdot W_N^{-kt} \  =X_2(k)W_N^{-k}X(-k)$</p>
+<h3 id="21-希望利用一个长度为50的有限长单位脉冲响应滤波器来过滤一段很长的数据-要求利用重叠保留法并通过FFT来实现这种滤波器。为做到这一点-首先输入各段必须重叠N个样本-其次必须从每一段产生的输出中取出M个样本-并把它们拼接在一起形成一长序列-即为滤波输出。设输入的各段长度为100个样本-而FFT的长度为128-循环卷积的输出序号为0-127"><a href="#21-希望利用一个长度为50的有限长单位脉冲响应滤波器来过滤一段很长的数据-要求利用重叠保留法并通过FFT来实现这种滤波器。为做到这一点-首先输入各段必须重叠N个样本-其次必须从每一段产生的输出中取出M个样本-并把它们拼接在一起形成一长序列-即为滤波输出。设输入的各段长度为100个样本-而FFT的长度为128-循环卷积的输出序号为0-127" class="headerlink" title="21. 希望利用一个长度为50的有限长单位脉冲响应滤波器来过滤一段很长的数据,要求利用重叠保留法并通过FFT来实现这种滤波器。为做到这一点,首先输入各段必须重叠N个样本;其次必须从每一段产生的输出中取出M个样本,并把它们拼接在一起形成一长序列,即为滤波输出。设输入的各段长度为100个样本,而FFT的长度为128,循环卷积的输出序号为0~127."></a>21. 希望利用一个长度为50的有限长单位脉冲响应滤波器来过滤一段很长的数据,要求利用重叠保留法并通过FFT来实现这种滤波器。为做到这一点,首先输入各段必须重叠N个样本;其次必须从每一段产生的输出中取出M个样本,并把它们拼接在一起形成一长序列,即为滤波输出。设输入的各段长度为100个样本,而FFT的长度为128,循环卷积的输出序号为0~127.</h3><h4 id="1-求N；"><a href="#1-求N；" class="headerlink" title="(1) 求N；"></a>(1) 求N；</h4><h4 id="2-求M；"><a href="#2-求M；" class="headerlink" title="(2) 求M；"></a>(2) 求M；</h4><h4 id="3-求取出的M个点的起点与终点序号-即循环卷积的128点中取出哪些点去和前一段的点衔接起来？"><a href="#3-求取出的M个点的起点与终点序号-即循环卷积的128点中取出哪些点去和前一段的点衔接起来？" class="headerlink" title="(3) 求取出的M个点的起点与终点序号,即循环卷积的128点中取出哪些点去和前一段的点衔接起来？"></a>(3) 求取出的M个点的起点与终点序号,即循环卷积的128点中取出哪些点去和前一段的点衔接起来？</h4><p>解:<br>$(1): 输入各段重叠的样本数为滤波器长度减1 \  \quad N =N_1-1 =50-1=49 \  (2): M =N_{in}-N_1+1 =100-50+1=51 \  (3): 去掉混叠的前 N(0\sim 48)个点,和末尾补的28(100\sim 127)个零点,取出的M个点的序号为: \quad 49 \sim 99$</p>
+<h3 id="22-一个实时卷积器是用FFT的重叠保留法分段处理的-假定系统的单位脉冲响应的长度为128-每段1024点FFT的运算时间为0-1-s-一次复数乘法的时间为5μs。不计数据采集、存取和加法的时间-试问"><a href="#22-一个实时卷积器是用FFT的重叠保留法分段处理的-假定系统的单位脉冲响应的长度为128-每段1024点FFT的运算时间为0-1-s-一次复数乘法的时间为5μs。不计数据采集、存取和加法的时间-试问" class="headerlink" title="22. 一个实时卷积器是用FFT的重叠保留法分段处理的,假定系统的单位脉冲响应的长度为128,每段1024点FFT的运算时间为0.1 s,一次复数乘法的时间为5μs。不计数据采集、存取和加法的时间,试问:"></a>22. 一个实时卷积器是用FFT的重叠保留法分段处理的,假定系统的单位脉冲响应的长度为128,每段1024点FFT的运算时间为0.1 s,一次复数乘法的时间为5μs。不计数据采集、存取和加法的时间,试问:</h3><h4 id="1-采样频率最高可达多少？"><a href="#1-采样频率最高可达多少？" class="headerlink" title="(1) 采样频率最高可达多少？"></a>(1) 采样频率最高可达多少？</h4><h4 id="2-若两路信号同时卷积，采样频率最高是多少？"><a href="#2-若两路信号同时卷积，采样频率最高是多少？" class="headerlink" title="(2) 若两路信号同时卷积，采样频率最高是多少？"></a>(2) 若两路信号同时卷积，采样频率最高是多少？</h4>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">感谢您的支持！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/res/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/res/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://dybl.github.io" class="b-link-green">FunU</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/01/02/dsp-review/" class="b-link-green">dsp-review</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="card">
+                <a href="/2019/01/02/dsp-review/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/res/img/15.jpg" class="responsive-img" alt="dsp-review">
+                        
+                        <span class="card-title">dsp-review</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">DSP-review
+
+$\wp$ 填空(10)1.$y(n)=x(n-k),k&gt;0$,表示$y(n)$是整个$x(n)$在整个$x(n)$在时间轴上右移$k$个采样周期所得到的新序列?2. 在数字信号处理中,可以将信号存储起来,用延</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/review/" class="post-category" target="_blank">
+                                    review
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/dsp/" target="_blank">
+                        <span class="chip bg-color">dsp</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2018/12/24/sensor-review/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/res/img/15.jpg" class="responsive-img" alt="sensor-review">
+                        
+                        <span class="card-title">sensor-review</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">传感器复习题
+
+$\Re$ 填空题1.传感器的分类方法  P2  ★
+1)按(输入量)分类
+2)按(工作原理)分类
+3)按(物理现象)分类
+4)按(能量关系)分类
+5)按(输出信号)分类
+
+10、自感式传感器的组成和工作原理 P47 ★
+自</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/review/" class="post-category" target="_blank">
+                                    review
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/sensor/" target="_blank">
+                        <span class="chip bg-color">sensor</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2018 &copy;<a href="http://dybl.github.io" target="_blank"> FunU co.,ltd</a>
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
+    data-position="top" data-delay="50">
+    <i class="fa fa-github fa-lg"></i>
+</a>
+<a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
+    data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+    <i class="fa fa-twitter fa-lg"></i>
+</a>
+<a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+    <i class="fa fa-facebook-official fa-lg"></i>
+</a>
+<a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+    <i class="fa fa-instagram fa-lg"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>
