@@ -189,10 +189,6 @@ MathJax是一套开源js库，它并不是将公式转化为一个图片，而�
     data-position="top" data-delay="50">
     <i class="fa fa-github fa-lg"></i>
 </a>
-<a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
-    data-delay="50">
-    <i class="fa fa-envelope fa-lg"></i>
-</a>
 <a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
     <i class="fa fa-twitter fa-lg"></i>
 </a>
@@ -1180,6 +1176,28 @@ if config.language === &#39;zh-Hans&#39;
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2016-04-04T15-05-54',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 
@@ -1384,15 +1402,12 @@ Advanced Bash-Sc</div>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            2018 &copy;<a href="http://dybl.github.io" target="_blank"> FunU co.,ltd</a>
+            2018 &copy;<a href="http://dybl.github.io" target="_blank"> FunU CO.,LTD</a>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="display:none;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">知识共享署名-非商业用途-相同方式共享许可下获得</font></font></a>
         </div>
         <div class="col s12 m4 l4 social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
     data-position="top" data-delay="50">
     <i class="fa fa-github fa-lg"></i>
-</a>
-<a href="mailto:xxx@example.com" class="tooltipped" target="_blank" data-tooltip="-> Email" data-position="top"
-    data-delay="50">
-    <i class="fa fa-envelope fa-lg"></i>
 </a>
 <a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
     <i class="fa fa-twitter fa-lg"></i>
@@ -1408,6 +1423,7 @@ Advanced Bash-Sc</div>
 </footer>
 
 <div class="progress-bar"></div>
+
 
 
 <!-- 搜索遮罩框 -->
