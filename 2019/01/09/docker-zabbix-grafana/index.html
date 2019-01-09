@@ -5,12 +5,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="docker-ce-wordpress, FunU">
-    <meta name="description" content="Docker Community Edition 镜像使用帮助
-注意: 本镜像只提供 Debian/Ubuntu/Fedora/CentOS/RHEL 的 docker 软件包，非 dockerhub
+    <meta name="keywords" content="docker-zabbix-grafana, FunU">
+    <meta name="description" content="基于Docker的Zabbix+Grafana监控
 
 
-Debian/Ubuntu 用户以">
+相关资料
+grafana zabbix 插件 Github
+grafana zabbix 插件 Docs
+
+部署代码部署代码Github
+部署步骤准备工作下载部署代码git clone">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +22,7 @@ Debian/Ubuntu 用户以">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>docker-ce-wordpress | FunU</title>
+    <title>docker-zabbix-grafana | FunU</title>
     <link rel="icon" type="image/png" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -214,13 +218,13 @@ Debian/Ubuntu 用户以">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/res/img/9.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/res/img/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        docker-ce-wordpress
+                        docker-zabbix-grafana
                     </div>
                 </div>
             </div>
@@ -361,134 +365,192 @@ Debian/Ubuntu 用户以">
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Docker-Community-Edition-镜像使用帮助"><a href="#Docker-Community-Edition-镜像使用帮助" class="headerlink" title="Docker Community Edition 镜像使用帮助"></a>Docker Community Edition 镜像使用帮助</h2><blockquote>
-<p>注意: 本镜像只提供 Debian/Ubuntu/Fedora/CentOS/RHEL 的 docker 软件包，非 dockerhub</p>
-</blockquote>
-<ul>
-<li>Debian/Ubuntu 用户<br>以下内容根据 官方文档 修改而来。</li>
+                <h1 align="center">基于Docker的Zabbix+Grafana监控</h1>
+
+
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><ul>
+<li><a href="https://github.com/alexanderzobnin/grafana-zabbix" target="_blank" rel="noopener">grafana zabbix 插件 Github</a></li>
+<li><a href="http://docs.grafana-zabbix.org/installation/" target="_blank" rel="noopener">grafana zabbix 插件 Docs</a></li>
 </ul>
-<p>如果你过去安装过 docker，先删掉:</p>
-<pre class="line-numbers language-sh"><code class="language-sh">sudo apt-get remove docker docker-engine docker.io
+<h2 id="部署代码"><a href="#部署代码" class="headerlink" title="部署代码"></a>部署代码</h2><p><a href="https://github.com/liqiang311/zabbix-grafana" target="_blank" rel="noopener">部署代码Github</a></p>
+<h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="下载部署代码"><a href="#下载部署代码" class="headerlink" title="下载部署代码"></a>下载部署代码</h4><pre class="line-numbers language-sh"><code class="language-sh">git clone --recursive https://github.com/liqiang311/zabbix-grafana.git
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>首先安装依赖:</p>
-<pre class="line-numbers language-sh"><code class="language-sh">sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>根据你的发行版，下面的内容有所不同。你使用的发行版：<br>信任 Docker 的 GPG 公钥:</p>
-<pre class="line-numbers language-sh"><code class="language-sh">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-对于 amd64 架构的计算机，添加软件仓库:
-
-sudo add-apt-repository \
-   "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-如果你是树莓派或其它ARM架构计算机，请运行:
-
-echo "deb [arch=armhf] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-     $(lsb_release -cs) stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list
-最后安装
-
-sudo apt-get update
-sudo apt-get install docker-ce
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h2><blockquote>
-<p>为了便于使用，我们需要安装Docker Compose来管理和运行Docker容器，Docker Compose的安装步骤如下：</p>
-</blockquote>
-<pre class="line-numbers language-sh"><code class="language-sh">// 步骤1 - 下载安装文件：
-$ sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
-
-// 步骤2 - 给已下载的安装文件添加执行权限：
-$ sudo chmod +x /usr/bin/docker-compose
-
-// 步骤3 - 测试是否安装成功：
-$ docker-compose --version
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="MariaDB"><a href="#MariaDB" class="headerlink" title="MariaDB"></a>MariaDB</h2><pre class="line-numbers language-sh"><code class="language-sh">docker search mariadb
-docker pull mariadb
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-sh"><code class="language-sh">docker run --name wpBlog -e MYSQL_ROOT_PASSWORD=1asdfghjkl9 -e MYSQL_DATABASE=wpdb -e MYSQL_USER=j8 -e MYSQL_PASSWORD=junjc9 -d mariadb --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-8740f7e42ab0b44a08c5163737e4d0eb2142662224f4871f5e49e9967b46086a
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ul>
-<li><p>获取容器的 IP</p>
-<pre class="line-numbers language-sh"><code class="language-sh">docker inspect --format='{{.NetworkSettings.IPAddress}}' yourContainer
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>安装wordpress</p>
-</li>
-</ul>
-<pre class="line-numbers language-sh"><code class="language-sh">docker run --name wp --link wpBlog:mariadb -e WORDPRESS_USER=j8 -e WORDPRESS_DB_NAME=wpdb -e WORDPRESS_DB_PASSWORD=junjc9 -p 8080:80 -d wordpress
-bcf6982952dd44c480a66d0b51b46b6b2d960ca3d4d772aced4fd9599fcad108
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3'</span>
-<span class="token key atrule">services</span><span class="token punctuation">:</span>
-   <span class="token key atrule">db</span><span class="token punctuation">:</span>
-     <span class="token key atrule">image</span><span class="token punctuation">:</span> mariadb
-     <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-       <span class="token punctuation">-</span> db_data<span class="token punctuation">:</span>/var/lib/mysql
-     <span class="token key atrule">environment</span><span class="token punctuation">:</span>
-       <span class="token key atrule">MYSQL_ROOT_PASSWORD</span><span class="token punctuation">:</span> 1asdfghjkl9
-       <span class="token key atrule">MYSQL_DATABASE</span><span class="token punctuation">:</span> wpBlog
-       <span class="token key atrule">MYSQL_USER</span><span class="token punctuation">:</span> j8
-       <span class="token key atrule">MYSQL_PASSWORD</span><span class="token punctuation">:</span> junjc9
-   <span class="token key atrule">wordpress</span><span class="token punctuation">:</span>
-     <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
-       <span class="token punctuation">-</span> db
-     <span class="token key atrule">image</span><span class="token punctuation">:</span> wordpress
-     <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-       <span class="token punctuation">-</span> wp_site<span class="token punctuation">:</span>/var/blog/html
-     <span class="token key atrule">expose</span><span class="token punctuation">:</span>
-       <span class="token punctuation">-</span> <span class="token number">80</span>
-     <span class="token key atrule">restart</span><span class="token punctuation">:</span>
-       on<span class="token punctuation">-</span>failure<span class="token punctuation">:</span><span class="token number">10</span>
-     <span class="token key atrule">environment</span><span class="token punctuation">:</span>
-       <span class="token key atrule">WORDPRESS_DB_NAME</span><span class="token punctuation">:</span> wpBlog
-        <span class="token key atrule">WORDPRESS_TABLE_PREFIX</span><span class="token punctuation">:</span> j8wp_
-       <span class="token key atrule">WORDPRESS_DB_HOST</span><span class="token punctuation">:</span> db<span class="token punctuation">:</span><span class="token number">3306</span>
-       <span class="token key atrule">WORDPRESS_DB_USER</span><span class="token punctuation">:</span> j8
-       <span class="token key atrule">WORDPRESS_DB_PASSWORD</span><span class="token punctuation">:</span> junjc9
-   <span class="token key atrule">nginx-proxy</span><span class="token punctuation">:</span>
-     <span class="token key atrule">image</span><span class="token punctuation">:</span> jwilder/nginx<span class="token punctuation">-</span>proxy
-     <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx<span class="token punctuation">-</span>proxy
-     <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
-     <span class="token key atrule">ports</span><span class="token punctuation">:</span>
-       <span class="token punctuation">-</span> <span class="token string">"80:80"</span>
-       <span class="token punctuation">-</span> <span class="token string">"443:443"</span>
-     <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-       <span class="token punctuation">-</span> /var/run/docker.sock<span class="token punctuation">:</span>/tmp/docker.sock<span class="token punctuation">:</span>ro
-       <span class="token punctuation">-</span> nginx_certs<span class="token punctuation">:</span>/etc/nginx/certs<span class="token punctuation">:</span>ro
-<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-    <span class="token key atrule">db_data</span><span class="token punctuation">:</span>
-    <span class="token key atrule">wp_site</span><span class="token punctuation">:</span>
-    <span class="token key atrule">nginx_certs</span><span class="token punctuation">:</span>
-<span class="token key atrule">networks</span><span class="token punctuation">:</span>
-   <span class="token key atrule">default</span><span class="token punctuation">:</span>
-     <span class="token key atrule">external</span><span class="token punctuation">:</span>
-       <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx<span class="token punctuation">-</span>proxy
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="wordpress主题配置"><a href="#wordpress主题配置" class="headerlink" title="wordpress主题配置"></a>wordpress主题配置</h2><blockquote>
-<p>主题upload时候页面跳转错误页面，提示Are you sure you want to do this? Please try again.<br>（左下角进度虽然已经到100%）<br>出现该提示的主要原因是：memory limited</p>
-</blockquote>
-<p>注意服务器支持格式，linux支持zip，win支持rar<br>解决方案:</p>
-<ul>
-<li>a. FTP上传</li>
-<li>b. 直接在docker中修改文件（运行条件下 ）：<br>查看正在运行的容器 docker ps -a<br>进入相应的容器 docker exec -it (container-id：根据自己实际情况填写) bash 如果是win系统，则执行winpty docker exec -it (container-id：根据自己实际情况填写) bash</li>
-</ul>
-<p>在使用docker容器时，有时候里边没有安装vim，敲vim命令时提示说：vim: command not found，这个时候就需要安装vim，可是当你敲apt-get install vim命令时，提示：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-E: Unable to locate package vim
+<h4 id="下载docker镜像"><a href="#下载docker镜像" class="headerlink" title="下载docker镜像"></a>下载docker镜像</h4><p>如何安装Docker和Docker-Compose见<a href="http://liqiang311.com/docker-install/" target="_blank" rel="noopener">http://liqiang311.com/docker-install/</a></p>
+<pre class="line-numbers language-sj"><code class="language-sj">docker pull mysql:5.7
+docker pull zabbix/zabbix-server-mysql:latest
+docker pull zabbix/zabbix-web-nginx-mysql:latest
+docker pull grafana/grafana:latest
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这时候需要敲：apt-get update，这个命令的作用是：同步 /etc/apt/sources.list 和 /etc/apt/sources.list.d 中列出的源的索引，这样才能获取到最新的软件包。<br>等更新完毕以后再敲命令：apt-get install vim命令即可。</p>
-<pre class="line-numbers language-sh"><code class="language-sh">进入目录 cd /usr/local/etc/php 
-执行vim php.ini,
-按下i编辑代码post_max_size=100M;upload_max_filesize=200M,
-按下Esc退出，
-输入:wq!退出，
-重启 /etc/init.d/apache2 restart
-再次上传主题
+<h3 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h3><pre class="line-numbers language-sh"><code class="language-sh">cd zabbix-grafana
+docker-compose up -d
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="Zabbix"><a href="#Zabbix" class="headerlink" title="Zabbix"></a>Zabbix</h3><pre class="line-numbers language-sh"><code class="language-sh">登录`ip:10052`，帐号为`Admin`，密码为`zabbix`
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>进入后右上角可以更改语言为中文</p>
+<h3 id="Grafana"><a href="#Grafana" class="headerlink" title="Grafana"></a>Grafana</h3><pre class="line-numbers language-sh"><code class="language-sh">web`ip:3000`
+
+默认帐号`admin`/`admin`
+
+`Plugins`->`app`->`Zabbix`->点击Enable
+
+// 添加Data Source
+
+点击左上角Grafana图标，选择`Data Sources`->`Add data Source`
+`
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>填写以下内容，此数据源为Zabbix的数据库，在第二个数据源中会用到。</p>
+<blockquote>
+<p>注：为提及的选项均表示不选择。</p>
+</blockquote>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">Name</span><span class="token punctuation">:</span> Zabbix
+<span class="token key atrule">Type</span><span class="token punctuation">:</span> MySQL
+MySQL Connection Host<span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">10053</span>
+<span class="token key atrule">Database</span><span class="token punctuation">:</span> zabbix
+<span class="token key atrule">User</span><span class="token punctuation">:</span> root
+<span class="token key atrule">Password</span><span class="token punctuation">:</span> mysql57
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后点击下方 <code>Save &amp; Test</code>。若成功连接，则按钮上方会显示绿色信息：</p>
+<pre class="line-numbers language-sh"><code class="language-sh">Success
+Database Connection OK
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>继续添加数据源。内容如下：</p>
+<pre class="line-numbers language-sh"><code class="language-sh">Name: zabbix
+Type: Zabbix
+url: http://localhost:10052/api_jsonrpc.php
+Access: proxy
+Basic Auth: √
+Basic Auth Details User: admin
+Basic Auth Details Password: zabbix
+Zabbix API details Username: admin
+Zabbix API details Password: zabbix
+Direct DB Connection Enable: √
+Direct DB Connection SQL Data Source: Zabbix
+Alerting Enable alerting: √
+Alerting Add thresholds: √
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后点击下方 <code>Save &amp; Test</code>。若成功连接，则按钮上方会显示绿色信息：</p>
+<pre class="line-numbers language-sh"><code class="language-sh">Success
+Zabbix API version: 3.2.5
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="客户端安装"><a href="#客户端安装" class="headerlink" title="客户端安装"></a>客户端安装</h2><p>若要监控磁盘使用率、CPU等，需在主机上安装如下软件</p>
+<pre class="line-numbers language-shell"><code class="language-shell">apt-get install zabbix-agent
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后编辑如下配置文件</p>
+<pre class="line-numbers language-shell"><code class="language-shell">vim /etc/zabbix/zabbix_agentd.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>将其中的85行的Server改为上文Zabbix配置的IP，如<code>127.0.0.1</code></p>
+<p>将其中的126行的ServerActive配置为上文Zabbix的server IP，如<code>127.0.0.1:10051</code></p>
+<p>保存文件退出。</p>
+<p>重启zabbix-agent</p>
+<pre class="line-numbers language-shell"><code class="language-shell">service zabbix-agent restart
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="自定义监控选项"><a href="#自定义监控选项" class="headerlink" title="自定义监控选项"></a>自定义监控选项</h2><p>参考<a href="http://www.cnblogs.com/jjzd/p/6474193.html" target="_blank" rel="noopener">link</a></p>
+<p>在<code>/etc/zabbix/zabbix_agentd.conf</code>中底部添加如下代码：</p>
+<pre class="line-numbers language-sh"><code class="language-sh">UserParameter=cpu0.temp, sensors coretemp-isa-0000|grep Physical|awk '{print $4}'|cut -d "." -f1
+UserParameter=cpu1.temp, sensors coretemp-isa-0001|grep Physical|awk '{print $4}'|cut -d "." -f1
+UserParameter=gpu0.temp, nvidia-smi -q -g 0 2>&1|grep -i "gpu current temp"|awk '{print $5}'| sed s/\%//g
+UserParameter=gpu1.temp, nvidia-smi -q -g 1 2>&1|grep -i "gpu current temp"|awk '{print $5}'| sed s/\%//g
+UserParameter=gpu2.temp, nvidia-smi -q -g 2 2>&1|grep -i "gpu current temp"|awk '{print $5}'| sed s/\%//g
+UserParameter=gpu3.temp, nvidia-smi -q -g 3 2>&1|grep -i "gpu current temp"|awk '{print $5}'| sed s/\%//g
+UserParameter=gpu4.temp, nvidia-smi -q -g 4 2>&1|grep -i "gpu current temp"|awk '{print $5}'| sed s/\%//g
+UserParameter=gpu5.temp, nvidia-smi -q -g 5 2>&1|grep -i "gpu current temp"|awk '{print $5}'| sed s/\%//g
+UserParameter=gpu6.temp, nvidia-smi -q -g 6 2>&1|grep -i "gpu current temp"|awk '{print $5}'| sed s/\%//g
+UserParameter=gpu7.temp, nvidia-smi -q -g 7 2>&1|grep -i "gpu current temp"|awk '{print $5}'| sed s/\%//g
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>重启zabbix-agent <code>service zabbix-agent restart</code></p>
+<p>在zabbix web中添加监控项, 其中<code>键值</code>填写<code>gpu0.temp</code>。</p>
+<h2 id="Zabbix中添加模版"><a href="#Zabbix中添加模版" class="headerlink" title="Zabbix中添加模版"></a>Zabbix中添加模版</h2><p>使用场景：公司来了一大批GPU服务器，需要对这么服务器进行监控每个GPU卡的温度和CPU核的温度，以及这些服务器的磁盘使用率。</p>
+<p>痛点：监控项太多，手动添加不易维护。</p>
+<p>添加模版步骤如下：</p>
+<p>在Zabbix Web界面，点击<code>配置</code>-&gt;<code>模版</code>-&gt;<code>创建模版</code>，填写信息如下：</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml">模版名称：gpus
+可见的名称：gpus
+新的群组：gpus
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>点击<code>添加</code>。</p>
+<p>然后点击该模版的<code>监控项</code>,点击右上角的<code>创建监控项</code>。</p>
+<p>内容如下：</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml">名称：cpu0.temp
+类型：Zabbix 客户端
+键值：cpu0.temp
+信息类型：数字（无正负）
+数据类型：十进制数字
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其他默认，点击<code>添加</code>。</p>
+<p>然后你需要利用这个监控项，来克隆出<code>cpu0.temp</code>,<code>gpu0.temp</code>,<code>gpu1.temp</code>,<code>gpu2.temp</code>,<code>gpu3.temp</code>,<code>gpu4.temp</code>,<code>gpu5.temp</code>,<code>gpu6.temp</code>,<code>gpu7.temp</code>，路漫漫，加油！</p>
+<p>还需要监控磁盘使用情况。</p>
+<p>继续添加</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml">名称：fs.size
+类型：Zabbix 客户端
+键值：vfs.fs.size<span class="token punctuation">[</span>/<span class="token punctuation">,</span>pused<span class="token punctuation">]</span>
+信息类型：浮点数
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其他默认，点击<code>添加</code>。</p>
+<p>最后效果如图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5952841-33745ad1356d35f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>继续添加主机。点击 Zabbix Web中的<code>配置</code>-&gt;<code>主机</code>-&gt;右上角<code>创建主机</code>。</p>
+<p>填写如下：</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml">主机名称：10.42.10.1
+可见的名称：gpu1
+agent代理程序的接口 IP地址 10.42.10.1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>点击上方主机旁边的<code>模版</code>,然后点击<code>选择</code>，选择刚刚创建的模板，然后选择后，点击<code>添加</code>按钮(带下划线的)。见下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5952841-26d0e2dfbdd41814.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>最后点击<code>添加</code>按钮，创建主机成功，可以发现这些主机中已经包含了很多监控项。</p>
+<p>依次类推，通过刚刚这个主机，克隆出所有的主机。</p>
+<blockquote>
+<p>注意：我们创建的模版中，选择监控了8个gpu卡，但是有的服务器中只有4块或者1块，需要在主机中将这些监控项进行禁用。如下：</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/5952841-ded841eb73b4d937.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h2 id="Gafana中使用Templating"><a href="#Gafana中使用Templating" class="headerlink" title="Gafana中使用Templating"></a>Gafana中使用Templating</h2><p>上面我们在Zabbix中添加了对许多卡的监控，现在利用Grafana的模版进行监控。</p>
+<p>在Grafana中打开<code>Dashboards</code>，然后选择你创建的Dashboards，比如<code>GPUs</code>,然后进入该Dashboards首页，点击<code>设置</code>中的<code>Templating</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5952841-016a68fc0ad79b92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>选择<code>Variables</code>界面的<code>New</code>，填写内容如下：</p>
+<pre class="line-numbers language-sh"><code class="language-sh">Name: 自定义变量名，比如Host
+Type: Query
+Data source: zabbix
+Refresh: On Dashboard Load
+Query: Groups.*
+Multi-value: ✔
+Include All option: ✔
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>Query说明：格式为Groups.Host.Application.Items，若要创建Group级变量，则填<em>，若要全部的Host，则填写`</em>.<em><code>，全部Items则写</code></em>.<em>.</em>.*`，上文填写为获取指定Group下的Host</p>
+</blockquote>
+<p>若填写正确，则<code>Add</code>按钮上方会出现所有的匹配项（Preview of values(shows max 20)）（前20个）。</p>
+<p>点击<code>Add</code>。</p>
+<p>以此方式再添加Items变量。Query中填写<code>Group.*.*.*</code>。</p>
+<p>添加后如图。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5952841-69360e061d8f1cdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>接下来是如何使用。</p>
+<p>选择新建一个<code>Graph</code>Panel，编辑这个Panel，填写方式如下:</p>
+<pre class="line-numbers language-sh"><code class="language-sh">Query Mode: Metrics
+Group: Group
+Host: $Host
+Item: $Items
+Data Source: zabbix
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="http://upload-images.jianshu.io/upload_images/5952841-59227e92520a4110.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>若不想全部Items显示到一个Graph中，则需要修改Graph Panel的<code>General</code>选项中的<code>Templating</code>，选择<code>Repeat Panel</code>，选择要Repeat的方式，<code>Min span</code>指的是分开多个后每个panel的最小宽度。最终效果图如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5952841-13adb65c4bc45d9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h2 id="定期备份"><a href="#定期备份" class="headerlink" title="定期备份"></a>定期备份</h2><h3 id="Zabbix-1"><a href="#Zabbix-1" class="headerlink" title="Zabbix"></a>Zabbix</h3><p>使用如下命令将Zabbix的数据库进行备份，备份为sql文件，自行保存到其他服务器。然后添加到Crontab中。</p>
+<pre class="line-numbers language-sh"><code class="language-sh">docker exec zabbix-mysql mysqldump -uroot -pmysql57 zabbix > init.sql
+scp init.sql 10.40.64.206:/root
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>恢复</p>
+<pre class="line-numbers language-sh"><code class="language-sh">docker cp init.sql zabbix-mysql:/tmp/
+docker exec zabbix-mysql mysql -uroot -pmysql57 zabbix -e "source /tmp/init.sql"
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="Grafana-1"><a href="#Grafana-1" class="headerlink" title="Grafana"></a>Grafana</h3><p><a href="http://www.cnblogs.com/xkus/p/7462953.html" target="_blank" rel="noopener">参考</a></p>
+<p>备份</p>
+<pre class="line-numbers language-sh"><code class="language-sh">docker cp grafana:/var/lib/grafana/grafana.db ./
+scp grafana.db 10.40.64.206:/root
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>恢复</p>
+<pre class="line-numbers language-sh"><code class="language-sh">docker cp grafana.db grafana:/var/lib/grafana/grafana.db
+docker restart grafana
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -627,7 +689,7 @@ E: Unable to locate package vim
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://dybl.github.io" class="b-link-green">FunU</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/09/docker-ce-wordpress/" class="b-link-green">docker-ce-wordpress</a>
+                    <a href="/2019/01/09/docker-zabbix-grafana/" class="b-link-green">docker-zabbix-grafana</a>
                 </p>
             </div>
         </div>
@@ -673,21 +735,25 @@ E: Unable to locate package vim
         <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2019/01/09/docker-ce-wordpress/">
+                <a href="/2019/01/09/docker-zabbix-grafana/">
                     <div class="card-image">
                         
                         
-                        <img src="/res/img/9.jpg" class="responsive-img" alt="docker-ce-wordpress">
+                        <img src="/res/img/5.jpg" class="responsive-img" alt="docker-zabbix-grafana">
                         
-                        <span class="card-title">docker-ce-wordpress</span>
+                        <span class="card-title">docker-zabbix-grafana</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Docker Community Edition 镜像使用帮助
-注意: 本镜像只提供 Debian/Ubuntu/Fedora/CentOS/RHEL 的 docker 软件包，非 dockerhub
+                    <div class="summary">基于Docker的Zabbix+Grafana监控
 
 
-Debian/Ubuntu 用户以</div>
+相关资料
+grafana zabbix 插件 Github
+grafana zabbix 插件 Docs
+
+部署代码部署代码Github
+部署步骤准备工作下载部署代码git clone</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09

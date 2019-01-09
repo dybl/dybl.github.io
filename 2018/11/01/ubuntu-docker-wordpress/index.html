@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="ubuntu-docker-wordpress, FunU">
     <meta name="description" content="How to build wordpress in docker?
-本文将介绍如何在`ubuntu 16.04 LTS`中安装`docker community edition`(`即docker社区版`)并用`docker-compose">
+本文将介绍如何在ubuntu 16.04 LTS中安装docker community edition(即docker社区版)并用docker-compose这个构建工具来">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -359,8 +359,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="How-to-build-wordpress-in-docker"><a href="#How-to-build-wordpress-in-docker" class="headerlink" title="How to build wordpress in docker?"></a>How to build wordpress in docker?</h1><blockquote>
-<pre><code>本文将介绍如何在`ubuntu 16.04 LTS`中安装`docker community edition`(`即docker社区版`)并用`docker-compose`这个构建工具来部署`wordpress`内容管理系统!
-</code></pre></blockquote>
+<p>本文将介绍如何在<code>ubuntu 16.04 LTS</code>中安装<code>docker community edition</code>(<code>即docker社区版</code>)并用<code>docker-compose</code>这个构建工具来部署<code>wordpress</code>内容管理系统!</p>
+</blockquote>
 <p>如果你已经在云服务提供商诸如<code>阿里云</code>,<code>腾讯云</code>,<code>Azure</code>,<code>Amazon</code>,<code>华为云</code>,<code>七牛云</code>,<code>百度云</code>等等购买过云主机，并且操作系统是<code>linux的发行版</code>，那接下来你只需按部就班的来就可以成功运行wordpress了！</p>
 <h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>本文使用docker镜像来自<a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学开源软件镜像站</a></p>
 <p><strong>注意:</strong>此镜像只提供 Debian/Ubuntu/Fedora/CentOS/RHEL 的 docker 软件包，非 dockerhub</p>
@@ -402,8 +402,8 @@ $ docker-compose --version
 <li>添加一个docker network</li>
 </ul>
 <blockquote>
-<pre><code>网站需要占据80端口，显然，我们的服务器不可能只有一个网站，所以部署一个nginx容器是必须的，让这个nginx来监听80以及443端口，再根据域名转发到对应的网站容器。容器之间的通信是通过network的，所以我们需要先添加一个network：
-</code></pre></blockquote>
+<p>网站需要占据80端口，显然，我们的服务器不可能只有一个网站，所以部署一个nginx容器是必须的，让这个nginx来监听80以及443端口，再根据域名转发到对应的网站容器。容器之间的通信是通过network的，所以我们需要先添加一个network：</p>
+</blockquote>
 <pre class="line-numbers language-sh"><code class="language-sh">docker network create nginx-proxy
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="部署wordpress"><a href="#部署wordpress" class="headerlink" title="部署wordpress"></a>部署wordpress</h2><p>创建工作目录，创建docker-compose.yml文件：</p>
@@ -463,8 +463,8 @@ networks:
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后在你的浏览器里输入<strong>http://&lt;您的 CVM IP 地址&gt;:8080</strong><br>此时，我们的网站就可以访问了，很简单吧？</p>
 <h2 id="上传新主题"><a href="#上传新主题" class="headerlink" title="上传新主题"></a>上传新主题</h2><blockquote>
-<pre><code>wordpress的默认的那三个主题我想你肯定不会去选择使用的(什么?你说你就喜欢这种浓浓的复古风，ok，你开心就好!)，所以我们要上传新主题，那么如何上传呢?
-</code></pre></blockquote>
+<p>wordpress的默认的那三个主题我想你肯定不会去选择使用的(什么?你说你就喜欢这种浓浓的复古风，ok，你开心就好!)，所以我们要上传新主题，那么如何上传呢?</p>
+</blockquote>
 <ul>
 <li>解决方案:<ul>
 <li>a. FTP上传</li>
