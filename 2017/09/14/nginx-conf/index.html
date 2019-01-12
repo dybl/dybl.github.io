@@ -5,12 +5,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="review, FunU">
-    <meta name="description" content="review 复习
+    <meta name="keywords" content="nginx-conf, FunU">
+    <meta name="description" content="nginx.conf
+参照
+# 定义Nginx运行的用户和用户组。window下不指定
+user www www;
 
-dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
- Fourier Transform 傅里叶变换
- Discrete Time Fourier Transform 离散时间傅里叶">
+# nginx进程数，建议设置为等于CPU总核心数
+worker_processes 1;
+
+# 全局错误日志定义类型，[">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +22,7 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>review | FunU</title>
+    <title>nginx-conf | FunU</title>
     <link rel="icon" type="image/png" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -214,13 +218,13 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/res/img/18.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/res/img/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        review
+                        nginx-conf
                     </div>
                 </div>
             </div>
@@ -331,8 +335,8 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
             
             <div class="article-tag">
                 
-                <a href="/tags/review/" target="_blank">
-                    <span class="chip bg-color">review</span>
+                <a href="/tags/nginx/" target="_blank">
+                    <span class="chip bg-color">nginx</span>
                 </a>
                 
             </div>
@@ -342,51 +346,216 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/review/" class="post-category" target="_blank">
-                        review
+                    <a href="/categories/GNU/" class="post-category" target="_blank">
+                        GNU
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-06
+                    <i class="fa fa-clock-o fa-fw"></i>2017-09-14
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 align="center">review 复习</h1>
+                <h2 id="nginx-conf"><a href="#nginx-conf" class="headerlink" title="nginx.conf"></a>nginx.conf</h2><a id="more"></a>
+<p><a href="http://blog.csdn.net/tjcyjd/article/details/50695922" target="_blank" rel="noopener">参照</a></p>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># 定义Nginx运行的用户和用户组。window下不指定</span>
+user www www;
 
-<h2 id="dsp–-gt-DigitalSignalProcess-数字信号处理-smile"><a href="#dsp–-gt-DigitalSignalProcess-数字信号处理-smile" class="headerlink" title="dsp–&gt;DigitalSignalProcess 数字信号处理 :smile:"></a>dsp–&gt;DigitalSignalProcess 数字信号处理 :smile:</h2><ul>
-<li style="list-style: none"><input type="checkbox" checked> Fourier Transform 傅里叶变换</li>
-<li style="list-style: none"><input type="checkbox" checked> Discrete Time Fourier Transform 离散时间傅里叶变换</li>
-<li style="list-style: none"><input type="checkbox" checked> Discrete Fourier Transform 离散傅里叶变换</li>
-<li style="list-style: none"><input type="checkbox" checked> Fast Fourier Transform 快速傅里叶变换</li>
-<li style="list-style: none"><input type="checkbox" checked> Z Transform Z变换</li>
-<li style="list-style: none"><input type="checkbox"> Laplace Transform 拉普拉斯变换</li>
-<li style="list-style: none"><input type="checkbox"> Infinite Impulse Response Filter 有限长单位脉冲响应滤波器</li>
-<li style="list-style: none"><input type="checkbox"> Finite Impulse Response Filter 无限长单位脉冲响应滤波器</li>
-</ul>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Fourier_series_square_wave_circles_animation.gif" alt=""></p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Fourier_series_sawtooth_wave_circles_animation.gif" alt=""></p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Fourier_series_and_transform.gif" alt=""></p>
-<blockquote>
-<p>傅里叶分析包含傅里叶级数与傅里叶变换。傅里叶级数用于对周期信号转换，傅里叶变换用于对非周期信号转换。<br>但是对于不收敛信号，傅里叶变换无能为力，只能借助拉普拉斯变换。（主要用于计算微分方程）<br>而z变换则可以算作离散的拉普拉斯变换。（主要用于计算差分方程）</p>
-</blockquote>
-<blockquote>
-<p>从复平面来说，傅里叶分析直注意虚数部分，<br>拉普拉斯变换则关注全部复平面，<br>而z变换则是将拉普拉斯的复平面投影到z平面，将虚轴变为一个圆环</p>
-</blockquote>
-<h2 id="dbms–-gt-DataBaseManageSystem-数据库管理系统-smile"><a href="#dbms–-gt-DataBaseManageSystem-数据库管理系统-smile" class="headerlink" title="dbms–&gt;DataBaseManageSystem 数据库管理系统 :smile:"></a>dbms–&gt;DataBaseManageSystem 数据库管理系统 :smile:</h2><blockquote>
-<p>Mysql</p>
-</blockquote>
+<span class="token comment" spellcheck="true"># nginx进程数，建议设置为等于CPU总核心数</span>
+worker_processes 1;
+
+<span class="token comment" spellcheck="true"># 全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]</span>
+error_log /var/log/ngingx/error.log warn;
+
+<span class="token comment" spellcheck="true"># 进程文件</span>
+pid /var/run/nginx.pid;
+
+<span class="token comment" spellcheck="true"># 一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n）</span>
+<span class="token comment" spellcheck="true"># 与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致</span>
+worker_rlimit_nofile 1024;
+
+<span class="token comment" spellcheck="true">#工作模式与连接数上限</span>
+events<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true"># 参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ];</span>
+    <span class="token comment" spellcheck="true"># epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型</span>
+    <span class="token comment" spellcheck="true"># 如果跑在FreeBSD上面，就用kqueue模型，Windows下不指定</span>
+    use epoll;
+
+    <span class="token comment" spellcheck="true"># 每个工作进程的最大连接数量。根据硬件调整，和前面工作进程配合起来用，尽量大，</span>
+    <span class="token comment" spellcheck="true"># 但是别把cpu跑到100%就行。每个进程允许的最多连接数，理论上每台nginx服务器的最大连接数</span>
+    <span class="token comment" spellcheck="true"># 为worker_processes*worker_connections</span>
+    worker_connections 204800;
+
+    <span class="token comment" spellcheck="true"># keepalive超时时间</span>
+    keepalive_timeout 60;
+
+    <span class="token comment" spellcheck="true"># 为打开文件的指定缓存，默认是没有启用的，max指定缓存数量，建议和打开文件数一致，</span>
+    <span class="token comment" spellcheck="true"># inactive是指经过多长时间文件没被请求后删除缓存。</span>
+    open_file_cache max=1024 inactive=60s;
+
+    <span class="token comment" spellcheck="true"># 多长时间检查一次缓存的有效信息。</span>
+    open_file_cache_valid 80s;
+
+    <span class="token comment" spellcheck="true"># open_file_cache指令中的inactive参数时间内文件的最少使用次数，如果超过这个数字，文件</span>
+    <span class="token comment" spellcheck="true"># 描述符一直是在缓存中打开的，如上例，如果有一个文件在inactive时间内一次没被使用，它将被移除。</span>
+    open_file_cache_min_uses 1;
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true"># 设定http服务器，利用它的反向代理功能提供负载均衡支持</span>
+http<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true"># 设定mime类型,类型由mime.type文件定义，该文件在为nginx自带，且与nginx.conf在同一目录下。</span>
+    include mime.types;
+
+    <span class="token comment" spellcheck="true"># 默认文件类型</span>
+    default_type application/octet<span class="token punctuation">-</span>stream;
+
+    <span class="token comment" spellcheck="true"># 默认编码</span>
+    charset utf<span class="token punctuation">-</span>8;
+
+    <span class="token comment" spellcheck="true"># 保存服务器名字的hash表是由指令server_names_hash_max_size 和</span>
+    <span class="token comment" spellcheck="true"># server_names_hash_bucket_size所控制的。如果Nginx给出需要增大hash max size 或</span>
+    <span class="token comment" spellcheck="true"># hash bucket size的提示，那么首要的是增大前一个参数的大小.</span>
+    server_names_hash_bucker_size 128;
+
+    <span class="token comment" spellcheck="true"># 客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求的头部大小</span>
+    <span class="token comment" spellcheck="true"># 不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。</span>
+    <span class="token comment" spellcheck="true"># 分页大小可以用命令getconf PAGESIZE取得。</span>
+    client_header_buffer_size 4k;
+
+    <span class="token comment" spellcheck="true"># 客户请求头缓冲大小。nginx默认会用client_header_buffer_size这个buffer来读取</span>
+    <span class="token comment" spellcheck="true"># header值，如果header过大，它会使用large_client_header_buffers来读取。</span>
+    large_client_header_buffers 8 128k;
+
+    <span class="token comment" spellcheck="true"># 设定通过nginx上传文件的大小</span>
+    client_max_body_size 300m;
+
+    <span class="token comment" spellcheck="true"># 这个指令指定缓存是否启用。</span>
+    <span class="token comment" spellcheck="true"># 例: open_file_cache max=1000 inactive=20s;</span>
+    <span class="token comment" spellcheck="true"># open_file_cache_valid 30s;</span>
+    <span class="token comment" spellcheck="true"># open_file_cache_min_uses 2;</span>
+    <span class="token comment" spellcheck="true"># open_file_cache_errors on;</span>
+    <span class="token comment" spellcheck="true"># 语法:open_file_cache_errors on | off</span>
+    <span class="token comment" spellcheck="true"># 默认值:open_file_cache_errors off</span>
+    <span class="token comment" spellcheck="true"># 使用字段:http, server, location 这个指令指定是否在搜索一个文件是记录cache错误.</span>
+    open_file_cache max=102400 inactive=20s;
+
+    <span class="token comment" spellcheck="true"># 日志格式设置。</span>
+    <span class="token comment" spellcheck="true"># $remote_addr与$http_x_forwarded_for用以记录客户端的ip地址；</span>
+    <span class="token comment" spellcheck="true"># $remote_user：用来记录客户端用户名称；</span>
+    <span class="token comment" spellcheck="true"># $time_local： 用来记录访问时间与时区；</span>
+    <span class="token comment" spellcheck="true"># $request： 用来记录请求的url与http协议；</span>
+    <span class="token comment" spellcheck="true"># $status： 用来记录请求状态；成功是200，</span>
+    <span class="token comment" spellcheck="true"># $body_bytes_sent ：记录发送给客户端文件主体内容大小；</span>
+    <span class="token comment" spellcheck="true"># $http_referer：用来记录从那个页面链接访问过来的；</span>
+    <span class="token comment" spellcheck="true"># $http_user_agent：记录客户浏览器的相关信息；</span>
+    <span class="token comment" spellcheck="true"># 通常web服务器放在反向代理的后面，这样就不能获取到客户的IP地址了，通过$remote_add</span>
+    <span class="token comment" spellcheck="true"># 拿到的IP地址是反向代理服务器的iP地址。反向代理服务器在转发请求的http头信息中，</span>
+    <span class="token comment" spellcheck="true"># 可以增加x_forwarded_for信息，用以记录原有客户端的IP地址和原来客户端的请求的服务器地址。</span>
+    log_format main '$remote_addr <span class="token punctuation">-</span> $remote_user <span class="token punctuation">[</span>$time_local<span class="token punctuation">]</span> "$request" '
+                    '$status $body_bytes_sent "$http_referer" '
+                    "$http_user_agent" "$http_x_forwarded_for"';
+    log_format log404   '$status <span class="token punctuation">[</span>$time_local<span class="token punctuation">]</span> $remote_addr $host$request_uri'
+                        '$sent_http_location';
+
+    <span class="token comment" spellcheck="true"># 用了log_format指令设置了日志格式之后，需要用access_log指令指定日志文件的存放路径</span>
+    access_log logs/access.log main;
+    access_log logs/access.404.log  log404;
+
+    <span class="token comment" spellcheck="true"># sendfile指令指定 nginx 是否调用sendfile 函数（zero copy 方式）来输出文件，</span>
+    <span class="token comment" spellcheck="true"># 对于普通应用，必须设为on。如果用来进行下载等应用磁盘IO重负载应用，可设置为off，</span>
+    <span class="token comment" spellcheck="true"># 以平衡磁盘与网络IO处理速度，降低系统uptime。</span>
+    sendfile on;
+
+    <span class="token comment" spellcheck="true"># 此选项允许或禁止使用socke的TCP_CORK的选项，此选项仅在使用sendfile的时候使用</span>
+    tcp_nopush on;
+
+    <span class="token comment" spellcheck="true"># keepalive超时时间</span>
+    keepalive_timeout 65;
+
+    <span class="token comment" spellcheck="true"># 开启gzip压缩输出</span>
+    gzip on;  
+
+    <span class="token comment" spellcheck="true"># 配置文件的包含</span>
+    include /etc/nginx/conf.d/*.conf
+
+    <span class="token comment" spellcheck="true"># 配置DNS解析服务器，可以多个，用空格分隔</span>
+    resolver 10.30.1.9;
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true"># 生产环境中不要使用"daemon"和"master_process"指令，这些选项仅用于开发调试。</span>
+daemon off;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>日志级别如下：</p>
+<pre><code>ngx.STDERR     -- 标准输出
+ngx.EMERG      -- 紧急报错
+ngx.ALERT      -- 报警
+ngx.CRIT       -- 严重，系统故障，触发运维告警系统
+ngx.ERR        -- 错误，业务不可恢复性错误
+ngx.WARN       -- 告警，业务中可忽略错误
+ngx.NOTICE     -- 提醒，业务比较重要信息
+ngx.INFO       -- 信息，业务琐碎日志信息，包含不同情况判断等
+ngx.DEBUG      -- 调试
+</code></pre><p>修改nginx.conf文件中</p>
+<pre><code>error_log /var/log/ngingx/error.log warn
+</code></pre><p>然后在Lua脚本中调用</p>
+<pre><code>ngx.log(ngx.WARN,string.format(&quot;&quot;))
+ngx.log(ngx.ERR,string.format(&quot;&quot;))
+</code></pre><p>日志输出如下：</p>
+<pre><code>2017/06/06 19:32:26 [warn] 19356#3272: *20 [lua] content_by_lua(nginx.conf:52):5: [WARN] The request is from 127.0.0.1, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;localhost&quot;
+2017/06/06 19:32:26 [error] 19356#3272: *20 [lua] content_by_lua(nginx.conf:52):6: [ERROR] The request is from 127.0.0.1, client: 127.0.0.1, server: , request: &quot;GET / HTTP/1.1&quot;, host: &quot;localhost&quot;
+127.0.0.1 - - [06/Jun/2017:19:32:26 +0800] &quot;GET / HTTP/1.1&quot; 200 41 &quot;-&quot; &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Win64; x64; Trident/4.0; .NET CLR 2.0.50727; SLCC2; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; TCO_20170606192303)&quot; &quot;-&quot;
+</code></pre><p>第一行为warn级别，第二行为error级别，第三行为Access日志。</p>
+<p>系统中可以将关键流程日志设置为Warn，而非Notice和Info，因为nginx本身会输出大量的Notice和info信息。</p>
+<h2 id="location-匹配规则"><a href="#location-匹配规则" class="headerlink" title="location 匹配规则"></a>location 匹配规则</h2><p>语法规则</p>
+<pre><code>location [=|~|~*|^~] /uri/ { … }
+</code></pre><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>location = /uri</code></td>
+<td>= 表示精确匹配，只有完全匹配上才能生效</td>
+</tr>
+<tr>
+<td><code>location ^~ /uri</code></td>
+<td>^~ 开头对URL路径进行前缀匹配，并且在正则之前。</td>
+</tr>
+<tr>
+<td><code>location ~ pattern</code></td>
+<td>开头表示区分大小写的正则匹配</td>
+</tr>
+<tr>
+<td><code>location ~* pattern</code></td>
+<td>开头表示不区分大小写的正则匹配</td>
+</tr>
+<tr>
+<td><code>location /uri</code></td>
+<td>不带任何修饰符，也表示前缀匹配，但是在正则匹配之后</td>
+</tr>
+<tr>
+<td><code>location /</code></td>
+<td>通用匹配，任何未匹配到其它location的请求都会匹配到，相当于switch中的default</td>
+</tr>
+</tbody>
+</table>
+<p>前缀匹配时，Nginx 不对 url 做编码，因此请求为 /static/20%/aa，可以被规则 ^~ /static/ /aa 匹配到（注意是空格）<br>多个 location 配置的情况下匹配顺序为</p>
 <ul>
-<li style="list-style: none"><input type="checkbox" checked> sql</li>
-<li style="list-style: none"><input type="checkbox" checked> DB-project-by-pyQt5</li>
+<li>首先精确匹配 =</li>
+<li>其次前缀匹配 ^~</li>
+<li>其次是按文件中顺序的正则匹配</li>
+<li>然后匹配不带任何修饰的前缀匹配。</li>
+<li>最后是交给 / 通用匹配</li>
+<li>当有匹配成功时候，停止匹配，按当前匹配规则处理请求</li>
 </ul>
-<p><img src="https://en.wikipedia.org/wiki/File:LAMP_software_bundle.svg" alt=""></p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p><a href="mailto:&#x64;&#121;&#98;&#108;&#99;&#106;&#106;&#64;&#x31;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;" target="_blank" rel="noopener">&#x64;&#121;&#98;&#108;&#99;&#106;&#106;&#64;&#x31;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p>注意：前缀匹配，如果有包含关系时，按最大匹配原则进行匹配。比如在前缀匹配：<code>location /dir01</code> 与 <code>location /dir01/dir02</code>，如有请求 <code>http://localhost/dir01/dir02/file</code> 将最终匹配到 <code>location /dir01/dir02</code></p>
 
             </div>
             <hr/>
@@ -525,7 +694,7 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://dybl.github.io" class="b-link-green">FunU</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/06/review/" class="b-link-green">review</a>
+                    <a href="/2017/09/14/nginx-conf/" class="b-link-green">nginx-conf</a>
                 </p>
             </div>
         </div>
@@ -547,7 +716,7 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
         repo: 'https://github.com/dybl/blog_backup',
         owner: 'dybl',
         admin: null,
-        id: '2019-01-06T23-56-36',
+        id: '2017-09-14T16-01-54',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -571,21 +740,23 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2019/01/08/union-set/">
+                <a href="/2017/10/12/data-structure-intro/">
                     <div class="card-image">
                         
                         
-                        <img src="/res/img/16.jpg" class="responsive-img" alt="union-set">
+                        <img src="/res/img/15.jpg" class="responsive-img" alt="data-structure-intro">
                         
-                        <span class="card-title">union-set</span>
+                        <span class="card-title">data-structure-intro</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-首先在地图上给你若干个城镇，这些城镇都可以看作点，然后告诉你哪些对城镇之间是有道路直接相连的。最后要解决的是整幅图的连通性问题。比如随意给你两个点，让你判断它们是否连通，或者问你整幅图一共有几个连通分支，也就是被分成了几个互相独立的块。像</div>
+                    <div class="summary">1. 数据结构的基本概念“数据结构”是研究各种数据的特性以及数据之间存在的关系，进而根据实际应用的要求，合理地组织和存储数据，设计出相应的算法。
+数据是对客观事物的符号表示，
+
+数据元素（节点）：数据的基本单位，在程序中通常作为一个整体进行</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-08
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-10-12
                         </span>
                         <span class="publish-author">
                             
@@ -602,6 +773,10 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
                         <span class="chip bg-color">algorithms</span>
                     </a>
                     
+                    <a href="/tags/datastructure/" target="_blank">
+                        <span class="chip bg-color">datastructure</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -611,29 +786,43 @@ dsp–&amp;gt;DigitalSignalProcess 数字信号处理 :smile:
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2019/01/02/dsp-review/">
+                <a href="/2017/02/24/ml-intro/">
                     <div class="card-image">
                         
                         
-                        <img src="/res/img/15.jpg" class="responsive-img" alt="dsp-review">
+                        <img src="/res/img/13.jpg" class="responsive-img" alt="ml-intro">
                         
-                        <span class="card-title">dsp-review</span>
+                        <span class="card-title">ml-intro</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">DSP-review
+                    <div class="summary">通用的机器学习算法包括：
+1.决策树。
+2.SVM。
+3.朴素贝叶斯。
+4.KNN。
+5.K均值。
+6.随机森林。
 
-$\wp$ 填空(10)1.$y(n)=x(n-k),k&gt;0$,表示$y(n)$是整个$x(n)$在整个$x(n)$在时间轴上右移$k$个采样周期所得到的新序列?2. 在数字信号处理中,可以将信号存储起来,用延</div>
+下面是使用Python和R代码实现并简要解释这些常见机器学习算法。
+1.决策树：
+
+
+这是作者最喜欢的算法之一，作者经常使</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-02-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/review/" class="post-category" target="_blank">
-                                    review
+                            <a href="/categories/Arithmetic/" class="post-category" target="_blank">
+                                    Arithmetic
+                                </a>
+                            
+                            <a href="/categories/Arithmetic/ML/" class="post-category" target="_blank">
+                                    ML
                                 </a>
                             
                             
@@ -643,8 +832,12 @@ $\wp$ 填空(10)1.$y(n)=x(n-k),k&gt;0$,表示$y(n)$是整个$x(n)$在整个$x(n)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dsp/" target="_blank">
-                        <span class="chip bg-color">dsp</span>
+                    <a href="/tags/algorithms/" target="_blank">
+                        <span class="chip bg-color">algorithms</span>
+                    </a>
+                    
+                    <a href="/tags/python/" target="_blank">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
