@@ -8,12 +8,9 @@
     <meta name="keywords" content="gcc-intro, FunU">
     <meta name="description" content="gcc编译C语言程序对于初学c编程的同学来说，学会如何使用gcc编译器工具，对理解c语言的执行过程，加深对这门语言的理解很重要。只其然，知其所以然。
 工具/原料
-Linux操作系统
+Linux操作系统gcc编译工具
 
-
-gcc编译工具
-
-方法/步骤1.编写c代码，并输入以下">
+方法/步骤1.编写c代码，并输入以下代码，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -362,10 +359,7 @@ gcc编译工具
             <div id="articleContent">
                 <h1 id="gcc编译C语言程序"><a href="#gcc编译C语言程序" class="headerlink" title="gcc编译C语言程序"></a>gcc编译C语言程序</h1><p><strong>对于初学c编程的同学来说，学会如何使用gcc编译器工具，对理解c语言的执行过程，加深对这门语言的理解很重要。只其然，知其所以然。</strong></p>
 <h2 id="工具-原料"><a href="#工具-原料" class="headerlink" title="工具/原料"></a>工具/原料</h2><blockquote>
-<p>Linux操作系统</p>
-</blockquote>
-<blockquote>
-<p>gcc编译工具</p>
+<p>Linux操作系统<br>gcc编译工具</p>
 </blockquote>
 <h2 id="方法-步骤"><a href="#方法-步骤" class="headerlink" title="方法/步骤"></a>方法/步骤</h2><h3 id="1-编写c代码，并输入以下代码，生成文件hello-c"><a href="#1-编写c代码，并输入以下代码，生成文件hello-c" class="headerlink" title="1.编写c代码，并输入以下代码，生成文件hello.c"></a>1.编写c代码，并输入以下代码，生成文件hello.c</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vim hello.c</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -388,24 +382,24 @@ o 参数 是对命令输出结果进行导入操作，这里是把 gcc -E hello.
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个命令执行完后我们目录下多了一个文件hello.i，你可以查阅一下文件的内容。</p>
 <h3 id="3-编译-Compilation"><a href="#3-编译-Compilation" class="headerlink" title="3.编译(Compilation)"></a>3.编译(Compilation)</h3><p>对代码进行语法、语义分析和错误判断，生成汇编代码文件</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#gcc -S hello.i -o hello.s</span>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># gcc -S hello.i -o hello.s</span>
 S 参数 通知gcc对目标文件进行编译，这里是对文件hello.i文件
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>通过这一步我们知道 C语言跟汇编的 关系，至于他们之前是如何进行转换的，大家可以进行更深入的学习与探讨。<br>此时目录下多了一个hello.s文件，内容如图</p>
 <h3 id="4-汇编-Assembly"><a href="#4-汇编-Assembly" class="headerlink" title="4.汇编(Assembly)"></a>4.汇编(Assembly)</h3><p>把汇编代码转换与计算机可认识的二进制文件，要知道计算机只认识0和1呢</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#gcc -c hello.s -o hello.o</span>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># gcc -c hello.s -o hello.o</span>
 c 参数 通知gcc对目标文件执行指令转换操作
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>此步骤我们得到文件hello.o<br>大家也同样打开文件查看一下，这个文件里面几乎没几个字符大家能看懂，这就对了，但大家可以通过这种方法将其转化为我们可读的形式：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#readelf -a hello.o</span>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># readelf -a hello.o</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="5-链接-Linking-Build"><a href="#5-链接-Linking-Build" class="headerlink" title="5.链接(Linking/Build)"></a>5.链接(Linking/Build)</h3><p>通俗的讲就是把多个*.o文件合并成一个可执行文件，二进制指令文件</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#gcc hello.o -o hello</span>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># gcc hello.o -o hello</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这里我们就得到了一个可以直接在系统下执行的文件 hello<br>我们也可以对这个文件进行readelf操作，也可以进行二进制指令转汇编的操作</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#objdump -d hello</span>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># objdump -d hello</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="6-程序运行"><a href="#6-程序运行" class="headerlink" title="6.程序运行"></a>6.程序运行</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#./hello</span>
+<h3 id="6-程序运行"><a href="#6-程序运行" class="headerlink" title="6.程序运行"></a>6.程序运行</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@yourname test<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ./hello</span>
 hello c<span class="token operator">!</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><blockquote>

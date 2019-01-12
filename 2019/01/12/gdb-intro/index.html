@@ -388,8 +388,34 @@
 <blockquote>
 <p>开始调试之前，必须用程序中的调试信息编译要调试的程序。这样，gdb 才能够调试所使用的变量、代码行和函数。如果要进行编译，请在 gcc（或 g++）下使用额外的 ‘-g’ 选项来编译程序：</p>
 </blockquote>
-<pre><code>gcc as.c -o as -g
-</code></pre><h2 id="常用命令的解释"><a href="#常用命令的解释" class="headerlink" title="常用命令的解释"></a>常用命令的解释</h2><p>命令 | 解释 | 示例<br>| – | – | – |<br>file &lt;文件名&gt; | 加载被调试的可执行程序文件,因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径 | <code>(gdb) file as</code><br>r | Run的简写，运行被调试的程序,如果此前没有下过断点，则执行完整个程序；如果有断点，则程序暂停在第一个可用断点处. | <code>(gdb) r</code><br>c | Continue的简写，继续执行被调试程序，直至下一个断点或程序结束. | <code>(gdb) c</code></p>
+<pre class="line-numbers language-sh"><code class="language-sh">gcc as.c -o as -g
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="常用命令的解释"><a href="#常用命令的解释" class="headerlink" title="常用命令的解释"></a>常用命令的解释</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file &lt;文件名&gt;</td>
+<td>加载被调试的可执行程序文件,因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径</td>
+<td><code>(gdb)file as</code></td>
+</tr>
+<tr>
+<td>r</td>
+<td>Run的简写，运行被调试的程序,如果此前没有下过断点，则执行完整个程序；如果有断点，则程序暂停在第一个可用断点处.</td>
+<td><code>(gdb) r</code></td>
+</tr>
+<tr>
+<td>c</td>
+<td>Continue的简写，继续执行被调试程序，直至下一个断点或程序结束.</td>
+<td><code>(gdb) c</code></td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>b: Breakpoint的简写，设置断点。两可以使用“行号”“函数名称”“执行地址”等方式指定断点位置。<br>其中在函数名称前面加“*”符号表示将断点设置在“由编译器生成的prolog代码处”。如果不了解汇编，可以不予理会此用法。</li>
 </ul>
