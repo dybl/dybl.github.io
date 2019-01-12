@@ -1,0 +1,1126 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="gdb-intro, FunU">
+    <meta name="description" content="gdb-notes
+本文写给主要工作在Windows操作系统下而又需要开发一些跨平台软件的程序员朋友，以及程序爱好者。GDB是一个由GNU开源组织发布的、UNIX/LINUX操作系统下的、基于命令行的、功能强大的程序调试工具。GDB中的命令">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>gdb-intro | FunU</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/res/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">FunU</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/res/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">FunU</div>
+        <div class="logo-desc">
+            
+            刊落锋颖，一味恬静
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
+    data-position="top" data-delay="50">
+    <i class="fa fa-github fa-lg"></i>
+</a>
+<a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+    <i class="fa fa-twitter fa-lg"></i>
+</a>
+<a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+    <i class="fa fa-facebook-official fa-lg"></i>
+</a>
+<a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+    <i class="fa fa-instagram fa-lg"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/res/img/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        gdb-intro
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/gdb/" target="_blank">
+                    <span class="chip bg-color">gdb</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/GNU/" class="post-category" target="_blank">
+                        GNU
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-12
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="gdb-notes"><a href="#gdb-notes" class="headerlink" title="gdb-notes"></a>gdb-notes</h1><blockquote>
+<p>本文写给主要工作在Windows操作系统下而又需要开发一些跨平台软件的程序员朋友，以及程序爱好者。GDB是一个由GNU开源组织发布的、UNIX/LINUX操作系统下的、基于命令行的、功能强大的程序调试工具。GDB中的命令固然很多，但我们只需掌握其中十个左右的命令，就大致可以完成日常的基本的程序调试工作。</p>
+</blockquote>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">int</span> gvar <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">tempFunction</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"tempFunction is called, a = %d, b = %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    n<span class="token operator">++</span><span class="token punctuation">;</span>
+    n<span class="token operator">--</span><span class="token punctuation">;</span>
+
+    gvar <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    gvar <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"n = %d, gvar = %d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> gvar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    n <span class="token operator">=</span> <span class="token function">tempFunction</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"n = %d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>开始调试之前，必须用程序中的调试信息编译要调试的程序。这样，gdb 才能够调试所使用的变量、代码行和函数。如果要进行编译，请在 gcc（或 g++）下使用额外的 ‘-g’ 选项来编译程序：</p>
+</blockquote>
+<pre><code>gcc as.c -o as -g
+</code></pre><h2 id="常用命令的解释"><a href="#常用命令的解释" class="headerlink" title="常用命令的解释"></a>常用命令的解释</h2><p>命令 | 解释 | 示例<br>| – | – | – |<br>file &lt;文件名&gt; | 加载被调试的可执行程序文件,因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径 | <code>(gdb) file as</code><br>r | Run的简写，运行被调试的程序,如果此前没有下过断点，则执行完整个程序；如果有断点，则程序暂停在第一个可用断点处. | <code>(gdb) r</code><br>c | Continue的简写，继续执行被调试程序，直至下一个断点或程序结束. | <code>(gdb) c</code></p>
+<ul>
+<li>b: Breakpoint的简写，设置断点。两可以使用“行号”“函数名称”“执行地址”等方式指定断点位置。<br>其中在函数名称前面加“*”符号表示将断点设置在“由编译器生成的prolog代码处”。如果不了解汇编，可以不予理会此用法。</li>
+</ul>
+<p><code>b</code> | options | sample<br>| – | – | – |<br>b | &lt;行号&gt; | <code>(gdb) b 8</code><br>b | &lt;函数名称&gt; | <code>(gdb) b main</code><br>b | <em>&lt;函数名称&gt; | `(gdb) b </em>main<code>b | *&lt;代码地址&gt; |</code>(gdb) b *0x804835c`</p>
+<ul>
+<li>d: Delete breakpoint的简写，删除指定编号的某个断点，或删除所有断点。断点编号从1开始递增。</li>
+</ul>
+<p><code>d</code> | options | sample<br>| – | – | – |<br>d | [编号] | <code>(gdb) d</code></p>
+<p>命令 | 解释 | 示例<br>| – | – | – |<br>s | 执行一行源程序代码，如果此行代码中有函数调用，则进入该函数 | <code>(gdb) s</code><br>n | 执行一行源程序代码，此行代码中的函数调用也一并执行 | <code>(gdb) n</code></p>
+<blockquote>
+<p>s 相当于其它调试器中的<code>Step Into</code>(<code>单步跟踪进入</code>)</p>
+</blockquote>
+<blockquote>
+<p>n 相当于其它调试器中的<code>Step Over</code> (<code>单步跟踪</code>)</p>
+</blockquote>
+<p><strong>这两个命令必须在有源代码调试信息的情况下才可以使用(GCC编译时使用“-g”参数)</strong></p>
+<p>命令 | 解释 | 示例<br>| – | – | – |<br>si | 执行一行汇编指令，如果此行代码中有函数调用，则进入该函数 | <code>(gdb) si</code><br>ni | 执行一行汇编指令，此行代码中的函数调用也一并执行 | <code>(gdb) ni</code><br>p &lt;变量名称&gt; | Print的简写,显示指定变量(临时变量或全局变量)的值    | <code>(gdb) p i</code><br>display | 设置程序中断后欲显示的数据及其格式 | <code>(gdb) display /i $pc</code><br>undispaly | 取消先前的display设置，编号从1开始递增 | <code>(gdb) undisplay 1</code></p>
+<blockquote>
+<p>如果希望每次程序中断后可以看到即将被执行的下一条汇编指令，可以使用此命令</p>
+</blockquote>
+<ul>
+<li>其中 <code>$pc</code> 代表当前汇编指令</li>
+<li><code>/i</code> 表示以十六进行显示.</li>
+</ul>
+<p>当需要关心汇编代码时,此命令相当有用.</p>
+<p>命令 | 解释 | 示例<br>| – | – | – |<br>i | Info的简写,用于显示各类信息,详情请查阅<code>help i</code> | <code>(gdb) i r</code></p>
+<p><code>i</code>(<code>info</code>) | options | sample<br>| – | – | – |<br>info | address | Describe where symbol SYM is stored<br>info | all-registers | List of all registers and their contents<br>info | args | Argument variables of current stack frame<br>info | auto-load | Print current status of auto-loaded files<br>info | auxv | Display the inferior’s auxiliary vector<br>info | bookmarks | Status of user-settable bookmarks<br>info | breakpoints | Status of specified breakpoints (all user-settable breakpoints if no argument)<br>info | checkpoints | IDs of currently known checkpoints<br>info | classes | All Objective-C classes<br>info | common | Print out the values contained in a Fortran COMMON block<br>info | copying | Conditions for redistributing copies of GDB<br>info | dcache | Print information on the dcache performance<br>info | display | Expressions to display when program stops<br>info | exceptions | List all Ada exception names<br>info | extensions | All filename extensions associated with a source language<br>info | files | Names of targets and files being debugged<br>info | float | Print the status of the floating point unit<br>info | frame | All about selected stack frame<br>info | frame-filter | List all registered Python frame-filters<br>info | functions | All function names<br>info | guile | Prefix command for Guile info displays<br>info | handle | What debugger does when program gets various signals<br>info | inferiors | IDs of specified inferiors (all inferiors if no argument)<br>info | line | Core addresses of the code for a source line<br>info | locals | Local variables of current stack frame<br>info | macro | Show the definition of MACRO<br>info | macros | Show the definitions of all macros at LINESPEC<br>info | mem | Memory region attributes<br>info | os | Show OS data ARG<br>info | pretty-printer | GDB command to list all registered pretty-printers<br>info | probes | Show available static probes<br>info | proc | Show /proc process information about any running process<br>info | program | Execution status of the program<br>info | record | Info record options<br>info | registers | List of integer registers and their contents<br>info | scope | List the variables local to a scope<br>info | selectors | All Objective-C selectors<br>info | set | Show all GDB settings<br>info | sharedlibrary | Status of loaded shared object libraries<br>info | signals | What debugger does when program gets various signals<br>info | skip | Display the status of skips<br>info | source | Information about the current source file<br>info | sources | Source files in the program<br>info | stack | Backtrace of the stack<br>info | static-tracepoint-markers | List target static tracepoints markers<br>info | symbol | Describe what symbol is at location ADDR<br>info | target | Names of targets and files being debugged<br>info | tasks | Provide information about all known Ada tasks<br>info | terminal | Print inferior’s saved terminal status<br>info | threads | Display currently known threads<br>info | tracepoints | Status of specified tracepoints (all tracepoints if no argument)<br>info | tvariables | Status of trace state variables and their values<br>info | type-printers | GDB command to list all registered type-printers<br>info | types | All type names<br>info | unwinder | GDB command to list unwinders<br>info | variables | All global and static variable names<br>info | vector | Print the status of the vector unit<br>info | vtbl | Show the virtual function table for a C++ object<br>info | warranty | Various kinds of warranty you do not have<br>info | watchpoints | Status of specified watchpoints (all watchpoints if no argument)<br>info | win | List of all displayed windows<br>info | xmethod | GDB command to list registered xmethod matchers</p>
+<p>命令 | 解释 | 示例<br>| – | – | – |<br>q | Quit的简写,退出GDB调试环境 | <code>(gdb) q</code><br>help [命令名称]    | GDB帮助命令，提供对GDB名种命令的解释说明 | <code>(gdb) help display</code></p>
+<ul>
+<li><p>如果指定了<code>命令名称</code>参数,则显示该命令的详细说明</p>
+</li>
+<li><p>如果没有指定参数,则分类显示所有GDB命令,供用户进一步浏览和查询    </p>
+</li>
+</ul>
+<p>　</p>
+<h3 id="简单上手"><a href="#简单上手" class="headerlink" title="简单上手"></a>简单上手</h3><pre class="line-numbers language-python"><code class="language-python">└─<span class="token punctuation">[</span>$<span class="token punctuation">]</span> <span class="token operator">&lt;</span>git<span class="token punctuation">:</span><span class="token punctuation">(</span>dev<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">></span> gdb
+GNU gdb <span class="token punctuation">(</span>Ubuntu <span class="token number">8.1</span><span class="token operator">-</span>0ubuntu3<span class="token punctuation">)</span> <span class="token number">8.1</span><span class="token punctuation">.</span><span class="token number">0.20180409</span><span class="token operator">-</span>git
+Copyright <span class="token punctuation">(</span>C<span class="token punctuation">)</span> <span class="token number">2018</span> Free Software Foundation<span class="token punctuation">,</span> Inc<span class="token punctuation">.</span>
+License GPLv3<span class="token operator">+</span><span class="token punctuation">:</span> GNU GPL version <span class="token number">3</span> <span class="token operator">or</span> later <span class="token operator">&lt;</span>http<span class="token punctuation">:</span><span class="token operator">//</span>gnu<span class="token punctuation">.</span>org<span class="token operator">/</span>licenses<span class="token operator">/</span>gpl<span class="token punctuation">.</span>html<span class="token operator">></span>
+This <span class="token keyword">is</span> free software<span class="token punctuation">:</span> you are free to change <span class="token operator">and</span> redistribute it<span class="token punctuation">.</span>
+There <span class="token keyword">is</span> NO WARRANTY<span class="token punctuation">,</span> to the extent permitted by law<span class="token punctuation">.</span>  Type <span class="token string">"show copying"</span>
+<span class="token operator">and</span> <span class="token string">"show warranty"</span> <span class="token keyword">for</span> details<span class="token punctuation">.</span>
+This GDB was configured <span class="token keyword">as</span> <span class="token string">"x86_64-linux-gnu"</span><span class="token punctuation">.</span>
+Type <span class="token string">"show configuration"</span> <span class="token keyword">for</span> configuration details<span class="token punctuation">.</span>
+For bug reporting instructions<span class="token punctuation">,</span> please see<span class="token punctuation">:</span>
+<span class="token operator">&lt;</span>http<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>gnu<span class="token punctuation">.</span>org<span class="token operator">/</span>software<span class="token operator">/</span>gdb<span class="token operator">/</span>bugs<span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">.</span>
+Find the GDB manual <span class="token operator">and</span> other documentation resources online at<span class="token punctuation">:</span>
+<span class="token operator">&lt;</span>http<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>gnu<span class="token punctuation">.</span>org<span class="token operator">/</span>software<span class="token operator">/</span>gdb<span class="token operator">/</span>documentation<span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">.</span>
+For help<span class="token punctuation">,</span> type <span class="token string">"help"</span><span class="token punctuation">.</span>
+Type <span class="token string">"apropos word"</span> to search <span class="token keyword">for</span> commands related to <span class="token string">"word"</span><span class="token punctuation">.</span>
+
+
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> file <span class="token keyword">as</span>
+Reading symbols <span class="token keyword">from</span> <span class="token keyword">as</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>done<span class="token punctuation">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>下面使用<code>r</code>命令执行(<code>Run</code>)被调试文件，因为尚未设置任何断点，将直接执行到程序结束：</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> r
+Starting program<span class="token punctuation">:</span> <span class="token operator">/</span>gdb<span class="token operator">/</span><span class="token keyword">as</span>
+n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> gvar <span class="token operator">=</span> <span class="token number">88</span>
+temp <span class="token keyword">is</span> called<span class="token punctuation">,</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span>
+n <span class="token operator">=</span> <span class="token number">3</span>
+<span class="token punctuation">[</span>Inferior <span class="token number">1</span> <span class="token punctuation">(</span>process <span class="token number">523</span><span class="token punctuation">)</span> exited normally<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>下面使用<code>b</code>命令在 main 函数开头设置一个断点(<code>Breakpoint</code>)</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> b main
+Breakpoint <span class="token number">1</span> at <span class="token number">0x8000683</span><span class="token punctuation">:</span> file <span class="token keyword">as</span><span class="token punctuation">.</span>c<span class="token punctuation">,</span> line <span class="token number">14</span><span class="token punctuation">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>上面最后一行提示已经成功设置断点，并给出了该断点信息：</p>
+<blockquote>
+<p>在源文件 as.c 第19行处设置断点；这是本程序的第一个断点(序号为1);断点处的代码地址为 0x8000683(此值可能仅在本次调试过程中有效).</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>回过头去看源代码，第14行中的代码为<code>n = 1</code>,恰好是 main 函数中的第一个可执行语句(前面的<code>int n;</code>为变量定义语句，并非可执行语句)</p>
+</blockquote>
+<ul>
+<li>再次使用<code>r</code>命令执行（<code>Run</code>）被调试程序：</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> r
+Starting program<span class="token punctuation">:</span> <span class="token operator">/</span>gdb<span class="token operator">/</span><span class="token keyword">as</span>
+
+Breakpoint <span class="token number">1</span><span class="token punctuation">,</span> main <span class="token punctuation">(</span><span class="token punctuation">)</span> at <span class="token keyword">as</span><span class="token punctuation">.</span>c<span class="token punctuation">:</span><span class="token number">14</span>
+<span class="token number">14</span>          n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>程序中断在as.c第14行处，即main函数是第一个可执行语句处。</li>
+</ul>
+<blockquote>
+<p>上面最后一行信息为：下一条将要执行的源代码为“n = 1;”，它是源代码文件as.c中的第14行。</p>
+</blockquote>
+<ul>
+<li>下面使用<code>s</code>命令(Step)<code>执行下一行代码</code> (即第19行<code>n = 1;</code>)：</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> s
+<span class="token number">15</span>          n<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>上面的信息表示已经执行完<code>n = 1;</code>，并显示下一条要执行的代码为第20行的<code>n++;</code>。</p>
+<p>既然已经执行了<code>n = 1;</code>，即给变量 n 赋值为 1，那我们用<code>p</code>命令(<code>Print</code>)看一下变量 n 的值是不是 1.</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p n
+$<span class="token number">1</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>果然是 1。($1大致是表示这是第一次使用“p”命令——再次执行“p n”将显示“$2 = 1”——此信息应该没有什么用处)</p>
+</blockquote>
+<blockquote>
+<p>下面我们分别在第26行、temp 函数开头各设置一个断点（分别使用命令 <code>b 21</code> <code>b temp</code>):</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> b <span class="token number">21</span>
+Breakpoint <span class="token number">3</span> at <span class="token number">0x80006b0</span><span class="token punctuation">:</span> file <span class="token keyword">as</span><span class="token punctuation">.</span>c<span class="token punctuation">,</span> line <span class="token number">21</span><span class="token punctuation">.</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> b temp
+Breakpoint <span class="token number">4</span> at <span class="token number">0x8000658</span><span class="token punctuation">:</span> file <span class="token keyword">as</span><span class="token punctuation">.</span>c<span class="token punctuation">,</span> line <span class="token number">7</span><span class="token punctuation">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用“c”命令继续（Continue）执行被调试程序，程序将中断在第二个断点（26行），此时全局变量 nGlobalVar 的值应该是 88;</p>
+</blockquote>
+<blockquote>
+<p>再一次执行“c”命令，程序将中断于第三个断点（12行，temp 函数开头处），此时temp 函数的两个参数 a、b 的值应分别是 1 和 2：</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> c
+Continuing<span class="token punctuation">.</span>
+
+Breakpoint <span class="token number">3</span><span class="token punctuation">,</span> main <span class="token punctuation">(</span><span class="token punctuation">)</span> at <span class="token keyword">as</span><span class="token punctuation">.</span>c<span class="token punctuation">:</span><span class="token number">21</span>
+<span class="token number">21</span>          printf<span class="token punctuation">(</span><span class="token string">"n = %d, gvar = %d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> gvar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p gvar
+$<span class="token number">2</span> <span class="token operator">=</span> <span class="token number">88</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> c
+Continuing<span class="token punctuation">.</span>
+n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> gvar <span class="token operator">=</span> <span class="token number">88</span>
+
+Breakpoint <span class="token number">2</span><span class="token punctuation">,</span> main <span class="token punctuation">(</span><span class="token punctuation">)</span> at <span class="token keyword">as</span><span class="token punctuation">.</span>c<span class="token punctuation">:</span><span class="token number">23</span>
+<span class="token number">23</span>          n <span class="token operator">=</span> temp<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p a
+No symbol <span class="token string">"a"</span> <span class="token keyword">in</span> current context<span class="token punctuation">.</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> c
+Continuing<span class="token punctuation">.</span>
+
+Breakpoint <span class="token number">4</span><span class="token punctuation">,</span> temp <span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> at <span class="token keyword">as</span><span class="token punctuation">.</span>c<span class="token punctuation">:</span><span class="token number">7</span>
+<span class="token number">7</span>           printf<span class="token punctuation">(</span><span class="token string">"temp is called, a = %d, b = %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p a
+$<span class="token number">3</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p b
+$<span class="token number">4</span> <span class="token operator">=</span> <span class="token number">2</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面反馈的信息一切都在我们预料之中.</p>
+<blockquote>
+<p>再一次执行“c”命令（Continue），因为后面再也没有其它断点，程序将一直执行到结束：</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> c
+Continuing<span class="token punctuation">.</span>
+temp <span class="token keyword">is</span> called<span class="token punctuation">,</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span>
+n <span class="token operator">=</span> <span class="token number">3</span>
+<span class="token punctuation">[</span>Inferior <span class="token number">1</span> <span class="token punctuation">(</span>process <span class="token number">527</span><span class="token punctuation">)</span> exited normally<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>有时候需要看到编译器生成的汇编代码，以进行汇编级的调试或跟踪，又该如何操作呢？</p>
+</blockquote>
+<ul>
+<li>这就要用到display命令<code>display /i $pc</code>了(此命令前面已有详细解释)</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> display <span class="token operator">/</span>i $pc
+<span class="token number">1</span><span class="token punctuation">:</span> x<span class="token operator">/</span>i $pc
+<span class="token operator">&lt;</span>error<span class="token punctuation">:</span> No registers<span class="token punctuation">.</span><span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>此后程序再中断时，就可以显示出汇编代码了：<br><code>`</code>python<br>(gdb) r<br>Starting program: /gdb/as</p>
+</blockquote>
+<p>Breakpoint 1, main () at as.c:14<br>14          n = 1;<br>1: x/i $pc<br>=&gt; 0x8000683 &lt;main+8&gt;:  movl   $0x1,-0x4(%rbp)</p>
+<pre><code>
+&gt; 看到了汇编代码，“n = 1;”对应的汇编代码是“movl $0x1,0xfffffffc(%ebp)”。
+
+&gt; 并且以后程序每次中断都将显示下一条汇编指定(`si`命令用于执行一条汇编代码——区别于`s`执行一行C代码)
+
+```python
+(gdb) si
+15          n++;
+1: x/i $pc
+=&gt; 0x800068a &lt;main+15&gt;: addl   $0x1,-0x4(%rbp)
+(gdb) si
+16          n--;
+1: x/i $pc
+=&gt; 0x800068e &lt;main+19&gt;: subl   $0x1,-0x4(%rbp)
+(gdb) si
+18          gvar += 100;
+1: x/i $pc
+=&gt; 0x8000692 &lt;main+23&gt;: mov    0x20097c(%rip),%eax        # 0x8201014 &lt;gvar&gt;
+(gdb) d
+Delete all breakpoints? (y or n) y
+(gdb) b *main
+Breakpoint 5 at 0x800067b: file as.c, line 12.
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /gdb/as
+
+Breakpoint 5, main () at as.c:12
+12      {
+1: x/i $pc
+=&gt; 0x800067b &lt;main&gt;:    push   %rbp
+(gdb) si
+0x000000000800067c      12      {
+1: x/i $pc
+=&gt; 0x800067c &lt;main+1&gt;:  mov    %rsp,%rbp
+(gdb) si
+0x000000000800067f      12      {
+1: x/i $pc
+=&gt; 0x800067f &lt;main+4&gt;:  sub    $0x10,%rsp
+(gdb) si
+14          n = 1;
+1: x/i $pc
+=&gt; 0x8000683 &lt;main+8&gt;:  movl   $0x1,-0x4(%rbp)
+(gdb) si
+15          n++;
+1: x/i $pc
+=&gt; 0x800068a &lt;main+15&gt;: addl   $0x1,-0x4(%rbp)
+</code></pre><blockquote>
+<p>此时可以使用<code>i r</code>命令显示寄存器中的当前值</p>
+</blockquote>
+<ul>
+<li><code>i r</code>即<code>Infomation Register</code>：</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> i r
+rax            <span class="token number">0x800067b</span>        <span class="token number">134219387</span>
+rbx            <span class="token number">0x0</span>      <span class="token number">0</span>
+rcx            <span class="token number">0x8000700</span>        <span class="token number">134219520</span>
+rdx            <span class="token number">0x7ffffffee1b8</span>   <span class="token number">140737488282040</span>
+rsi            <span class="token number">0x7ffffffee1a8</span>   <span class="token number">140737488282024</span>
+rdi            <span class="token number">0x1</span>      <span class="token number">1</span>
+rbp            <span class="token number">0x7ffffffee0c0</span>   <span class="token number">0x7ffffffee0c0</span>
+rsp            <span class="token number">0x7ffffffee0b0</span>   <span class="token number">0x7ffffffee0b0</span>
+r8             <span class="token number">0x7fffff3ecd80</span>   <span class="token number">140737475693952</span>
+r9             <span class="token number">0x7fffff3ecd80</span>   <span class="token number">140737475693952</span>
+r10            <span class="token number">0x2</span>      <span class="token number">2</span>
+r11            <span class="token number">0x3</span>      <span class="token number">3</span>
+r12            <span class="token number">0x8000540</span>        <span class="token number">134219072</span>
+r13            <span class="token number">0x7ffffffee1a0</span>   <span class="token number">140737488282016</span>
+r14            <span class="token number">0x0</span>      <span class="token number">0</span>
+r15            <span class="token number">0x0</span>      <span class="token number">0</span>
+rip            <span class="token number">0x800068a</span>        <span class="token number">0x800068a</span> <span class="token operator">&lt;</span>main<span class="token operator">+</span><span class="token number">15</span><span class="token operator">></span>
+eflags         <span class="token number">0x202</span>    <span class="token punctuation">[</span> IF <span class="token punctuation">]</span>
+cs             <span class="token number">0x33</span>     <span class="token number">51</span>
+ss             <span class="token number">0x2b</span>     <span class="token number">43</span>
+ds             <span class="token number">0x0</span>      <span class="token number">0</span>
+es             <span class="token number">0x0</span>      <span class="token number">0</span>
+fs             <span class="token number">0x0</span>      <span class="token number">0</span>
+gs             <span class="token number">0x0</span>      <span class="token number">0</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>当然也可以显示任意一个指定的寄存器值：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> i r rax
+rax            <span class="token number">0x800067b</span>        <span class="token number">134219387</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>反汇编：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> disas<span class="token operator">/</span>s
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>最后一个要介绍的命令是“q”，退出（Quit）GDB调试环境：</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> q
+A debugging session <span class="token keyword">is</span> active<span class="token punctuation">.</span>
+
+        Inferior <span class="token number">1</span> <span class="token punctuation">[</span>process <span class="token number">529</span><span class="token punctuation">]</span> will be killed<span class="token punctuation">.</span>
+
+Quit anyway? <span class="token punctuation">(</span>y <span class="token operator">or</span> n<span class="token punctuation">)</span> y
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="附录-gdb的帮助信息"><a href="#附录-gdb的帮助信息" class="headerlink" title="附录(gdb的帮助信息)"></a>附录(gdb的帮助信息)</h2><pre class="line-numbers language-bash"><code class="language-bash">$ gdb --help
+This is the GNU debugger.  Usage:
+
+    gdb <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>executable-file <span class="token punctuation">[</span>core-file or process-id<span class="token punctuation">]</span><span class="token punctuation">]</span>
+    gdb <span class="token punctuation">[</span>options<span class="token punctuation">]</span> --args executable-file <span class="token punctuation">[</span>inferior-arguments <span class="token punctuation">..</span>.<span class="token punctuation">]</span>
+
+Selection of debuggee and its files:
+
+  --args             Arguments after executable-file are passed to inferior
+  --core<span class="token operator">=</span>COREFILE    Analyze the core dump COREFILE.
+  --exec<span class="token operator">=</span>EXECFILE    Use EXECFILE as the executable.
+  --pid<span class="token operator">=</span>PID          Attach to running process PID.
+  --directory<span class="token operator">=</span>DIR    Search <span class="token keyword">for</span> <span class="token function">source</span> files <span class="token keyword">in</span> DIR.
+  --se<span class="token operator">=</span>FILE          Use FILE as symbol <span class="token function">file</span> and executable file.
+  --symbols<span class="token operator">=</span>SYMFILE  Read symbols from SYMFILE.
+  --readnow          Fully <span class="token function">read</span> symbol files on first access.
+  --readnever        Do not <span class="token function">read</span> symbol files.
+  --write            Set writing into executable and core files.
+
+Initial commands and <span class="token function">command</span> files:
+
+  --command<span class="token operator">=</span>FILE, -x Execute GDB commands from FILE.
+  --init-command<span class="token operator">=</span>FILE, -ix
+                     Like -x but execute commands before loading inferior.
+  --eval-command<span class="token operator">=</span>COMMAND, -ex
+                     Execute a single GDB command.
+                     May be used multiple <span class="token function">times</span> and <span class="token keyword">in</span> conjunction
+                     with --command.
+  --init-eval-command<span class="token operator">=</span>COMMAND, -iex
+                     Like -ex but before loading inferior.
+  --nh               Do not <span class="token function">read</span> ~/.gdbinit.
+  --nx               Do not <span class="token function">read</span> any .gdbinit files <span class="token keyword">in</span> any directory.
+
+Output and user interface control:
+
+  --fullname         Output information used by emacs-GDB interface.
+  --interpreter<span class="token operator">=</span>INTERP
+                     Select a specific interpreter / user interface
+  --tty<span class="token operator">=</span>TTY          Use TTY <span class="token keyword">for</span> input/output by the program being debugged.
+  -w                 Use the GUI interface.
+  --nw               Do not use the GUI interface.
+  --tui              Use a terminal user interface.
+  --dbx              DBX compatibility mode.
+  -q, --quiet, --silent
+                     Do not print version number on startup.
+
+Operating modes:
+
+  --batch            Exit after processing options.
+  --batch-silent     Like --batch, but suppress all gdb stdout output.
+  --return-child-result
+                     GDB <span class="token keyword">exit</span> code will be the child<span class="token string">'s exit code.
+  --configuration    Print details about GDB configuration and then exit.
+  --help             Print this message and then exit.
+  --version          Print version information and then exit.
+
+Remote debugging options:
+
+  -b BAUDRATE        Set serial port baud rate used for remote debugging.
+  -l TIMEOUT         Set timeout in seconds for remote debugging.
+
+Other options:
+
+  --cd=DIR           Change current directory to DIR.
+  --data-directory=DIR, -D
+                     Set GDB'</span>s data-directory to DIR.
+
+At startup, GDB reads the following init files and executes their commands:
+   * system-wide init file: /etc/gdb/gdbinit
+
+For <span class="token function">more</span> information, <span class="token function">type</span> <span class="token string">"help"</span> from within GDB, or consult the
+GDB manual <span class="token punctuation">(</span>available as on-line info or a printed manual<span class="token punctuation">)</span>.
+Report bugs to <span class="token string">"&lt;http://www.gnu.org/software/gdb/bugs/>"</span><span class="token keyword">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">感谢您的支持！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/res/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/res/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://dybl.github.io" class="b-link-green">FunU</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/01/12/gdb-intro/" class="b-link-green">gdb-intro</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f120cd4af15e4483511b',
+        clientSecret: '0cbbd24d59314d1948516419787059bd2e44cfa7',
+        repo: 'https://github.com/dybl/blog_backup',
+        owner: 'dybl',
+        admin: null,
+        id: '2019-01-12T23-45-16',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="card">
+                <a href="/2019/01/12/gdb-intro/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/res/img/23.jpg" class="responsive-img" alt="gdb-intro">
+                        
+                        <span class="card-title">gdb-intro</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">gdb-notes
+本文写给主要工作在Windows操作系统下而又需要开发一些跨平台软件的程序员朋友，以及程序爱好者。GDB是一个由GNU开源组织发布的、UNIX/LINUX操作系统下的、基于命令行的、功能强大的程序调试工具。GDB中的命令</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/GNU/" class="post-category" target="_blank">
+                                    GNU
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/gdb/" target="_blank">
+                        <span class="chip bg-color">gdb</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2019/01/12/Lua-intro/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/res/img/11.jpg" class="responsive-img" alt="Lua-intro">
+                        
+                        <span class="card-title">Lua-intro</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">网上教程Lua简明教程
+极客学院Openresty教程
+Windows安装
+使用 tasklist /fi &quot;imagename eq nginx.exe&quot; 命令查看 nginx 进程，其中一个是 master 进程，另</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Lang/" class="post-category" target="_blank">
+                                    Lang
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/lua/" target="_blank">
+                        <span class="chip bg-color">lua</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2016-2019 &copy;<a href="https://dybl.github.io" target="_blank"> FunU CO.,LTD </a>
+            <img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png">
+            全文在<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">署名-非商业-相同方式共享</a>许可下获得
+            
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="-> Gituhb"
+    data-position="top" data-delay="50">
+    <i class="fa fa-github fa-lg"></i>
+</a>
+<a href="https://twitter.com" class="tooltipped" data-tooltip="-> Twitter" data-position="top" data-delay="50">
+    <i class="fa fa-twitter fa-lg"></i>
+</a>
+<a href="https://facebook.com" class="tooltipped" data-tooltip="-> Facebook" data-position="top" data-delay="50">
+    <i class="fa fa-facebook-official fa-lg"></i>
+</a>
+<a href="https://instagram.com" class="tooltipped" data-tooltip="-> Ins" data-position="top" data-delay="50">
+    <i class="fa fa-instagram fa-lg"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>
