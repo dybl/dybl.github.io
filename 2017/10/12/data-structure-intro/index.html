@@ -6,7 +6,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="data-structure-intro, FunU">
-    <meta name="description" content="1. 数据结构的基本概念“数据结构”是研究各种数据的特性以及数据之间存在的关系，进而根据实际应用的要求，合理地组织和存储数据，设计出相应的算法。
+    <meta name="description" content="1. 数据结构的基本概念
+数据结构是研究各种数据的特性以及数据之间存在的关系，进而根据实际应用的要求，合理地组织和存储数据，设计出相应的算法。
+
 数据是对客观事物的符号表示，
 
 数据元素（节点）：数据的基本单位，在程序中通常作为一个整体进行">
@@ -351,7 +353,9 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-数据结构的基本概念"><a href="#1-数据结构的基本概念" class="headerlink" title="1. 数据结构的基本概念"></a>1. 数据结构的基本概念</h2><p>“数据结构”是研究各种数据的特性以及数据之间存在的关系，进而根据实际应用的要求，合理地组织和存储数据，设计出相应的算法。</p>
+                <h2 id="1-数据结构的基本概念"><a href="#1-数据结构的基本概念" class="headerlink" title="1. 数据结构的基本概念"></a>1. 数据结构的基本概念</h2><blockquote>
+<p><strong>数据结构</strong>是研究各种数据的特性以及数据之间存在的关系，进而根据实际应用的要求，合理地组织和存储数据，设计出相应的算法。</p>
+</blockquote>
 <p>数据是对客观事物的符号表示，</p>
 <ul>
 <li><code>数据元素（节点）</code>：数据的基本单位，在程序中通常作为一个整体进行考虑和处理。一个数据元素可以由若干个数据项组成。</li>
@@ -369,11 +373,12 @@
 <p><code>S=(D,R)</code></p>
 <p>其中，D是数据节点的有限集合，R是D上的关系的有限集合，其中每个关系都是从D到D的关系。</p>
 <p>例如：</p>
-<pre><code>S = (D,R)
+<pre class="line-numbers language-sh"><code class="language-sh">S = (D,R)
 D = {1,2,3,4}
 R = {r}
-r = {&lt;1,2&gt;,&lt;1,3&gt;,&lt;3,4&gt;}
-</code></pre><p>说明：</p>
+r = {<1,2>,<1,3>,<3,4>}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>说明：</p>
 <ul>
 <li>尖括号表示<code>有向</code>关系，例如<code>&lt;a,b&gt;</code>，表示a→b</li>
 <li>圆括号表示<code>无向</code>关系，例如<code>(a,b)</code>，表示a→b,b→a</li>
